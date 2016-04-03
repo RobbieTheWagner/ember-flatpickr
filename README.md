@@ -1,26 +1,27 @@
 # Ember-flatpickr
 
-This README outlines the details of collaborating on this Ember addon.
+This is an Ember addon that wraps the date picker Flatpickr. I wanted to use npm instead of bower, so ember-browserify is also required to get this working.
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+`npm install flatpickr --save-dev`
+`npm install ember-browserify --save-dev`
+`ember install ember-flatpickr`
 
-## Running
+## Usage
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+```hbs
+{{ember-flatpickr
+altInput=true
+altFormat="YYYY-MM-DD"
+dateFormat="MM/DD/YYYY"
+enableTime=true
+minDate=minDate
+minuteIncrement=5
+timeFormat="HH:mm"
+value=value}}
+```
 
-## Running Tests
+## Options
 
-* `npm test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
+All options available to Flatpickr are available here. Documentaion coming soon!
