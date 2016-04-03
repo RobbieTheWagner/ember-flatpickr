@@ -20,6 +20,7 @@
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
     "ember-ajax": "0.7.1",
+    "ember-browserify": "^1.1.8",
     "ember-cli": "2.4.3",
     "ember-cli-app-version": "^1.0.0",
     "ember-cli-dependency-checker": "^1.2.0",
@@ -35,15 +36,15 @@
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
     "ember-try": "^0.2.2",
+    "flatpickr": "^1.7.0",
     "loader.js": "^4.0.1"
   },
   "keywords": [
     "ember-addon"
   ],
   "dependencies": {
-    "ember-browserify": "^1.1.8",
     "ember-cli-babel": "^5.1.6",
-    "flatpickr": "^1.7.0"
+    "ember-cli-sass": "^5.3.1"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
