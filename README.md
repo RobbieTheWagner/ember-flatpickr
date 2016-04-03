@@ -16,6 +16,7 @@ altInput=true
 altFormat="YYYY-MM-DD"
 dateFormat="MM/DD/YYYY"
 enableTime=true
+hourIncrement=1
 minDate=minDate
 minuteIncrement=5
 timeFormat="HH:mm"
