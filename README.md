@@ -4,8 +4,8 @@ This is an Ember addon that wraps the date picker Flatpickr. I wanted to use npm
 
 ## Installation
 
-`npm install flatpickr --save-dev`
-`npm install ember-browserify --save-dev`
+`npm i -D flatpickr ember-browserify`
+
 `ember install ember-flatpickr`
 
 ## Usage
