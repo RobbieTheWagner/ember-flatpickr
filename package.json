@@ -41,7 +41,9 @@
     "ember-addon"
   ],
   "dependencies": {
-    "ember-cli-babel": "^5.1.6"
+    "ember-browserify": "^1.1.8",
+    "ember-cli-babel": "^5.1.6",
+    "flatpickr": "^1.7.0"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"

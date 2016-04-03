@@ -1,3 +1,4 @@
+import flatpickr from 'npm:flatpickr';
 import Ember from 'ember';
 const {Component} = Ember;
 
