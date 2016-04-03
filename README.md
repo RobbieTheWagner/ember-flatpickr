@@ -27,9 +27,9 @@ value=value}}
 
 All options available to Flatpickr are available here. 
 
-| Config Option |   Type   |   Default  | Description |
-|---------------|----------|------------|-------------|
-| altFormat     | `string` | `"F j, Y"` |Show the user a readable date (as per altFormat), but return something totally different to the server.|
+| Config Option |   Type   |    Default   | Description |
+|---------------|----------|--------------|-------------|
+| altFormat     | `string` |  `"F j, Y"`  |Show the user a readable date (as per altFormat), but return something totally different to the server.|
 
 
 
