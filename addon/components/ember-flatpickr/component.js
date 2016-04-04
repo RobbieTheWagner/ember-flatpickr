@@ -39,5 +39,8 @@ export default Component.extend({
       timeFormat: this.get('timeFormat'),
       value: this.get('value')
     });
+    if (this.get('appendDataInput')) {
+      this.$().attr('data-input', '');
+    }
   }
 });
