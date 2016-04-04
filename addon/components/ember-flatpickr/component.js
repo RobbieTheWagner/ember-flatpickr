@@ -1,10 +1,8 @@
 import flatpickr from 'npm:flatpickr';
 import Ember from 'ember';
-const {Component} = Ember;
+const {TextField} = Ember;
 
-export default Component.extend({
-  tagName: 'input',
-  type: 'text',
+export default TextField.extend({
   attributeBindings: ['placeholder', 'value'],
   //Flatpickr options
   altFormat: 'F j, Y',
