@@ -13,13 +13,13 @@ This is an Ember addon that wraps the date picker [Flatpickr](http://chmln.githu
 ```hbs
 {{ember-flatpickr
 altInput=true
-altFormat="YYYY-MM-DD"
-dateFormat="MM/DD/YYYY"
+altFormat="Y-m-d"
+dateFormat="M/D/Y"
 enableTime=true
 hourIncrement=1
 minDate=minDate
 minuteIncrement=5
-timeFormat="HH:mm"
+timeFormat="H:i"
 value=value}}
 ```
 
