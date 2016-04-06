@@ -1,7 +1,7 @@
 {
   "name": "ember-flatpickr",
   "version": "0.0.4",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "An Ember addon that wraps the date picker Flatpickr",
   "directories": {
     "doc": "doc",
     "test": "tests"
