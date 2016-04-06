@@ -19,6 +19,7 @@ enableTime=true
 hourIncrement=1
 minDate=minDate
 minuteIncrement=5
+onChangeAction="doSomeStuffOnChange"
 timeFormat="H:i"
 value=(mut dateValue)}}
 ```
