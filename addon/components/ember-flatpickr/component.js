@@ -19,6 +19,16 @@ export default TextField.extend({
   shorthandCurrentMonth: false,
   timeFormat: 'H:i',
   value: null,
+  /**
+   * When the date is changed, update the value and send 'onChangeAction'
+   * @param dateObject The selected date
+   */
+  onChange(dateObject) {
+    if(typeof dateObject !== 'undefined') {
+      this.set('value', dateObject);
+      this.sendAction('onChangeAction', dateObject);
+    }
+  },
   didInsertElement() {
     flatpickr('#' + this.elementId, {
       altFormat: this.get('altFormat'),
@@ -32,7 +42,7 @@ export default TextField.extend({
       maxDate: this.get('maxDate'),
       minDate: this.get('minDate'),
       minuteIncrement: this.get('minuteIncrement'),
-      onChange: this.get('onChange'),
+      onChange: this.onChange.bind(this),
       shorthandCurrentMonth: this.get('shorthandCurrentMonth'),
       timeFormat: this.get('timeFormat'),
       value: this.get('value')

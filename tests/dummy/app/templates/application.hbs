@@ -1,4 +1,8 @@
 {{ember-flatpickr
 appendDataInput=true
+onChangeAction="onChange"
 placeholder="Pick date"
+value=(mut dateValue)
 }}
+
+Current date value: {{dateValue}}
