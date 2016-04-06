@@ -20,8 +20,12 @@ hourIncrement=1
 minDate=minDate
 minuteIncrement=5
 timeFormat="H:i"
-value=value}}
+value=(mut dateValue)}}
 ```
+
+*Note:* If you want the value to update when you select a date, and `onChange` fires, you have to use the `mut` helper.
+
+Whenever a new date is selected, `onChange` will set the value to the newly selected date. It will also fire the action `onChangeAction`, and pass the new `dateObject` to that action.This allows you to pass whatever action you may want in to happen on change.
 
 ## Options
 
