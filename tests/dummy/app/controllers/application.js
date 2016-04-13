@@ -5,6 +5,9 @@ export default Ember.Controller.extend({
   actions: {
     onChange(dateObject) {
       console.log('You selected: ', dateObject);
+    },
+    onClose() {
+      console.log('Flatpickr closed');
     }
   }
 });

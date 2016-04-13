@@ -29,6 +29,12 @@ export default TextField.extend({
       this.sendAction('onChangeAction', dateObject);
     }
   },
+  /**
+   * When the flatpickr is closed, fire the 'onCloseAction'
+   */
+  onClose() {
+    this.sendAction('onCloseAction');
+  },
   setupComponent: on('init', function() {
     run.scheduleOnce('afterRender', this, function() {
       flatpickr('#' + this.elementId, {
@@ -44,6 +50,7 @@ export default TextField.extend({
         minDate: this.get('minDate'),
         minuteIncrement: this.get('minuteIncrement'),
         onChange: this.onChange.bind(this),
+        onClose: this.onClose.bind(this),
         shorthandCurrentMonth: this.get('shorthandCurrentMonth'),
         timeFormat: this.get('timeFormat'),
         value: this.get('value')
