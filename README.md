@@ -20,6 +20,7 @@ hourIncrement=1
 minDate=minDate
 minuteIncrement=5
 onChangeAction="doSomeStuffOnChange"
+onCloseAction="doSomeStuffOnClose"
 timeFormat="H:i"
 value=(mut dateValue)}}
 ```
