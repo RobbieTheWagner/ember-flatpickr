@@ -1,6 +1,6 @@
 import flatpickr from 'npm:flatpickr';
 import Ember from 'ember';
-const {on, run, TextField} = Ember;
+const {observer, on, run, TextField} = Ember;
 
 export default TextField.extend({
   attributeBindings: ['placeholder', 'value'],
@@ -11,6 +11,7 @@ export default TextField.extend({
   defaultDate: null,
   disable: null,
   enableTime: false,
+  flatpickrRef: null,
   hourIncrement: 1,
   inline: false,
   maxDate: null,
@@ -19,6 +20,12 @@ export default TextField.extend({
   shorthandCurrentMonth: false,
   timeFormat: 'H:i',
   value: null,
+  maxDateUpdated: observer('maxDate', function() {
+    this.get('flatpickrRef').set('maxDate', this.get('maxDate'));
+  }),
+  minDateUpdated: observer('minDate', function() {
+    this.get('flatpickrRef').set('minDate', this.get('minDate'));
+  }),
   /**
    * When the date is changed, update the value and send 'onChangeAction'
    * @param dateObject The selected date
@@ -37,7 +44,7 @@ export default TextField.extend({
   },
   setupComponent: on('init', function() {
     run.scheduleOnce('afterRender', this, function() {
-      flatpickr('#' + this.elementId, {
+      const flatpickrRef = flatpickr('#' + this.elementId, {
         altFormat: this.get('altFormat'),
         altInput: this.get('altInput'),
         dateFormat: this.get('dateFormat'),
@@ -58,6 +65,7 @@ export default TextField.extend({
       if (this.get('appendDataInput')) {
         this.$().attr('data-input', '');
       }
+      this.set('flatpickrRef', flatpickrRef);
     });
   })
 });

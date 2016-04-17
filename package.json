@@ -11,7 +11,7 @@
     "start": "ember server",
     "test": "ember try:testall"
   },
-  "repository": "",
+  "repository": "https://github.com/shipshapecode/ember-flatpickr",
   "engines": {
     "node": ">= 0.10.0"
   },
@@ -36,7 +36,7 @@
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
     "ember-try": "^0.2.2",
-    "flatpickr": "1.7.3",
+    "flatpickr": "1.7.5-2",
     "loader.js": "^4.0.1"
   },
   "keywords": [

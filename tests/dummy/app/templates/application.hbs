@@ -1,5 +1,6 @@
 {{ember-flatpickr
 appendDataInput=true
+minDate=minDate
 onCloseAction="onClose"
 onChangeAction="onChange"
 placeholder="Pick date"
@@ -7,3 +8,7 @@ value=(mut dateValue)
 }}
 
 Current date value: {{dateValue}}
+
+<br/>
+
+<button {{action "updateMin"}}>Update Min</button>
