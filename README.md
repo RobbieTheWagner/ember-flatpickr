@@ -17,6 +17,7 @@ altFormat="Y-m-d"
 dateFormat="M/D/Y"
 enableTime=true
 hourIncrement=1
+maxDate=maxDate
 minDate=minDate
 minuteIncrement=5
 onChangeAction="doSomeStuffOnChange"
@@ -28,6 +29,10 @@ value=(mut dateValue)}}
 *Note:* If you want the value to update when you select a date, and `onChange` fires, you have to use the `mut` helper.
 
 Whenever a new date is selected, `onChange` will set the value to the newly selected date. It will also fire the action `onChangeAction`, and pass the new `dateObject` to that action.This allows you to pass whatever action you may want in to happen on change.
+
+## Observers
+
+`maxDate` and `minDate` are watched by observers, and will update the flatpickr instance whenever you change them. This allows you to do things like having two components, used as a range picker, and updating the `minDate` and `maxDate` to display valid date choices on each.
 
 ## Options
 
