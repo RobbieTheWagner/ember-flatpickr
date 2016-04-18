@@ -1,14 +1,31 @@
-{{ember-flatpickr
-appendDataInput=true
-minDate=minDate
-onCloseAction="onClose"
-onChangeAction="onChange"
-placeholder="Pick date"
-value=(mut dateValue)
-}}
+<screen>
+  <centered>
+    <h1 class="heading">ember-flatpickr</h1>
+  </centered>
+  <centered>
+    <p class="info">
+      ember-flatpickr is an ember addon that wraps the datepicker flatpickr.
+    </p>
+  </centered>
+  <centered>
+    <div>
+      {{ember-flatpickr
+      appendDataInput=true
+      minDate=minDate
+      onCloseAction="onClose"
+      onChangeAction="onChange"
+      placeholder="Pick date"
+      value=(mut dateValue)
+      }}
+    </div>
+  </centered>
+  <centered>
+    Current date value: {{dateValue}}
+  </centered>
 
-Current date value: {{dateValue}}
+  <centered>
+    Click here to set minDate="today"
+    <button {{action "updateMin"}}>Update Min</button>
+  </centered>
 
-<br/>
-
-<button {{action "updateMin"}}>Update Min</button>
+</screen>

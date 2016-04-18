@@ -1,0 +1,27 @@
+@import url(https://fonts.googleapis.com/css?family=Signika|Pacifico);
+
+$background1: #323040;
+$background2: #2E2859;
+$lightColor: #AAA3D9;
+$altLightColor: #6E698C;
+$whiteish: #C8C7D5;
+
+body {
+  background-color: $background1;
+  color: $lightColor;
+  font-family: 'Signika';
+  font-size: 14pt;
+}
+
+.heading {
+  color: $whiteish;
+  font-family: 'Pacifico';
+  font-size: 6vw;
+  font-weight: normal;
+}
+
+.info {
+  color: $lightColor;
+}
+
+
