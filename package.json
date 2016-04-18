@@ -50,6 +50,7 @@
     "ember-cli-sass": "^5.3.1"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "demoURL": "http://shipshapecode.github.io/ember-flatpickr/"
   }
 }
