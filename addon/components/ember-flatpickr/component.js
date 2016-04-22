@@ -29,11 +29,12 @@ export default TextField.extend({
   /**
    * When the date is changed, update the value and send 'onChangeAction'
    * @param dateObject The selected date
+   * @param dateString The string representation of the date, formatted by dateFormat
    */
-  onChange(dateObject) {
+  onChange(dateObject, dateString) {
     if (typeof dateObject !== 'undefined') {
       this.set('value', dateObject);
-      this.sendAction('onChangeAction', dateObject);
+      this.sendAction('onChangeAction', dateObject, dateString);
     }
   },
   /**
