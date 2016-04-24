@@ -1,7 +1,9 @@
 import Ember from 'ember';
+const {Controller} = Ember;
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   dateValue: null,
+  defaultDate: '2016-12-27T16:16:22.585Z',
   minDate: null,
   actions: {
     onChange(dateObject) {
