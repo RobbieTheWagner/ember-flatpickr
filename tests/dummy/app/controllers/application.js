@@ -1,5 +1,5 @@
 import Ember from 'ember';
-const {Controller} = Ember;
+const {Controller, Logger} = Ember;
 
 export default Controller.extend({
   dateValue: null,
@@ -7,10 +7,10 @@ export default Controller.extend({
   minDate: null,
   actions: {
     onChange(dateObject) {
-      console.log('You selected: ', dateObject);
+      Logger.log('You selected: ', dateObject);
     },
     onClose() {
-      console.log('Flatpickr closed');
+      Logger.log('Flatpickr closed');
     },
     updateMin(){
       this.set('minDate', 'today');
