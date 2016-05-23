@@ -29,6 +29,7 @@ minuteIncrement=5
 noCalendar=false
 onChangeAction="doSomeStuffOnChange"
 onCloseAction="doSomeStuffOnClose"
+placeholder="Choose a Date"
 timeFormat="H:i"
 value=(mut dateValue)}}
 ```
