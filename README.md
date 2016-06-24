@@ -26,8 +26,10 @@ hourIncrement=1
 maxDate=maxDate
 minDate=minDate
 minuteIncrement=5
+noCalendar=false
 onChangeAction="doSomeStuffOnChange"
 onCloseAction="doSomeStuffOnClose"
+placeholder="Choose a Date"
 timeFormat="H:i"
 value=(mut dateValue)}}
 ```
@@ -44,9 +46,11 @@ Whenever a new date is selected, `onChange` will set the value to the newly sele
 
 All options available to Flatpickr are available here. 
 
-| Config Option |   Type   |    Default   | Description |
-|---------------|----------|--------------|-------------|
-| altFormat     | `string` |  `"F j, Y"`  |Show the user a readable date (as per altFormat), but return something totally different to the server.|
+Please see the [flatpickr docs](https://chmln.github.io/flatpickr/) for a full list of options.
+
+## Contributing
+
+If there are features you would like to see implemented, or we have missed some flatpickr options, please open an issue and/or submit a PR!
 
 
 
