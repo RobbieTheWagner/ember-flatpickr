@@ -8,6 +8,11 @@
 
 This is an Ember addon that wraps the date picker [Flatpickr](http://chmln.github.io/flatpickr/). I wanted to use npm instead of bower, so ember-browserify is also required to get this working.
 
+## Demo
+
+[![Guide your users through a tour of your app](http://i.imgur.com/9ZvagVn.png)](http://shipshapecode.github.io/ember-flatpickr/)
+http://shipshapecode.github.io/ember-flatpickr/
+
 ## Installation
 
 `npm i -D flatpickr ember-browserify`
@@ -18,21 +23,28 @@ This is an Ember addon that wraps the date picker [Flatpickr](http://chmln.githu
 
 ```hbs
 {{ember-flatpickr
-altInput=true
 altFormat="Y-m-d"
+altInput=true
 dateFormat="M/D/Y"
+defaultDate=defaultDate
+disable=datesToDisable
 enableTime=true
 hourIncrement=1
+inline=false
 maxDate=maxDate
 minDate=minDate
 minuteIncrement=5
 noCalendar=false
 onChangeAction="doSomeStuffOnChange"
 onCloseAction="doSomeStuffOnClose"
+parseDate=false
 placeholder="Choose a Date"
 timeFormat="H:i"
+time_24hr=false
 value=(mut dateValue)}}
 ```
+
+*(All options are displayed, but they have defaults and you only need to pass what you need)
 
 *Note:* If you want the value to update when you select a date, and `onChange` fires, you have to use the `mut` helper.
 
