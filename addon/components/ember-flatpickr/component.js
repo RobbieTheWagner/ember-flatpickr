@@ -18,8 +18,10 @@ export default TextField.extend({
   minDate: null,
   minuteIncrement: 5,
   noCalendar: false,
+  parseDate: false,
   shorthandCurrentMonth: false,
   timeFormat: 'H:i',
+  time_24hr: false,
   value: null,
   maxDateUpdated: observer('maxDate', function() {
     this.get('flatpickrRef').set('maxDate', this.get('maxDate'));
@@ -61,8 +63,10 @@ export default TextField.extend({
         noCalendar: this.get('noCalendar'),
         onChange: this.onChange.bind(this),
         onClose: this.onClose.bind(this),
+        parseDate: this.get('parseDate'),
         shorthandCurrentMonth: this.get('shorthandCurrentMonth'),
         timeFormat: this.get('timeFormat'),
+        time_24hr: this.get('time_24hr'),
         value: this.get('value')
       });
       if (this.get('appendDataInput')) {
