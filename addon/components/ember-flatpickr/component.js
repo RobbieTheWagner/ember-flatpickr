@@ -1,4 +1,3 @@
-import flatpickr from 'npm:flatpickr';
 import Ember from 'ember';
 const {observer, on, run, TextField} = Ember;
 

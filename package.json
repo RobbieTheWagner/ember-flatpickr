@@ -20,7 +20,6 @@
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
     "codeclimate-test-reporter": "^0.3.1",
-    "ember-browserify": "^1.1.8",
     "ember-cli": "2.6.0-beta.2",
     "ember-cli-app-version": "^1.0.0",
     "ember-cli-blanket": "0.9.5",
@@ -38,12 +37,13 @@
     "ember-export-application-global": "^1.0.5",
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
-    "flatpickr": "1.8.8",
     "flexi": "1.1.8",
     "loader.js": "^4.0.1"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "flatpickr",
+    "datepicker"
   ],
   "dependencies": {
     "ember-cli-babel": "^5.1.6",
