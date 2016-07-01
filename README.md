@@ -30,6 +30,7 @@ dateFormat="M/D/Y"
 defaultDate=defaultDate
 disable=datesToDisable
 enableTime=true
+flatpickrRef=flatpickrRef
 hourIncrement=1
 inline=false
 maxDate=maxDate
@@ -54,6 +55,10 @@ Whenever a new date is selected, `onChange` will set the value to the newly sele
 ## Observers
 
 `maxDate` and `minDate` are watched by observers, and will update the flatpickr instance whenever you change them. This allows you to do things like having two components, used as a range picker, and updating the `minDate` and `maxDate` to display valid date choices on each.
+
+## flatpickrRef
+
+If you need to interact directly with the flatpickr instance you have created inside the component, you can pass in `flatpickrRef=myFlatpickrRefName`, which would then be accesible in the controller or parent component. You can then do things like `this.get('myFlatpickrRefName').close()` to close the datepicker, if you wanted to make a close button.
 
 ## Options
 
