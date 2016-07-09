@@ -8,6 +8,8 @@ module.exports = {
   env: {
     'browser': true
   },
-  rules: {
-  }
+  globals: {
+    'flatpickr': false
+  },
+  rules: {}
 };
