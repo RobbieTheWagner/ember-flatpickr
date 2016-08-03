@@ -1,4 +1,4 @@
-/* globals blanket, module */
+/* eslint-disable */
 
 const options = {
   modulePrefix: 'ember-flatpickr',
@@ -23,3 +23,5 @@ if (typeof exports === 'undefined') {
 } else {
   module.exports = options;
 }
+
+/* eslint-enable */

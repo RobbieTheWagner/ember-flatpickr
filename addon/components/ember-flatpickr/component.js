@@ -1,9 +1,9 @@
 import Ember from 'ember';
-const {observer, on, run, TextField} = Ember;
+const { observer, on, run, TextField } = Ember;
 
 export default TextField.extend({
   attributeBindings: ['placeholder', 'value'],
-  //Flatpickr options
+  // Flatpickr options
   altFormat: 'F j, Y',
   altInput: false,
   dateFormat: 'Y-m-d',
@@ -20,7 +20,7 @@ export default TextField.extend({
   parseDate: false,
   shorthandCurrentMonth: false,
   timeFormat: 'H:i',
-  time_24hr: false,
+  time_24hr: false, // eslint-disable-line camelcase
   value: null,
   maxDateUpdated: observer('maxDate', function() {
     this.get('flatpickrRef').set('maxDate', this.get('maxDate'));
@@ -32,6 +32,7 @@ export default TextField.extend({
    * When the date is changed, update the value and send 'onChangeAction'
    * @param dateObject The selected date
    * @param dateString The string representation of the date, formatted by dateFormat
+   * @private
    */
   onChange(dateObject, dateString) {
     if (typeof dateObject !== 'undefined') {
@@ -41,13 +42,14 @@ export default TextField.extend({
   },
   /**
    * When the flatpickr is closed, fire the 'onCloseAction'
+   * @private
    */
   onClose() {
     this.sendAction('onCloseAction');
   },
   setupComponent: on('init', function() {
     run.scheduleOnce('afterRender', this, function() {
-      const flatpickrRef = flatpickr('#' + this.elementId, {
+      let flatpickrRef = flatpickr(`#${this.elementId}`, {
         altFormat: this.get('altFormat'),
         altInput: this.get('altInput'),
         dateFormat: this.get('dateFormat'),
@@ -65,7 +67,7 @@ export default TextField.extend({
         parseDate: this.get('parseDate'),
         shorthandCurrentMonth: this.get('shorthandCurrentMonth'),
         timeFormat: this.get('timeFormat'),
-        time_24hr: this.get('time_24hr'),
+        time_24hr: this.get('time_24hr'), // eslint-disable-line camelcase
         value: this.get('value')
       });
       if (this.get('appendDataInput')) {
