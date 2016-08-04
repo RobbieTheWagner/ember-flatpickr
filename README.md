@@ -37,8 +37,8 @@ maxDate=maxDate
 minDate=minDate
 minuteIncrement=5
 noCalendar=false
-onChangeAction="doSomeStuffOnChange"
-onCloseAction="doSomeStuffOnClose"
+onChange=(action (mut dateValue))
+onClose="doSomeStuffOnClose"
 parseDate=false
 placeholder="Choose a Date"
 timeFormat="H:i"
@@ -50,7 +50,7 @@ value=(mut dateValue)}}
 
 *Note:* If you want the value to update when you select a date, and `onChange` fires, you have to use the `mut` helper.
 
-Whenever a new date is selected, `onChange` will set the value to the newly selected date. It will also fire the action `onChangeAction`, and pass the new `dateObject` to that action.This allows you to pass whatever action you may want in to happen on change.
+Whenever a new date is selected, the action `onChange` will be fired, and passed the new `dateObject` and `dateString` to that action. This allows you to pass whatever action you may want in to happen on change.
 
 ## Observers
 
@@ -62,13 +62,10 @@ If you need to interact directly with the flatpickr instance you have created in
 
 ## Options
 
-All options available to Flatpickr are available here. 
+All options available to Flatpickr are available here.
 
 Please see the [flatpickr docs](https://chmln.github.io/flatpickr/) for a full list of options.
 
 ## Contributing
 
 If there are features you would like to see implemented, or we have missed some flatpickr options, please open an issue and/or submit a PR!
-
-
-
