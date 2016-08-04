@@ -14,10 +14,10 @@ function closeFlatpickr() {
   document.dispatchEvent(new Event('click'));
 }
 
-test('onChangeAction fired', function(assert) {
+test('onChange action fired', function(assert) {
   let expected = '2016-12-27T16:16:22.585Z';
   this.on('onChange', (actual) => {
-    assert.equal(actual.toISOString(), expected, 'onChangeAction was executed');
+    assert.equal(actual.toISOString(), expected, 'onChange action was executed');
   });
 
   this.set('maxDate', '2016-12-31T16:16:22.585Z');
@@ -30,7 +30,7 @@ test('onChangeAction fired', function(assert) {
       enableTime=true
       maxDate=maxDate
       minDate=minDate
-      onChangeAction="onChange"
+      onChange="onChange"
       placeholder="Pick date"
       value=(mut dateValue)
       }}`);
@@ -42,9 +42,9 @@ test('onChangeAction fired', function(assert) {
   });
 });
 
-test('onCloseAction fired', function(assert) {
+test('onClose action fired', function(assert) {
   this.on('onClose', () => {
-    assert.ok(true, 'onCloseAction was executed');
+    assert.ok(true, 'onClose action was executed');
   });
 
   this.set('maxDate', '2016-12-31T16:16:22.585Z');
@@ -57,7 +57,8 @@ test('onCloseAction fired', function(assert) {
       enableTime=true
       maxDate=maxDate
       minDate=minDate
-      onCloseAction="onClose"
+      onChange=null
+      onClose="onClose"
       placeholder="Pick date"
       value=(mut dateValue)
       }}`);
@@ -76,7 +77,8 @@ test('maxDateUpdated and minDateUpdated fired', function(assert) {
       enableTime=true
       maxDate=maxDate
       minDate=minDate
-      onCloseAction="onClose"
+      onChange=null
+      onClose="onClose"
       placeholder="Pick date"
       value=(mut dateValue)
       }}`);
