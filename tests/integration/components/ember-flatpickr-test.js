@@ -32,7 +32,7 @@ test('onChange action fired', function(assert) {
       minDate=minDate
       onChange="onChange"
       placeholder="Pick date"
-      value=(mut dateValue)
+      value=(readonly dateValue)
       }}`);
 
   run(function() {
@@ -60,7 +60,7 @@ test('onClose action fired', function(assert) {
       onChange=null
       onClose="onClose"
       placeholder="Pick date"
-      value=(mut dateValue)
+      value=(readonly dateValue)
       }}`);
 
   run(function() {
@@ -80,7 +80,7 @@ test('maxDateUpdated and minDateUpdated fired', function(assert) {
       onChange=null
       onClose="onClose"
       placeholder="Pick date"
-      value=(mut dateValue)
+      value=(readonly dateValue)
       }}`);
 
   this.set('maxDate', '2016-12-25T16:16:22.585Z');

@@ -43,12 +43,12 @@ parseDate=false
 placeholder="Choose a Date"
 timeFormat="H:i"
 time_24hr=false
-value=(mut dateValue)}}
+value=(readonly dateValue)}}
 ```
 
 *(All options are displayed, but they have defaults and you only need to pass what you need)
 
-*Note:* If you want the value to update when you select a date, and `onChange` fires, you have to use the `mut` helper.
+**Note:** You should pass your value with the `readonly` helper, and you should only update your value selected in the `onChange` action. If you just want it to be set to the new `dateObject`, you can use `(action (mut dateValue))` like the example above.
 
 Whenever a new date is selected, the action `onChange` will be fired, and passed the new `dateObject` and `dateString` to that action. This allows you to pass whatever action you may want in to happen on change.
 
