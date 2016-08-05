@@ -1,5 +1,5 @@
 import Ember from 'ember';
-const { observer, on, run, TextField } = Ember;
+const { assert, observer, on, run, TextField } = Ember;
 
 export default TextField.extend({
   attributeBindings: ['placeholder', 'value'],
@@ -29,25 +29,28 @@ export default TextField.extend({
     this.get('flatpickrRef').set('minDate', this.get('minDate'));
   }),
   /**
-   * When the date is changed, update the value and send 'onChangeAction'
+   * When the date is changed, update the value and send 'onChange' action
    * @param dateObject The selected date
    * @param dateString The string representation of the date, formatted by dateFormat
    * @private
    */
-  onChange(dateObject, dateString) {
+  _onChange(dateObject, dateString) {
     if (typeof dateObject !== 'undefined') {
-      this.set('value', dateObject);
-      this.sendAction('onChangeAction', dateObject, dateString);
+      this.sendAction('onChange', dateObject, dateString);
     }
   },
   /**
-   * When the flatpickr is closed, fire the 'onCloseAction'
+   * When the flatpickr is closed, fire the 'onClose' action
    * @private
    */
-  onClose() {
-    this.sendAction('onCloseAction');
+  _onClose() {
+    this.sendAction('onClose');
   },
   setupComponent: on('init', function() {
+    // Require that users pass an onChange now
+    assert('{{ember-flatpickr}} requires an `onChange` action or null for no action.', this.get('onChange') !== undefined);
+
+    // Pass all values and setup flatpickr
     run.scheduleOnce('afterRender', this, function() {
       let flatpickrRef = flatpickr(`#${this.elementId}`, {
         altFormat: this.get('altFormat'),
@@ -62,8 +65,8 @@ export default TextField.extend({
         minDate: this.get('minDate'),
         minuteIncrement: this.get('minuteIncrement'),
         noCalendar: this.get('noCalendar'),
-        onChange: this.onChange.bind(this),
-        onClose: this.onClose.bind(this),
+        onChange: this._onChange.bind(this),
+        onClose: this._onClose.bind(this),
         parseDate: this.get('parseDate'),
         shorthandCurrentMonth: this.get('shorthandCurrentMonth'),
         timeFormat: this.get('timeFormat'),

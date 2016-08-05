@@ -6,7 +6,8 @@ export default Controller.extend({
   defaultDate: '2016-12-27T16:16:22.585Z',
   minDate: null,
   actions: {
-    onChange(dateObject) {
+    onChange(dateObject, dateString) {
+      this.set('dateValue', dateString);
       Logger.log('You selected: ', dateObject);
     },
     onClose() {

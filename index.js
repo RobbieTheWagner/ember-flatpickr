@@ -1,4 +1,4 @@
-/* jshint node: true */
+/* eslint-disable */
 'use strict';
 
 module.exports = {
@@ -12,3 +12,5 @@ module.exports = {
     }
   }
 };
+
+/* eslint-enable */
