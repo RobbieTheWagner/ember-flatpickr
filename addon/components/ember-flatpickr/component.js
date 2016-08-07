@@ -99,8 +99,6 @@ export default TextField.extend({
         'wrap'
       ]);
 
-      debugger;
-
       // Add change and close handlers
       Object.assign(options, {
         onChange: this._onChange.bind(this),
