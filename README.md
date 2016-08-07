@@ -62,6 +62,18 @@ wrap=false}}
 
 Whenever a new date is selected, the action `onChange` will be fired, and passed the new `dateObject` and `dateString` to that action. This allows you to pass whatever action you may want in to happen on change.
 
+## Themes
+
+flatpickr provides several themes out of the box. You can specify a theme in your `ember-cli-build.js`.
+
+```js
+const app = new EmberApp(defaults, {
+  flatpickr: {
+    theme: 'material_blue'
+  }
+});  
+```
+
 ## Observers
 
 `maxDate` and `minDate` are watched by observers, and will update the flatpickr instance whenever you change them. This allows you to do things like having two components, used as a range picker, and updating the `minDate` and `maxDate` to display valid date choices on each.

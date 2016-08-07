@@ -12,7 +12,7 @@ export default TextField.extend({
   clickOpens: true,
   dateFormat: 'Y-m-d',
   defaultDate: null,
-  disable: null,
+  disable: [],
   enableSeconds: false,
   enableTime: false,
   flatpickrRef: null,

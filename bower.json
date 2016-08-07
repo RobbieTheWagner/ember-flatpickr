@@ -4,6 +4,6 @@
     "ember": "~2.7.0",
     "ember-cli-shims": "0.1.1",
     "ember-qunit-notifications": "0.1.0",
-    "flatpickr": "flatpickr-calendar#1.8.8"
+    "flatpickr": "flatpickr-calendar#1.9.1"
   }
 }

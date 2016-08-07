@@ -6,9 +6,18 @@ module.exports = {
   included: function(app) {
     this._super.included(app);
     if (!process.env.EMBER_CLI_FASTBOOT) {
-      // This will only be included in the browser build
-      app.import(app.bowerDirectory + '/flatpickr/dist/flatpickr.min.css', {prepend: true});
-      app.import(app.bowerDirectory + '/flatpickr/dist/flatpickr.min.js', {prepend: true});
+      var cssPath = app.bowerDirectory + '/flatpickr/dist/flatpickr'
+      var options = app.options.flatpickr;
+      // Choose a theme
+      if(options && options.theme) {
+        cssPath += '.';
+        cssPath += options.theme;
+      }
+
+      cssPath += '.min.css';
+
+      app.import(cssPath, {prepend: true});
+      app.import(app.bowerDirectory + '/flatpickr/dist/flatpickr.js', {prepend: true});
     }
   }
 };
