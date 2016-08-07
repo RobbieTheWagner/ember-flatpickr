@@ -38,7 +38,7 @@ test('onChange action fired', function(assert) {
   run(function() {
     expected = '2016-12-01T16:16:00.000Z';
     this.$('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
-    this.$('.flatpickr-days .slot').first().click();
+    this.$('.flatpickr-days .flatpickr-day').first().click();
   });
 });
 
@@ -89,7 +89,7 @@ test('maxDateUpdated and minDateUpdated fired', function(assert) {
   run(function() {
     this.$('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
     run.scheduleOnce('afterRender', this, function() {
-      let enabledDays = this.$('.flatpickr-days .slot');
+      let enabledDays = this.$('.flatpickr-days .flatpickr-day');
       assert.equal(enabledDays.length, 2);
       assert.equal(enabledDays.text(), '2425');
     });
