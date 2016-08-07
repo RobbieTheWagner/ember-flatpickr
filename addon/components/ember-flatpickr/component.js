@@ -1,5 +1,5 @@
 import Ember from 'ember';
-const { assert, assign, observer, on, run, TextField } = Ember;
+const { assert, observer, on, run, TextField } = Ember;
 
 export default TextField.extend({
   attributeBindings: ['placeholder', 'value'],
@@ -100,7 +100,7 @@ export default TextField.extend({
       ]);
 
       // Add change and close handlers
-      assign(options, {
+      Object.assign(options, {
         onChange: this._onChange.bind(this),
         onClose: this._onClose.bind(this),
         onOpen: this._onOpen.bind(this)
