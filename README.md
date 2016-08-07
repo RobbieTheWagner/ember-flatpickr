@@ -24,11 +24,15 @@ http://shipshapecode.github.io/ember-flatpickr/
 
 ```hbs
 {{ember-flatpickr
+allowInput=false  
 altFormat="Y-m-d"
 altInput=true
+altInputClass="my-alt-input"
+clickOpens=true
 dateFormat="M/D/Y"
 defaultDate=defaultDate
 disable=datesToDisable
+enableSeconds=false
 enableTime=true
 flatpickrRef=flatpickrRef
 hourIncrement=1
@@ -36,14 +40,20 @@ inline=false
 maxDate=maxDate
 minDate=minDate
 minuteIncrement=5
+nextArrow=">"
 noCalendar=false
 onChange=(action (mut dateValue))
 onClose="doSomeStuffOnClose"
+onOpen="doSomeStuffOnOpen"
 parseDate=false
 placeholder="Choose a Date"
+prevArrow="<"
+static=false
 timeFormat="H:i"
 time_24hr=false
-value=(readonly dateValue)}}
+utc=false
+value=(readonly dateValue)
+wrap=false}}
 ```
 
 *(All options are displayed, but they have defaults and you only need to pass what you need)

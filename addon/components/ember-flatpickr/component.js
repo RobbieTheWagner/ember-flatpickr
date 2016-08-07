@@ -4,11 +4,15 @@ const { assert, observer, on, run, TextField } = Ember;
 export default TextField.extend({
   attributeBindings: ['placeholder', 'value'],
   // Flatpickr options
+  allowInput: false,
   altFormat: 'F j, Y',
   altInput: false,
+  altInputClass: '',
+  clickOpens: true,
   dateFormat: 'Y-m-d',
   defaultDate: null,
   disable: null,
+  enableSeconds: false,
   enableTime: false,
   flatpickrRef: null,
   hourIncrement: 1,
@@ -16,12 +20,18 @@ export default TextField.extend({
   maxDate: null,
   minDate: null,
   minuteIncrement: 5,
+  nextArrow: '>',
   noCalendar: false,
   parseDate: false,
+  prevArrow: '<',
   shorthandCurrentMonth: false,
+  static: false,
   timeFormat: 'H:i',
   time_24hr: false, // eslint-disable-line camelcase
+  utc: false,
   value: null,
+  weekNumbers: false,
+  wrap: false,
   maxDateUpdated: observer('maxDate', function() {
     this.get('flatpickrRef').set('maxDate', this.get('maxDate'));
   }),
@@ -46,33 +56,60 @@ export default TextField.extend({
   _onClose() {
     this.sendAction('onClose');
   },
+  /**
+   * When the flatpickr is opened, fire the 'onOpen' action
+   * @private
+   */
+  _onOpen() {
+    this.sendAction('onOpen');
+  },
   setupComponent: on('init', function() {
     // Require that users pass an onChange now
     assert('{{ember-flatpickr}} requires an `onChange` action or null for no action.', this.get('onChange') !== undefined);
 
     // Pass all values and setup flatpickr
     run.scheduleOnce('afterRender', this, function() {
-      let flatpickrRef = flatpickr(`#${this.elementId}`, {
-        altFormat: this.get('altFormat'),
-        altInput: this.get('altInput'),
-        dateFormat: this.get('dateFormat'),
-        defaultDate: this.get('defaultDate'),
-        disable: this.get('disable'),
-        enableTime: this.get('enableTime'),
-        hourIncrement: this.get('hourIncrement'),
-        inline: this.get('inline'),
-        maxDate: this.get('maxDate'),
-        minDate: this.get('minDate'),
-        minuteIncrement: this.get('minuteIncrement'),
-        noCalendar: this.get('noCalendar'),
+      let options = this.getProperties([
+        'allowInput',
+        'altFormat',
+        'altInput',
+        'altInputClass',
+        'clickOpens',
+        'dateFormat',
+        'defaultDate',
+        'disable',
+        'enableSeconds',
+        'enableTime',
+        'hourIncrement',
+        'inline',
+        'maxDate',
+        'minDate',
+        'minuteIncrement',
+        'nextArrow',
+        'noCalendar',
+        'parseDate',
+        'prevArrow',
+        'shorthandCurrentMonth',
+        'static',
+        'timeFormat',
+        'time_24hr',
+        'utc',
+        'value',
+        'weekNumbers',
+        'wrap'
+      ]);
+
+      debugger;
+
+      // Add change and close handlers
+      Object.assign(options, {
         onChange: this._onChange.bind(this),
         onClose: this._onClose.bind(this),
-        parseDate: this.get('parseDate'),
-        shorthandCurrentMonth: this.get('shorthandCurrentMonth'),
-        timeFormat: this.get('timeFormat'),
-        time_24hr: this.get('time_24hr'), // eslint-disable-line camelcase
-        value: this.get('value')
+        onOpen: this._onOpen.bind(this)
       });
+
+      let flatpickrRef = flatpickr(`#${this.elementId}`, options);
+
       if (this.get('appendDataInput')) {
         this.$().attr('data-input', '');
       }
