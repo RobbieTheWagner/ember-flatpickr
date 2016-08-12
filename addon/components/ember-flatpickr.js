@@ -114,5 +114,15 @@ export default TextField.extend({
       }
       this.set('flatpickrRef', flatpickrRef);
     });
-  })
+  }),
+  didReceiveAttrs() {
+    this._super(...arguments);
+
+    let value = this.get('value');
+    let ref = this.get('flatpickrRef');
+
+    if (ref) {
+      this.get('flatpickrRef').setDate(value);
+    }
+  }
 });
