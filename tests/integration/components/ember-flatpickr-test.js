@@ -14,6 +14,28 @@ function closeFlatpickr() {
   document.dispatchEvent(new Event('click'));
 }
 
+test('value updates when set externally', function(assert) {
+  this.on('onChange', () => {});
+
+  this.set('dateValue', '2016-12-01T16:16:22.585Z');
+  this.set('maxDate', '2016-12-31T16:16:22.585Z');
+  this.set('minDate', '2016-12-01T16:16:22.585Z');
+
+  this.render(
+    hbs`{{ember-flatpickr
+      maxDate=maxDate
+      minDate=minDate
+      onChange="onChange"
+      placeholder="Pick date"
+      value=(readonly dateValue)
+      }}`);
+
+  assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), '1', 'initial selected date text');
+
+  this.set('dateValue', '2016-12-04T16:16:22.585Z');
+  assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), '4', 'selected changes with dateValue');
+});
+
 test('onChange action fired', function(assert) {
   let expected = '2016-12-27T16:16:22.585Z';
   this.on('onChange', (actual) => {
