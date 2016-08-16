@@ -22,7 +22,7 @@ http://shipshapecode.github.io/ember-flatpickr/
 
 ## Usage
 
-```hbs
+```handlebars
 {{ember-flatpickr
 allowInput=false  
 altFormat="Y-m-d"
@@ -42,7 +42,7 @@ minDate=minDate
 minuteIncrement=5
 nextArrow=">"
 noCalendar=false
-onChange=(action (mut dateValue)) {{!--required, but you can pass null, if you don't want this--}}
+onChange=(action (mut dateValue)) 
 onClose="doSomeStuffOnClose"
 onOpen="doSomeStuffOnOpen"
 parseDate=false
@@ -56,7 +56,7 @@ value=(readonly dateValue)
 wrap=false}}
 ```
 
-*(All options are displayed, but they have defaults and you only need to pass what you need)
+*(`onChange` is the only required option, but you can pass null if you do not care about it. All other options are displayed, but they have defaults and you only need to pass what you need)
 
 **Note:** You should pass your value with the `readonly` helper, and you should only update your value selected in the `onChange` action. If you just want it to be set to the new `dateObject`, you can use `(action (mut dateValue))` like the example above.
 
