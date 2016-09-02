@@ -18,6 +18,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "babel-eslint": "^6.1.2",
     "broccoli-asset-rev": "^2.4.2",
     "codeclimate-test-reporter": "^0.3.1",
     "ember-cli": "2.7.0",
