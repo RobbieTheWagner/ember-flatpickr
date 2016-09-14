@@ -59,8 +59,8 @@ test('onChange action fired', function(assert) {
 
   run(function() {
     expected = '2016-12-01T16:16:00.000Z';
-    this.$('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
-    this.$('.flatpickr-days .flatpickr-day').first().click();
+    $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
+    $('.flatpickr-days .flatpickr-day').first().click();
   });
 });
 
@@ -86,7 +86,7 @@ test('onClose action fired', function(assert) {
       }}`);
 
   run(function() {
-    this.$('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
+    $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
     closeFlatpickr();
   });
 });
@@ -109,9 +109,9 @@ test('maxDateUpdated and minDateUpdated fired', function(assert) {
   this.set('minDate', '2016-12-24T16:16:22.585Z');
 
   run(function() {
-    this.$('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
+    $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
     run.scheduleOnce('afterRender', this, function() {
-      let enabledDays = this.$('.flatpickr-days .flatpickr-day');
+      let enabledDays = $('.flatpickr-days .flatpickr-day');
       assert.equal(enabledDays.length, 2);
       assert.equal(enabledDays.text(), '2425');
     });
