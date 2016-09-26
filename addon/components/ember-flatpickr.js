@@ -107,7 +107,7 @@ export default TextField.extend({
         onOpen: this._onOpen.bind(this)
       });
 
-      let flatpickrRef = flatpickr(`#${this.elementId}`, options);
+      let flatpickrRef = new Flatpickr(this.element, options);
 
       if (this.get('appendDataInput')) {
         this.$().attr('data-input', '');
