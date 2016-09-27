@@ -3,7 +3,7 @@
 
 module.exports = {
   name: 'ember-flatpickr',
-  included: function(app){
+  included: function(app) {
     let cssPath = 'dist/flatpickr';
     if(app.options && app.options.flatpickr && app.options.flatpickr.theme) {
       cssPath += '.';

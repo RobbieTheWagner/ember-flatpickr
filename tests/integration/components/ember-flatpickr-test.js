@@ -6,7 +6,7 @@ const { $, run } = Ember;
 moduleForComponent('ember-flatpickr', 'Integration | Component | ember flatpickr', {
   integration: true,
   afterEach() {
-    $('.flatpickr-wrapper').remove();
+    $('.flatpickr-calendar').remove();
   }
 });
 
@@ -37,8 +37,8 @@ test('value updates when set externally', function(assert) {
 });
 
 test('onChange action fired', function(assert) {
-  let expected = '2016-12-27T16:16:22.585Z';
   this.on('onChange', (actual) => {
+    let expected = '2016-12-02T16:16:00.000Z';
     assert.equal(actual.toISOString(), expected, 'onChange action was executed');
   });
 
@@ -57,10 +57,9 @@ test('onChange action fired', function(assert) {
       value=(readonly dateValue)
       }}`);
 
-  run(function() {
-    expected = '2016-12-01T16:16:00.000Z';
+  run(() => {
     $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
-    $('.flatpickr-days .flatpickr-day').first().click();
+    $('.flatpickr-days .flatpickr-day').get(5).click();
   });
 });
 
@@ -108,10 +107,10 @@ test('maxDateUpdated and minDateUpdated fired', function(assert) {
   this.set('maxDate', '2016-12-25T16:16:22.585Z');
   this.set('minDate', '2016-12-24T16:16:22.585Z');
 
-  run(function() {
+  run(() => {
     $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
     run.scheduleOnce('afterRender', this, function() {
-      let enabledDays = $('.flatpickr-days .flatpickr-day');
+      let enabledDays = $('.flatpickr-days .flatpickr-day:not(.disabled)');
       assert.equal(enabledDays.length, 2);
       assert.equal(enabledDays.text(), '2425');
     });
