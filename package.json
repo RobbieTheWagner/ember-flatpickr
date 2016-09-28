@@ -39,7 +39,7 @@
     "ember-export-application-global": "^1.0.5",
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
-    "eslint-plugin-ember-suave": "^0.1.2",
+    "eslint-plugin-ember-suave": "^1.0.0",
     "flexi": "1.2.0",
     "loader.js": "^4.0.1"
   },
