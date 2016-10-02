@@ -51,7 +51,7 @@
   "dependencies": {
     "ember-cli-babel": "^5.1.6",
     "ember-cli-node-assets": "0.1.4",
-    "flatpickr": "^2.0.0"
+    "flatpickr": "^2.0.1"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
