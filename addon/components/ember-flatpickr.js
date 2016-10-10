@@ -1,6 +1,6 @@
 import Ember from 'ember';
+import assign from 'ember-assign-polyfill';
 const { assert, observer, on, run, TextField } = Ember;
-const assign = Ember.assign || Ember.merge; // eslint-disable-line ember-suave/no-direct-property-access
 
 export default TextField.extend({
   attributeBindings: ['placeholder', 'value'],
