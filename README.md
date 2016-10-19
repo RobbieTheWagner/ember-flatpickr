@@ -13,7 +13,7 @@ This is an Ember addon that wraps the date picker [Flatpickr](http://chmln.githu
 
 ## Demo
 
-[![Guide your users through a tour of your app](http://i.imgur.com/9ZvagVn.png)](http://shipshapecode.github.io/ember-flatpickr/)
+[![Flatpickr](http://i.imgur.com/9ZvagVn.png)](http://shipshapecode.github.io/ember-flatpickr/)
 http://shipshapecode.github.io/ember-flatpickr/
 
 ## Installation
