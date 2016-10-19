@@ -9,7 +9,7 @@
 [![Code Climate](https://codeclimate.com/github/shipshapecode/ember-flatpickr/badges/gpa.svg)](https://codeclimate.com/github/shipshapecode/ember-flatpickr)
 [![Test Coverage](https://codeclimate.com/github/shipshapecode/ember-flatpickr/badges/coverage.svg)](https://codeclimate.com/github/shipshapecode/ember-flatpickr/coverage)
 
-This is an Ember addon that wraps the date picker [Flatpickr](http://chmln.github.io/flatpickr/). ~~I wanted to use npm instead of bower, so ember-browserify is also required to get this working.~~ I moved back to using bower, for ease of setup for now.
+This is an Ember addon that wraps the date picker [Flatpickr](http://chmln.github.io/flatpickr/). It uses using ember-cli-node-assets to pull in flatpickr from npm.
 
 ## Demo
 
