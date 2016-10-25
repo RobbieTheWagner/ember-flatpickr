@@ -2,35 +2,46 @@
   "name": "ember-flatpickr",
   "version": "0.7.0",
   "description": "An Ember addon that wraps the date picker Flatpickr",
+  "keywords": [
+    "ember-addon",
+    "flatpickr",
+    "datepicker"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Robert Wagner",
+    "email": "rwwagner90@gmail.com",
+    "url": "https://github.com/rwwagner90"
+  },
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
+  "repository": "https://github.com/shipshapecode/ember-flatpickr",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
     "test": "ember try:each"
   },
-  "repository": "https://github.com/shipshapecode/ember-flatpickr",
-  "engines": {
-    "node": ">= 0.10.0"
+  "dependencies": {
+    "ember-cli-babel": "^5.1.7",
+    "ember-cli-node-assets": "0.1.4",
+    "flatpickr": "chmln/flatpickr#gh-pages"
   },
-  "author": "",
-  "license": "MIT",
   "devDependencies": {
     "babel-eslint": "^7.0.0",
-    "broccoli-asset-rev": "^2.4.2",
+    "broccoli-asset-rev": "^2.4.5",
     "codeclimate-test-reporter": "^0.3.1",
     "ember-assign-polyfill": "1.0.0",
-    "ember-cli": "2.8.0",
-    "ember-cli-app-version": "^1.0.0",
-    "ember-cli-dependency-checker": "^1.2.0",
+    "ember-cli": "2.10.0-beta.2",
+    "ember-cli-app-version": "^2.0.0",
+    "ember-cli-dependency-checker": "^1.3.0",
     "ember-cli-eslint": "3.0.0",
     "ember-cli-github-pages": "0.1.2",
-    "ember-cli-htmlbars": "^1.0.3",
-    "ember-cli-htmlbars-inline-precompile": "^0.3.1",
-    "ember-cli-inject-live-reload": "^1.4.0",
-    "ember-cli-qunit": "^2.1.0",
+    "ember-cli-htmlbars": "^1.0.10",
+    "ember-cli-htmlbars-inline-precompile": "^0.3.3",
+    "ember-cli-inject-live-reload": "^1.4.1",
+    "ember-cli-qunit": "^3.0.1",
     "ember-cli-release": "^0.2.9",
     "ember-cli-sass": "5.6.0",
     "ember-cli-sri": "^2.1.0",
@@ -42,17 +53,10 @@
     "ember-resolver": "^2.0.3",
     "eslint-plugin-ember-suave": "^1.0.0",
     "flexi": "1.2.0",
-    "loader.js": "^4.0.1"
+    "loader.js": "^4.0.10"
   },
-  "keywords": [
-    "ember-addon",
-    "flatpickr",
-    "datepicker"
-  ],
-  "dependencies": {
-    "ember-cli-babel": "^5.1.6",
-    "ember-cli-node-assets": "0.1.4",
-    "flatpickr": "^2.0.5"
+  "engines": {
+    "node": ">= 0.12.0"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
