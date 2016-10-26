@@ -29,7 +29,7 @@
     "flatpickr": "chmln/flatpickr#gh-pages"
   },
   "devDependencies": {
-    "babel-eslint": "^7.0.0",
+    "babel-eslint": "^7.1.0",
     "broccoli-asset-rev": "^2.4.5",
     "codeclimate-test-reporter": "^0.3.1",
     "ember-assign-polyfill": "1.0.0",
