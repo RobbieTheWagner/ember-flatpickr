@@ -4,10 +4,7 @@ import hbs from 'htmlbars-inline-precompile';
 const { $, run } = Ember;
 
 moduleForComponent('ember-flatpickr', 'Integration | Component | ember flatpickr', {
-  integration: true,
-  afterEach() {
-    $('.flatpickr-calendar').remove();
-  }
+  integration: true
 });
 
 function closeFlatpickr() {

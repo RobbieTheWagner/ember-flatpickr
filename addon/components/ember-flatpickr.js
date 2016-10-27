@@ -124,5 +124,8 @@ export default TextField.extend({
     if (ref) {
       this.get('flatpickrRef').setDate(value);
     }
+  },
+  willDestroyElement() {
+    this.get('flatpickrRef').destroy();
   }
 });
