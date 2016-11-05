@@ -26,7 +26,7 @@
   "dependencies": {
     "ember-cli-babel": "^5.1.7",
     "ember-cli-node-assets": "0.1.4",
-    "flatpickr": "chmln/flatpickr#gh-pages"
+    "flatpickr": "^2.0.6"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.0",

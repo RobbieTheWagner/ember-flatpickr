@@ -41,28 +41,35 @@ export default TextField.extend({
   }),
   /**
    * When the date is changed, update the value and send 'onChange' action
-   * @param dateObject The selected date
-   * @param dateString The string representation of the date, formatted by dateFormat
+   * @param selectedDates The array of selected dates
+   * @param dateStr The string representation of the date, formatted by dateFormat
+   * @param instance The flatpickr instance
    * @private
    */
-  _onChange(dateObject, dateString) {
-    if (typeof dateObject !== 'undefined') {
-      this.sendAction('onChange', dateObject[0], dateString);
+  _onChange(selectedDates, dateStr, instance) {
+    if (selectedDates && selectedDates.length > 0) {
+      this.sendAction('onChange', selectedDates, dateStr, instance);
     }
   },
   /**
    * When the flatpickr is closed, fire the 'onClose' action
+   * @param selectedDates The array of selected dates
+   * @param dateStr The string representation of the date, formatted by dateFormat
+   * @param instance The flatpickr instance
    * @private
    */
-  _onClose() {
-    this.sendAction('onClose');
+  _onClose(selectedDates, dateStr, instance) {
+    this.sendAction('onClose', selectedDates, dateStr, instance);
   },
   /**
    * When the flatpickr is opened, fire the 'onOpen' action
+   * @param selectedDates The array of selected dates
+   * @param dateStr The string representation of the date, formatted by dateFormat
+   * @param instance The flatpickr instance
    * @private
    */
-  _onOpen() {
-    this.sendAction('onOpen');
+  _onOpen(selectedDates, dateStr, instance) {
+    this.sendAction('onOpen', selectedDates, dateStr, instance);
   },
   setupComponent: on('init', function() {
     // Require that users pass an onChange now

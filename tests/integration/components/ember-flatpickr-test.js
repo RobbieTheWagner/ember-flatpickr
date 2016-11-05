@@ -34,9 +34,8 @@ test('value updates when set externally', function(assert) {
 });
 
 test('onChange action fired', function(assert) {
-  this.on('onChange', (actual) => {
-    let expected = '2016-12-02T16:16:00.000Z';
-    assert.equal(actual.toISOString(), expected, 'onChange action was executed');
+  this.on('onChange', (selectedDates) => {
+    assert.equal(selectedDates[0].toISOString(), '2016-12-02T16:16:00.000Z', 'onChange action was executed');
   });
 
   this.set('maxDate', '2016-12-31T16:16:22.585Z');
