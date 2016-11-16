@@ -9,7 +9,7 @@ module.exports = {
       cssPath += '.';
       cssPath += app.options.flatpickr.theme;
     }
-    cssPath += '.min.css';
+    cssPath += '.css';
     this.theme = cssPath;
 
     this._super.included.apply(this, arguments);
