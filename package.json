@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "ember-cli-babel": "^5.1.7",
-    "ember-cli-node-assets": "0.1.4",
+    "ember-cli-node-assets": "0.1.5",
     "flatpickr": "^2.1.0"
   },
   "devDependencies": {
