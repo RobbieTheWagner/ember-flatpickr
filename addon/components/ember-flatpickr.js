@@ -13,6 +13,7 @@ export default TextField.extend({
   dateFormat: 'Y-m-d',
   defaultDate: null,
   disable: [],
+  enable: [],
   enableSeconds: false,
   enableTime: false,
   flatpickrRef: null,
@@ -21,6 +22,7 @@ export default TextField.extend({
   maxDate: null,
   minDate: null,
   minuteIncrement: 5,
+  mode: 'single',
   nextArrow: '>',
   noCalendar: false,
   parseDate: false,
@@ -71,6 +73,16 @@ export default TextField.extend({
   _onOpen(selectedDates, dateStr, instance) {
     this.sendAction('onOpen', selectedDates, dateStr, instance);
   },
+  /**
+   * When the flatpickr is ready, fire the 'onReady' action
+   * @param selectedDates The array of selected dates
+   * @param dateStr The string representation of the date, formatted by dateFormat
+   * @param instance The flatpickr instance
+   * @private
+   */
+  _onReady(selectedDates, dateStr, instance) {
+    this.sendAction('onReady', selectedDates, dateStr, instance);
+  },
   setupComponent: on('init', function() {
     // Require that users pass an onChange now
     assert('{{ember-flatpickr}} requires an `onChange` action or null for no action.', this.get('onChange') !== undefined);
@@ -86,6 +98,7 @@ export default TextField.extend({
         'dateFormat',
         'defaultDate',
         'disable',
+        'enable',
         'enableSeconds',
         'enableTime',
         'hourIncrement',
@@ -93,6 +106,7 @@ export default TextField.extend({
         'maxDate',
         'minDate',
         'minuteIncrement',
+        'mode',
         'nextArrow',
         'noCalendar',
         'parseDate',
@@ -111,7 +125,8 @@ export default TextField.extend({
       assign(options, {
         onChange: this._onChange.bind(this),
         onClose: this._onClose.bind(this),
-        onOpen: this._onOpen.bind(this)
+        onOpen: this._onOpen.bind(this),
+        onReady: this._onReady.bind(this)
       });
 
       let flatpickrRef = new Flatpickr(this.element, options);
