@@ -5,9 +5,9 @@ module.exports = {
   name: 'ember-flatpickr',
   included: function(app) {
     let cssPath = 'themes/';
-    if(app.options && app.options.flatpickr && app.options.flatpickr.theme) {
+    if (app.options && app.options.flatpickr && app.options.flatpickr.theme) {
       cssPath += app.options.flatpickr.theme;
-    } 
+    }
     else {
       cssPath += 'dark';
     }
@@ -19,15 +19,14 @@ module.exports = {
   options: {
     nodeAssets: {
       flatpickr: function() {
-        if (!process.env.EMBER_CLI_FASTBOOT) {
-          return {
-            srcDir: 'dist',
-            import: [
-              'flatpickr.js',
-              this.theme
-            ]
-          };
-        }
+        return {
+          enabled: !process.env.EMBER_CLI_FASTBOOT,
+          srcDir: 'dist',
+          import: [
+            'flatpickr.js',
+            this.theme
+          ]
+        };
       }
     }
   }
