@@ -24,7 +24,7 @@ http://shipshapecode.github.io/ember-flatpickr/
 
 ```handlebars
 {{ember-flatpickr
-allowInput=false  
+allowInput=false
 altFormat='Y-m-d'
 altInput=true
 altInputClass='my-alt-input'
@@ -44,7 +44,7 @@ minuteIncrement=5
 mode='single'
 nextArrow='>'
 noCalendar=false
-onChange=(action (mut dateValue)) 
+onChange=(action (mut dateValue))
 onClose='doSomeStuffOnClose'
 onOpen='doSomeStuffOnOpen'
 onReady='doSomeStuffOnReady'
@@ -74,7 +74,28 @@ const app = new EmberApp(defaults, {
   flatpickr: {
     theme: 'material_blue'
   }
-});  
+});
+```
+
+## Localization
+
+flatpickr support [over 25 languages](https://github.com/chmln/flatpickr/tree/master/dist/l10n). You can add in in your `ember-cli-build.js`.
+
+```js
+const app = new EmberApp(defaults, {
+  flatpickr: {
+    locales: ['fr', 'de', 'ru', 'uk']
+  }
+});
+```
+
+And use it.
+
+```handlebars
+{{ember-flatpickr
+locale='ru'
+onChange=(action (mut dateValue))
+}}
 ```
 
 ## Observers
