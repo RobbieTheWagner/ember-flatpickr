@@ -6,7 +6,8 @@ let EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 module.exports = function(defaults) {
   let app = new EmberAddon(defaults, {
     flatpickr: {
-      theme: 'dark'
+      theme: 'dark',
+      locales: ['fr', 'de', 'ru', 'uk']
     }
   });
 

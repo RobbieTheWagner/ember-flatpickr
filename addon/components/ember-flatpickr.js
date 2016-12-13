@@ -35,6 +35,7 @@ export default TextField.extend({
   value: null,
   weekNumbers: false,
   wrap: false,
+  locale: 'default',
   maxDateUpdated: observer('maxDate', function() {
     this.get('flatpickrRef').set('maxDate', this.get('maxDate'));
   }),
@@ -118,7 +119,8 @@ export default TextField.extend({
         'utc',
         'value',
         'weekNumbers',
-        'wrap'
+        'wrap',
+        'locale'
       ]);
 
       // Add change and close handlers
