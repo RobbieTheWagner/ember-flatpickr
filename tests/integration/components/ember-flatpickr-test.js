@@ -12,7 +12,10 @@ function closeFlatpickr() {
 }
 
 test('value updates when set externally', function(assert) {
-  this.on('onChange', () => {});
+  assert.expect(2);
+
+  this.on('onChange', () => {
+  });
 
   this.set('dateValue', '2016-12-01T16:16:22.585Z');
   this.set('maxDate', '2016-12-31T16:16:22.585Z');
@@ -34,6 +37,8 @@ test('value updates when set externally', function(assert) {
 });
 
 test('onChange action fired', function(assert) {
+  assert.expect(1);
+
   this.on('onChange', (selectedDates) => {
     assert.equal(selectedDates[0].toISOString(), '2016-12-02T16:16:00.000Z', 'onChange action was executed');
   });
@@ -60,6 +65,8 @@ test('onChange action fired', function(assert) {
 });
 
 test('onClose action fired', function(assert) {
+  assert.expect(1);
+
   this.on('onClose', () => {
     assert.ok(true, 'onClose action was executed');
   });
@@ -87,6 +94,8 @@ test('onClose action fired', function(assert) {
 });
 
 test('maxDateUpdated and minDateUpdated fired', function(assert) {
+  assert.expect(2);
+
   this.render(
     hbs`{{ember-flatpickr
       appendDataInput=true
@@ -111,4 +120,27 @@ test('maxDateUpdated and minDateUpdated fired', function(assert) {
       assert.equal(enabledDays.text(), '2425');
     });
   });
+});
+
+test('locale works correctly', function(assert) {
+  assert.expect(1);
+
+  this.on('onChange', () => {
+  });
+
+  this.set('dateValue', '2016-12-01T16:16:22.585Z');
+  this.set('maxDate', '2016-12-31T16:16:22.585Z');
+  this.set('minDate', '2016-12-01T16:16:22.585Z');
+
+  this.render(
+    hbs`{{ember-flatpickr
+      locale="ru"
+      maxDate=maxDate
+      minDate=minDate
+      onChange="onChange"
+      placeholder="Pick date"
+      value=(readonly dateValue)
+      }}`);
+
+  assert.equal($('.flatpickr-current-month .cur-month').text(), 'Декабрь', 'Russian locale applied successfully');
 });

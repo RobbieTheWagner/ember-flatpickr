@@ -19,6 +19,7 @@ export default TextField.extend({
   flatpickrRef: null,
   hourIncrement: 1,
   inline: false,
+  locale: 'default',
   maxDate: null,
   minDate: null,
   minuteIncrement: 5,
@@ -35,7 +36,6 @@ export default TextField.extend({
   value: null,
   weekNumbers: false,
   wrap: false,
-  locale: 'default',
   maxDateUpdated: observer('maxDate', function() {
     this.get('flatpickrRef').set('maxDate', this.get('maxDate'));
   }),
@@ -104,6 +104,7 @@ export default TextField.extend({
         'enableTime',
         'hourIncrement',
         'inline',
+        'locale',
         'maxDate',
         'minDate',
         'minuteIncrement',
@@ -119,8 +120,7 @@ export default TextField.extend({
         'utc',
         'value',
         'weekNumbers',
-        'wrap',
-        'locale'
+        'wrap'
       ]);
 
       // Add change and close handlers

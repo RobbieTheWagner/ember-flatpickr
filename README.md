@@ -38,6 +38,7 @@ enableTime=true
 flatpickrRef=flatpickrRef
 hourIncrement=1
 inline=false
+locale='ru'
 maxDate=maxDate
 minDate=minDate
 minuteIncrement=5
@@ -79,7 +80,8 @@ const app = new EmberApp(defaults, {
 
 ## Localization
 
-flatpickr support [over 25 languages](https://github.com/chmln/flatpickr/tree/master/dist/l10n). You can add in in your `ember-cli-build.js`.
+flatpickr supports [over 25 languages](https://github.com/chmln/flatpickr/tree/master/dist/l10n). You can specify the locales you want to support
+in your `ember-cli-build.js`, which will include the necessary locale js files.
 
 ```js
 const app = new EmberApp(defaults, {
@@ -89,7 +91,7 @@ const app = new EmberApp(defaults, {
 });
 ```
 
-And use it.
+You can then use the locales you imported by specifying which you want in your template, like so:
 
 ```handlebars
 {{ember-flatpickr
