@@ -17,9 +17,9 @@ test('value updates when set externally', function(assert) {
   this.on('onChange', () => {
   });
 
-  this.set('dateValue', '2016-12-01T16:16:22.585Z');
-  this.set('maxDate', '2016-12-31T16:16:22.585Z');
-  this.set('minDate', '2016-12-01T16:16:22.585Z');
+  this.set('dateValue', '2080-12-01T16:16:22.585Z');
+  this.set('maxDate', '2080-12-31T16:16:22.585Z');
+  this.set('minDate', '2080-12-01T16:16:22.585Z');
 
   this.render(
     hbs`{{ember-flatpickr
@@ -32,7 +32,7 @@ test('value updates when set externally', function(assert) {
 
   assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), '1', 'initial selected date text');
 
-  this.set('dateValue', '2016-12-04T16:16:22.585Z');
+  this.set('dateValue', '2080-12-04T16:16:22.585Z');
   assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), '4', 'selected changes with dateValue');
 });
 
@@ -40,16 +40,16 @@ test('onChange action fired', function(assert) {
   assert.expect(1);
 
   this.on('onChange', (selectedDates) => {
-    assert.equal(selectedDates[0].toISOString(), '2016-12-02T16:16:00.000Z', 'onChange action was executed');
+    assert.equal(selectedDates[0].toISOString(), '2080-12-06T16:16:00.000Z', 'onChange action was executed');
   });
 
-  this.set('maxDate', '2016-12-31T16:16:22.585Z');
-  this.set('minDate', '2016-12-01T16:16:22.585Z');
+  this.set('maxDate', '2080-12-31T16:16:22.585Z');
+  this.set('minDate', '2080-12-01T16:16:22.585Z');
 
   this.render(
     hbs`{{ember-flatpickr
       appendDataInput=true
-      defaultDate='2016-12-27T16:16:22.585Z'
+      defaultDate='2080-12-27T16:16:22.585Z'
       enableTime=true
       maxDate=maxDate
       minDate=minDate
@@ -71,13 +71,13 @@ test('onClose action fired', function(assert) {
     assert.ok(true, 'onClose action was executed');
   });
 
-  this.set('maxDate', '2016-12-31T16:16:22.585Z');
-  this.set('minDate', '2016-12-01T16:16:22.585Z');
+  this.set('maxDate', '2080-12-31T16:16:22.585Z');
+  this.set('minDate', '2080-12-01T16:16:22.585Z');
 
   this.render(
     hbs`{{ember-flatpickr
       appendDataInput=true
-      defaultDate='2016-12-27T16:16:22.585Z'
+      defaultDate='2080-12-27T16:16:22.585Z'
       enableTime=true
       maxDate=maxDate
       minDate=minDate
@@ -99,7 +99,7 @@ test('maxDateUpdated and minDateUpdated fired', function(assert) {
   this.render(
     hbs`{{ember-flatpickr
       appendDataInput=true
-      defaultDate='2016-12-27T16:16:22.585Z'
+      defaultDate='2080-12-27T16:16:22.585Z'
       enableTime=true
       maxDate=maxDate
       minDate=minDate
@@ -109,8 +109,8 @@ test('maxDateUpdated and minDateUpdated fired', function(assert) {
       value=(readonly dateValue)
       }}`);
 
-  this.set('maxDate', '2016-12-25T16:16:22.585Z');
-  this.set('minDate', '2016-12-24T16:16:22.585Z');
+  this.set('maxDate', '2080-12-25T16:16:22.585Z');
+  this.set('minDate', '2080-12-24T16:16:22.585Z');
 
   run(() => {
     $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
@@ -128,13 +128,13 @@ test('locale works correctly', function(assert) {
   this.on('onChange', () => {
   });
 
-  this.set('dateValue', '2016-12-01T16:16:22.585Z');
-  this.set('maxDate', '2016-12-31T16:16:22.585Z');
-  this.set('minDate', '2016-12-01T16:16:22.585Z');
+  this.set('dateValue', '2080-12-01T16:16:22.585Z');
+  this.set('maxDate', '2080-12-31T16:16:22.585Z');
+  this.set('minDate', '2080-12-01T16:16:22.585Z');
 
   this.render(
     hbs`{{ember-flatpickr
-      locale="ru"
+      locale="fr"
       maxDate=maxDate
       minDate=minDate
       onChange="onChange"
@@ -142,5 +142,5 @@ test('locale works correctly', function(assert) {
       value=(readonly dateValue)
       }}`);
 
-  assert.equal($('.flatpickr-current-month .cur-month').text(), 'Декабрь', 'Russian locale applied successfully');
+  assert.equal($('.flatpickr-current-month .cur-month').text().trim(), 'Décembre', 'French locale applied successfully');
 });
