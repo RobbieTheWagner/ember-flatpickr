@@ -1,35 +1,56 @@
-<screen>
-  <centered>
-    <h1 class="heading"><span class="pacifico">ember</span> flatpickr</h1>
+<page>
+  <centered xs="12">
+    <grid>
+      <centered xs="12">
+        <span class="heading"><span class="pacifico">ember</span> flatpickr</span>
+      </centered>
+      <centered xs="12">
+        <centered class="info" xs="8">
+          Ember flatpickr is an Ember addon that wraps the datepicker flatpickr.
+          All options available to flatpickr should be available. If one is missing,
+          please file an issue on GitHub and we'll get it implemented straight away!
+        </centered>
+      </centered>
+      <centered xs="12" md="6">
+        {{ember-flatpickr
+          appendDataInput=true
+          defaultDate=defaultDate
+          enableTime=true
+          locale=locale
+          minDate=minDate
+          onClose="onClose"
+          onChange="onChange"
+          placeholder="Pick date"
+          value=(readonly dateValue)
+        }}
+      </centered>
+      <centered xs="12" md="6">
+        Selected date value: {{dateValue}}
+      </centered>
+      <centered xs="12">
+        <h3>Try switching locales or setting the min date, and check out the changes.</h3>
+      </centered>
+      <centered xs="6">
+        <span>Change Locale:&nbsp;</span>
+        {{#power-select
+          options=locales
+          selected=locale
+          onchange=(action (mut locale))
+        as |option|
+        }}
+          {{option}}
+        {{/power-select}}
+      </centered>
+      <centered xs="6">
+        <grid>
+          <centered xs="12">
+            Set minDate to '2080-12-24T16:16:22.585Z'
+          </centered>
+          <centered xs="12">
+            <button {{action "updateMin"}}>Update Min</button>
+          </centered>
+        </grid>
+      </centered>
+    </grid>
   </centered>
-  <centered>
-    <p class="info">
-      Ember Flatpickr is an Ember addon that wraps the datepicker flatpickr.
-    </p>
-  </centered>
-  <centered>
-    <div>
-      <p>Choose a date:</p>
-      {{ember-flatpickr
-      appendDataInput=true
-      defaultDate=defaultDate
-      enableTime=true
-      locale=locale
-      minDate=minDate
-      onClose="onClose"
-      onChange="onChange"
-      placeholder="Pick date"
-      value=(readonly dateValue)
-      }}
-    </div>
-  </centered>
-  <centered>
-    Current date value: {{dateValue}}
-  </centered>
-
-  <centered>
-    Click here to set minDate="today"
-    <button {{action "updateMin"}}>Update Min</button>
-  </centered>
-
-</screen>
+</page>

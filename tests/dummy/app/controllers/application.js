@@ -4,6 +4,8 @@ const { Controller, Logger } = Ember;
 export default Controller.extend({
   dateValue: null,
   defaultDate: '2080-12-27T16:16:22.585Z',
+  locale: 'default',
+  locales: ['default', 'fr', 'de', 'ru', 'uk'],
   minDate: null,
   actions: {
     onChange(dateObject, dateString) {
@@ -14,7 +16,7 @@ export default Controller.extend({
       Logger.log('Flatpickr closed');
     },
     updateMin() {
-      this.set('minDate', 'today');
+      this.set('minDate', '2080-12-24T16:16:22.585Z');
     }
   }
 });

@@ -1,3 +1,4 @@
+@import "ember-power-select";
 @import './fonts';
 
 $background1: #323040;
@@ -22,6 +23,7 @@ body {
   color: $whiteish;
   font-size: 6vw;
   font-weight: normal;
+  text-align: center;
   .pacifico {
     font-family: 'Pacifico';
   }
@@ -29,12 +31,31 @@ body {
 
 .info {
   color: $lightColor;
+  margin-bottom: 25px;
+  text-align: center;
 }
 
 .flatpickr-input {
   font-size: 12pt;
   padding: 10px;
   margin: 0px 0px 10px 0px;
+}
+
+button {
+  background-color: $whiteish;
+  border: none;
+  border-radius: 4px;
+  font-size: 12pt;
+  padding: 10px 20px;
+  &:hover {
+    background-color: $background2;
+    color: $whiteish;
+    cursor: pointer;
+  }
+}
+
+centered {
+  padding: 10px;
 }
 
 
