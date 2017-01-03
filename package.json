@@ -25,6 +25,7 @@
     "test": "ember try:each"
   },
   "dependencies": {
+    "ember-assign-polyfill": "1.0.0",
     "ember-cli-babel": "^5.1.7",
     "ember-cli-node-assets": "0.1.6",
     "flatpickr": "^2.2.3"
@@ -33,7 +34,6 @@
     "babel-eslint": "^7.1.1",
     "broccoli-asset-rev": "^2.4.5",
     "codeclimate-test-reporter": "^0.4.0",
-    "ember-assign-polyfill": "1.0.0",
     "ember-cli": "2.10.0",
     "ember-cli-app-version": "^2.0.0",
     "ember-cli-code-coverage": "0.3.9",
