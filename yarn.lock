@@ -2387,9 +2387,9 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
-flatpickr@<=2.2.4:
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-2.2.4.tgz#6d708a7771fb888963ec9db8979a039f0f0db208"
+flatpickr@^2.2.7:
+  version "2.2.7"
+  resolved "https://registry.npmjs.org/flatpickr/-/flatpickr-2.2.7.tgz#e7781a514a054ffdbaf7d6bf59ca66b2c2442af2"
 
 flexi@html-next/flexi:
   version "1.2.0"
@@ -2403,7 +2403,7 @@ flexi@html-next/flexi:
     ember-cli-babel "^5.1.6"
     ember-cli-htmlbars "^1.0.3"
     ember-cli-preprocess-registry "^3.0.0"
-    ember-cli-sass "6.0.0"
+    ember-cli-sass "^5.3.1"
     ember-getowner-polyfill "^1.0.1"
     object-assign "^4.0.1"
     rsvp "^3.2.0"
