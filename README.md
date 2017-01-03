@@ -32,6 +32,7 @@ clickOpens=true
 dateFormat='M/D/Y'
 defaultDate=defaultDate
 disable=datesToDisable
+disableMobile=false
 enable=datesToEnable
 enableSeconds=false
 enableTime=true
