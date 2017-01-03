@@ -2387,9 +2387,9 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
-flatpickr@^2.2.3:
-  version "2.2.3"
-  resolved "https://registry.npmjs.org/flatpickr/-/flatpickr-2.2.3.tgz#ea41e964e701aced8849e3521f28b520ce4f4049"
+flatpickr@<=2.2.4:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-2.2.4.tgz#6d708a7771fb888963ec9db8979a039f0f0db208"
 
 flexi@html-next/flexi:
   version "1.2.0"
