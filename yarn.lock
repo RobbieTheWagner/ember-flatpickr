@@ -788,14 +788,14 @@ broccoli-plugin@^1.0.0, broccoli-plugin@^1.2.0, broccoli-plugin@^1.2.1, broccoli
     rimraf "^2.3.4"
     symlink-or-copy "^1.1.8"
 
-broccoli-sass-source-maps@^1.8.0:
-  version "1.8.1"
-  resolved "https://registry.npmjs.org/broccoli-sass-source-maps/-/broccoli-sass-source-maps-1.8.1.tgz#115e32be25dc5f1686af1c8d1fa4c4c62749f0b6"
+broccoli-sass-source-maps@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/broccoli-sass-source-maps/-/broccoli-sass-source-maps-2.0.0.tgz#7f25f9f4b296918cec6e00672c63e75abce33d45"
   dependencies:
     broccoli-caching-writer "^3.0.3"
     include-path-searcher "^0.1.0"
     mkdirp "^0.3.5"
-    node-sass "^3.8.0"
+    node-sass "^4.1.0"
     object-assign "^2.0.0"
     rsvp "^3.0.6"
 
@@ -1455,13 +1455,13 @@ ember-assign-polyfill@1.0.0:
   dependencies:
     ember-cli-babel "^5.1.7"
 
-ember-basic-dropdown@^0.17.1:
-  version "0.17.2"
-  resolved "https://registry.npmjs.org/ember-basic-dropdown/-/ember-basic-dropdown-0.17.2.tgz#b4e452f74ba27b399d0626c9c0a7c3ebdb10106e"
+ember-basic-dropdown@^0.19.1:
+  version "0.19.2"
+  resolved "https://registry.yarnpkg.com/ember-basic-dropdown/-/ember-basic-dropdown-0.19.2.tgz#c1fbf90c3702f44b564b2d85d05ad2ee3c6a4e90"
   dependencies:
     ember-cli-babel "^5.1.10"
     ember-cli-htmlbars "^1.1.1"
-    ember-wormhole "0.4.1"
+    ember-wormhole "^0.5.1"
 
 ember-cli-app-version@^2.0.0:
   version "2.0.1"
@@ -1491,9 +1491,9 @@ ember-cli-broccoli-sane-watcher@^2.0.3:
     rsvp "^3.0.18"
     sane "^1.1.1"
 
-ember-cli-code-coverage@0.3.8:
-  version "0.3.8"
-  resolved "https://registry.npmjs.org/ember-cli-code-coverage/-/ember-cli-code-coverage-0.3.8.tgz#b3f8f765f3c9f34d3f2c78e5ace33bc681adad89"
+ember-cli-code-coverage@0.3.9:
+  version "0.3.9"
+  resolved "https://registry.yarnpkg.com/ember-cli-code-coverage/-/ember-cli-code-coverage-0.3.9.tgz#bdd971fd3de451c2ec3644fd3e0be6ed8541a961"
   dependencies:
     babel-core "^5.8.38"
     body-parser "^1.15.0"
@@ -1518,9 +1518,9 @@ ember-cli-dependency-checker@^1.3.0:
     is-git-url "0.2.0"
     semver "^4.1.0"
 
-ember-cli-eslint@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.npmjs.org/ember-cli-eslint/-/ember-cli-eslint-3.0.0.tgz#83eb12b01e1bd41ce7d35fbd6dd18136faa1398b"
+ember-cli-eslint@3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/ember-cli-eslint/-/ember-cli-eslint-3.0.2.tgz#21657a50f8e2446ba36dadf595a9028f7fb18ca5"
   dependencies:
     broccoli-lint-eslint "^3.1.0"
     ember-cli-babel "^5.1.6"
@@ -1660,13 +1660,13 @@ ember-cli-release@^0.2.9:
     semver "^4.3.1"
     silent-error "^1.0.0"
 
-ember-cli-sass@5.6.0, ember-cli-sass@^5.3.1:
-  version "5.6.0"
-  resolved "https://registry.npmjs.org/ember-cli-sass/-/ember-cli-sass-5.6.0.tgz#792de67544bb903eef421a3e59c484840fea5352"
+ember-cli-sass@6.0.0, ember-cli-sass@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-sass/-/ember-cli-sass-6.0.0.tgz#31c9c8fa789c0d25aaf8e315431b7a3ec4ba0175"
   dependencies:
     broccoli-funnel "^1.0.0"
     broccoli-merge-trees "^1.1.0"
-    broccoli-sass-source-maps "^1.8.0"
+    broccoli-sass-source-maps "^2.0.0"
     ember-cli-babel "5.1.10"
     ember-cli-version-checker "^1.0.2"
     merge "^1.2.0"
@@ -1835,11 +1835,11 @@ ember-maybe-import-regenerator@^0.1.4:
     ember-cli-babel "^5.1.6"
     regenerator-runtime "^0.9.5"
 
-ember-power-select@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/ember-power-select/-/ember-power-select-1.0.0.tgz#f53cbcbcb00fd77c68b78d0719b635a9f172548d"
+ember-power-select@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/ember-power-select/-/ember-power-select-1.0.3.tgz#2c907e964c1016f485095b4a32a72c9d30b26f35"
   dependencies:
-    ember-basic-dropdown "^0.17.1"
+    ember-basic-dropdown "^0.19.1"
     ember-cli-babel "^5.1.10"
     ember-cli-htmlbars "^1.1.1"
     ember-concurrency "^0.7.15"
@@ -1912,9 +1912,9 @@ ember-try@^0.2.6:
     semver "^5.1.0"
     sync-exec "^0.6.2"
 
-ember-wormhole@0.4.1:
-  version "0.4.1"
-  resolved "https://registry.npmjs.org/ember-wormhole/-/ember-wormhole-0.4.1.tgz#55fafaad20a650d21f6583a0e59c060a65338111"
+ember-wormhole@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/ember-wormhole/-/ember-wormhole-0.5.1.tgz#f2a6fff13b1c037ffa83b2c9291d8b5978878e5b"
   dependencies:
     ember-cli-babel "^5.1.6"
     ember-cli-htmlbars "^1.0.3"
@@ -2391,9 +2391,9 @@ flatpickr@^2.2.3:
   version "2.2.3"
   resolved "https://registry.npmjs.org/flatpickr/-/flatpickr-2.2.3.tgz#ea41e964e701aced8849e3521f28b520ce4f4049"
 
-flexi@1.2.0:
+flexi@html-next/flexi:
   version "1.2.0"
-  resolved "https://registry.npmjs.org/flexi/-/flexi-1.2.0.tgz#b03ccb23a11fbb33b6f68624f5f4c82bf29ee9a5"
+  resolved "https://codeload.github.com/html-next/flexi/tar.gz/2e6a06524bcf1fadb479435e3076eb0461255a5c"
   dependencies:
     broccoli-funnel "^1.0.1"
     broccoli-merge-trees "^1.1.1"
@@ -2403,7 +2403,7 @@ flexi@1.2.0:
     ember-cli-babel "^5.1.6"
     ember-cli-htmlbars "^1.0.3"
     ember-cli-preprocess-registry "^3.0.0"
-    ember-cli-sass "^5.3.1"
+    ember-cli-sass "6.0.0"
     ember-getowner-polyfill "^1.0.1"
     object-assign "^4.0.1"
     rsvp "^3.2.0"
@@ -3535,6 +3535,10 @@ lodash.merge@^4.3.0, lodash.merge@^4.4.0, lodash.merge@^4.5.1:
   version "4.6.0"
   resolved "https://registry.npmjs.org/lodash.merge/-/lodash.merge-4.6.0.tgz#69884ba144ac33fe699737a6086deffadd0f89c5"
 
+lodash.mergewith@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/lodash.mergewith/-/lodash.mergewith-4.6.0.tgz#150cf0a16791f5903b8891eab154609274bdea55"
+
 lodash.omit@^4.1.0:
   version "4.5.0"
   resolved "https://registry.npmjs.org/lodash.omit/-/lodash.omit-4.5.0.tgz#6eb19ae5a1ee1dd9df0b969e66ce0b7fa30b5e60"
@@ -3904,9 +3908,9 @@ node-notifier@^4.3.1:
     shellwords "^0.1.0"
     which "^1.0.5"
 
-node-sass@^3.8.0:
-  version "3.13.0"
-  resolved "https://registry.npmjs.org/node-sass/-/node-sass-3.13.0.tgz#d08b95bdebf40941571bd2c16a9334b980f8924f"
+node-sass@^4.1.0:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.1.1.tgz#dc3e27d25bd827b6276ea243be357c7c7cd07111"
   dependencies:
     async-foreach "^0.1.3"
     chalk "^1.1.1"
@@ -3917,6 +3921,7 @@ node-sass@^3.8.0:
     in-publish "^2.0.0"
     lodash.assign "^4.2.0"
     lodash.clonedeep "^4.3.2"
+    lodash.mergewith "^4.6.0"
     meow "^3.7.0"
     mkdirp "^0.5.1"
     nan "^2.3.2"
@@ -3924,6 +3929,7 @@ node-sass@^3.8.0:
     npmlog "^4.0.0"
     request "^2.61.0"
     sass-graph "^2.1.1"
+    stdout-stream "^1.4.0"
 
 node-uuid@^1.4.3, node-uuid@~1.4.7:
   version "1.4.7"
@@ -4480,7 +4486,7 @@ read@1, read@~1.0.1, read@~1.0.7:
   dependencies:
     mute-stream "~0.0.4"
 
-"readable-stream@1 || 2", readable-stream@^2, "readable-stream@^2.0.0 || ^1.1.13", readable-stream@^2.0.2, readable-stream@~2.1.5:
+"readable-stream@1 || 2", readable-stream@^2, "readable-stream@^2.0.0 || ^1.1.13", readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@~2.1.5:
   version "2.1.5"
   resolved "https://registry.npmjs.org/readable-stream/-/readable-stream-2.1.5.tgz#66fa8b720e1438b364681f2ad1a63c618448c9d0"
   dependencies:
@@ -5048,6 +5054,12 @@ stable@~0.1.3:
 "statuses@>= 1.3.1 < 2", statuses@~1.3.0:
   version "1.3.1"
   resolved "https://registry.npmjs.org/statuses/-/statuses-1.3.1.tgz#faf51b9eb74aaef3b3acf4ad5f61abf24cb7b93e"
+
+stdout-stream@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/stdout-stream/-/stdout-stream-1.4.0.tgz#a2c7c8587e54d9427ea9edb3ac3f2cd522df378b"
+  dependencies:
+    readable-stream "^2.0.1"
 
 string-template@~0.2.1:
   version "0.2.1"

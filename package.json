@@ -55,7 +55,7 @@
     "ember-power-select": "1.0.3",
     "ember-resolver": "^2.0.3",
     "eslint-plugin-ember-suave": "^1.0.0",
-    "flexi": "1.2.0",
+    "flexi": "html-next/flexi",
     "loader.js": "^4.0.10"
   },
   "engines": {
