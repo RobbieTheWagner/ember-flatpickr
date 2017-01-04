@@ -4,15 +4,9 @@
 module.exports = {
   name: 'ember-flatpickr',
   included: function(app) {
-    let cssPath = 'themes/';
     if (app.options && app.options.flatpickr && app.options.flatpickr.theme) {
-      cssPath += app.options.flatpickr.theme;
+      this.theme = `themes/${app.options.flatpickr.theme}.css`;
     }
-    else {
-      cssPath += 'dark';
-    }
-    cssPath += '.css';
-    this.theme = cssPath;
 
     this.locales = [];
     if (app.options && app.options.flatpickr && app.options.flatpickr.locales) {
@@ -31,7 +25,7 @@ module.exports = {
           srcDir: 'dist',
           import: [
             'flatpickr.js',
-            this.theme,
+            this.theme || 'flatpickr.css',
             ...localePaths
           ]
         };
