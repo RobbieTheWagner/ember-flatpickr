@@ -4,7 +4,7 @@ const { Controller, Logger } = Ember;
 export default Controller.extend({
   dateValue: null,
   defaultDate: '2080-12-27T16:16:22.585Z',
-  locale: 'default',
+  locale: null,
   locales: ['default', 'fr', 'de', 'ru', 'uk'],
   minDate: null,
   actions: {
