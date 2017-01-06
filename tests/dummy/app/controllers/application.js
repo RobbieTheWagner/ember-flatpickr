@@ -15,7 +15,12 @@ export default Controller.extend({
     onClose() {
       Logger.log('Flatpickr closed');
     },
+    onReady() {
+      this.set('dateValue', null);
+      Logger.log('onReady called');
+    },
     updateMin() {
+      this.set('dateValue', null);
       this.set('minDate', '2080-12-24T16:16:22.585Z');
     }
   }
