@@ -24,13 +24,12 @@
     "start": "ember server",
     "test": "ember try:each",
     "deploy": "ember github-pages:commit --message \"Deploy gh-pages from commit $(git rev-parse HEAD)\"; git push; git checkout -"
-
   },
   "dependencies": {
     "ember-assign-polyfill": "1.0.0",
     "ember-cli-babel": "^5.1.7",
     "ember-cli-node-assets": "0.1.6",
-    "flatpickr": "^2.2.8"
+    "flatpickr": "^2.3.2"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
