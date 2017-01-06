@@ -30,7 +30,7 @@
     "ember-assign-polyfill": "1.0.0",
     "ember-cli-babel": "^5.1.7",
     "ember-cli-node-assets": "0.1.6",
-    "flatpickr": "^2.2.8"
+    "flatpickr": "^2.3.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
