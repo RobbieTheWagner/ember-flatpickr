@@ -12,46 +12,46 @@
     </centered>
   </grid>
 
-    <vbox>
-      <hbox>
-        <box xs="12" md="6" class="half">
-          <h2>Demo</h2>
-          {{ember-flatpickr
-            appendDataInput=true
-            defaultDate=defaultDate
-            enableTime=true
-            locale=locale
-            minDate=minDate
-            onClose="onClose"
-            onChange="onChange"
-            onReady="onReady"
-            placeholder="Pick date"
-            value=(readonly dateValue)
-          }}
+  <vbox>
+    <hbox>
+      <box xs="12" md="6" class="half">
+        <h2>Demo</h2>
+        {{ember-flatpickr
+          appendDataInput=true
+          defaultDate=defaultDate
+          enableTime=true
+          locale=locale
+          minDate=minDate
+          onClose="onClose"
+          onChange="onChange"
+          onReady="onReady"
+          placeholder="Pick date"
+          value=(readonly dateValue)
+        }}
 
-          <p>
-            You selected: {{dateValue}}
-          </p>
-        </box>
-        <box xs="12" md="6" class="half">
-          <h2>Options</h2>
+        <p>
+          You selected: {{dateValue}}
+        </p>
+      </box>
+      <box xs="12" md="6" class="half">
+        <h2>Options</h2>
 
-          <p>Try switching locales or setting the min date, and check out the changes.</p>
+        <p>Try switching locales or setting the min date, and check out the changes.</p>
 
-          <span>Change Locale:&nbsp;</span>
-          {{#power-select
-            matchTriggerWidth=false
-            options=locales
-            searchEnabled=false
-            selected=locale
-            onchange=(action (mut locale))
-          as |option|
-          }}
-            {{option}}
-          {{/power-select}}
+        <span>Change Locale:&nbsp;</span>
+        {{#power-select
+          matchTriggerWidth=false
+          options=locales
+          searchEnabled=false
+          selected=locale
+          onchange=(action (mut locale))
+        as |option|
+        }}
+          {{option}}
+        {{/power-select}}
 
-          <button {{action "updateMin"}}>Set minDate to '2080-12-24T16:16:22.585Z'</button>
-        </box>
-      </hbox>
-    </vbox>
+        <button {{action "updateMin"}}>Set minDate to '2080-12-24T16:16:22.585Z'</button>
+      </box>
+    </hbox>
+  </vbox>
 </page>
