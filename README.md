@@ -101,6 +101,47 @@ onChange=(action (mut dateValue))
 }}
 ```
 
+### Manual Localization Configuration
+`locales` option also accepts an object for [custom locale configuration](https://chmln.github.io/flatpickr/#locale). This is useful for reusing app locale code.
+
+The following example is using `moment.js` and assumes that a `userLocale` is specified to look up the correct locale configuration from `moment.js`.
+
+```javascript
+import Ember from 'ember';
+import moment from 'moment';
+
+// app/controllers/some-controller.js
+export default Ember.Controller.extend({
+  userLocale: 'de',
+  
+  customLocaleConfig: Ember.computed(function(){
+    const userLocale = this.get('userLocale');
+    const localeData = moment.localeData(userLocale);
+    
+    return {
+      ordinal: localeData.ordinal,
+      weekdays: {
+        longhand: localeData.weekdays(),
+        shorthand: localeData.weekdaysShort()
+      },
+      months: {
+        longhand: localeData.months()
+        shorthand: localeData.monthsShort()
+      }
+    };
+  })
+})
+```
+
+```handlebars
+{{ember-flatpickr
+locale=customLocaleConfig
+onChange=(action (mut dateValue))
+}}
+```
+
+Check [flatpickr locale documentation](https://chmln.github.io/flatpickr/#locale) for a list of config options.
+
 ## Observers
 
 `maxDate` and `minDate` are watched by observers, and will update the flatpickr instance whenever you change them. This allows you to do things like having two components, used as a range picker, and updating the `minDate` and `maxDate` to display valid date choices on each.
