@@ -1,6 +1,5 @@
 import Ember from 'ember';
-import assign from 'ember-assign-polyfill';
-const { assert, observer, on, run, TextField } = Ember;
+const { assert, assign, observer, on, run, TextField } = Ember;
 
 export default TextField.extend({
   attributeBindings: ['placeholder', 'value'],

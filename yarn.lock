@@ -2,26 +2,26 @@
 # yarn lockfile v1
 
 
-"@html-next/flexi-config@2.0.0-beta.11":
-  version "2.0.0-beta.11"
-  resolved "https://registry.npmjs.org/@html-next/flexi-config/-/flexi-config-2.0.0-beta.11.tgz#85e6eac5839b86ed405eb7ad2a0896c836e7ea5f"
+"@html-next/flexi-config@2.0.0-beta.12":
+  version "2.0.0-beta.12"
+  resolved "https://registry.npmjs.org/@html-next/flexi-config/-/flexi-config-2.0.0-beta.12.tgz#af2fa4d90a6d1fb510511c1c02e51a9d6514eac6"
   dependencies:
     ember-cli-babel "^5.1.7"
 
-"@html-next/flexi-default-styles@2.0.0-beta.11":
-  version "2.0.0-beta.11"
-  resolved "https://registry.npmjs.org/@html-next/flexi-default-styles/-/flexi-default-styles-2.0.0-beta.11.tgz#475d9cc5a9aa9c4ee8be20ff7f2ea48fe9ea9878"
+"@html-next/flexi-default-styles@2.0.0-beta.12":
+  version "2.0.0-beta.12"
+  resolved "https://registry.npmjs.org/@html-next/flexi-default-styles/-/flexi-default-styles-2.0.0-beta.12.tgz#5f7a58a85e63d84dc75172b4045f0430a91084b0"
   dependencies:
-    "@html-next/flexi-config" "2.0.0-beta.11"
+    "@html-next/flexi-config" "2.0.0-beta.12"
     ember-cli-babel "^5.1.7"
     ember-cli-sass "^6.0.0"
     rsvp "^3.2.0"
 
-"@html-next/flexi-dsl@2.0.0-beta.11":
-  version "2.0.0-beta.11"
-  resolved "https://registry.npmjs.org/@html-next/flexi-dsl/-/flexi-dsl-2.0.0-beta.11.tgz#2b3743d4c5473de553c6702911ea4532e6d251d7"
+"@html-next/flexi-dsl@2.0.0-beta.12":
+  version "2.0.0-beta.12"
+  resolved "https://registry.npmjs.org/@html-next/flexi-dsl/-/flexi-dsl-2.0.0-beta.12.tgz#475f710c48f20c1bf8bbfc1a738e3245985870be"
   dependencies:
-    "@html-next/flexi-config" "2.0.0-beta.11"
+    "@html-next/flexi-config" "2.0.0-beta.12"
     chalk "^1.1.1"
     debug "^2.2.0"
     ember-cli-babel "^5.1.7"
@@ -29,11 +29,11 @@
     object-assign "^4.1.0"
     rsvp "^3.2.0"
 
-"@html-next/flexi-layouts@2.0.0-beta.11":
-  version "2.0.0-beta.11"
-  resolved "https://registry.npmjs.org/@html-next/flexi-layouts/-/flexi-layouts-2.0.0-beta.11.tgz#885f87254a50067d175b7ba7377bdc56edc91090"
+"@html-next/flexi-layouts@2.0.0-beta.12":
+  version "2.0.0-beta.12"
+  resolved "https://registry.npmjs.org/@html-next/flexi-layouts/-/flexi-layouts-2.0.0-beta.12.tgz#05c27c57436017fda8ea86fc40d7cc75e43cc53d"
   dependencies:
-    "@html-next/flexi-config" "2.0.0-beta.11"
+    "@html-next/flexi-config" "2.0.0-beta.12"
     broccoli-funnel "^1.0.1"
     broccoli-merge-trees "^1.1.1"
     broccoli-plugin "^1.2.1"
@@ -1510,15 +1510,16 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
-ember-assign-polyfill@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/ember-assign-polyfill/-/ember-assign-polyfill-1.0.0.tgz#cb6e09f08e8bdb6c2dc648fb680d63457a59bcb2"
+ember-assign-polyfill@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npmjs.org/ember-assign-polyfill/-/ember-assign-polyfill-2.0.1.tgz#cbd040e9d2105baf90893c2f2a6b85074a12acb0"
   dependencies:
     ember-cli-babel "^5.1.7"
+    ember-cli-version-checker "^1.2.0"
 
-ember-basic-dropdown@^0.22.0:
-  version "0.22.0"
-  resolved "https://registry.npmjs.org/ember-basic-dropdown/-/ember-basic-dropdown-0.22.0.tgz#2b160272b7b817efc8218271d5420e0da65f9877"
+ember-basic-dropdown@^0.24.0:
+  version "0.24.4"
+  resolved "https://registry.npmjs.org/ember-basic-dropdown/-/ember-basic-dropdown-0.24.4.tgz#ea116f33441b6c4b3908fb9917c51aa05dee200d"
   dependencies:
     ember-cli-babel "^5.1.10"
     ember-cli-htmlbars "^1.1.1"
@@ -1918,11 +1919,11 @@ ember-maybe-import-regenerator@^0.1.4:
     ember-cli-babel "^5.1.6"
     regenerator-runtime "^0.9.5"
 
-ember-power-select@1.4.1:
-  version "1.4.1"
-  resolved "https://registry.npmjs.org/ember-power-select/-/ember-power-select-1.4.1.tgz#9157686c81c818e9a99be9b180636e109f7d6f00"
+ember-power-select@1.5.0-beta.0:
+  version "1.5.0-beta.0"
+  resolved "https://registry.npmjs.org/ember-power-select/-/ember-power-select-1.5.0-beta.0.tgz#0a5fcfc4239e0a33300429cab9aa882aa799f6ff"
   dependencies:
-    ember-basic-dropdown "^0.22.0"
+    ember-basic-dropdown "^0.24.0"
     ember-cli-babel "^5.1.10"
     ember-cli-htmlbars "^1.1.1"
     ember-concurrency "^0.7.15"
@@ -2501,11 +2502,11 @@ flatpickr@^2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-2.3.2.tgz#548f7e01c681058c66ea2892f8cc6c8a56139c71"
 
-flexi@2.0.0-beta.11:
-  version "2.0.0-beta.11"
-  resolved "https://registry.npmjs.org/flexi/-/flexi-2.0.0-beta.11.tgz#38436455166d3a31643b0ab8e4184b78572d371c"
+flexi@2.0.0-beta.12:
+  version "2.0.0-beta.12"
+  resolved "https://registry.npmjs.org/flexi/-/flexi-2.0.0-beta.12.tgz#ef67768f1c78c8132a804da04ec991b1112461a1"
   dependencies:
-    "@html-next/flexi-config" "2.0.0-beta.11"
+    "@html-next/flexi-config" "2.0.0-beta.12"
     ember-cli-babel "^5.1.7"
 
 for-in@^0.1.5:
@@ -4601,7 +4602,19 @@ read@1, read@~1.0.1, read@~1.0.7:
   dependencies:
     mute-stream "~0.0.4"
 
-"readable-stream@1 || 2", readable-stream@^2, "readable-stream@^2.0.0 || ^1.1.13", readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.2.2:
+"readable-stream@1 || 2", readable-stream@^2, readable-stream@^2.0.2, readable-stream@~2.1.5:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.1.5.tgz#66fa8b720e1438b364681f2ad1a63c618448c9d0"
+  dependencies:
+    buffer-shims "^1.0.0"
+    core-util-is "~1.0.0"
+    inherits "~2.0.1"
+    isarray "~1.0.0"
+    process-nextick-args "~1.0.6"
+    string_decoder "~0.10.x"
+    util-deprecate "~1.0.1"
+
+"readable-stream@^2.0.0 || ^1.1.13", readable-stream@^2.0.1, readable-stream@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.2.2.tgz#a9e6fec3c7dda85f8bb1b3ba7028604556fc825e"
   dependencies:
@@ -4626,18 +4639,6 @@ readable-stream@~2.0.5:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.0.6.tgz#8f90341e68a53ccc928788dacfcd11b36eb9b78e"
   dependencies:
-    core-util-is "~1.0.0"
-    inherits "~2.0.1"
-    isarray "~1.0.0"
-    process-nextick-args "~1.0.6"
-    string_decoder "~0.10.x"
-    util-deprecate "~1.0.1"
-
-readable-stream@~2.1.5:
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.1.5.tgz#66fa8b720e1438b364681f2ad1a63c618448c9d0"
-  dependencies:
-    buffer-shims "^1.0.0"
     core-util-is "~1.0.0"
     inherits "~2.0.1"
     isarray "~1.0.0"
