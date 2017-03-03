@@ -144,3 +144,184 @@ test('locale works correctly', function(assert) {
 
   assert.equal($('.flatpickr-current-month .cur-month').text().trim(), 'Décembre', 'French locale applied successfully');
 });
+
+test('onChange triggers value change only once', function(assert) {
+  assert.expect(3);
+
+  let originalPosition = '1';
+  let originalDate = '2080-12-01T20:00:00.000Z';
+  let newPosition = '5';
+
+  this.on('onChange', (selectedDates) => {
+    assert.ok(selectedDates[0].toISOString(), 'onChange action was executed');
+
+    this.set('dateValue', selectedDates[0]);
+  });
+
+  this.set('dateValue', originalDate);
+
+  this.render(
+    hbs`{{ember-flatpickr
+      onChange="onChange"
+      placeholder="Pick date"
+      value=(readonly dateValue)
+      }}`);
+
+  run(() => {
+    assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), originalPosition, 'initial selected date text');
+
+    $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
+    $('.flatpickr-days .flatpickr-day').get(newPosition - 1).click();
+
+    assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), newPosition, 'selected changes with dateValue');
+  });
+
+});
+
+test('onChange gets called with the correct parameters', function(assert) {
+  let originalPosition = '1';
+  let originalDate = '2080-12-01T20:00:00.000Z';
+  let newPosition = '5';
+  let dateFormat = 'Y-Y-m-d';
+  let newFormattedDate = '2080-2080-12-05';
+
+  this.on('onChange', (selectedDates, dateStr, instance) => {
+    assert.ok(selectedDates instanceof Array, 'selectedDates is an array');
+    assert.equal(selectedDates.length, 1, 'selectedDates contains a single entry');
+
+    assert.ok(selectedDates[0] instanceof Date, 'selectedDates contains DateObjects');
+
+    assert.equal(selectedDates[0].toDateString(), new Date('2080-12-05').toDateString(), 'selectedDates contains the correct Date');
+
+    assert.equal(dateStr, newFormattedDate, 'dateStr is formatted correctly');
+
+    assert.ok(instance instanceof Flatpickr, 'instance is a Flatpickr object');
+  });
+
+  this.set('dateValue', originalDate);
+  this.set('dateFormat', dateFormat);
+
+  this.render(
+    hbs`{{ember-flatpickr
+      onChange="onChange"
+      placeholder="Pick date"
+      value=(readonly dateValue)
+      dateFormat=dateFormat
+      }}`);
+
+  run(() => {
+    assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), originalPosition, 'initial selected date text');
+
+    $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
+    $('.flatpickr-days .flatpickr-day').get(newPosition - 1).click();
+
+    assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), newPosition, 'selected changes with dateValue');
+
+    $('.flatpickr-input')[0]._flatpickr.set('dateFormat', 'Y-m-d');
+    newFormattedDate = '2080-12-05';
+
+    $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
+    $('.flatpickr-days .flatpickr-day').get(newPosition - 1).click();
+
+    assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), newPosition, 'selected changes with dateValue');
+  });
+
+});
+
+test('onChange action mut helper returns date Array', function(assert) {
+  assert.expect(5);
+
+  let originalPosition = '1';
+  let originalDate = '2080-12-01T20:00:00.000Z';
+  let newPosition = '5';
+
+  this.set('dateValue', originalDate);
+
+  this.render(
+    hbs`{{ember-flatpickr
+      onChange=(action (mut dateValue))
+      placeholder="Pick date"
+      value=(readonly dateValue)
+      }}`);
+
+  run(() => {
+    assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), originalPosition, 'initial selected date text');
+
+    $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
+    $('.flatpickr-days .flatpickr-day').get(newPosition - 1).click();
+
+    assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), newPosition, 'selected changes with dateValue');
+
+    assert.ok(this.get('dateValue') instanceof Array, 'dateValue is instanceof Array');
+    assert.ok(this.get('dateValue').length, 1, 'dateValue has 1 item');
+    assert.ok(this.get('dateValue')[0] instanceof Date, 'dateValue is an array of DateObjects');
+  });
+
+});
+
+test('value accepts string, dateObject or array of string/dateObjects', function(assert) {
+  assert.expect(8);
+
+  let originalDate = '2080-12-05T20:00:00.000Z';
+
+  this.set('dateValue', originalDate);
+
+  this.render(
+    hbs`{{ember-flatpickr
+      onChange=(action (mut dateValue))
+      placeholder="Pick date"
+      value=(readonly dateValue)
+      flatpickrRef=flatpickrRef
+      }}`);
+
+  run(() => {
+    assert.equal(this.get('flatpickrRef').selectedDates.length, 1, '1 date is selected');
+    assert.equal(this.get('flatpickrRef').selectedDates[0].valueOf(), new Date(originalDate).valueOf(), 'selected date is correct');
+  });
+
+  this.set('dateValue', new Date(originalDate));
+
+  this.render(
+    hbs`{{ember-flatpickr
+      onChange=(action (mut dateValue))
+      placeholder="Pick date"
+      value=(readonly dateValue)
+      flatpickrRef=flatpickrRef
+      }}`);
+
+  run(() => {
+    assert.equal(this.get('flatpickrRef').selectedDates.length, 1, '1 date is selected');
+    assert.equal(this.get('flatpickrRef').selectedDates[0].valueOf(), new Date(originalDate).valueOf(), 'selected date is correct');
+  });
+
+  this.set('dateValue', [originalDate]);
+
+  this.render(
+    hbs`{{ember-flatpickr
+      onChange=(action (mut dateValue))
+      placeholder="Pick date"
+      value=(readonly dateValue)
+      flatpickrRef=flatpickrRef
+      }}`);
+
+  run(() => {
+    assert.equal(this.get('flatpickrRef').selectedDates.length, 1, '1 date is selected');
+    assert.equal(this.get('flatpickrRef').selectedDates[0].valueOf(), new Date(originalDate).valueOf(), 'selected date is correct');
+  });
+
+  this.set('dateValue', [new Date(originalDate)]);
+
+  this.render(
+    hbs`{{ember-flatpickr
+      onChange=(action (mut dateValue))
+      placeholder="Pick date"
+      value=(readonly dateValue)
+      flatpickrRef=flatpickrRef
+      }}`);
+
+  run(() => {
+    assert.equal(this.get('flatpickrRef').selectedDates.length, 1, '1 date is selected');
+    assert.equal(this.get('flatpickrRef').selectedDates[0].valueOf(), new Date(originalDate).valueOf(), 'selected date is correct');
+  });
+
+});
