@@ -46,7 +46,7 @@ minuteIncrement=5
 mode='single'
 nextArrow='>'
 noCalendar=false
-onChange=(action (mut dateValue))
+onChange=(action (mut dateValues))
 onClose='doSomeStuffOnClose'
 onOpen='doSomeStuffOnOpen'
 onReady='doSomeStuffOnReady'
@@ -57,15 +57,26 @@ static=false
 timeFormat='H:i'
 time_24hr=false
 utc=false
-value=(readonly dateValue)
+value=(readonly dateValues)
 wrap=false}}
 ```
 
 *(`onChange` is the only required option, but you can pass null if you do not care about it. All other options are displayed, but they have defaults and you only need to pass what you need)
 
-**Note:** You should pass your value with the `readonly` helper, and you should only update your value selected in the `onChange` action. If you just want it to be set to the new `dateObject`, you can use `(action (mut dateValue))` like the example above.
+**Note:** You should pass your value with the `readonly` helper, and you should only update your value selected in the `onChange` action. 
 
-Whenever a new date is selected, the action `onChange` will be fired, and passed the new `dateObject` and `dateString` to that action. This allows you to pass whatever action you may want in to happen on change.
+Value property accepts:
+  * A single `dateObject`
+  * A single `string` containing a date formatted accordingly to `dateFormat`
+  * An array of `dateObject`
+  * An array of `string` containing dates formatted accordingly to `dateFormat`
+
+`onChange`, `onClose`, `onOpen`, `onReady` receive 3 parameters:
+  * An array of `dateObjects` 
+  * A string formatted accordingly to `dateFormat` representing the last selected date
+  * The `Flatpickr` instance
+
+Whenever a new date is selected, the action `onChange` will be fired: if you just want the event to set the array of selected `dateObject`, you can use `(action (mut dateValues))` like the example above. Otherwise you should implement you own `onChange` action.
 
 ## Themes
 
