@@ -191,7 +191,7 @@ test('onChange gets called with the correct parameters', function(assert) {
 
     assert.ok(selectedDates[0] instanceof Date, 'selectedDates contains DateObjects');
 
-    assert.equal(selectedDates[0].toDateString(), new Date('2080-12-05').toDateString(), 'selectedDates contains the correct Date');
+    assert.equal(selectedDates[0].toDateString(), new Date('2080-12-06').toDateString(), 'selectedDates contains the correct Date');
 
     assert.equal(dateStr, newFormattedDate, 'dateStr is formatted correctly');
 
