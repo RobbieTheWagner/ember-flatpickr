@@ -1,5 +1,10 @@
 import Ember from 'ember';
-const { assert, assign, observer, on, run, TextField } = Ember;
+import { assert } from 'ember-metal/utils';
+import observer from 'ember-metal/observer';
+import on from 'ember-evented/on';
+import run from 'ember-runloop';
+import TextField from 'ember-components/text-field';
+const { assign } = Ember;
 
 export default TextField.extend({
   attributeBindings: ['placeholder', 'value'],
@@ -54,9 +59,7 @@ export default TextField.extend({
    * @private
    */
   _onChange(selectedDates, dateStr, instance) {
-    if (selectedDates && selectedDates.length > 0) {
-      this.sendAction('onChange', selectedDates, dateStr, instance);
-    }
+    this.sendAction('onChange', selectedDates, dateStr, instance);
   },
   /**
    * When the flatpickr is closed, fire the 'onClose' action
