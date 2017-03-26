@@ -32,10 +32,10 @@
     "flatpickr": "^2.4.6"
   },
   "devDependencies": {
-    "@html-next/flexi-config": "2.0.0-beta.12",
-    "@html-next/flexi-default-styles": "2.0.0-beta.12",
+    "@html-next/flexi-config": "2.0.0-rc.1",
+    "@html-next/flexi-default-styles": "2.0.0-rc.2",
     "@html-next/flexi-dsl": "2.0.0-rc.2",
-    "@html-next/flexi-layouts": "2.0.0-beta.12",
+    "@html-next/flexi-layouts": "2.0.0-rc.2",
     "babel-eslint": "^7.2.0",
     "broccoli-asset-rev": "^2.4.5",
     "codeclimate-test-reporter": "^0.4.0",
@@ -62,7 +62,7 @@
     "ember-resolver": "^2.0.3",
     "ember-source": "^2.11.0",
     "eslint-plugin-ember-suave": "^1.0.0",
-    "flexi": "2.0.0-beta.12",
+    "flexi": "2.0.0-rc.1",
     "loader.js": "^4.0.10"
   },
   "engines": {
