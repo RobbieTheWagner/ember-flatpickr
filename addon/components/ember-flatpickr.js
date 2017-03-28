@@ -1,10 +1,9 @@
-import Ember from 'ember';
 import { assert } from 'ember-metal/utils';
+import { assign } from 'ember-platform';
 import observer from 'ember-metal/observer';
 import on from 'ember-evented/on';
 import run from 'ember-runloop';
 import TextField from 'ember-components/text-field';
-const { assign } = Ember;
 
 export default TextField.extend({
   attributeBindings: ['placeholder', 'value'],
