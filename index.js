@@ -25,9 +25,8 @@ module.exports = {
           srcDir: 'dist',
           import: [
             'flatpickr.js',
-            this.theme || 'flatpickr.css',
-            ...localePaths
-          ]
+            this.theme || 'flatpickr.css'
+          ].concat(localePaths)
         };
       }
     }
