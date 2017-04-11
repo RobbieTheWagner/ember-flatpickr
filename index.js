@@ -3,7 +3,7 @@
 
 module.exports = {
   name: 'ember-flatpickr',
-  included: function(app) {
+  included(app) {
     if (app.options && app.options.flatpickr && app.options.flatpickr.theme) {
       this.theme = `themes/${app.options.flatpickr.theme}.css`;
     }
@@ -17,7 +17,7 @@ module.exports = {
   },
   options: {
     nodeAssets: {
-      flatpickr: function() {
+      flatpickr() {
         const localePaths = this.locales.map(locale => `l10n/${locale}.js`)
 
         return {
