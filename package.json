@@ -28,14 +28,14 @@
   "dependencies": {
     "ember-cli-babel": "^6.0.0-beta.9",
     "ember-cli-node-assets": "0.2.0",
-    "flatpickr": "^2.4.7"
+    "flatpickr": "^2.5.7"
   },
   "devDependencies": {
     "@html-next/flexi-config": "2.0.0-rc.1",
     "@html-next/flexi-default-styles": "2.0.0-rc.2",
     "@html-next/flexi-dsl": "2.0.0-rc.2",
     "@html-next/flexi-layouts": "2.0.0-rc.2",
-    "babel-eslint": "^7.2.0",
+    "babel-eslint": "^7.2.2",
     "broccoli-asset-rev": "^2.4.5",
     "codeclimate-test-reporter": "^0.4.1",
     "ember-cli": "2.13.0-beta.2",
@@ -57,7 +57,7 @@
     "ember-power-select": "1.7.2",
     "ember-resolver": "^3.0.0",
     "ember-source": "~2.13.0-beta.1",
-    "eslint-plugin-ember-suave": "^1.0.0",
+    "eslint-plugin-ship-shape": "^0.4.0",
     "flexi": "2.0.0-rc.1",
     "loader.js": "^4.2.3"
   },

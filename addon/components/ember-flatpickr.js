@@ -1,3 +1,4 @@
+/* eslint-disable  ship-shape/closure-actions, ship-shape/no-observers */
 import { assert } from 'ember-metal/utils';
 import { assign } from 'ember-platform';
 import observer from 'ember-metal/observer';
@@ -96,7 +97,7 @@ export default TextField.extend({
 
     // Pass all values and setup flatpickr
     run.scheduleOnce('afterRender', this, function() {
-      let options = this.getProperties([
+      const options = this.getProperties([
         'allowInput',
         'altFormat',
         'altInput',
@@ -138,7 +139,7 @@ export default TextField.extend({
         onReady: this._onReady.bind(this)
       });
 
-      let flatpickrRef = new Flatpickr(this.element, options);
+      const flatpickrRef = new Flatpickr(this.element, options);
 
       if (this.get('appendDataInput')) {
         this.$().attr('data-input', '');
@@ -149,8 +150,8 @@ export default TextField.extend({
   didReceiveAttrs() {
     this._super(...arguments);
 
-    let value = this.get('value');
-    let ref = this.get('flatpickrRef');
+    const value = this.get('value');
+    const ref = this.get('flatpickrRef');
 
     if (ref) {
       this.get('flatpickrRef').setDate(value);

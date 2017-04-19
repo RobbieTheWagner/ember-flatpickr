@@ -6,7 +6,7 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:ember-suave/recommended'
+    'plugin:ship-shape/recommended'
   ],
   env: {
     'browser': true
