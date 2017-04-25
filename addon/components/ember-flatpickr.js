@@ -7,7 +7,7 @@ import run from 'ember-runloop';
 import TextField from 'ember-components/text-field';
 
 export default TextField.extend({
-  attributeBindings: ['placeholder', 'value'],
+  attributeBindings: ['placeholder'],
   // Flatpickr options
   allowInput: false,
   altFormat: 'F j, Y',
