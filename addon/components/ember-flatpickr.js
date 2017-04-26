@@ -1,13 +1,19 @@
-/* eslint-disable  ship-shape/closure-actions, ship-shape/no-observers */
+/* eslint-disable  ship-shape/closure-actions, ship-shape/no-observers, ship-shape/no-on-calls-in-components, ship-shape/avoid-leaking-state-in-components, ship-shape/order-in-components */
 import { assert } from 'ember-metal/utils';
 import { assign } from 'ember-platform';
 import observer from 'ember-metal/observer';
 import on from 'ember-evented/on';
 import run from 'ember-runloop';
-import TextField from 'ember-components/text-field';
+import Ember from 'ember';
 
-export default TextField.extend({
-  attributeBindings: ['placeholder', 'value'],
+const {
+  Component
+} = Ember;
+
+export default Component.extend({
+  tagName: 'input',
+  type: 'text',
+  attributeBindings: ['placeholder'],
   // Flatpickr options
   allowInput: false,
   altFormat: 'F j, Y',
@@ -132,6 +138,8 @@ export default TextField.extend({
         'weekNumbers',
         'wrap'
       ]);
+
+      options.defaultDate = this.get('value');
 
       // Add change and close handlers
       assign(options, {
