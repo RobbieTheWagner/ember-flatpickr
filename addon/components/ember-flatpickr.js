@@ -1,4 +1,4 @@
-/* eslint-disable  ship-shape/closure-actions, ship-shape/no-observers */
+/* eslint-disable  ship-shape/closure-actions, ship-shape/no-observers, ship-shape/no-on-calls-in-components, ship-shape/avoid-leaking-state-in-components, ship-shape/order-in-components */
 import { assert } from 'ember-metal/utils';
 import { assign } from 'ember-platform';
 import observer from 'ember-metal/observer';
