@@ -105,6 +105,8 @@ export default TextField.extend({
         'clickOpens',
         'dateFormat',
         'defaultDate',
+        'defaultHour',
+        'defaultMinute',
         'disable',
         'disableMobile',
         'enable',
