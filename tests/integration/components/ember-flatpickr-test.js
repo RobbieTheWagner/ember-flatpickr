@@ -64,7 +64,7 @@ test('onChange action fired', function(assert) {
     setTimeout(() => {
       assert.equal(selectedDates[0].toISOString(), '2080-12-06T17:00:00.000Z', 'onChange action was executed');
       done();
-    });
+    }, 100);
   });
 
   this.set('maxDate', '2080-12-31T16:16:22.585Z');
