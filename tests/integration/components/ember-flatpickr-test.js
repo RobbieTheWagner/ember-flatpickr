@@ -62,7 +62,7 @@ test('onChange action fired', function(assert) {
 
   this.on('onChange', (selectedDates) => {
     setTimeout(() => {
-      assert.equal(selectedDates[0].toISOString(), '2080-12-06T17:00:00.000Z', 'onChange action was executed');
+      assert.equal(selectedDates[0].toISOString().substring(0, 10), '2080-12-06', 'onChange action was executed');
       done();
     }, 100);
   });
