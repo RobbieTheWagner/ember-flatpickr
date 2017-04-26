@@ -4,9 +4,15 @@ import { assign } from 'ember-platform';
 import observer from 'ember-metal/observer';
 import on from 'ember-evented/on';
 import run from 'ember-runloop';
-import TextField from 'ember-components/text-field';
+import Ember from 'ember';
 
-export default TextField.extend({
+const {
+  Component
+} = Ember;
+
+export default Component.extend({
+  tagName: 'input',
+  type: 'text',
   attributeBindings: ['placeholder'],
   // Flatpickr options
   allowInput: false,
