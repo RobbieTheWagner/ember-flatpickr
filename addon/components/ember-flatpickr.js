@@ -111,6 +111,8 @@ export default Component.extend({
         'clickOpens',
         'dateFormat',
         'defaultDate',
+        'defaultHour',
+        'defaultMinute',
         'disable',
         'disableMobile',
         'enable',
