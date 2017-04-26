@@ -139,6 +139,8 @@ export default Component.extend({
         'wrap'
       ]);
 
+      options.defaultDate = this.get('value');
+
       // Add change and close handlers
       assign(options, {
         onChange: this._onChange.bind(this),
