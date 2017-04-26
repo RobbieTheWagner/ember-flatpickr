@@ -1,13 +1,15 @@
-/* eslint-disable  ship-shape/closure-actions, ship-shape/no-observers */
+/* eslint-disable  ship-shape/avoid-leaking-state-in-components, ship-shape/closure-actions, ship-shape/no-observers, ship-shape/no-on-calls-in-components */
 import { assert } from 'ember-metal/utils';
 import { assign } from 'ember-platform';
+import Component from 'ember-component';
 import observer from 'ember-metal/observer';
 import on from 'ember-evented/on';
 import run from 'ember-runloop';
-import TextField from 'ember-components/text-field';
 
-export default TextField.extend({
-  attributeBindings: ['placeholder', 'value'],
+export default Component.extend({
+  tagName: 'input',
+  type: 'text',
+  attributeBindings: ['placeholder', 'type'],
   // Flatpickr options
   allowInput: false,
   altFormat: 'F j, Y',
@@ -16,6 +18,8 @@ export default TextField.extend({
   clickOpens: true,
   dateFormat: 'Y-m-d',
   defaultDate: null,
+  defaultHour: 12,
+  defaultMinute: 0,
   disable: [],
   disableMobile: false,
   enable: [],
@@ -41,56 +45,7 @@ export default TextField.extend({
   value: null,
   weekNumbers: false,
   wrap: false,
-  localeUpdated: observer('locale', function() {
-    this.get('flatpickrRef').destroy();
-    this.setupComponent();
-  }),
-  maxDateUpdated: observer('maxDate', function() {
-    this.get('flatpickrRef').set('maxDate', this.get('maxDate'));
-  }),
-  minDateUpdated: observer('minDate', function() {
-    this.get('flatpickrRef').set('minDate', this.get('minDate'));
-  }),
-  /**
-   * When the date is changed, update the value and send 'onChange' action
-   * @param selectedDates The array of selected dates
-   * @param dateStr The string representation of the date, formatted by dateFormat
-   * @param instance The flatpickr instance
-   * @private
-   */
-  _onChange(selectedDates, dateStr, instance) {
-    this.sendAction('onChange', selectedDates, dateStr, instance);
-  },
-  /**
-   * When the flatpickr is closed, fire the 'onClose' action
-   * @param selectedDates The array of selected dates
-   * @param dateStr The string representation of the date, formatted by dateFormat
-   * @param instance The flatpickr instance
-   * @private
-   */
-  _onClose(selectedDates, dateStr, instance) {
-    this.sendAction('onClose', selectedDates, dateStr, instance);
-  },
-  /**
-   * When the flatpickr is opened, fire the 'onOpen' action
-   * @param selectedDates The array of selected dates
-   * @param dateStr The string representation of the date, formatted by dateFormat
-   * @param instance The flatpickr instance
-   * @private
-   */
-  _onOpen(selectedDates, dateStr, instance) {
-    this.sendAction('onOpen', selectedDates, dateStr, instance);
-  },
-  /**
-   * When the flatpickr is ready, fire the 'onReady' action
-   * @param selectedDates The array of selected dates
-   * @param dateStr The string representation of the date, formatted by dateFormat
-   * @param instance The flatpickr instance
-   * @private
-   */
-  _onReady(selectedDates, dateStr, instance) {
-    this.sendAction('onReady', selectedDates, dateStr, instance);
-  },
+
   setupComponent: on('init', function() {
     // Require that users pass an onChange now
     assert('{{ember-flatpickr}} requires an `onChange` action or null for no action.', this.get('onChange') !== undefined);
@@ -133,8 +88,9 @@ export default TextField.extend({
         'wrap'
       ]);
 
-      // Add change and close handlers
+      // Add defaultDate, change and close handlers
       assign(options, {
+        defaultDate: this.get('value'),
         onChange: this._onChange.bind(this),
         onClose: this._onClose.bind(this),
         onOpen: this._onOpen.bind(this),
@@ -149,17 +105,68 @@ export default TextField.extend({
       this.set('flatpickrRef', flatpickrRef);
     });
   }),
-  didReceiveAttrs() {
-    this._super(...arguments);
 
+  localeUpdated: observer('locale', function() {
+    this.get('flatpickrRef').destroy();
+    this.setupComponent();
+  }),
+  maxDateUpdated: observer('maxDate', function() {
+    this.get('flatpickrRef').set('maxDate', this.get('maxDate'));
+  }),
+  minDateUpdated: observer('minDate', function() {
+    this.get('flatpickrRef').set('minDate', this.get('minDate'));
+  }),
+  valueUpdated: observer('value', function() {
     const value = this.get('value');
     const ref = this.get('flatpickrRef');
 
-    if (ref) {
+    if (value && ref) {
       this.get('flatpickrRef').setDate(value);
     }
-  },
+  }),
+
   willDestroyElement() {
     this.get('flatpickrRef').destroy();
+  },
+
+  /**
+   * When the date is changed, update the value and send 'onChange' action
+   * @param selectedDates The array of selected dates
+   * @param dateStr The string representation of the date, formatted by dateFormat
+   * @param instance The flatpickr instance
+   * @private
+   */
+  _onChange(selectedDates, dateStr, instance) {
+    this.sendAction('onChange', selectedDates, dateStr, instance);
+  },
+  /**
+   * When the flatpickr is closed, fire the 'onClose' action
+   * @param selectedDates The array of selected dates
+   * @param dateStr The string representation of the date, formatted by dateFormat
+   * @param instance The flatpickr instance
+   * @private
+   */
+  _onClose(selectedDates, dateStr, instance) {
+    this.sendAction('onClose', selectedDates, dateStr, instance);
+  },
+  /**
+   * When the flatpickr is opened, fire the 'onOpen' action
+   * @param selectedDates The array of selected dates
+   * @param dateStr The string representation of the date, formatted by dateFormat
+   * @param instance The flatpickr instance
+   * @private
+   */
+  _onOpen(selectedDates, dateStr, instance) {
+    this.sendAction('onOpen', selectedDates, dateStr, instance);
+  },
+  /**
+   * When the flatpickr is ready, fire the 'onReady' action
+   * @param selectedDates The array of selected dates
+   * @param dateStr The string representation of the date, formatted by dateFormat
+   * @param instance The flatpickr instance
+   * @private
+   */
+  _onReady(selectedDates, dateStr, instance) {
+    this.sendAction('onReady', selectedDates, dateStr, instance);
   }
 });

@@ -7,6 +7,10 @@ moduleForComponent('ember-flatpickr', 'Integration | Component | ember flatpickr
   integration: true
 });
 
+function clickDay(index) {
+  simulate('mousedown', $('.flatpickr-days .flatpickr-day').get(index), { which: 1 }, MouseEvent);
+}
+
 function closeFlatpickr() {
   simulate('mousedown', document, { which: 1 }, MouseEvent);
 }
@@ -54,8 +58,13 @@ test('value updates when set externally', function(assert) {
 test('onChange action fired', function(assert) {
   assert.expect(1);
 
+  const done = assert.async();
+
   this.on('onChange', (selectedDates) => {
-    assert.equal(selectedDates[0].toISOString(), '2080-12-06T16:16:00.000Z', 'onChange action was executed');
+    setTimeout(() => {
+      assert.equal(selectedDates[0].toISOString(), '2080-12-06T17:00:00.000Z', 'onChange action was executed');
+      done();
+    });
   });
 
   this.set('maxDate', '2080-12-31T16:16:22.585Z');
@@ -75,7 +84,7 @@ test('onChange action fired', function(assert) {
 
   run(() => {
     $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
-    simulate('mousedown', $('.flatpickr-days .flatpickr-day').get(5), { which: 1 }, MouseEvent);
+    clickDay(5);
   });
 });
 
@@ -102,7 +111,7 @@ test('onClose action fired', function(assert) {
       value=(readonly dateValue)
       }}`);
 
-  run(function() {
+  run(() => {
     $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
     closeFlatpickr();
   });
@@ -186,7 +195,7 @@ test('onChange triggers value change only once', function(assert) {
     assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), originalPosition, 'initial selected date text');
 
     $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
-    simulate('mousedown', $('.flatpickr-days .flatpickr-day').get(newPosition - 1), { which: 1 }, MouseEvent);
+    clickDay(newPosition - 1);
 
     assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), newPosition, 'selected changes with dateValue');
   });
@@ -228,7 +237,7 @@ test('onChange gets called with the correct parameters', function(assert) {
     assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), originalPosition, 'initial selected date text');
 
     $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
-    simulate('mousedown', $('.flatpickr-days .flatpickr-day').get(newPosition - 1), { which: 1 }, MouseEvent);
+    clickDay(newPosition - 1);
 
     assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), newPosition, 'selected changes with dateValue');
 
@@ -236,7 +245,7 @@ test('onChange gets called with the correct parameters', function(assert) {
     newFormattedDate = '2080-12-05';
 
     $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
-    simulate('mousedown', $('.flatpickr-days .flatpickr-day').get(newPosition - 1), { which: 1 }, MouseEvent);
+    clickDay(newPosition - 1);
 
     assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), newPosition, 'selected changes with dateValue');
   });
@@ -263,7 +272,7 @@ test('onChange action mut helper returns date Array', function(assert) {
     assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), originalPosition, 'initial selected date text');
 
     $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
-    simulate('mousedown', $('.flatpickr-days .flatpickr-day').get(newPosition - 1), { which: 1 }, MouseEvent);
+    clickDay(newPosition - 1);
 
     assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), newPosition, 'selected changes with dateValue');
 
@@ -274,8 +283,8 @@ test('onChange action mut helper returns date Array', function(assert) {
 
 });
 
-test('value accepts string, dateObject or array of string/dateObjects', function(assert) {
-  assert.expect(8);
+test('value accepts string', function(assert) {
+  assert.expect(2);
 
   const originalDate = '2080-12-05T20:00:00.000Z';
 
@@ -293,6 +302,12 @@ test('value accepts string, dateObject or array of string/dateObjects', function
     assert.equal(this.get('flatpickrRef').selectedDates.length, 1, '1 date is selected');
     assert.equal(this.get('flatpickrRef').selectedDates[0].valueOf(), new Date(originalDate).valueOf(), 'selected date is correct');
   });
+});
+
+test('value accepts date object', function(assert) {
+  assert.expect(2);
+
+  const originalDate = '2080-12-05T20:00:00.000Z';
 
   this.set('dateValue', new Date(originalDate));
 
@@ -308,6 +323,12 @@ test('value accepts string, dateObject or array of string/dateObjects', function
     assert.equal(this.get('flatpickrRef').selectedDates.length, 1, '1 date is selected');
     assert.equal(this.get('flatpickrRef').selectedDates[0].valueOf(), new Date(originalDate).valueOf(), 'selected date is correct');
   });
+});
+
+test('value accepts array of string', function(assert) {
+  assert.expect(2);
+
+  const originalDate = '2080-12-05T20:00:00.000Z';
 
   this.set('dateValue', [originalDate]);
 
@@ -323,20 +344,24 @@ test('value accepts string, dateObject or array of string/dateObjects', function
     assert.equal(this.get('flatpickrRef').selectedDates.length, 1, '1 date is selected');
     assert.equal(this.get('flatpickrRef').selectedDates[0].valueOf(), new Date(originalDate).valueOf(), 'selected date is correct');
   });
+});
 
+test('value accepts array of date objects', function(assert) {
+  assert.expect(2);
+
+  const originalDate = '2080-12-05T20:00:00.000Z';
   this.set('dateValue', [new Date(originalDate)]);
 
   this.render(
     hbs`{{ember-flatpickr
-      onChange=(action (mut dateValue))
-      placeholder="Pick date"
-      value=(readonly dateValue)
-      flatpickrRef=flatpickrRef
-      }}`);
+    onChange=(action (mut dateValue))
+    placeholder="Pick date"
+    value=(readonly dateValue)
+    flatpickrRef=flatpickrRef
+    }}`);
 
   run(() => {
     assert.equal(this.get('flatpickrRef').selectedDates.length, 1, '1 date is selected');
     assert.equal(this.get('flatpickrRef').selectedDates[0].valueOf(), new Date(originalDate).valueOf(), 'selected date is correct');
   });
-
 });
