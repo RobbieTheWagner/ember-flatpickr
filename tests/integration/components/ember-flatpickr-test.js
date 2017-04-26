@@ -11,6 +11,10 @@ function closeFlatpickr() {
   simulate('mousedown', document, { which: 1 }, MouseEvent);
 }
 
+function waitForQueuedTimeouts(callback) {
+  setTimeout(callback, 100);
+}
+
 /*
  * Copied from flatpickr
  */
@@ -76,6 +80,7 @@ test('onChange action fired', function(assert) {
   run(() => {
     $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
     simulate('mousedown', $('.flatpickr-days .flatpickr-day').get(5), { which: 1 }, MouseEvent);
+    waitForQueuedTimeouts(assert.async());
   });
 });
 
