@@ -1,13 +1,15 @@
-import Ember from 'ember';
+/* eslint-disable  ship-shape/avoid-leaking-state-in-components, ship-shape/closure-actions, ship-shape/no-observers, ship-shape/no-on-calls-in-components */
 import { assert } from 'ember-metal/utils';
+import { assign } from 'ember-platform';
+import Component from 'ember-component';
 import observer from 'ember-metal/observer';
 import on from 'ember-evented/on';
 import run from 'ember-runloop';
-import TextField from 'ember-components/text-field';
-const { assign } = Ember;
 
-export default TextField.extend({
-  attributeBindings: ['placeholder', 'value'],
+export default Component.extend({
+  tagName: 'input',
+  type: 'text',
+  attributeBindings: ['placeholder', 'type'],
   // Flatpickr options
   allowInput: false,
   altFormat: 'F j, Y',
@@ -16,6 +18,8 @@ export default TextField.extend({
   clickOpens: true,
   dateFormat: 'Y-m-d',
   defaultDate: null,
+  defaultHour: 12,
+  defaultMinute: 0,
   disable: [],
   disableMobile: false,
   enable: [],
@@ -41,6 +45,67 @@ export default TextField.extend({
   value: null,
   weekNumbers: false,
   wrap: false,
+
+  setupComponent: on('init', function() {
+    // Require that users pass an onChange now
+    assert('{{ember-flatpickr}} requires an `onChange` action or null for no action.', this.get('onChange') !== undefined);
+
+    // Pass all values and setup flatpickr
+    run.scheduleOnce('afterRender', this, function() {
+      const options = this.getProperties([
+        'allowInput',
+        'altFormat',
+        'altInput',
+        'altInputClass',
+        'clickOpens',
+        'dateFormat',
+        'defaultDate',
+        'defaultHour',
+        'defaultMinute',
+        'disable',
+        'disableMobile',
+        'enable',
+        'enableSeconds',
+        'enableTime',
+        'hourIncrement',
+        'inline',
+        'locale',
+        'maxDate',
+        'minDate',
+        'minuteIncrement',
+        'mode',
+        'nextArrow',
+        'noCalendar',
+        'parseDate',
+        'prevArrow',
+        'shorthandCurrentMonth',
+        'static',
+        'timeFormat',
+        'time_24hr',
+        'utc',
+        'value',
+        'weekNumbers',
+        'wrap'
+      ]);
+
+      // Add defaultDate, change and close handlers
+      assign(options, {
+        defaultDate: this.get('value'),
+        onChange: this._onChange.bind(this),
+        onClose: this._onClose.bind(this),
+        onOpen: this._onOpen.bind(this),
+        onReady: this._onReady.bind(this)
+      });
+
+      const flatpickrRef = new Flatpickr(this.element, options);
+
+      if (this.get('appendDataInput')) {
+        this.$().attr('data-input', '');
+      }
+      this.set('flatpickrRef', flatpickrRef);
+    });
+  }),
+
   localeUpdated: observer('locale', function() {
     this.get('flatpickrRef').destroy();
     this.setupComponent();
@@ -51,6 +116,19 @@ export default TextField.extend({
   minDateUpdated: observer('minDate', function() {
     this.get('flatpickrRef').set('minDate', this.get('minDate'));
   }),
+  valueUpdated: observer('value', function() {
+    const value = this.get('value');
+    const ref = this.get('flatpickrRef');
+
+    if (value && ref) {
+      this.get('flatpickrRef').setDate(value);
+    }
+  }),
+
+  willDestroyElement() {
+    this.get('flatpickrRef').destroy();
+  },
+
   /**
    * When the date is changed, update the value and send 'onChange' action
    * @param selectedDates The array of selected dates
@@ -90,74 +168,5 @@ export default TextField.extend({
    */
   _onReady(selectedDates, dateStr, instance) {
     this.sendAction('onReady', selectedDates, dateStr, instance);
-  },
-  setupComponent: on('init', function() {
-    // Require that users pass an onChange now
-    assert('{{ember-flatpickr}} requires an `onChange` action or null for no action.', this.get('onChange') !== undefined);
-
-    // Pass all values and setup flatpickr
-    run.scheduleOnce('afterRender', this, function() {
-      let options = this.getProperties([
-        'allowInput',
-        'altFormat',
-        'altInput',
-        'altInputClass',
-        'clickOpens',
-        'dateFormat',
-        'defaultDate',
-        'disable',
-        'disableMobile',
-        'enable',
-        'enableSeconds',
-        'enableTime',
-        'hourIncrement',
-        'inline',
-        'locale',
-        'maxDate',
-        'minDate',
-        'minuteIncrement',
-        'mode',
-        'nextArrow',
-        'noCalendar',
-        'parseDate',
-        'prevArrow',
-        'shorthandCurrentMonth',
-        'static',
-        'timeFormat',
-        'time_24hr',
-        'utc',
-        'value',
-        'weekNumbers',
-        'wrap'
-      ]);
-
-      // Add change and close handlers
-      assign(options, {
-        onChange: this._onChange.bind(this),
-        onClose: this._onClose.bind(this),
-        onOpen: this._onOpen.bind(this),
-        onReady: this._onReady.bind(this)
-      });
-
-      let flatpickrRef = new Flatpickr(this.element, options);
-
-      if (this.get('appendDataInput')) {
-        this.$().attr('data-input', '');
-      }
-      this.set('flatpickrRef', flatpickrRef);
-    });
-  }),
-  didReceiveAttrs() {
-    this._super(...arguments);
-
-    let value = this.get('value');
-    let ref = this.get('flatpickrRef');
-
-    if (ref) {
-      this.get('flatpickrRef').setDate(value);
-    }
-  },
-  willDestroyElement() {
-    this.get('flatpickrRef').destroy();
   }
 });

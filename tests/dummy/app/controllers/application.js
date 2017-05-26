@@ -8,9 +8,9 @@ export default Controller.extend({
   locales: ['default', 'fr', 'de', 'ru', 'uk'],
   minDate: null,
   actions: {
-    onChange(dateObject, dateString) {
-      this.set('dateValue', dateString);
-      Logger.log('You selected: ', dateObject);
+    onChange(selectedDates) {
+      this.set('dateValue', selectedDates[0]);
+      Logger.log('You selected: ', selectedDates[0]);
     },
     onClose() {
       Logger.log('Flatpickr closed');
