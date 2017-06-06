@@ -206,8 +206,8 @@ test('onChange gets called with the correct parameters', function(assert) {
   const originalPosition = '1';
   const originalDate = '2080-12-01T20:00:00.000Z';
   const newPosition = '5';
-  const dateFormat = 'Y-Y-m-d';
-  let newFormattedDate = '2080-2080-12-05';
+  const dateFormat = 'Y-m-d';
+  const newFormattedDate = '2080-12-05';
 
   this.on('onChange', (selectedDates, dateStr, instance) => {
     assert.ok(selectedDates instanceof Array, 'selectedDates is an array');
@@ -240,9 +240,6 @@ test('onChange gets called with the correct parameters', function(assert) {
     clickDay(newPosition - 1);
 
     assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), newPosition, 'selected changes with dateValue');
-
-    $('.flatpickr-input')[0]._flatpickr.set('dateFormat', 'Y-m-d');
-    newFormattedDate = '2080-12-05';
 
     $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
     clickDay(newPosition - 1);
