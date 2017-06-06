@@ -3,18 +3,6 @@
 
 module.exports = {
   name: 'ember-flatpickr',
-  included(app) {
-    if (app.options && app.options.flatpickr && app.options.flatpickr.theme) {
-      this.theme = `themes/${app.options.flatpickr.theme}.css`;
-    }
-
-    this.locales = [];
-    if (app.options && app.options.flatpickr && app.options.flatpickr.locales) {
-      this.locales = app.options.flatpickr.locales;
-    }
-
-    this._super.included.apply(this, arguments);
-  },
   options: {
     nodeAssets: {
       flatpickr() {
@@ -30,5 +18,17 @@ module.exports = {
         };
       }
     }
+  },
+  included(app) {
+    if (app.options && app.options.flatpickr && app.options.flatpickr.theme) {
+      this.theme = `themes/${app.options.flatpickr.theme}.css`;
+    }
+
+    this.locales = [];
+    if (app.options && app.options.flatpickr && app.options.flatpickr.locales) {
+      this.locales = app.options.flatpickr.locales;
+    }
+
+    this._super.included.apply(this, arguments);
   }
 };
