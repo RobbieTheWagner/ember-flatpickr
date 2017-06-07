@@ -9,7 +9,9 @@ cache:
   yarn: true
 
 addons:
-  chrome: stable
+  apt:
+    packages:
+      - google-chrome-stable
 
 env:
   # we recommend testing LTS's and latest stable release (bonus points to beta/canary)
