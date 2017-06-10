@@ -28,7 +28,7 @@
   "dependencies": {
     "ember-cli-babel": "^6.0.0",
     "ember-cli-node-assets": "0.2.1",
-    "flatpickr": "^2.6.3"
+    "flatpickr": "^3.0.3"
   },
   "devDependencies": {
     "@html-next/flexi-config": "2.0.0-rc.1",
