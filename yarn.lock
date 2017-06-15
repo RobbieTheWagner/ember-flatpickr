@@ -82,42 +82,43 @@
   dependencies:
     "@glimmer/util" "^0.22.3"
 
-"@html-next/flexi-config@2.0.0-rc.1":
-  version "2.0.0-rc.1"
-  resolved "https://registry.npmjs.org/@html-next/flexi-config/-/flexi-config-2.0.0-rc.1.tgz#a19417e5b5d1e85eb56df116b6892562ac17d259"
+"@html-next/flexi-config@2.0.0", "@html-next/flexi-config@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@html-next/flexi-config/-/flexi-config-2.0.0.tgz#f1808ea0242a4b10342ed606560a588073531116"
   dependencies:
-    ember-cli-babel "^5.1.7"
+    ember-cli-babel "^6.0.0"
 
-"@html-next/flexi-default-styles@2.0.0-rc.2":
-  version "2.0.0-rc.2"
-  resolved "https://registry.npmjs.org/@html-next/flexi-default-styles/-/flexi-default-styles-2.0.0-rc.2.tgz#0d4f299e5a0e430354dd9142a5cdd7c7897978d5"
+"@html-next/flexi-default-styles@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@html-next/flexi-default-styles/-/flexi-default-styles-2.0.1.tgz#edbd0be0a08bd8743edd9d099565d8d57d992161"
   dependencies:
-    "@html-next/flexi-config" "2.0.0-rc.1"
-    ember-cli-babel "^5.1.7"
-    ember-cli-sass "^6.0.0"
+    "@html-next/flexi-config" "2.0.0"
+    broccoli-plugin "^1.3.0"
+    ember-cli-babel "^6.0.0"
+    ember-cli-sass "^6.2.0"
     rsvp "^3.2.0"
 
-"@html-next/flexi-dsl@2.0.0-rc.2":
-  version "2.0.0-rc.2"
-  resolved "https://registry.npmjs.org/@html-next/flexi-dsl/-/flexi-dsl-2.0.0-rc.2.tgz#7249585bb7a8519ea5af0ae542daa0d037921d8a"
+"@html-next/flexi-dsl@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@html-next/flexi-dsl/-/flexi-dsl-2.0.1.tgz#a037d79e1ab4d6ecbcdd1067177ef9f29c2ad729"
   dependencies:
-    "@html-next/flexi-config" "2.0.0-rc.1"
-    ember-cli-babel "^5.1.7"
+    "@html-next/flexi-config" "2.0.0"
+    ember-cli-babel "^6.0.0"
     ember-cli-preprocess-registry "^3.0.0"
     rsvp "^3.2.0"
 
-"@html-next/flexi-layouts@2.0.0-rc.2":
-  version "2.0.0-rc.2"
-  resolved "https://registry.npmjs.org/@html-next/flexi-layouts/-/flexi-layouts-2.0.0-rc.2.tgz#09a60e09ea52ab387270df3c853bd860fa9c79c4"
+"@html-next/flexi-layouts@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@html-next/flexi-layouts/-/flexi-layouts-2.0.1.tgz#98bbed1669f8abf15eb244b181379b14b589fdfd"
   dependencies:
-    "@html-next/flexi-config" "2.0.0-rc.1"
-    broccoli-funnel "^1.0.1"
+    "@html-next/flexi-config" "2.0.0"
+    broccoli-funnel "^1.2.0"
     broccoli-merge-trees "^2.0.0"
     broccoli-plugin "^1.2.1"
     chalk "^1.1.1"
-    debug "^2.2.0"
-    ember-cli-babel "^5.1.7"
-    ember-cli-htmlbars "^1.1.1"
+    debug "^2.6.8"
+    ember-cli-babel "^6.0.0"
+    ember-cli-htmlbars "^2.0.1"
     ember-cli-preprocess-registry "^3.0.0"
     rsvp "^3.2.0"
 
@@ -1837,9 +1838,21 @@ core-js@^2.4.0:
   version "2.4.1"
   resolved "https://registry.npmjs.org/core-js/-/core-js-2.4.1.tgz#4de911e667b0eae9124e34254b53aea6fc618d3e"
 
+core-object@2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/core-object/-/core-object-2.0.6.tgz#60134b9c40ff69b27bc15e82db945e4df782961b"
+  dependencies:
+    chalk "^1.1.3"
+
 core-object@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/core-object/-/core-object-1.1.0.tgz#86d63918733cf9da1a5aae729e62c0a88e66ad0a"
+
+core-object@^2.0.0:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/core-object/-/core-object-2.1.1.tgz#4b7a5f1edefcb1e6d0dcb58eab1b9f90bfc666a8"
+  dependencies:
+    chalk "^1.1.3"
 
 core-object@^3.0.0:
   version "3.1.3"
@@ -1888,7 +1901,7 @@ d@1:
   dependencies:
     es5-ext "^0.10.9"
 
-dag-map@^2.0.2:
+dag-map@^2.0.1, dag-map@^2.0.2:
   version "2.0.2"
   resolved "https://registry.npmjs.org/dag-map/-/dag-map-2.0.2.tgz#9714b472de82a1843de2fba9b6876938cab44c68"
 
@@ -1916,7 +1929,7 @@ debug@2.6.7:
   dependencies:
     ms "2.0.0"
 
-debug@2.6.8, debug@^2.1.0, debug@^2.1.1, debug@^2.1.3, debug@^2.2.0, debug@^2.4.0:
+debug@2.6.8, debug@^2.1.0, debug@^2.1.1, debug@^2.1.3, debug@^2.2.0, debug@^2.4.0, debug@^2.6.8:
   version "2.6.8"
   resolved "https://registry.npmjs.org/debug/-/debug-2.6.8.tgz#e731531ca2ede27d188222427da17821d68ff4fc"
   dependencies:
@@ -1973,6 +1986,10 @@ delegates@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
 
+denodeify@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/denodeify/-/denodeify-1.2.1.tgz#3a36287f5034e699e7577901052c2e6c94251631"
+
 depd@1.1.0, depd@~1.1.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/depd/-/depd-1.1.0.tgz#e1bd82c6aab6ced965b97b88b17ed3e528ca18c3"
@@ -2025,6 +2042,10 @@ dot-prop@^4.1.0:
   dependencies:
     is-obj "^1.0.0"
 
+dotenv@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-1.2.0.tgz#7cd73e16e07f057c8072147a5bc3a8677f0ab5c6"
+
 ecc-jsbn@~0.1.1:
   version "0.1.1"
   resolved "https://registry.npmjs.org/ecc-jsbn/-/ecc-jsbn-0.1.1.tgz#0fc73a9ed5f0d53c38193398523ef7e543777505"
@@ -2052,7 +2073,7 @@ ember-basic-dropdown@^0.32.5:
     ember-native-dom-helpers "^0.4.0"
     ember-wormhole "^0.5.1"
 
-ember-cli-babel@^5.1.3, ember-cli-babel@^5.1.6, ember-cli-babel@^5.1.7:
+ember-cli-babel@^5.1.5, ember-cli-babel@^5.1.6, ember-cli-babel@^5.1.7:
   version "5.2.4"
   resolved "https://registry.npmjs.org/ember-cli-babel/-/ember-cli-babel-5.2.4.tgz#5ce4f46b08ed6f6d21e878619fb689719d6e8e13"
   dependencies:
@@ -2117,6 +2138,51 @@ ember-cli-dependency-checker@^1.3.0:
     is-git-url "^0.2.0"
     semver "^4.1.0"
 
+ember-cli-deploy-build@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-deploy-build/-/ember-cli-deploy-build-1.1.0.tgz#44ef2e09301319a1fc5807e9ec30491a753e2483"
+  dependencies:
+    chalk "^1.0.0"
+    ember-cli-deploy-plugin "^0.2.1"
+    glob "^7.1.1"
+    rsvp "^3.5.0"
+
+ember-cli-deploy-ghpages@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-deploy-ghpages/-/ember-cli-deploy-ghpages-0.2.0.tgz#a4ee7d57b686aa96d111a733e42d700529100a45"
+  dependencies:
+    denodeify "^1.2.1"
+    ember-cli-babel "^5.1.5"
+    ember-cli-deploy-plugin "^0.2.5"
+    fs-extra "^0.28.0"
+    gift "^0.7.0"
+    rsvp "^3.2.1"
+
+ember-cli-deploy-plugin@^0.2.1, ember-cli-deploy-plugin@^0.2.5:
+  version "0.2.9"
+  resolved "https://registry.yarnpkg.com/ember-cli-deploy-plugin/-/ember-cli-deploy-plugin-0.2.9.tgz#a3d395b8adad7ef68d8bacdd0b0f4a61bcf9e651"
+  dependencies:
+    chalk "^1.0.0"
+    core-object "2.0.6"
+    lodash.clonedeep "^4.5.0"
+
+ember-cli-deploy-progress@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-deploy-progress/-/ember-cli-deploy-progress-1.3.0.tgz#18663deed25b4d5397476332f25eed3c3fdf225a"
+
+ember-cli-deploy@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/ember-cli-deploy/-/ember-cli-deploy-1.0.1.tgz#6024c4fa0d8f8c09dfa57d251a7aca14e0ae2226"
+  dependencies:
+    chalk "^1.1.3"
+    core-object "^2.0.0"
+    dag-map "^2.0.1"
+    dotenv "^1.2.0"
+    ember-cli-deploy-progress "^1.3.0"
+    lodash "^4.0.0"
+    rsvp "^3.3.3"
+    silent-error "^1.0.0"
+
 ember-cli-eslint@^3.0.0:
   version "3.1.0"
   resolved "https://registry.npmjs.org/ember-cli-eslint/-/ember-cli-eslint-3.1.0.tgz#8d9e2a867654835ac1b24858d9117e143fa54bd4"
@@ -2133,14 +2199,6 @@ ember-cli-get-component-path-option@^1.0.0:
 ember-cli-get-dependency-depth@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/ember-cli-get-dependency-depth/-/ember-cli-get-dependency-depth-1.0.0.tgz#e0afecf82a2d52f00f28ab468295281aec368d11"
-
-ember-cli-github-pages@0.1.2:
-  version "0.1.2"
-  resolved "https://registry.npmjs.org/ember-cli-github-pages/-/ember-cli-github-pages-0.1.2.tgz#83b11d307858595582ba61e90602209a37d5b348"
-  dependencies:
-    ember-cli-babel "^5.1.3"
-    ember-cli-version-checker "^1.1.6"
-    rsvp "^3.0.14"
 
 ember-cli-htmlbars-inline-precompile@^0.4.3:
   version "0.4.3"
@@ -2253,7 +2311,7 @@ ember-cli-qunit@^4.0.0:
     resolve "^1.1.6"
     silent-error "^1.0.0"
 
-ember-cli-sass@^6.0.0, ember-cli-sass@^6.2.0:
+ember-cli-sass@^6.2.0:
   version "6.2.0"
   resolved "https://registry.npmjs.org/ember-cli-sass/-/ember-cli-sass-6.2.0.tgz#e1f81289678e1e22d9cf9dbf7fa2de76a0de9a2f"
   dependencies:
@@ -3083,12 +3141,12 @@ flatpickr@^2.6.3:
   version "2.6.3"
   resolved "https://registry.npmjs.org/flatpickr/-/flatpickr-2.6.3.tgz#457357532deb135f3da64b425bf4435737961564"
 
-flexi@2.0.0-rc.1:
-  version "2.0.0-rc.1"
-  resolved "https://registry.npmjs.org/flexi/-/flexi-2.0.0-rc.1.tgz#8afeb6ea4487b2fc61a7319a4b72cfae725dc5ff"
+flexi@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/flexi/-/flexi-2.0.1.tgz#a32acb9b37d4b5dcde23be298e1a58f86385c977"
   dependencies:
     chalk "^1.1.3"
-    ember-cli-babel "^5.1.7"
+    ember-cli-babel "^6.0.0"
     semver "^5.3.0"
 
 for-in@^1.0.1:
@@ -3137,6 +3195,16 @@ fs-extra@^0.24.0:
 fs-extra@^0.26.0, fs-extra@^0.26.7:
   version "0.26.7"
   resolved "https://registry.npmjs.org/fs-extra/-/fs-extra-0.26.7.tgz#9ae1fdd94897798edab76d0918cf42d0c3184fa9"
+  dependencies:
+    graceful-fs "^4.1.2"
+    jsonfile "^2.1.0"
+    klaw "^1.0.0"
+    path-is-absolute "^1.0.0"
+    rimraf "^2.2.8"
+
+fs-extra@^0.28.0:
+  version "0.28.0"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-0.28.0.tgz#9a1c0708ea8c5169297ab06fd8cb914f5647b272"
   dependencies:
     graceful-fs "^4.1.2"
     jsonfile "^2.1.0"
@@ -3265,6 +3333,12 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
+gift@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/gift/-/gift-0.7.0.tgz#6ff386e0af3211b941ab9e1aff5976adc92c2428"
+  dependencies:
+    underscore "1.x.x"
+
 git-repo-info@^1.4.1:
   version "1.4.1"
   resolved "https://registry.npmjs.org/git-repo-info/-/git-repo-info-1.4.1.tgz#2a072823254aaf62fcf0766007d7b6651bd41943"
@@ -3282,7 +3356,7 @@ glob-parent@^2.0.0:
   dependencies:
     is-glob "^2.0.0"
 
-glob@7.1.1, glob@^7.0.0, glob@^7.0.3, glob@^7.0.4, glob@^7.0.5, glob@~7.1.1:
+glob@7.1.1, glob@^7.0.0, glob@^7.0.3, glob@^7.0.4, glob@^7.0.5, glob@^7.1.1, glob@~7.1.1:
   version "7.1.1"
   resolved "https://registry.npmjs.org/glob/-/glob-7.1.1.tgz#805211df04faaf1c63a3600306cdf5ade50b2ec8"
   dependencies:
@@ -4072,7 +4146,7 @@ lodash.assignin@^4.1.0:
   version "4.2.0"
   resolved "https://registry.npmjs.org/lodash.assignin/-/lodash.assignin-4.2.0.tgz#ba8df5fb841eb0a3e8044232b0e263a8dc6a28a2"
 
-lodash.clonedeep@^4.3.2, lodash.clonedeep@^4.4.1:
+lodash.clonedeep@^4.3.2, lodash.clonedeep@^4.4.1, lodash.clonedeep@^4.5.0:
   version "4.5.0"
   resolved "https://registry.npmjs.org/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
 
@@ -5893,7 +5967,7 @@ underscore.string@~3.3.4:
     sprintf-js "^1.0.3"
     util-deprecate "^1.0.2"
 
-underscore@>=1.8.3:
+underscore@1.x.x, underscore@>=1.8.3:
   version "1.8.3"
   resolved "https://registry.npmjs.org/underscore/-/underscore-1.8.3.tgz#4f3fb53b106e6097fcf9cb4109f2a5e9bdfa5022"
 
