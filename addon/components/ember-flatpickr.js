@@ -97,7 +97,7 @@ export default Component.extend({
         onReady: this._onReady.bind(this)
       });
 
-      const flatpickrRef = new Flatpickr(this.element, options);
+      const flatpickrRef = new FlatpickrInstance(this.element, options);
 
       if (this.get('appendDataInput')) {
         this.$().attr('data-input', '');

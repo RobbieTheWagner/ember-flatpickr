@@ -219,7 +219,7 @@ test('onChange gets called with the correct parameters', function(assert) {
 
     assert.equal(dateStr, newFormattedDate, 'dateStr is formatted correctly');
 
-    assert.ok(instance instanceof Flatpickr, 'instance is a Flatpickr object');
+    assert.ok(instance instanceof FlatpickrInstance, 'instance is a FlatpickrInstance object');
   });
 
   this.set('dateValue', originalDate);

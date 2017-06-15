@@ -12,7 +12,7 @@ module.exports = {
     browser: true
   },
   globals: {
-    Flatpickr: false
+    FlatpickrInstance: false
   },
   rules: {
   }
