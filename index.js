@@ -7,25 +7,18 @@ module.exports = {
   name: 'ember-flatpickr',
   options: {
     nodeAssets: {
-      flatpickrJs: function() {
-        const localePaths = this.locales.map(locale => `l10n/${locale}.js`)
+      flatpickr() {
+        const localePaths = this.locales.map(locale => `l10n/${locale}.js`);
 
         return {
           srcDir: 'dist',
           import: [
-            'flatpickr.js'
+            'flatpickr.js',
+            this.theme || 'flatpickr.css'
           ].concat(localePaths),
-          processTree: function(input) {
+          processTree(input) {
             return fastbootTransform(input);
           }
-        };
-      },
-      flatpickCss: function() {
-        return {
-          srcDir: 'dist',
-          import: [
-            this.theme || 'flatpickr.css'
-          ]
         };
       }
     }
