@@ -21,9 +21,9 @@
         enableTime=true
         locale=locale
         minDate=minDate
-        onClose="onClose"
-        onChange="onChange"
-        onReady="onReady"
+        onClose=(action "onClose")
+        onChange=(action "onChange")
+        onReady=(action "onReady")
         placeholder="Pick date"
         value=(readonly dateValue)
       }}

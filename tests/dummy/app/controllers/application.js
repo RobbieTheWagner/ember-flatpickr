@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import run from 'ember-runloop';
 const { Controller, Logger } = Ember;
 
 export default Controller.extend({
@@ -9,8 +10,10 @@ export default Controller.extend({
   minDate: null,
   actions: {
     onChange(selectedDates) {
-      this.set('dateValue', selectedDates[0]);
-      Logger.log('You selected: ', selectedDates[0]);
+      run.next(() => {
+        this.set('dateValue', selectedDates[0]);
+        Logger.log('You selected: ', selectedDates[0]);
+      });
     },
     onClose() {
       Logger.log('Flatpickr closed');
@@ -20,8 +23,10 @@ export default Controller.extend({
       Logger.log('onReady called');
     },
     updateMin() {
-      this.set('dateValue', null);
-      this.set('minDate', '2080-12-24T16:16:22.585Z');
+      run.next(() => {
+        this.set('dateValue', null);
+        this.set('minDate', '2080-12-24T16:16:22.585Z');
+      });
     }
   }
 });
