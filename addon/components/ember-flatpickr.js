@@ -112,11 +112,9 @@ export default Component.extend({
   }),
   maxDateUpdated: observer('maxDate', function() {
     this.element._flatpickr.set('maxDate', this.get('maxDate'));
-    this.element._flatpickr.redraw();
   }),
   minDateUpdated: observer('minDate', function() {
     this.element._flatpickr.set('minDate', this.get('minDate'));
-    this.element._flatpickr.redraw();
   }),
   valueUpdated: observer('value', function() {
     const value = this.get('value');
