@@ -107,26 +107,28 @@ export default Component.extend({
   }),
 
   localeUpdated: observer('locale', function() {
-    this.get('flatpickrRef').destroy();
+    this.element._flatpickr.destroy();
     this.setupComponent();
   }),
   maxDateUpdated: observer('maxDate', function() {
-    this.get('flatpickrRef').set('maxDate', this.get('maxDate'));
+    this.element._flatpickr.set('maxDate', this.get('maxDate'));
+    this.element._flatpickr.redraw();
   }),
   minDateUpdated: observer('minDate', function() {
-    this.get('flatpickrRef').set('minDate', this.get('minDate'));
+    this.element._flatpickr.set('minDate', this.get('minDate'));
+    this.element._flatpickr.redraw();
   }),
   valueUpdated: observer('value', function() {
     const value = this.get('value');
-    const ref = this.get('flatpickrRef');
+    const ref = this.element._flatpickr;
 
     if (value && ref) {
-      this.get('flatpickrRef').setDate(value);
+      ref.setDate(value);
     }
   }),
 
   willDestroyElement() {
-    this.get('flatpickrRef').destroy();
+    this.element._flatpickr.destroy();
   },
 
   /**
