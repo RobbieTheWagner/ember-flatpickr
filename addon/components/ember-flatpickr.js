@@ -9,7 +9,7 @@ import run from 'ember-runloop';
 export default Component.extend({
   tagName: 'input',
   type: 'text',
-  attributeBindings: ['placeholder', 'type'],
+  attributeBindings: ['disabled', 'placeholder', 'type'],
   // Flatpickr options
   allowInput: false,
   altFormat: 'F j, Y',
@@ -21,6 +21,7 @@ export default Component.extend({
   defaultHour: 12,
   defaultMinute: 0,
   disable: [],
+  disabled: false,
   disableMobile: false,
   enable: [],
   enableSeconds: false,
