@@ -9,6 +9,9 @@ export default Controller.extend({
   locales: ['default', 'fr', 'de', 'ru', 'uk'],
   minDate: null,
   actions: {
+    clearDate() {
+      this.set('dateValue', null);
+    },
     onChange(selectedDates) {
       run.next(() => {
         this.set('dateValue', selectedDates[0]);

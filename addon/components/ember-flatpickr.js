@@ -42,7 +42,6 @@ export default Component.extend({
   timeFormat: 'H:i',
   time_24hr: false, // eslint-disable-line camelcase
   utc: false,
-  value: null,
   weekNumbers: false,
   wrap: false,
 
@@ -120,7 +119,7 @@ export default Component.extend({
     const value = this.get('value');
     const ref = this.element._flatpickr;
 
-    if (value && ref) {
+    if (ref && typeof value !== 'undefined') {
       ref.setDate(value);
     }
   }),
