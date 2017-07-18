@@ -83,14 +83,12 @@ export default Component.extend({
         'timeFormat',
         'time_24hr',
         'utc',
-        'value',
         'weekNumbers',
         'wrap'
       ]);
 
       // Add defaultDate, change and close handlers
       assign(options, {
-        defaultDate: this.get('value'),
         onChange: this._onChange.bind(this),
         onClose: this._onClose.bind(this),
         onOpen: this._onOpen.bind(this),
@@ -115,14 +113,6 @@ export default Component.extend({
   }),
   minDateUpdated: observer('minDate', function() {
     this.element._flatpickr.set('minDate', this.get('minDate'));
-  }),
-  valueUpdated: observer('value', function() {
-    const value = this.get('value');
-    const ref = this.element._flatpickr;
-
-    if (ref && typeof value !== 'undefined') {
-      ref.setDate(value);
-    }
   }),
 
   willDestroyElement() {
