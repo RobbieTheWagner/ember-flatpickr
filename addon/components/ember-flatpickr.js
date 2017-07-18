@@ -109,10 +109,12 @@ export default Component.extend({
     this.setupComponent();
   }),
   maxDateUpdated: observer('maxDate', function() {
-    this.element._flatpickr.set('maxDate', this.get('maxDate'));
+    this.element._flatpickr.destroy();
+    this.setupComponent();
   }),
   minDateUpdated: observer('minDate', function() {
-    this.element._flatpickr.set('minDate', this.get('minDate'));
+    this.element._flatpickr.destroy();
+    this.setupComponent();
   }),
 
   willDestroyElement() {
