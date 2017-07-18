@@ -108,14 +108,6 @@ export default Component.extend({
     this.element._flatpickr.destroy();
     this.setupComponent();
   }),
-  maxDateUpdated: observer('maxDate', function() {
-    this.element._flatpickr.destroy();
-    this.setupComponent();
-  }),
-  minDateUpdated: observer('minDate', function() {
-    this.element._flatpickr.destroy();
-    this.setupComponent();
-  }),
 
   willDestroyElement() {
     this.element._flatpickr.destroy();
