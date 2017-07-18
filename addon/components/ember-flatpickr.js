@@ -107,7 +107,7 @@ export default Component.extend({
     });
   }),
 
-  didUpdateAttrs() {
+  didReceiveAttrs() {
     let newMax = this.get('maxDate');
     let newMin = this.get('minDate');
     let oldMax = this.get('_oldMax');
