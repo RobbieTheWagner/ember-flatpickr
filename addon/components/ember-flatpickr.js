@@ -73,6 +73,8 @@ export default Component.extend({
         'hourIncrement',
         'inline',
         'locale',
+        'maxDate',
+        'minDate',
         'minuteIncrement',
         'mode',
         'nextArrow',
@@ -105,22 +107,18 @@ export default Component.extend({
     });
   }),
 
-  didReceiveAttrs() {
+  didUpdateAttrs() {
     let newMax = this.get('maxDate');
     let newMin = this.get('minDate');
     let oldMax = this.get('_oldMax');
     let oldMin = this.get('_oldMin');
 
     if (oldMax !== newMax) {
-      run.scheduleOnce('afterRender', this, function() {
-        this.element._flatpickr.set('maxDate', newMax);
-      });
+      this.element._flatpickr.set('maxDate', newMax);
     }
 
     if (oldMin !== newMin) {
-      run.scheduleOnce('afterRender', this, function() {
-        this.element._flatpickr.set('minDate', newMin);
-      });
+      this.element._flatpickr.set('minDate', newMin);
     }
 
     this.set('_oldMax', newMax);
