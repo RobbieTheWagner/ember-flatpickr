@@ -113,11 +113,11 @@ export default Component.extend({
     let oldMax = this.get('_oldMax');
     let oldMin = this.get('_oldMin');
 
-    if (oldMax && oldMax !== newMax) {
+    if (oldMax !== newMax) {
       this.element._flatpickr.set('maxDate', newMax);
     }
 
-    if (oldMin && oldMin !== newMin) {
+    if (oldMin !== newMin) {
       this.element._flatpickr.set('minDate', newMin);
     }
 
