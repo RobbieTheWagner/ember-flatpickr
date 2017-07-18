@@ -46,6 +46,9 @@ export default Component.extend({
   weekNumbers: false,
   wrap: false,
 
+  _oldMaxDate: null,
+  _oldMinDate: null,
+
   setupComponent: on('init', function() {
     // Require that users pass an onChange now
     assert('{{ember-flatpickr}} requires an `onChange` action or null for no action.', this.get('onChange') !== undefined);
@@ -103,6 +106,24 @@ export default Component.extend({
       this.set('flatpickrRef', flatpickrRef);
     });
   }),
+
+  didUpdateAttrs() {
+    let newMax = this.get('maxDate');
+    let newMin = this.get('minDate');
+    let oldMax = this.get('_oldMax');
+    let oldMin = this.get('_oldMin');
+
+    if (oldMax && oldMax !== newMax) {
+      this.element._flatpickr.set('maxDate', newMax);
+    }
+
+    if (oldMin && oldMin !== newMin) {
+      this.element._flatpickr.set('minDate', newMin);
+    }
+
+    this.set('_oldMax', newMax);
+    this.set('_oldMin', newMin);
+  },
 
   localeUpdated: observer('locale', function() {
     this.element._flatpickr.destroy();
