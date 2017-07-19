@@ -60,6 +60,8 @@ test('value updates when set externally via flatpickrRef', function(assert) {
 test('onChange action fired', function(assert) {
   assert.expect(1);
 
+  this.set('dateValue', null);
+
   const done = assert.async();
 
   this.on('onChange', (selectedDates) => {
@@ -92,6 +94,8 @@ test('onChange action fired', function(assert) {
 test('onClose action fired', function(assert) {
   assert.expect(1);
 
+  this.set('dateValue', null);
+
   this.on('onClose', () => {
     assert.ok(true, 'onClose action was executed');
   });
@@ -119,6 +123,8 @@ test('onClose action fired', function(assert) {
 
 test('maxDateUpdated and minDateUpdated fired', function(assert) {
   assert.expect(2);
+
+  this.set('dateValue', null);
 
   this.render(
     hbs`{{ember-flatpickr

@@ -14,7 +14,10 @@ export default Component.extend({
   flatpickrRef: null,
 
   setupComponent: on('init', function() {
-    // Require that users pass an onChange now
+    // Require that users pass a date
+    assert('{{ember-flatpickr}} requires a `date` to be passed as the value for flatpickr.', this.get('date') !== undefined);
+
+    // Require that users pass an onChange
     assert('{{ember-flatpickr}} requires an `onChange` action or null for no action.', this.get('onChange') !== undefined);
 
     // Pass all values and setup flatpickr
