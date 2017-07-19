@@ -24,50 +24,51 @@ http://shipshapecode.github.io/ember-flatpickr/
 
 ```handlebars
 {{ember-flatpickr
-allowInput=false
-altFormat='Y-m-d'
-altInput=true
-altInputClass='my-alt-input'
-clickOpens=true
-dateFormat='M/D/Y'
-defaultDate=defaultDate
-defaultHour=12
-defaultMinute=0
-disable=datesToDisable
-disableMobile=false
-enable=datesToEnable
-enableSeconds=false
-enableTime=true
-flatpickrRef=flatpickrRef
-hourIncrement=1
-inline=false
-locale='ru'
-maxDate=maxDate
-minDate=minDate
-minuteIncrement=5
-mode='single'
-nextArrow='>'
-noCalendar=false
-onChange=(action (mut dateValues))
-onClose=(action 'doSomeStuffOnClose')
-onOpen=(action 'doSomeStuffOnOpen')
-onReady=(action 'doSomeStuffOnReady')
-parseDate=false
-placeholder='Choose a Date'
-prevArrow='<'
-static=false
-timeFormat='H:i'
-time_24hr=false
-utc=false
-value=(readonly dateValues)
-wrap=false}}
+  allowInput=false
+  altFormat='Y-m-d'
+  altInput=true
+  altInputClass='my-alt-input'
+  clickOpens=true
+  date=(readonly defaultDate) {{!-- Required Option --}}
+  dateFormat='M/D/Y'
+  defaultDate=defaultDate
+  defaultHour=12
+  defaultMinute=0
+  disable=datesToDisable
+  disableMobile=false
+  enable=datesToEnable
+  enableSeconds=false
+  enableTime=true
+  flatpickrRef=flatpickrRef
+  hourIncrement=1
+  inline=false
+  locale='ru'
+  maxDate=maxDate
+  minDate=minDate
+  minuteIncrement=5
+  mode='single'
+  nextArrow='>'
+  noCalendar=false
+  onChange=(action (mut dateValues)) {{!-- Required Option --}}
+  onClose=(action 'doSomeStuffOnClose')
+  onOpen=(action 'doSomeStuffOnOpen')
+  onReady=(action 'doSomeStuffOnReady')
+  parseDate=false
+  placeholder='Choose a Date'
+  prevArrow='<'
+  static=false
+  timeFormat='H:i'
+  time_24hr=false
+  utc=false
+  wrap=false
+}}
 ```
 
-*(`onChange` is the only required option, but you can pass null if you do not care about it. All other options are displayed, but they have defaults and you only need to pass what you need)
+*(`date` and `onChange` are the only required options, but you can pass null if you do not care about it. All other options are taken straight from the flatpickr options, but they have defaults and you only need to pass what you need.)
 
-**Note:** You should pass your value with the `readonly` helper, and you should only update your value selected in the `onChange` action. 
+**Note:** You should pass your `date` with the `readonly` helper, and you should only update your `date` selected in the `onChange` action. 
 
-Value property accepts:
+`date` property accepts:
   * A single `dateObject`
   * A single `string` containing a date formatted accordingly to `dateFormat`
   * An array of `dateObject`
