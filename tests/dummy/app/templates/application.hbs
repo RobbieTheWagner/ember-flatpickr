@@ -17,7 +17,7 @@
       <h2>Demo</h2>
       {{ember-flatpickr
         appendDataInput=true
-        defaultDate=defaultDate
+        date=(readonly dateValue)
         enableTime=true
         locale=locale
         minDate=minDate
@@ -25,7 +25,6 @@
         onChange=(action "onChange")
         onReady=(action "onReady")
         placeholder="Pick date"
-        value=(readonly dateValue)
       }}
 
       <p class="selectedValue">

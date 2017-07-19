@@ -42,7 +42,7 @@ test('value updates when set externally via flatpickrRef', function(assert) {
 
   this.render(
     hbs`{{ember-flatpickr
-      defaultDate=(readonly dateValue)
+      date=(readonly dateValue)
       flatpickrRef=flatpickrRef
       maxDate=maxDate
       minDate=minDate
@@ -75,7 +75,7 @@ test('onChange action fired', function(assert) {
   this.render(
     hbs`{{ember-flatpickr
       appendDataInput=true
-      defaultDate=(readonly dateValue)
+      date=(readonly dateValue)
       enableTime=true
       maxDate=maxDate
       minDate=minDate
@@ -102,7 +102,7 @@ test('onClose action fired', function(assert) {
   this.render(
     hbs`{{ember-flatpickr
       appendDataInput=true
-      defaultDate=(readonly dateValue)
+      date=(readonly dateValue)
       enableTime=true
       maxDate=maxDate
       minDate=minDate
@@ -123,7 +123,7 @@ test('maxDateUpdated and minDateUpdated fired', function(assert) {
   this.render(
     hbs`{{ember-flatpickr
       appendDataInput=true
-      defaultDate=(readonly dateValue)
+      date=(readonly dateValue)
       enableTime=true
       maxDate=maxDate
       minDate=minDate
@@ -157,7 +157,7 @@ test('locale works correctly', function(assert) {
 
   this.render(
     hbs`{{ember-flatpickr
-      defaultDate=(readonly dateValue)
+      date=(readonly dateValue)
       locale="fr"
       maxDate=maxDate
       minDate=minDate
@@ -185,7 +185,7 @@ test('onChange triggers value change only once', function(assert) {
 
   this.render(
     hbs`{{ember-flatpickr
-      defaultDate=(readonly dateValue)
+      date=(readonly dateValue)
       onChange="onChange"
       placeholder="Pick date"
       }}`);
@@ -227,7 +227,7 @@ test('onChange gets called with the correct parameters', function(assert) {
   this.render(
     hbs`{{ember-flatpickr
       dateFormat=dateFormat
-      defaultDate=(readonly dateValue)
+      date=(readonly dateValue)
       onChange="onChange"
       placeholder="Pick date"
       }}`);
@@ -259,7 +259,7 @@ test('onChange action mut helper returns date Array', function(assert) {
 
   this.render(
     hbs`{{ember-flatpickr
-      defaultDate=(readonly dateValue)
+      date=(readonly dateValue)
       onChange=(action (mut dateValue))
       placeholder="Pick date"
       }}`);
@@ -288,7 +288,7 @@ test('value accepts string', function(assert) {
 
   this.render(
     hbs`{{ember-flatpickr
-      defaultDate=(readonly dateValue)
+      date=(readonly dateValue)
       onChange=(action (mut dateValue))
       placeholder="Pick date"
       flatpickrRef=flatpickrRef
@@ -309,7 +309,7 @@ test('value accepts date object', function(assert) {
 
   this.render(
     hbs`{{ember-flatpickr
-      defaultDate=(readonly dateValue)
+      date=(readonly dateValue)
       onChange=(action (mut dateValue))
       placeholder="Pick date"
       flatpickrRef=flatpickrRef
@@ -330,7 +330,7 @@ test('value accepts array of string', function(assert) {
 
   this.render(
     hbs`{{ember-flatpickr
-      defaultDate=(readonly dateValue)
+      date=(readonly dateValue)
       onChange=(action (mut dateValue))
       placeholder="Pick date"
       flatpickrRef=flatpickrRef
@@ -350,7 +350,7 @@ test('value accepts array of date objects', function(assert) {
 
   this.render(
     hbs`{{ember-flatpickr
-    defaultDate=(readonly dateValue)
+    date=(readonly dateValue)
     onChange=(action (mut dateValue))
     placeholder="Pick date"
     flatpickrRef=flatpickrRef

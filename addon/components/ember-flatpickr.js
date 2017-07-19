@@ -2,7 +2,7 @@
 import { assert } from 'ember-metal/utils';
 import { assign } from 'ember-platform';
 import Component from 'ember-component';
-import observer from 'ember-metal/observer';
+import diffAttrs from 'ember-diff-attrs';
 import on from 'ember-evented/on';
 import run from 'ember-runloop';
 
@@ -10,44 +10,8 @@ export default Component.extend({
   tagName: 'input',
   type: 'text',
   attributeBindings: ['disabled', 'placeholder', 'type'],
-  // Flatpickr options
-  allowInput: false,
-  altFormat: 'F j, Y',
-  altInput: false,
-  altInputClass: '',
-  clickOpens: true,
-  dateFormat: 'Y-m-d',
-  defaultDate: null,
-  defaultHour: 12,
-  defaultMinute: 0,
-  disable: [],
-  disabled: false,
-  disableMobile: false,
-  enable: [],
-  enableSeconds: false,
-  enableTime: false,
+  date: null,
   flatpickrRef: null,
-  hourIncrement: 1,
-  inline: false,
-  locale: 'default',
-  maxDate: null,
-  minDate: null,
-  minuteIncrement: 5,
-  mode: 'single',
-  nextArrow: '>',
-  noCalendar: false,
-  parseDate: false,
-  prevArrow: '<',
-  shorthandCurrentMonth: false,
-  static: false,
-  timeFormat: 'H:i',
-  time_24hr: false, // eslint-disable-line camelcase
-  utc: false,
-  weekNumbers: false,
-  wrap: false,
-
-  _oldMaxDate: null,
-  _oldMinDate: null,
 
   setupComponent: on('init', function() {
     // Require that users pass an onChange now
@@ -55,43 +19,11 @@ export default Component.extend({
 
     // Pass all values and setup flatpickr
     run.scheduleOnce('afterRender', this, function() {
-      const options = this.getProperties([
-        'allowInput',
-        'altFormat',
-        'altInput',
-        'altInputClass',
-        'clickOpens',
-        'dateFormat',
-        'defaultDate',
-        'defaultHour',
-        'defaultMinute',
-        'disable',
-        'disableMobile',
-        'enable',
-        'enableSeconds',
-        'enableTime',
-        'hourIncrement',
-        'inline',
-        'locale',
-        'maxDate',
-        'minDate',
-        'minuteIncrement',
-        'mode',
-        'nextArrow',
-        'noCalendar',
-        'parseDate',
-        'prevArrow',
-        'shorthandCurrentMonth',
-        'static',
-        'timeFormat',
-        'time_24hr',
-        'utc',
-        'weekNumbers',
-        'wrap'
-      ]);
+      const options = this.getProperties(Object.keys(this.attrs));
 
       // Add defaultDate, change and close handlers
       assign(options, {
+        defaultDate: this.get('date'),
         onChange: this._onChange.bind(this),
         onClose: this._onClose.bind(this),
         onOpen: this._onOpen.bind(this),
@@ -107,27 +39,39 @@ export default Component.extend({
     });
   }),
 
-  didUpdateAttrs() {
-    let newMax = this.get('maxDate');
-    let newMin = this.get('minDate');
-    let oldMax = this.get('_oldMaxDate');
-    let oldMin = this.get('_oldMinDate');
+  didReceiveAttrs: diffAttrs('date', 'locale', 'maxDate', 'minDate', function(changedAttrs, ...args) {
+    this._super(...args);
 
-    if (oldMax !== newMax) {
-      this.element._flatpickr.set('maxDate', newMax);
+    if (changedAttrs && changedAttrs.date) {
+      const [oldDate, newDate] = changedAttrs.date;
+      if (typeof newDate !== 'undefined' && oldDate !== newDate) {
+        this.element._flatpickr.setDate(newDate);
+      }
+    }
+    if (changedAttrs && changedAttrs.locale) {
+      const [oldLocale, newLocale] = changedAttrs.locale;
+
+      if (oldLocale !== newLocale) {
+        this.element._flatpickr.destroy();
+        this.setupComponent();
+      }
     }
 
-    if (oldMin !== newMin) {
-      this.element._flatpickr.set('minDate', newMin);
+    if (changedAttrs && changedAttrs.maxDate) {
+      const [oldMaxDate, newMaxDate] = changedAttrs.maxDate;
+
+      if (oldMaxDate !== newMaxDate) {
+        this.element._flatpickr.set('maxDate', newMaxDate);
+      }
     }
 
-    this.set('_oldMax', newMax);
-    this.set('_oldMin', newMin);
-  },
+    if (changedAttrs && changedAttrs.minDate) {
+      const [oldMinDate, newMinDate] = changedAttrs.minDate;
 
-  localeUpdated: observer('locale', function() {
-    this.element._flatpickr.destroy();
-    this.setupComponent();
+      if (oldMinDate !== newMinDate) {
+        this.element._flatpickr.set('minDate', newMinDate);
+      }
+    }
   }),
 
   willDestroyElement() {
