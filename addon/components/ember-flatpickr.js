@@ -1,10 +1,10 @@
 /* eslint-disable  ship-shape/avoid-leaking-state-in-components, ship-shape/closure-actions, ship-shape/no-observers, ship-shape/no-on-calls-in-components */
-import { assert } from 'ember-metal/utils';
-import { assign } from 'ember-platform';
-import Component from 'ember-component';
+import { assert } from '@ember/debug';
+import { assign } from '@ember/polyfills';
+import Component from '@ember/component';
 import diffAttrs from 'ember-diff-attrs';
-import on from 'ember-evented/on';
-import run from 'ember-runloop';
+import { on } from '@ember/object/evented';
+import { run } from '@ember/runloop';
 
 export default Component.extend({
   tagName: 'input',

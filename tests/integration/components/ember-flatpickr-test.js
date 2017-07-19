@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import $ from 'jquery';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-const { $, run } = Ember;
+import { run } from '@ember/runloop';
 
 moduleForComponent('ember-flatpickr', 'Integration | Component | ember flatpickr', {
   integration: true
@@ -23,7 +23,7 @@ function simulate(eventType, onElement, options, type) {
   const evt = new (type || CustomEvent)(eventType, eventOptions);
   try {
     Object.assign(evt, eventOptions);
-  } catch(e) {
+  } catch (e) {
     // This was empty in flatpickr
   }
 

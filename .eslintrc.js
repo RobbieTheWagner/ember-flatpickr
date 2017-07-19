@@ -5,16 +5,20 @@ module.exports = {
     sourceType: 'module'
   },
   extends: [
-    'eslint:recommended',
-    'plugin:ship-shape/recommended'
+    'eslint:recommended'
   ],
   env: {
     browser: true
   },
+  plugins: [
+    'ember'
+  ],
   globals: {
     flatpickr: false,
     FlatpickrInstance: false
   },
   rules: {
+    'no-console': 0,
+    'ember/no-old-shims': 'error'
   }
 };
