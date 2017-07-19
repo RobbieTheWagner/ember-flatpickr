@@ -2060,7 +2060,7 @@ electron-to-chromium@^1.3.14:
   version "1.3.14"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.14.tgz#64af0f9efd3c3c6acd57d71f83b49ca7ee9c4b43"
 
-ember-basic-dropdown@^0.33.0:
+ember-basic-dropdown@^0.33.1:
   version "0.33.1"
   resolved "https://registry.yarnpkg.com/ember-basic-dropdown/-/ember-basic-dropdown-0.33.1.tgz#8eab4181618d32edd88e1c90835d2a8791f09064"
   dependencies:
@@ -2553,11 +2553,11 @@ ember-native-dom-helpers@^0.5.0:
     broccoli-funnel "^1.1.0"
     ember-cli-babel "^6.1.0"
 
-ember-power-select@1.9.0:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/ember-power-select/-/ember-power-select-1.9.0.tgz#4c262aa8eb512320b266c7e342c565babe8e482d"
+ember-power-select@^1.9.2:
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/ember-power-select/-/ember-power-select-1.9.2.tgz#abe044f4a1b578689fd45fe71f5764a1cad3eca3"
   dependencies:
-    ember-basic-dropdown "^0.33.0"
+    ember-basic-dropdown "^0.33.1"
     ember-cli-babel "^6.6.0"
     ember-cli-htmlbars "^2.0.1"
     ember-concurrency "^0.8.1"
@@ -3018,6 +3018,12 @@ fast-sourcemap-concat@^1.0.1:
     rsvp "^3.0.14"
     source-map "^0.4.2"
     source-map-url "^0.3.0"
+
+fastboot-transform@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/fastboot-transform/-/fastboot-transform-0.1.2.tgz#f910d666ab93e75604492ea655270d1804bc8de7"
+  dependencies:
+    broccoli-stew "^1.5.0"
 
 faye-websocket@~0.10.0:
   version "0.10.0"

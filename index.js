@@ -1,7 +1,7 @@
 /* eslint-env node */
 'use strict';
 
-const map = require('broccoli-stew').map;
+const fastbootTransform = require('fastboot-transform');
 
 module.exports = {
   name: 'ember-flatpickr',
@@ -18,7 +18,7 @@ module.exports = {
               this.theme || 'flatpickr.css'
             ].concat(localePaths),
             processTree(tree) {
-              return map(tree, '**/*.js', (content) => `if (typeof FastBoot === 'undefined') {\n${content}\n}`);
+              return fastbootTransform(tree);
             }
           }
         };
