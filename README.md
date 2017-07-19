@@ -29,7 +29,7 @@ http://shipshapecode.github.io/ember-flatpickr/
   altInput=true
   altInputClass='my-alt-input'
   clickOpens=true
-  date=(readonly defaultDate) {{!-- Required Option --}}
+  date=(readonly defaultDate) // Required Option
   dateFormat='M/D/Y'
   defaultDate=defaultDate
   defaultHour=12
@@ -49,7 +49,7 @@ http://shipshapecode.github.io/ember-flatpickr/
   mode='single'
   nextArrow='>'
   noCalendar=false
-  onChange=(action (mut dateValues)) {{!-- Required Option --}}
+  onChange=(action (mut dateValues)) // Required Option
   onClose=(action 'doSomeStuffOnClose')
   onOpen=(action 'doSomeStuffOnOpen')
   onReady=(action 'doSomeStuffOnReady')
