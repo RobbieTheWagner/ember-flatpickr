@@ -156,9 +156,9 @@ onChange=(action (mut dateValue))
 
 Check [flatpickr locale documentation](https://chmln.github.io/flatpickr/#locale) for a list of config options.
 
-## Observers
+## Updating Attributes
 
-`maxDate` and `minDate` are watched by observers, and will update the flatpickr instance whenever you change them. This allows you to do things like having two components, used as a range picker, and updating the `minDate` and `maxDate` to display valid date choices on each.
+`date`, `locale`, `maxDate` and `minDate` are watched by the component, and will update the flatpickr instance whenever you change them. This allows you to do things like having two components, used as a range picker, and updating the `minDate` and `maxDate` to display valid date choices on each.
 
 ## flatpickrRef
 
