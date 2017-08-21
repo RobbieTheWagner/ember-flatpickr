@@ -56,10 +56,10 @@ http://shipshapecode.github.io/ember-flatpickr/
   parseDate=false
   placeholder='Choose a Date'
   prevArrow='<'
+  shorthandCurrentMonth=false
   static=false
-  timeFormat='H:i'
   time_24hr=false
-  utc=false
+  weekNumbers=false
   wrap=false
 }}
 ```
