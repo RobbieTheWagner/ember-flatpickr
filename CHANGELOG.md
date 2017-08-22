@@ -1,3 +1,6 @@
+# 2.0.2
+* Use nextSibling to ensure we disabled the right input
+
 # 2.0.1
 * Remove `attributeBinding` for disabled and correctly handle disabling when `altInput=true`
 * Remove all jQuery references
