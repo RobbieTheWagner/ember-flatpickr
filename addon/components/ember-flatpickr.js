@@ -9,7 +9,7 @@ import { run } from '@ember/runloop';
 export default Component.extend({
   tagName: 'input',
   type: 'text',
-  attributeBindings: ['disabled', 'placeholder', 'type'],
+  attributeBindings: ['placeholder', 'type'],
   date: null,
   flatpickrRef: null,
 
@@ -38,11 +38,14 @@ export default Component.extend({
       if (this.get('appendDataInput')) {
         this.element.setAttribute('data-input', '');
       }
+
+      this._setDisabled(this.get('disabled'));
+
       this.set('flatpickrRef', flatpickrRef);
     });
   }),
 
-  didReceiveAttrs: diffAttrs('date', 'locale', 'maxDate', 'minDate', function(changedAttrs, ...args) {
+  didReceiveAttrs: diffAttrs('date', 'disabled', 'locale', 'maxDate', 'minDate', function(changedAttrs, ...args) {
     this._super(...args);
 
     if (changedAttrs && changedAttrs.date) {
@@ -51,6 +54,14 @@ export default Component.extend({
         this.element._flatpickr.setDate(newDate);
       }
     }
+
+    if (changedAttrs && changedAttrs.disabled) {
+      const [oldDisabled, newDisabled] = changedAttrs.disabled;
+      if (typeof newDisabled !== 'undefined' && oldDisabled !== newDisabled) {
+        this._setDisabled(newDisabled);
+      }
+    }
+
     if (changedAttrs && changedAttrs.locale) {
       const [oldLocale, newLocale] = changedAttrs.locale;
 
@@ -91,6 +102,7 @@ export default Component.extend({
   _onChange(selectedDates, dateStr, instance) {
     this.sendAction('onChange', selectedDates, dateStr, instance);
   },
+
   /**
    * When the flatpickr is closed, fire the 'onClose' action
    * @param selectedDates The array of selected dates
@@ -101,6 +113,7 @@ export default Component.extend({
   _onClose(selectedDates, dateStr, instance) {
     this.sendAction('onClose', selectedDates, dateStr, instance);
   },
+
   /**
    * When the flatpickr is opened, fire the 'onOpen' action
    * @param selectedDates The array of selected dates
@@ -111,6 +124,7 @@ export default Component.extend({
   _onOpen(selectedDates, dateStr, instance) {
     this.sendAction('onOpen', selectedDates, dateStr, instance);
   },
+
   /**
    * When the flatpickr is ready, fire the 'onReady' action
    * @param selectedDates The array of selected dates
@@ -120,5 +134,18 @@ export default Component.extend({
    */
   _onReady(selectedDates, dateStr, instance) {
     this.sendAction('onReady', selectedDates, dateStr, instance);
+  },
+
+  /**
+   * Set disabled for the correct input, handling altInput weirdness
+   * @param {boolean} disabled Disabled or not
+   * @private
+   */
+  _setDisabled(disabled) {
+    if (this.get('altInput')) {
+      document.querySelector('.flatpickr-input[type="text"]').disabled = disabled;
+    } else {
+      this.element.disabled = disabled;
+    }
   }
 });

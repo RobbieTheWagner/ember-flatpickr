@@ -15,6 +15,58 @@ function closeFlatpickr() {
   triggerEvent(document, 'mousedown');
 }
 
+test('disabled is updated when altInput=true', function(assert) {
+  assert.expect(4);
+
+  const originalDate = '2080-12-05T20:00:00.000Z';
+  this.set('dateValue', [new Date(originalDate)]);
+  this.set('disabled', true);
+
+  this.render(
+    hbs`{{ember-flatpickr
+    altInput=true
+    date=(readonly dateValue)
+    disabled=disabled
+    onChange=null
+    placeholder="Pick date"
+    }}`);
+
+  run(() => {
+    assert.equal(find('.flatpickr-input[type="hidden"]').disabled, false, 'hidden input not disabled');
+    assert.equal(find('.flatpickr-input[type="text"]').disabled, true, 'text input is disabled');
+
+    this.set('disabled', false);
+
+    assert.equal(find('.flatpickr-input[type="hidden"]').disabled, false, 'hidden input not disabled');
+    assert.equal(find('.flatpickr-input[type="text"]').disabled, false, 'text input not disabled');
+  });
+});
+
+test('disabled is updated when altInput=false', function(assert) {
+  assert.expect(3);
+
+  const originalDate = '2080-12-05T20:00:00.000Z';
+  this.set('dateValue', [new Date(originalDate)]);
+  this.set('disabled', true);
+
+  this.render(
+    hbs`{{ember-flatpickr
+    altInput=false
+    date=(readonly dateValue)
+    disabled=disabled
+    onChange=null
+    placeholder="Pick date"
+    }}`);
+
+  run(() => {
+    assert.notOk(find('.flatpickr-input[type="hidden"]'), 'hidden input does not exist');
+    assert.equal(find('.flatpickr-input[type="text"]').disabled, true, 'text input is disabled');
+
+    this.set('disabled', false);
+
+    assert.equal(find('.flatpickr-input[type="text"]').disabled, false, 'text input not disabled');  });
+});
+
 test('value updates when set externally via flatpickrRef', function(assert) {
   assert.expect(2);
 
