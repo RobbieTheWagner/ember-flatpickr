@@ -8,6 +8,9 @@ module.exports = function(defaults) {
     flatpickr: {
       theme: 'dark',
       locales: ['fr', 'de', 'ru', 'uk']
+    },
+    vendorFiles: {
+      'jquery.js': null,
     }
   });
 

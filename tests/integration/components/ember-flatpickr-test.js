@@ -1,4 +1,4 @@
-import $ from 'jquery';
+import { find, findAll, triggerEvent } from 'ember-native-dom-helpers';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import { run } from '@ember/runloop';
@@ -8,26 +8,11 @@ moduleForComponent('ember-flatpickr', 'Integration | Component | ember flatpickr
 });
 
 function clickDay(index) {
-  simulate('mousedown', $('.flatpickr-days .flatpickr-day').get(index), { which: 1 }, MouseEvent);
+  triggerEvent(findAll('.flatpickr-days .flatpickr-day')[index], 'mousedown');
 }
 
 function closeFlatpickr() {
-  simulate('mousedown', document, { which: 1 }, MouseEvent);
-}
-
-/*
- * Copied from flatpickr
- */
-function simulate(eventType, onElement, options, type) {
-  const eventOptions = Object.assign(options || {}, { bubbles: true });
-  const evt = new (type || CustomEvent)(eventType, eventOptions);
-  try {
-    Object.assign(evt, eventOptions);
-  } catch (e) {
-    // This was empty in flatpickr
-  }
-
-  onElement.dispatchEvent(evt);
+  triggerEvent(document, 'mousedown');
 }
 
 test('value updates when set externally via flatpickrRef', function(assert) {
@@ -50,11 +35,11 @@ test('value updates when set externally via flatpickrRef', function(assert) {
       placeholder="Pick date"
       }}`);
 
-  assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), '1', 'initial selected date text');
+  assert.equal(find('.flatpickr-days .flatpickr-day.selected').textContent, '1', 'initial selected date text');
 
   this.get('flatpickrRef').setDate('2080-12-04T16:16:22.585Z');
 
-  assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), '4', 'selected changes with dateValue');
+  assert.equal(find('.flatpickr-days .flatpickr-day.selected').textContent, '4', 'selected changes with dateValue');
 });
 
 test('onChange action fired', function(assert) {
@@ -86,7 +71,7 @@ test('onChange action fired', function(assert) {
       }}`);
 
   run(() => {
-    $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
+    find('.flatpickr-input').dispatchEvent(new Event('focus'));
     clickDay(5);
   });
 });
@@ -116,13 +101,13 @@ test('onClose action fired', function(assert) {
       }}`);
 
   run(() => {
-    $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
+    find('.flatpickr-input').dispatchEvent(new Event('focus'));
     closeFlatpickr();
   });
 });
 
 test('maxDateUpdated and minDateUpdated fired', function(assert) {
-  assert.expect(2);
+  assert.expect(3);
 
   this.set('dateValue', null);
 
@@ -142,11 +127,12 @@ test('maxDateUpdated and minDateUpdated fired', function(assert) {
   this.set('minDate', '2080-12-24T16:16:22.585Z');
 
   run(() => {
-    $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
+    find('.flatpickr-input').dispatchEvent(new Event('focus'));
     run.scheduleOnce('afterRender', this, function() {
-      const enabledDays = $('.flatpickr-days .flatpickr-day:not(.disabled)');
+      const enabledDays = findAll('.flatpickr-days .flatpickr-day:not(.disabled)');
       assert.equal(enabledDays.length, 2);
-      assert.equal(enabledDays.text(), '2425');
+      assert.equal(enabledDays[0].textContent, '24');
+      assert.equal(enabledDays[1].textContent, '25');
     });
   });
 });
@@ -171,7 +157,7 @@ test('locale works correctly', function(assert) {
       placeholder="Pick date"
       }}`);
 
-  assert.equal($('.flatpickr-current-month .cur-month').text().trim(), 'Décembre', 'French locale applied successfully');
+  assert.equal(find('.flatpickr-current-month .cur-month').textContent.trim(), 'Décembre', 'French locale applied successfully');
 });
 
 test('onChange triggers value change only once', function(assert) {
@@ -197,12 +183,12 @@ test('onChange triggers value change only once', function(assert) {
       }}`);
 
   run(() => {
-    assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), originalPosition, 'initial selected date text');
+    assert.equal(find('.flatpickr-days .flatpickr-day.selected').textContent, originalPosition, 'initial selected date text');
 
-    $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
+    find('.flatpickr-input').dispatchEvent(new Event('focus'));
     clickDay(newPosition - 1);
 
-    assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), newPosition, 'selected changes with dateValue');
+    assert.equal(find('.flatpickr-days .flatpickr-day.selected').textContent, newPosition, 'selected changes with dateValue');
   });
 
 });
@@ -239,17 +225,17 @@ test('onChange gets called with the correct parameters', function(assert) {
       }}`);
 
   run(() => {
-    assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), originalPosition, 'initial selected date text');
+    assert.equal(find('.flatpickr-days .flatpickr-day.selected').textContent, originalPosition, 'initial selected date text');
 
-    $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
+    find('.flatpickr-input').dispatchEvent(new Event('focus'));
     clickDay(newPosition - 1);
 
-    assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), newPosition, 'selected changes with dateValue');
+    assert.equal(find('.flatpickr-days .flatpickr-day.selected').textContent, newPosition, 'selected changes with dateValue');
 
-    $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
+    find('.flatpickr-input').dispatchEvent(new Event('focus'));
     clickDay(newPosition - 1);
 
-    assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), newPosition, 'selected changes with dateValue');
+    assert.equal(find('.flatpickr-days .flatpickr-day.selected').textContent, newPosition, 'selected changes with dateValue');
   });
 
 });
@@ -271,12 +257,12 @@ test('onChange action mut helper returns date Array', function(assert) {
       }}`);
 
   run(() => {
-    assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), originalPosition, 'initial selected date text');
+    assert.equal(find('.flatpickr-days .flatpickr-day.selected').textContent, originalPosition, 'initial selected date text');
 
-    $('.flatpickr-input')[0].dispatchEvent(new Event('focus'));
+    find('.flatpickr-input').dispatchEvent(new Event('focus'));
     clickDay(newPosition - 1);
 
-    assert.equal($('.flatpickr-days .flatpickr-day.selected').text(), newPosition, 'selected changes with dateValue');
+    assert.equal(find('.flatpickr-days .flatpickr-day.selected').textContent, newPosition, 'selected changes with dateValue');
 
     assert.ok(this.get('dateValue') instanceof Array, 'dateValue is instanceof Array');
     assert.ok(this.get('dateValue').length, 1, 'dateValue has 1 item');

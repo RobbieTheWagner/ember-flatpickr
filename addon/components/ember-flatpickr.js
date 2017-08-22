@@ -36,7 +36,7 @@ export default Component.extend({
       const flatpickrRef = flatpickr(this.element, options);
 
       if (this.get('appendDataInput')) {
-        this.$().attr('data-input', '');
+        this.element.setAttribute('data-input', '');
       }
       this.set('flatpickrRef', flatpickrRef);
     });
