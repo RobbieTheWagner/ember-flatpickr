@@ -143,7 +143,7 @@ export default Component.extend({
    */
   _setDisabled(disabled) {
     if (this.get('altInput')) {
-      document.querySelector('.flatpickr-input[type="text"]').disabled = disabled;
+      this.element.nextSibling.disabled = disabled;
     } else {
       this.element.disabled = disabled;
     }
