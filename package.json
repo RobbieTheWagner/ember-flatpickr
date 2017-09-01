@@ -29,7 +29,7 @@
     "ember-cli-node-assets": "^0.2.2",
     "ember-diff-attrs": "^0.1.2",
     "fastboot-transform": "^0.1.2",
-    "flatpickr": "^3.0.6"
+    "flatpickr": "^3.0.7"
   },
   "devDependencies": {
     "@html-next/flexi-config": "^2.0.0",
@@ -40,7 +40,7 @@
     "broccoli-asset-rev": "^2.4.5",
     "codeclimate-test-reporter": "^0.5.0",
     "ember-3d-nav": "^1.6.0",
-    "ember-cli": "~2.15.0-beta.1",
+    "ember-cli": "~2.16.0-beta.1",
     "ember-cli-code-coverage": "0.4.1",
     "ember-cli-dependency-checker": "^2.0.0",
     "ember-cli-deploy": "^1.0.1",
@@ -48,7 +48,7 @@
     "ember-cli-deploy-ghpages": "^0.2.0",
     "ember-cli-eslint": "^4.0.0",
     "ember-cli-htmlbars": "^2.0.1",
-    "ember-cli-htmlbars-inline-precompile": "^0.4.3",
+    "ember-cli-htmlbars-inline-precompile": "^1.0.0",
     "ember-cli-inject-live-reload": "^1.4.1",
     "ember-cli-qunit": "^4.0.0",
     "ember-cli-sass": "^7.0.0",
@@ -62,14 +62,14 @@
     "ember-native-dom-helpers": "^0.5.4",
     "ember-power-select": "^1.9.2",
     "ember-resolver": "^4.0.0",
-    "ember-source": "~2.15.0-beta.1",
-    "eslint-plugin-ember": "^4.0.0",
+    "ember-source": "~2.16.0-beta.1",
+    "eslint-plugin-ember": "^4.3.0",
     "eslint-plugin-ship-shape": "^0.4.0",
     "flexi": "2.0.1",
     "loader.js": "^4.2.3"
   },
   "engines": {
-    "node": ">= 4"
+    "node": "^4.5 || 6.* || >= 7.*"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
