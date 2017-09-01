@@ -7,9 +7,13 @@ export default Controller.extend({
   locale: null,
   locales: ['default', 'fr', 'de', 'ru', 'uk'],
   minDate: null,
+  timeValue: null,
   actions: {
     clearDate() {
       this.set('dateValue', null);
+    },
+    clearTime() {
+      this.set('timeValue', null);
     },
     onChange(selectedDates) {
       run.next(() => {
@@ -17,12 +21,25 @@ export default Controller.extend({
         console.log('You selected: ', selectedDates[0]);
       });
     },
+    onChangeTime(selectedDates) {
+      run.next(() => {
+        this.set('timeValue', selectedDates[0]);
+        console.log('You selected: ', selectedDates[0]);
+      });
+    },
     onClose() {
       console.log('Flatpickr closed');
+    },
+    onCloseTime() {
+      console.log('Time Flatpickr closed');
     },
     onReady() {
       this.set('dateValue', null);
       console.log('onReady called');
+    },
+    onReadyTime() {
+      this.set('timeValue', null);
+      console.log('onReadyTime called');
     },
     updateMin() {
       run.next(() => {

@@ -21,43 +21,73 @@
     </grid>
 
     <hbox justify="center">
-      <box fit xs="12" md="6" class="half">
-        <h2>Demo</h2>
-        {{ember-flatpickr
-          appendDataInput=true
-          date=(readonly dateValue)
-          enableTime=true
-          locale=locale
-          minDate=minDate
-          onClose=(action "onClose")
-          onChange=(action "onChange")
-          onReady=(action "onReady")
-          placeholder="Pick date"
-        }}
+      <hbox xs="10" md="8" lg="6">
+        <hbox xs="12" justify="center">
+          <box xs="12" md="6" class="half">
+            <h2>Date/Time Picker</h2>
+            {{ember-flatpickr
+              appendDataInput=true
+              date=(readonly dateValue)
+              enableTime=true
+              locale=locale
+              minDate=minDate
+              onClose=(action "onClose")
+              onChange=(action "onChange")
+              onReady=(action "onReady")
+              placeholder="Pick date"
+            }}
 
-        <p class="selectedValue">
-          You selected: {{dateValue}}
-        </p>
-      </box>
-      <box fit xs="12" md="6" class="half">
-        <h2>Options</h2>
+            <p class="selectedValue">
+              You selected: {{dateValue}}
+            </p>
+          </box>
+          <box xs="12" md="6" class="half">
+            <h2>Options</h2>
 
-        {{#power-select
-          matchTriggerWidth=false
-          options=locales
-          placeholder="Choose a Locale"
-          searchEnabled=false
-          selected=locale
-          triggerClass="select"
-          onchange=(action (mut locale))
-        as |option|
-        }}
-          {{option}}
-        {{/power-select}}
+            {{#power-select
+              matchTriggerWidth=false
+              options=locales
+              placeholder="Choose a Locale"
+              searchEnabled=false
+              selected=locale
+              triggerClass="select"
+              onchange=(action (mut locale))
+            as |option|
+            }}
+              {{option}}
+            {{/power-select}}
 
-        <button {{action "updateMin"}}>Set minDate to '2080-12-24T16:16:22.585Z'</button>
-        <button {{action "clearDate"}}>Clear date</button>
-      </box>
+            <button {{action "updateMin"}}>Set minDate to '2080-12-24T16:16:22.585Z'</button>
+            <button {{action "clearDate"}}>Clear date</button>
+          </box>
+        </hbox>
+        <hbox xs="12" justify="center">
+          <box xs="12" md="6" class="half">
+            <h2>Time Picker</h2>
+            {{ember-flatpickr
+              appendDataInput=true
+              date=(readonly timeValue)
+              enableTime=true
+              locale=locale
+              minDate=minDate
+              noCalendar=true
+              onClose=(action "onCloseTime")
+              onChange=(action "onChangeTime")
+              onReady=(action "onReadyTime")
+              placeholder="Pick time"
+            }}
+
+            <p class="selectedValue">
+              You selected: {{timeValue}}
+            </p>
+          </box>
+          <box xs="12" md="6" class="half">
+            <h2>Options</h2>
+
+            <button {{action "clearTime"}}>Clear time</button>
+          </box>
+        </hbox>
+      </hbox>
     </hbox>
   </page>
 </screen>
