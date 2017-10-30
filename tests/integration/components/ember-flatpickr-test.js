@@ -12,7 +12,7 @@ function clickDay(index) {
 }
 
 function closeFlatpickr() {
-  triggerEvent(document, 'mousedown');
+  triggerEvent(document.body, 'mousedown');
 }
 
 test('disabled is updated when altInput=true', function(assert) {
@@ -252,7 +252,7 @@ test('onChange gets called with the correct parameters', function(assert) {
   const dateFormat = 'Y-m-d';
   const newFormattedDate = '2080-12-05';
 
-  this.on('onChange', (selectedDates, dateStr, instance) => {
+  this.on('onChange', (selectedDates, dateStr) => {
     assert.ok(selectedDates instanceof Array, 'selectedDates is an array');
     assert.equal(selectedDates.length, 1, 'selectedDates contains a single entry');
 
@@ -261,8 +261,6 @@ test('onChange gets called with the correct parameters', function(assert) {
     assert.equal(selectedDates[0].toDateString(), 'Thu Dec 05 2080', 'selectedDates contains the correct Date');
 
     assert.equal(dateStr, newFormattedDate, 'dateStr is formatted correctly');
-
-    assert.ok(instance instanceof FlatpickrInstance, 'instance is a FlatpickrInstance object');
   });
 
   this.set('dateValue', originalDate);

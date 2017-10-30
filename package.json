@@ -29,7 +29,7 @@
     "ember-cli-node-assets": "^0.2.2",
     "ember-diff-attrs": "^0.1.2",
     "fastboot-transform": "^0.1.2",
-    "flatpickr": "3.0.7"
+    "flatpickr": "4.0.6"
   },
   "devDependencies": {
     "@html-next/flexi-config": "^2.0.0",

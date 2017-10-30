@@ -14,8 +14,7 @@ module.exports = {
     'ember'
   ],
   globals: {
-    flatpickr: false,
-    FlatpickrInstance: false
+    flatpickr: false
   },
   rules: {
     'no-console': 0,
