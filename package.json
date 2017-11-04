@@ -27,7 +27,7 @@
   "dependencies": {
     "ember-cli-babel": "^6.8.2",
     "ember-cli-node-assets": "^0.2.2",
-    "ember-diff-attrs": "^0.1.2",
+    "ember-diff-attrs": "^0.2.0",
     "fastboot-transform": "^0.1.2",
     "flatpickr": "4.0.6"
   },
