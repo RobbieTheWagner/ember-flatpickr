@@ -58,7 +58,7 @@
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
     "ember-native-dom-event-dispatcher": "^0.6.3",
-    "ember-native-dom-helpers": "^0.5.4",
+    "ember-native-dom-helpers": "^0.6.0",
     "ember-power-select": "^1.9.2",
     "ember-resolver": "^4.0.0",
     "ember-source": "~2.17.0-beta.1",
