@@ -4,7 +4,6 @@ import { assign } from '@ember/polyfills';
 import Component from '@ember/component';
 import diffAttrs from 'ember-diff-attrs';
 import { on } from '@ember/object/evented';
-import { run } from '@ember/runloop';
 
 export default Component.extend({
   tagName: 'input',
@@ -19,31 +18,31 @@ export default Component.extend({
 
     // Require that users pass an onChange
     assert('{{ember-flatpickr}} requires an `onChange` action or null for no action.', this.get('onChange') !== undefined);
-
-    // Pass all values and setup flatpickr
-    run.scheduleOnce('afterRender', this, function() {
-      const options = this.getProperties(Object.keys(this.attrs));
-
-      // Add defaultDate, change and close handlers
-      assign(options, {
-        defaultDate: this.get('date'),
-        onChange: this._onChange.bind(this),
-        onClose: this._onClose.bind(this),
-        onOpen: this._onOpen.bind(this),
-        onReady: this._onReady.bind(this)
-      });
-
-      const flatpickrRef = flatpickr(this.element, options);
-
-      if (this.get('appendDataInput')) {
-        this.element.setAttribute('data-input', '');
-      }
-
-      this._setDisabled(this.get('disabled'));
-
-      this.set('flatpickrRef', flatpickrRef);
-    });
   }),
+
+  // Pass all values and setup flatpickr
+  didInsertElement(){
+    const options = this.getProperties(Object.keys(this.attrs));
+
+    // Add defaultDate, change and close handlers
+    assign(options, {
+      defaultDate: this.get('date'),
+      onChange: this._onChange.bind(this),
+      onClose: this._onClose.bind(this),
+      onOpen: this._onOpen.bind(this),
+      onReady: this._onReady.bind(this)
+    });
+
+    const flatpickrRef = flatpickr(this.element, options);
+
+    if (this.get('appendDataInput')) {
+      this.element.setAttribute('data-input', '');
+    }
+
+    this._setDisabled(this.get('disabled'));
+
+    this.set('flatpickrRef', flatpickrRef);
+  },
 
   didReceiveAttrs: diffAttrs('date', 'disabled', 'locale', 'maxDate', 'minDate', function(changedAttrs, ...args) {
     this._super(...args);
