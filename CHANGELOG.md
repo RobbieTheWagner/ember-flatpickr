@@ -1,3 +1,6 @@
+# 2.1.1
+* Fix fastboot `flatpickr` undefined issue
+
 # 2.0.2
 * Use nextSibling to ensure we disabled the right input
 
