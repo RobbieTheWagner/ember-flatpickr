@@ -5,6 +5,7 @@ import Component from '@ember/component';
 import diffAttrs from 'ember-diff-attrs';
 import { on } from '@ember/object/evented';
 import { run } from '@ember/runloop';
+import { getOwner } from '@ember/application';
 
 export default Component.extend({
   tagName: 'input',
@@ -22,6 +23,8 @@ export default Component.extend({
 
     // Pass all values and setup flatpickr
     run.scheduleOnce('afterRender', this, function() {
+      const fastboot = getOwner(this).lookup('service:fastboot');
+      if(fastboot && fastboot.isFastBoot){ return; }
       const options = this.getProperties(Object.keys(this.attrs));
 
       // Add defaultDate, change and close handlers
