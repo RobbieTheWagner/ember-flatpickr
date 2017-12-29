@@ -27,7 +27,7 @@ export function setFlatpickrDate(selector, date, triggerChange = true) {
 */
 export function closeFlatpickrDate(selector) {
   const flatpickrInput = find(selector);
-  if (!flatpickrInput) _throwSelectorError(selector, 'setFlatpickrDate');
+  if (!flatpickrInput) _throwSelectorError(selector, 'closeFlatpickrDate');
   flatpickrInput._flatpickr.close();
 }
 
