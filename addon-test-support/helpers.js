@@ -23,6 +23,15 @@ export function setFlatpickrDate(selector, date, triggerChange = true) {
 }
 
 /**
+ * @param {String} selector - CSS3 selector of the element to pull the flatpickr instance from
+*/
+export function closeFlatpickrDate(selector) {
+  const flatpickrInput = find(selector);
+  if (!flatpickrInput) _throwSelectorError(selector, 'closeFlatpickrDate');
+  flatpickrInput._flatpickr.close();
+}
+
+/**
  * Clears out the flatpickr selectedDates attribute as well as the associated input.
  * @param {String} selector - CSS3 selector of the element to pull the flatpickr instance from
 */
@@ -35,6 +44,10 @@ export function clearFlatpickrDate(selector) {
 // Registers helpers for acceptance tests
 
 export default function () {
+  registerHelper('closeFlatpickrDate', function(app, selector) {
+    return closeFlatpickrDate(selector);
+  });
+
   registerHelper('setFlatpickrDate', function(app, selector, date, triggerChange) {
     return setFlatpickrDate(selector, date, triggerChange);
   });
