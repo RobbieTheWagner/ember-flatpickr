@@ -51,44 +51,12 @@ export default Component.extend({
   didReceiveAttrs: diffAttrs('date', 'disabled', 'locale', 'maxDate', 'minDate', function(changedAttrs, ...args) {
     this._super(...args);
 
-    if (changedAttrs && changedAttrs.date) {
-      const [oldDate, newDate] = changedAttrs.date;
-      if (typeof newDate !== 'undefined' && oldDate !== newDate) {
-        this.element._flatpickr.setDate(newDate);
-      }
-    }
+    this._applyChangeOnDate(changedAttrs);
+    this._applyChangeOnDisabled(changedAttrs);
+    this._applyChangeOnLocale(changedAttrs);
+    this._applyChangeOnMaxMinDate(changedAttrs, 'maxDate');
+    this._applyChangeOnMaxMinDate(changedAttrs, 'minDate');
 
-    if (changedAttrs && changedAttrs.disabled) {
-      const [oldDisabled, newDisabled] = changedAttrs.disabled;
-      if (typeof newDisabled !== 'undefined' && oldDisabled !== newDisabled) {
-        this._setDisabled(newDisabled);
-      }
-    }
-
-    if (changedAttrs && changedAttrs.locale) {
-      const [oldLocale, newLocale] = changedAttrs.locale;
-
-      if (oldLocale !== newLocale) {
-        this.element._flatpickr.destroy();
-        this.setupComponent();
-      }
-    }
-
-    if (changedAttrs && changedAttrs.maxDate) {
-      const [oldMaxDate, newMaxDate] = changedAttrs.maxDate;
-
-      if (oldMaxDate !== newMaxDate) {
-        this.element._flatpickr.set('maxDate', newMaxDate);
-      }
-    }
-
-    if (changedAttrs && changedAttrs.minDate) {
-      const [oldMinDate, newMinDate] = changedAttrs.minDate;
-
-      if (oldMinDate !== newMinDate) {
-        this.element._flatpickr.set('minDate', newMinDate);
-      }
-    }
   }),
 
   willDestroyElement() {
@@ -150,5 +118,72 @@ export default Component.extend({
     } else {
       this.element.disabled = disabled;
     }
-  }
+  },
+
+  /**
+   * Apply changes on Date
+   * @param {object} changedAttrs
+   * @private
+   */
+  _applyChangeOnDate(changedAttrs){
+    let newDate = this._attributeHasChanged(changedAttrs, 'date');
+    if (newDate){
+      this.element._flatpickr.setDate(newDate);
+    }
+  },
+
+  /**
+   * Apply changes on disable
+   * @param {object} changedAttrs
+   * @private
+   */
+  _applyChangeOnDisabled(changedAttrs){
+    let newDisabled = this._attributeHasChanged(changedAttrs, 'disabled');
+    if (typeof newDisabled === 'boolean'){
+      this._setDisabled(newDisabled);
+    }
+  },
+
+  /**
+   * Apply changes on Locale
+   * @param {object} changedAttrs
+   * @private
+   */
+  _applyChangeOnLocale(changedAttrs){
+    let newLocale = this._attributeHasChanged(changedAttrs, 'locale');
+    if (newLocale){
+      this.element._flatpickr.destroy();
+      this.setupComponent();
+    }
+  },
+
+  /**
+   * Apply changes on Max and Min Date
+   * @param {object} changedAttrs
+   * @private
+   */
+  _applyChangeOnMaxMinDate(changedAttrs, attribute){
+    let newMaxMinDate = this._attributeHasChanged(changedAttrs, attribute);
+    if (newMaxMinDate) {
+      this.element._flatpickr.set(attribute, newMaxMinDate);
+    }
+  },
+
+  /**
+   * Check if the attribute has change, and return false or the new changed attribute
+   * @param {object} changedAttrs 
+  * @param {string} attribute * the key to search for changes
+   * @private
+   */
+  _attributeHasChanged(changedAttrs, attribute) {
+    if (changedAttrs && changedAttrs[attribute]) {
+      const [oldAttribute, newAttribute] = changedAttrs[attribute];
+      if (typeof newAttribute !== 'undefined' && oldAttribute !== newAttribute) {
+        return newAttribute;
+      } else {
+        return false;
+      }
+    }
+  },
+
 });
