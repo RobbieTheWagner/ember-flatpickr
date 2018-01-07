@@ -24,7 +24,9 @@ export default Component.extend({
     // Pass all values and setup flatpickr
     run.scheduleOnce('afterRender', this, function() {
       const fastboot = getOwner(this).lookup('service:fastboot');
-      if(fastboot && fastboot.isFastBoot){ return; }
+      if (fastboot && fastboot.isFastBoot) {
+        return;
+      }
       const options = this.getProperties(Object.keys(this.attrs));
 
       // Add defaultDate, change and close handlers
@@ -51,48 +53,50 @@ export default Component.extend({
   didReceiveAttrs: diffAttrs('date', 'disabled', 'locale', 'maxDate', 'minDate', function(changedAttrs, ...args) {
     this._super(...args);
 
-    if (changedAttrs && changedAttrs.date) {
-      const [oldDate, newDate] = changedAttrs.date;
-      if (typeof newDate !== 'undefined' && oldDate !== newDate) {
+    this._attributeHasChanged(changedAttrs, 'date', (newDate) => {
+      if (typeof newDate !== 'undefined') {
         this.element._flatpickr.setDate(newDate);
       }
-    }
+    });
 
-    if (changedAttrs && changedAttrs.disabled) {
-      const [oldDisabled, newDisabled] = changedAttrs.disabled;
-      if (typeof newDisabled !== 'undefined' && oldDisabled !== newDisabled) {
+    this._attributeHasChanged(changedAttrs, 'disabled', (newDisabled) => {
+      if (typeof newDisabled !== 'undefined') {
         this._setDisabled(newDisabled);
       }
-    }
+    });
 
-    if (changedAttrs && changedAttrs.locale) {
-      const [oldLocale, newLocale] = changedAttrs.locale;
+    this._attributeHasChanged(changedAttrs, 'locale', () => {
+      this.element._flatpickr.destroy();
+      this.setupComponent();
+    });
 
-      if (oldLocale !== newLocale) {
-        this.element._flatpickr.destroy();
-        this.setupComponent();
-      }
-    }
+    this._attributeHasChanged(changedAttrs, 'maxDate', (newMaxDate) => {
+      this.element._flatpickr.set('maxDate', newMaxDate);
+    });
 
-    if (changedAttrs && changedAttrs.maxDate) {
-      const [oldMaxDate, newMaxDate] = changedAttrs.maxDate;
-
-      if (oldMaxDate !== newMaxDate) {
-        this.element._flatpickr.set('maxDate', newMaxDate);
-      }
-    }
-
-    if (changedAttrs && changedAttrs.minDate) {
-      const [oldMinDate, newMinDate] = changedAttrs.minDate;
-
-      if (oldMinDate !== newMinDate) {
-        this.element._flatpickr.set('minDate', newMinDate);
-      }
-    }
+    this._attributeHasChanged(changedAttrs, 'minDate', (newMinDate) => {
+      this.element._flatpickr.set('minDate', newMinDate);
+    });
   }),
 
   willDestroyElement() {
     this.element._flatpickr.destroy();
+  },
+
+  /**
+   * Check if the attr has changed, and if so call the callback with the new value
+   * @param {object} changedAttrs The object with keys denoting attrs that have changed
+   * @param {string} attr The string of which attr to check for changes
+   * @param {function} callback A function to call with the newAttr value
+   * @private
+   */
+  _attributeHasChanged(changedAttrs, attr, callback) {
+    if (changedAttrs && changedAttrs[attr]) {
+      const [oldAttr, newAttr] = changedAttrs[attr];
+      if (oldAttr !== newAttr) {
+        callback(newAttr);
+      }
+    }
   },
 
   /**
