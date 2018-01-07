@@ -321,7 +321,7 @@ test('onChange action mut helper returns date Array', function(assert) {
 
 });
 
-test('value accepts string', function(assert) {
+test('date accepts string', function(assert) {
   assert.expect(2);
 
   const originalDate = '2080-12-05T20:00:00.000Z';
@@ -342,7 +342,7 @@ test('value accepts string', function(assert) {
   });
 });
 
-test('value accepts date object', function(assert) {
+test('date accepts date object', function(assert) {
   assert.expect(2);
 
   const originalDate = '2080-12-05T20:00:00.000Z';
@@ -363,7 +363,7 @@ test('value accepts date object', function(assert) {
   });
 });
 
-test('value accepts array of string', function(assert) {
+test('date accepts array of string', function(assert) {
   assert.expect(2);
 
   const originalDate = '2080-12-05T20:00:00.000Z';
@@ -384,7 +384,7 @@ test('value accepts array of string', function(assert) {
   });
 });
 
-test('value accepts array of date objects', function(assert) {
+test('date accepts array of date objects', function(assert) {
   assert.expect(2);
 
   const originalDate = '2080-12-05T20:00:00.000Z';
