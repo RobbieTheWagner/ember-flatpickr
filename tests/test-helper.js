@@ -1,13 +1,12 @@
+import Application from '../app';
 import config from '../config/environment';
-import resolver from './helpers/resolver';
-import {
-  setResolver
-} from 'ember-qunit';
+import { setApplication } from '@ember/test-helpers';
 import { settings } from 'ember-native-dom-helpers';
-import { start } from 'ember-cli-qunit';
+import { start } from 'ember-qunit';
 
 const { APP: { rootElement } } = config;
 settings.rootElement = rootElement || settings.rootElement;
 
-setResolver(resolver);
+setApplication(Application.create(config.APP));
+
 start();

@@ -1,3 +1,4 @@
+/* eslint-disable ember/avoid-leaking-state-in-ember-objects */
 import Controller from '@ember/controller';
 import { run } from '@ember/runloop';
 

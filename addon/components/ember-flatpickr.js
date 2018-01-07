@@ -1,4 +1,4 @@
-/* eslint-disable  ship-shape/avoid-leaking-state-in-components, ship-shape/closure-actions, ship-shape/no-observers, ship-shape/no-on-calls-in-components */
+/* eslint-disable ember/closure-actions, ember/no-attrs-in-components, ember/no-on-calls-in-components */
 import { assert } from '@ember/debug';
 import { assign } from '@ember/polyfills';
 import Component from '@ember/component';
