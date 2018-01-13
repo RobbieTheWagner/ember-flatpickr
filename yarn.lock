@@ -2153,7 +2153,7 @@ ember-basic-dropdown@^0.34.0:
     ember-native-dom-helpers "^0.5.4"
     ember-wormhole "^0.5.2"
 
-ember-cli-babel@^5.1.5, ember-cli-babel@^5.1.7:
+ember-cli-babel@^5.1.5:
   version "5.2.4"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-5.2.4.tgz#5ce4f46b08ed6f6d21e878619fb689719d6e8e13"
   dependencies:
@@ -2548,11 +2548,11 @@ ember-concurrency@^0.8.12:
     ember-getowner-polyfill "^2.0.0"
     ember-maybe-import-regenerator "^0.1.5"
 
-ember-diff-attrs@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/ember-diff-attrs/-/ember-diff-attrs-0.2.0.tgz#376bc09349e2a601d74fa0b21fdb43540d3b8e7c"
+ember-diff-attrs@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.npmjs.org/ember-diff-attrs/-/ember-diff-attrs-0.2.1.tgz#ad9592ab8ba63d796bb9b1633801fe27ca43fc74"
   dependencies:
-    ember-cli-babel "^5.1.7"
+    ember-cli-babel "^6.6.0"
     ember-weakmap "^3.0.0"
 
 ember-disable-prototype-extensions@^1.1.2:
