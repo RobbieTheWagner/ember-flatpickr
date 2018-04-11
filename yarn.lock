@@ -2842,13 +2842,6 @@ ember-native-dom-helpers@^0.5.4:
     broccoli-funnel "^1.1.0"
     ember-cli-babel "^6.6.0"
 
-ember-native-dom-helpers@^0.6.2:
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/ember-native-dom-helpers/-/ember-native-dom-helpers-0.6.2.tgz#ad1f82d64ac9abdd612022f4f390bdb6653b3d39"
-  dependencies:
-    broccoli-funnel "^1.1.0"
-    ember-cli-babel "^6.6.0"
-
 ember-power-select@^1.10.4:
   version "1.10.4"
   resolved "https://registry.yarnpkg.com/ember-power-select/-/ember-power-select-1.10.4.tgz#7f0bb8c55279375391f2d97591ed65f727061579"

@@ -1,5 +1,6 @@
+import { deprecate } from '@ember/debug';
 import { registerHelper } from '@ember/test';
-import { find } from 'ember-native-dom-helpers';
+import { find } from '@ember/test-helpers';
 
 /**
  * Checks if the flatpickr calendar is being displayed.
@@ -45,14 +46,29 @@ export function clearFlatpickrDate(selector) {
 
 export default function () {
   registerHelper('closeFlatpickrDate', function(app, selector) {
+    deprecate(
+      'Using the implicit global helper `closeFlatpickrDate` is deprecated. Please, import it explicitly with `import { closeFlatpickrDate } from "ember-flatpickr/test-support"`',
+      true,
+      { id: 'ember-flatpickr-global-close-flatpickr-date', until: '3.0.0' }
+    );
     return closeFlatpickrDate(selector);
   });
 
   registerHelper('setFlatpickrDate', function(app, selector, date, triggerChange) {
+    deprecate(
+      'Using the implicit global helper `setFlatpickrDate` is deprecated. Please, import it explicitly with `import { setFlatpickrDate } from "ember-flatpickr/test-support"`',
+      true,
+      { id: 'ember-flatpickr-global-set-flatpickr-date', until: '3.0.0' }
+    );
     return setFlatpickrDate(selector, date, triggerChange);
   });
 
   registerHelper('clearFlatpickrDate', function(app, selector) {
+    deprecate(
+      'Using the implicit global helper `clearFlatpickrDate` is deprecated. Please, import it explicitly with `import { clearFlatpickrDate } from "ember-flatpickr/test-support"`',
+      true,
+      { id: 'ember-flatpickr-global-clear-flatpickr-date', until: '3.0.0' }
+    );
     return clearFlatpickrDate(selector);
   });
 }
