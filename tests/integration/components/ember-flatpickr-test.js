@@ -66,6 +66,31 @@ module('Integration | Component | ember flatpickr', function(hooks) {
     assert.equal(find('.flatpickr-input[type="text"]').disabled, false, 'text input not disabled');
   });
 
+  test('altFormat updates when changd', async function(assert) {
+    assert.expect(2);
+
+    this.actions.onChange = () => {
+    };
+
+    this.set('dateValue', '2080-12-01T16:16:22.585Z');
+    this.set('altFormat', 'j'); // 1-31 (day of month, no leading zeros)
+
+    await render(hbs`{{ember-flatpickr
+      altInput=true
+      altFormat=altFormat
+      date=(readonly dateValue)
+      flatpickrRef=flatpickrRef
+      onChange="onChange"
+      placeholder="Pick date"
+      }}`);
+
+    assert.equal(find('.flatpickr-input[type="text"]').value, '1', 'initial altFormat value');
+
+    this.set('altFormat', 'Y');
+
+    assert.equal(find('.flatpickr-input[type="text"]').value, '2080', 'altFormat updates when changed');
+  });
+
   test('value updates when set externally via flatpickrRef', async function(assert) {
     assert.expect(2);
 
