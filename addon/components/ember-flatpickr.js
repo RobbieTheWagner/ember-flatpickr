@@ -100,6 +100,33 @@ export default Component.extend({
   },
 
   /**
+   * Action fired when the flatpickr is closed
+   * @param selectedDates The array of selected dates
+   * @param dateStr The string representation of the date, formatted by dateFormat
+   * @param instance The flatpickr instance
+   * @public
+   */
+  onClose(/*selectedDates, dateStr, instance*/) {},
+
+  /**
+   * Action fired when the flatpickr is opened
+   * @param selectedDates The array of selected dates
+   * @param dateStr The string representation of the date, formatted by dateFormat
+   * @param instance The flatpickr instance
+   * @public
+   */
+  onOpen(/*selectedDates, dateStr, instance*/) {},
+
+  /**
+   * Action fired when the flatpickr is ready
+   * @param selectedDates The array of selected dates
+   * @param dateStr The string representation of the date, formatted by dateFormat
+   * @param instance The flatpickr instance
+   * @public
+   */
+  onReady(/*selectedDates, dateStr, instance*/) {},
+
+  /**
    * When the date is changed, update the value and send 'onChange' action
    * @param selectedDates The array of selected dates
    * @param dateStr The string representation of the date, formatted by dateFormat
@@ -107,7 +134,9 @@ export default Component.extend({
    * @private
    */
   _onChange(selectedDates, dateStr, instance) {
-    this.sendAction('onChange', selectedDates, dateStr, instance);
+    if (this.onChange instanceof Function) {
+      this.onChange(selectedDates, dateStr, instance);
+    }
   },
 
   /**
@@ -118,7 +147,7 @@ export default Component.extend({
    * @private
    */
   _onClose(selectedDates, dateStr, instance) {
-    this.sendAction('onClose', selectedDates, dateStr, instance);
+    this.onClose(selectedDates, dateStr, instance);
   },
 
   /**
@@ -129,7 +158,7 @@ export default Component.extend({
    * @private
    */
   _onOpen(selectedDates, dateStr, instance) {
-    this.sendAction('onOpen', selectedDates, dateStr, instance);
+    this.onOpen(selectedDates, dateStr, instance);
   },
 
   /**
@@ -140,7 +169,7 @@ export default Component.extend({
    * @private
    */
   _onReady(selectedDates, dateStr, instance) {
-    this.sendAction('onReady', selectedDates, dateStr, instance);
+    this.onReady(selectedDates, dateStr, instance);
   },
 
   /**
