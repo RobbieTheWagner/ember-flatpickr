@@ -81,7 +81,7 @@ module('Integration | Component | ember flatpickr', function(hooks) {
       flatpickrRef=flatpickrRef
       maxDate=maxDate
       minDate=minDate
-      onChange="onChange"
+      onChange=(action "onChange")
       placeholder="Pick date"
       }}`);
 
@@ -115,7 +115,7 @@ module('Integration | Component | ember flatpickr', function(hooks) {
       enableTime=true
       maxDate=maxDate
       minDate=minDate
-      onChange="onChange"
+      onChange=(action "onChange")
       placeholder="Pick date"
       }}`);
 
@@ -142,7 +142,7 @@ module('Integration | Component | ember flatpickr', function(hooks) {
       maxDate=maxDate
       minDate=minDate
       onChange=null
-      onClose="onClose"
+      onClose=(action "onClose")
       placeholder="Pick date"
       }}`);
 
@@ -162,7 +162,6 @@ module('Integration | Component | ember flatpickr', function(hooks) {
       maxDate=maxDate
       minDate=minDate
       onChange=null
-      onClose="onClose"
       placeholder="Pick date"
       }}`);
 
@@ -191,11 +190,11 @@ module('Integration | Component | ember flatpickr', function(hooks) {
       locale="fr"
       maxDate=maxDate
       minDate=minDate
-      onChange="onChange"
+      onChange=(action "onChange")
       placeholder="Pick date"
       }}`);
 
-    assert.equal(find('.flatpickr-current-month .cur-month').textContent.trim(), 'Décembre', 'French locale applied successfully');
+    assert.equal(find('.flatpickr-current-month .cur-month').textContent.trim(), 'décembre', 'French locale applied successfully');
   });
 
   test('onChange triggers value change only once', async function(assert) {
@@ -215,7 +214,7 @@ module('Integration | Component | ember flatpickr', function(hooks) {
 
     await render(hbs`{{ember-flatpickr
       date=(readonly dateValue)
-      onChange="onChange"
+      onChange=(action "onChange")
       placeholder="Pick date"
       }}`);
 
@@ -251,7 +250,7 @@ module('Integration | Component | ember flatpickr', function(hooks) {
     await render(hbs`{{ember-flatpickr
       dateFormat=dateFormat
       date=(readonly dateValue)
-      onChange="onChange"
+      onChange=(action "onChange")
       placeholder="Pick date"
       }}`);
 
