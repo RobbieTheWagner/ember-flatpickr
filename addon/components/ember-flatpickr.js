@@ -6,8 +6,17 @@ import diffAttrs from 'ember-diff-attrs';
 import { on } from '@ember/object/evented';
 import { run } from '@ember/runloop';
 import { getOwner } from '@ember/application';
+import layout from '../templates/components/ember-flatpickr';
 
+/**
+ * A component that wraps flatpickr
+ *
+ * ```hbs
+ * {{ember-flatpickr}}
+ * ```
+ */
 export default Component.extend({
+  layout,
   tagName: 'input',
   type: 'text',
   attributeBindings: ['placeholder', 'type'],
