@@ -3,7 +3,7 @@
 const fastbootTransform = require('fastboot-transform');
 
 module.exports = {
-  name: 'ember-flatpickr',
+  name: require('./package').name,
   options: {
     nodeAssets: {
       flatpickr() {
