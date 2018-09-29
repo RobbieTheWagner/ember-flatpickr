@@ -15,7 +15,7 @@ This is an Ember addon that wraps the date picker [flatpickr](http://chmln.githu
 
 ## Demo
 
-[![Flatpickr](http://i.imgur.com/9ZvagVn.png)](http://shipshapecode.github.io/ember-flatpickr/)
+[![Flatpickr](http://i.imgur.com/9ZvagVn.png)](http://shipshapecode.github.io/ember-flatpickr/) [![Greenkeeper badge](https://badges.greenkeeper.io/shipshapecode/ember-flatpickr.svg)](https://greenkeeper.io/)
 http://shipshapecode.github.io/ember-flatpickr/
 
 ## Installation
