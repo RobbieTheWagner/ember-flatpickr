@@ -1,4 +1,11 @@
-{{#nav-trigger-container}}
+<div class="docs-font-sans docs-text-black docs-leading-normal">
+  {{docs-header}}
+
+  {{outlet}}
+
+  {{docs-keyboard-shortcuts}}
+</div>
+{{!--#nav-trigger-container}}
   <a href="//shipshape.io" class="logo">
     <img src="img/white.svg" alt="Logo" height="45px" width="45px">
     <centered class="logoText">SHIP SHAPE</centered>
@@ -98,6 +105,6 @@
   {{#each model.links as |link index|}}
     {{nav-item index=index link=link}}
   {{/each}}
-{{/nav-container}}
+{{/nav-container--}}
 
 

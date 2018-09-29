@@ -4,8 +4,9 @@ import { find } from '@ember/test-helpers';
 
 /**
  * Checks if the flatpickr calendar is being displayed.
+ *
  * @param {Number} [pickrIndex=0] - Index of flatpickr calendar to be targeted (for when multiple exist)
- * @returns {Boolean}
+ * @return {Boolean} Whether or not the calendar is visible
 */
 export function isFlatpickrOpen(pickrIndex = 0) {
   const flatpickerCal = document.getElementsByClassName('flatpickr-calendar')[pickrIndex];
@@ -13,6 +14,8 @@ export function isFlatpickrOpen(pickrIndex = 0) {
 }
 
 /**
+ * Sets the date in the flatpickr
+ *
  * @param {String} selector - CSS3 selector of the element to pull the flatpickr instance from
  * @param {Object} date - A Date Object or array of Date Objects to set as the selected date(s)
  * @param {Boolean} [triggerChange=true] - If true, this forces onChange events to fire

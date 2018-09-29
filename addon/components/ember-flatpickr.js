@@ -102,7 +102,7 @@ export default Component.extend({
   /**
    * Action fired when the flatpickr is closed
    * @param selectedDates The array of selected dates
-   * @param dateStr The string representation of the date, formatted by dateFormat
+   * @param {string} dateStr The string representation of the date, formatted by dateFormat
    * @param instance The flatpickr instance
    * @public
    */
