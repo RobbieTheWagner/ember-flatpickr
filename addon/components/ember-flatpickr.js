@@ -17,10 +17,10 @@ import layout from '../templates/components/ember-flatpickr';
  * {{ember-flatpickr}}
  * ```
  *
- * @class EmberFlatpickr
+ * @class EmberFlatpickrComponent
  * @public
  */
-export default Component.extend({
+let EmberFlatpickrComponent = Component.extend({
   layout,
   tagName: 'input',
   type: 'text',
@@ -213,3 +213,5 @@ export default Component.extend({
     }
   }
 });
+
+export default EmberFlatpickrComponent;
