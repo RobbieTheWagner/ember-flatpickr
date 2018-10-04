@@ -8,7 +8,6 @@ import diffAttrs from 'ember-diff-attrs';
 import { on } from '@ember/object/evented';
 import { run } from '@ember/runloop';
 import { getOwner } from '@ember/application';
-import layout from '../templates/components/ember-flatpickr';
 
 /**
  * A component that wraps flatpickr
@@ -17,14 +16,17 @@ import layout from '../templates/components/ember-flatpickr';
  * {{ember-flatpickr}}
  * ```
  *
- * @class EmberFlatpickrComponent
+ * @class ember-flatpickr
  * @public
  */
-let EmberFlatpickrComponent = Component.extend({
-  layout,
+export default Component.extend({
   tagName: 'input',
   type: 'text',
   attributeBindings: ['placeholder', 'type'],
+  /**
+   * The date to pass to flatpickr
+   * @argument {Date|string} date
+   */
   date: null,
   flatpickrRef: null,
 
@@ -213,5 +215,3 @@ let EmberFlatpickrComponent = Component.extend({
     }
   }
 });
-
-export default EmberFlatpickrComponent;
