@@ -8,9 +8,12 @@ const Router = AddonDocsRouter.extend({
 
 Router.map(function() {
   docsRoute(this, function() {
-    this.route('configuration');
-    this.route('playground');
+    this.route('test-helpers');
     this.route('usage');
+
+    this.route('components', function() {
+      this.route('ember-flatpickr');
+    });
   });
 
   this.route('not-found', { path: '/*path' });
