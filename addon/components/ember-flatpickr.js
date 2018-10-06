@@ -1,4 +1,6 @@
 /* eslint-disable ember/closure-actions, ember/no-attrs-in-components, ember/no-on-calls-in-components */
+/** @documenter yuidoc */
+
 import { assert } from '@ember/debug';
 import { assign } from '@ember/polyfills';
 import Component from '@ember/component';
@@ -7,13 +9,32 @@ import { on } from '@ember/object/evented';
 import { run } from '@ember/runloop';
 import { getOwner } from '@ember/application';
 
+/**
+ * A component that wraps flatpickr
+ *
+ * ```hbs
+ * {{ember-flatpickr}}
+ * ```
+ *
+ * @class ember-flatpickr
+ * @public
+ */
 export default Component.extend({
   tagName: 'input',
   type: 'text',
   attributeBindings: ['placeholder', 'type'],
+  /**
+   * The date to pass to flatpickr
+   * @argument {Date|string} date
+   */
   date: null,
   flatpickrRef: null,
 
+  /**
+   * Setup the component on init
+   * @method setupComponent
+   * @public
+   */
   setupComponent: on('init', function() {
     // Require that users pass a date
     assert('{{ember-flatpickr}} requires a `date` to be passed as the value for flatpickr.', this.get('date') !== undefined);
@@ -88,6 +109,7 @@ export default Component.extend({
    * @param {object} changedAttrs The object with keys denoting attrs that have changed
    * @param {string} attr The string of which attr to check for changes
    * @param {function} callback A function to call with the newAttr value
+   * @method _attributeHasChanged
    * @private
    */
   _attributeHasChanged(changedAttrs, attr, callback) {
@@ -101,36 +123,40 @@ export default Component.extend({
 
   /**
    * Action fired when the flatpickr is closed
-   * @param selectedDates The array of selected dates
-   * @param dateStr The string representation of the date, formatted by dateFormat
-   * @param instance The flatpickr instance
+   * @param {Date[]} selectedDates The array of selected dates
+   * @param {string} dateStr The string representation of the date, formatted by dateFormat
+   * @param {flatpickr} instance The flatpickr instance
+   * @method onClose
    * @public
    */
   onClose(/*selectedDates, dateStr, instance*/) {},
 
   /**
    * Action fired when the flatpickr is opened
-   * @param selectedDates The array of selected dates
-   * @param dateStr The string representation of the date, formatted by dateFormat
-   * @param instance The flatpickr instance
+   * @param {Date[]} selectedDates The array of selected dates
+   * @param {string} dateStr The string representation of the date, formatted by dateFormat
+   * @param {flatpickr} instance The flatpickr instance
+   * @method onOpen
    * @public
    */
   onOpen(/*selectedDates, dateStr, instance*/) {},
 
   /**
    * Action fired when the flatpickr is ready
-   * @param selectedDates The array of selected dates
-   * @param dateStr The string representation of the date, formatted by dateFormat
-   * @param instance The flatpickr instance
+   * @param {Date[]} selectedDates The array of selected dates
+   * @param {string} dateStr The string representation of the date, formatted by dateFormat
+   * @param {flatpickr} instance The flatpickr instance
+   * @method onReady
    * @public
    */
   onReady(/*selectedDates, dateStr, instance*/) {},
 
   /**
    * When the date is changed, update the value and send 'onChange' action
-   * @param selectedDates The array of selected dates
-   * @param dateStr The string representation of the date, formatted by dateFormat
-   * @param instance The flatpickr instance
+   * @param {Date[]} selectedDates The array of selected dates
+   * @param {string} dateStr The string representation of the date, formatted by dateFormat
+   * @param {flatpickr} instance The flatpickr instance
+   * @method _onChange
    * @private
    */
   _onChange(selectedDates, dateStr, instance) {
@@ -141,9 +167,10 @@ export default Component.extend({
 
   /**
    * When the flatpickr is closed, fire the 'onClose' action
-   * @param selectedDates The array of selected dates
-   * @param dateStr The string representation of the date, formatted by dateFormat
-   * @param instance The flatpickr instance
+   * @param {Date[]} selectedDates The array of selected dates
+   * @param {string} dateStr The string representation of the date, formatted by dateFormat
+   * @param {flatpickr} instance The flatpickr instance
+   * @method _onClose
    * @private
    */
   _onClose(selectedDates, dateStr, instance) {
@@ -152,9 +179,10 @@ export default Component.extend({
 
   /**
    * When the flatpickr is opened, fire the 'onOpen' action
-   * @param selectedDates The array of selected dates
-   * @param dateStr The string representation of the date, formatted by dateFormat
-   * @param instance The flatpickr instance
+   * @param {Date[]} selectedDates The array of selected dates
+   * @param {string} dateStr The string representation of the date, formatted by dateFormat
+   * @param {flatpickr} instance The flatpickr instance
+   * @method _onOpen
    * @private
    */
   _onOpen(selectedDates, dateStr, instance) {
@@ -163,9 +191,10 @@ export default Component.extend({
 
   /**
    * When the flatpickr is ready, fire the 'onReady' action
-   * @param selectedDates The array of selected dates
-   * @param dateStr The string representation of the date, formatted by dateFormat
-   * @param instance The flatpickr instance
+   * @param {Date[]} selectedDates The array of selected dates
+   * @param {string} dateStr The string representation of the date, formatted by dateFormat
+   * @param {flatpickr} instance The flatpickr instance
+   * @method _onReady
    * @private
    */
   _onReady(selectedDates, dateStr, instance) {
@@ -175,6 +204,7 @@ export default Component.extend({
   /**
    * Set disabled for the correct input, handling altInput weirdness
    * @param {boolean} disabled Disabled or not
+   * @method _setDisabled
    * @private
    */
   _setDisabled(disabled) {

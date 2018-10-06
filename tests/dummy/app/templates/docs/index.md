@@ -16,11 +16,6 @@ This is an Ember addon that wraps the date picker [flatpickr](http://chmln.githu
 
 ## Installation
 
-`ember install ember-flatpickr`
-
-## Documentation
-[View Docs](https://shipshapecode.github.io/ember-flatpickr/)
-
-## Contributing
-
-If there are features you would like to see implemented, or we have missed some flatpickr options, please open an issue and/or submit a PR!
+```bash
+ember install ember-flatpickr
+```

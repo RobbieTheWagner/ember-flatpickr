@@ -4,8 +4,10 @@ import { find } from '@ember/test-helpers';
 
 /**
  * Checks if the flatpickr calendar is being displayed.
+ *
  * @param {Number} [pickrIndex=0] - Index of flatpickr calendar to be targeted (for when multiple exist)
- * @returns {Boolean}
+ * @return {Boolean} Whether or not the calendar is visible
+ * @function isFlatpickrOpen
 */
 export function isFlatpickrOpen(pickrIndex = 0) {
   const flatpickerCal = document.getElementsByClassName('flatpickr-calendar')[pickrIndex];
@@ -13,9 +15,12 @@ export function isFlatpickrOpen(pickrIndex = 0) {
 }
 
 /**
+ * Sets the date in the flatpickr
+ *
  * @param {String} selector - CSS3 selector of the element to pull the flatpickr instance from
  * @param {Object} date - A Date Object or array of Date Objects to set as the selected date(s)
  * @param {Boolean} [triggerChange=true] - If true, this forces onChange events to fire
+ * @function setFlatpickrDate
 */
 export function setFlatpickrDate(selector, date, triggerChange = true) {
   const flatpickrInput = find(selector);
@@ -25,6 +30,7 @@ export function setFlatpickrDate(selector, date, triggerChange = true) {
 
 /**
  * @param {String} selector - CSS3 selector of the element to pull the flatpickr instance from
+ * @function closeFlatpickrDate
 */
 export function closeFlatpickrDate(selector) {
   const flatpickrInput = find(selector);
@@ -35,6 +41,7 @@ export function closeFlatpickrDate(selector) {
 /**
  * Clears out the flatpickr selectedDates attribute as well as the associated input.
  * @param {String} selector - CSS3 selector of the element to pull the flatpickr instance from
+ * @function clearFlatpickrDate
 */
 export function clearFlatpickrDate(selector) {
   const flatpickrInput = find(selector);
