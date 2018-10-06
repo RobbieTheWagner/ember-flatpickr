@@ -1,0 +1,14 @@
+{
+  "master": {
+    "path": "versions/master",
+    "name": "master",
+    "sha": "ede0b26395761e8893fa4f7cc8eb6200bd8c9a9b",
+    "tag": null
+  },
+  "-latest": {
+    "path": "",
+    "name": "Latest",
+    "sha": "ede0b26395761e8893fa4f7cc8eb6200bd8c9a9b",
+    "tag": null
+  }
+}
