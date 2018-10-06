@@ -5,6 +5,14 @@ const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 module.exports = function(defaults) {
   let project = defaults.project;
   let options = {
+    // This is to fix builds with uglify https://github.com/ember-cli/ember-cli/issues/8075
+    'ember-cli-uglify': {
+      uglify: {
+        compress: {
+          collapse_vars: false
+        }
+      }
+    },
     flatpickr: {
       theme: 'dark',
       locales: ['fr', 'de', 'ru', 'uk']
