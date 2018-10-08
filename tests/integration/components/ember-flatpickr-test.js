@@ -66,7 +66,7 @@ module('Integration | Component | ember flatpickr', function(hooks) {
     assert.equal(find('.flatpickr-input[type="text"]').disabled, false, 'text input not disabled');
   });
 
-  test('altFormat updates when changd', async function(assert) {
+  test('altFormat updates when changed', async function(assert) {
     assert.expect(2);
 
     this.actions.onChange = () => {
