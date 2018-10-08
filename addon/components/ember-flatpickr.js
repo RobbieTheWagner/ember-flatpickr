@@ -71,8 +71,12 @@ export default Component.extend({
     });
   }),
 
-  didReceiveAttrs: diffAttrs('date', 'disabled', 'locale', 'maxDate', 'minDate', function(changedAttrs, ...args) {
+  didReceiveAttrs: diffAttrs('altFormat', 'date', 'disabled', 'locale', 'maxDate', 'minDate', function(changedAttrs, ...args) {
     this._super(...args);
+    
+    this._attributeHasChanged(changedAttrs, 'altFormat', (newAltFormat) => {
+      this.element._flatpickr.set('altFormat', newAltFormat);
+    });
 
     this._attributeHasChanged(changedAttrs, 'date', (newDate) => {
       if (typeof newDate !== 'undefined') {
