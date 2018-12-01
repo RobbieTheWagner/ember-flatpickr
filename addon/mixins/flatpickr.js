@@ -34,6 +34,7 @@ export default Mixin.create({
 
       // Add defaultDate, change and close handlers
       assign(options, {
+        inline: this.inline || options.inline,
         defaultDate: this.get("date"),
         onChange: this._onChange.bind(this),
         onClose: this._onClose.bind(this),
@@ -44,7 +45,7 @@ export default Mixin.create({
       const flatpickrRef = flatpickr(this.field, options);
 
       if (this.get("appendDataInput")) {
-        this.element.setAttribute("data-input", "");
+        this.field.setAttribute("data-input", "");
       }
 
       this._setDisabled(this.get("disabled"));
@@ -64,12 +65,12 @@ export default Mixin.create({
       this._super(...args);
 
       this._attributeHasChanged(changedAttrs, "altFormat", newAltFormat => {
-        this.element._flatpickr.set("altFormat", newAltFormat);
+        this.field._flatpickr.set("altFormat", newAltFormat);
       });
 
       this._attributeHasChanged(changedAttrs, "date", newDate => {
         if (typeof newDate !== "undefined") {
-          this.element._flatpickr.setDate(newDate);
+          this.field._flatpickr.setDate(newDate);
         }
       });
 
@@ -80,22 +81,22 @@ export default Mixin.create({
       });
 
       this._attributeHasChanged(changedAttrs, "locale", () => {
-        this.element._flatpickr.destroy();
+        this.field._flatpickr.destroy();
         this.setupComponent();
       });
 
       this._attributeHasChanged(changedAttrs, "maxDate", newMaxDate => {
-        this.element._flatpickr.set("maxDate", newMaxDate);
+        this.field._flatpickr.set("maxDate", newMaxDate);
       });
 
       this._attributeHasChanged(changedAttrs, "minDate", newMinDate => {
-        this.element._flatpickr.set("minDate", newMinDate);
+        this.field._flatpickr.set("minDate", newMinDate);
       });
     }
   ),
 
   willDestroyElement() {
-    this.element._flatpickr.destroy();
+    this.field._flatpickr.destroy();
   },
 
   
@@ -142,9 +143,9 @@ export default Mixin.create({
   
   _setDisabled(disabled) {
     if (this.get("altInput")) {
-      this.element.nextSibling.disabled = disabled;
+      this.field.nextSibling.disabled = disabled;
     } else {
-      this.element.disabled = disabled;
+      this.field.disabled = disabled;
     }
   }
 });
