@@ -1,8 +1,8 @@
 
+/* eslint-disable ember/closure-actions, ember/no-attrs-in-components, ember/no-on-calls-in-components */
 import Mixin from "@ember/object/mixin";
 import { assert } from "@ember/debug";
 import { assign } from "@ember/polyfills";
-import { on } from "@ember/object/evented";
 import { run } from "@ember/runloop";
 import { getOwner } from "@ember/application";
 import diffAttrs from 'ember-diff-attrs';
