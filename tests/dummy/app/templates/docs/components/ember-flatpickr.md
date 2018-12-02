@@ -4,7 +4,7 @@
 
 {{#docs-demo as |demo|}}
   {{#demo.example name="date-time-picker.hbs"}}
-    {{ember-flatpickr-inputless
+    {{ember-flatpickr
       allowInput=true
       appendDataInput=true
       classNames=classString
@@ -50,7 +50,7 @@
 
 {{#docs-demo as |demo|}}
   {{#demo.example name="time-picker.hbs"}}
-    {{ember-flatpickr-input
+    {{ember-flatpickr
       appendDataInput=true
       classNames=classString
       date=(readonly timeValue)
