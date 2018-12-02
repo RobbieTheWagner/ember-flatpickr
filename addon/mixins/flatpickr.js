@@ -11,7 +11,7 @@ export default Mixin.create({
   date: null,
   flatpickrRef: null,
 
-  setupComponent() {
+  setupFlatpickr() {
     // Require that users pass a date
     assert(
       "{{ember-flatpickr}} requires a `date` to be passed as the value for flatpickr.",

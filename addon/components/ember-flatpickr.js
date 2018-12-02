@@ -8,6 +8,6 @@ export default Component.extend(Flatpickr, {
   didInsertElement() {
     this._super(...arguments);
     this.set('field', this.element);
-    this.setupComponent();
+    this.setupFlatpickr();
   }
 });
