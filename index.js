@@ -1,18 +1,21 @@
-"use strict";
+'use strict';
 
-const fastbootTransform = require("fastboot-transform");
+const fastbootTransform = require('fastboot-transform');
 
 module.exports = {
-  name: require("./package").name,
+  name: require('./package').name,
   options: {
     nodeAssets: {
       flatpickr() {
         const localePaths = this.locales.map(locale => `l10n/${locale}.js`);
 
         return {
-          srcDir: "dist",
+          srcDir: 'dist',
           import: {
-            include: ["flatpickr.js", this.theme || "flatpickr.css"].concat(localePaths),
+            include: [
+              'flatpickr.js',
+              this.theme || 'flatpickr.css'
+            ].concat(localePaths),
             processTree(tree) {
               return fastbootTransform(tree);
             }
@@ -27,7 +30,7 @@ module.exports = {
 
     // If the addon has the _findHost() method (in ember-cli >= 2.7.0), we'll just
     // use that.
-    if (typeof this._findHost === "function") {
+    if (typeof this._findHost === 'function') {
       app = this._findHost();
     } else {
       // Otherwise, we'll use this implementation borrowed from the _findHost()
