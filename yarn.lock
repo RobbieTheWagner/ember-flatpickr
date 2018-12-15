@@ -4763,10 +4763,10 @@ escodegen@^1.9.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-plugin-ember@^5.2.0:
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-5.4.0.tgz#2980a4389119b37d0450fff8e82d59c9aab126d0"
-  integrity sha512-tYMuxUrTad4f7Dq9gY9GUs9lXwKY+fZklzCJ0JoYbzK2PwSfdrPInr2Y4tHornc9dzPvNbRxsn5b26PrWp2iZg==
+eslint-plugin-ember@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-6.1.0.tgz#dc48e342daca632b628766df08b634d5a5a970e6"
+  integrity sha512-eBOuSoMpBB8Mitn2U3D0LYkqU9IhOaL/Au2PkCx4Zw7lLTb12hEEQPfOxK0KAVyClgGNnfcTW5lxVy02wwvdgw==
   dependencies:
     ember-rfc176-data "^0.3.5"
     snake-case "^2.1.0"
