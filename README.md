@@ -14,13 +14,21 @@
 
 This is an Ember addon that wraps the date picker [flatpickr](http://chmln.github.io/flatpickr/). It uses ember-cli-node-assets to pull in flatpickr from npm.
 
-## Installation
+Installation
+------------------------------------------------------------------------------
 
 `ember install ember-flatpickr`
 
-## Documentation
+Documentation
+------------------------------------------------------------------------------
 [View Docs](https://shipshapecode.github.io/ember-flatpickr/)
 
-## Contributing
+Contributing
+------------------------------------------------------------------------------
 
 If there are features you would like to see implemented, or we have missed some flatpickr options, please open an issue and/or submit a PR!
+
+License
+------------------------------------------------------------------------------
+
+This project is licensed under the [MIT License](LICENSE.md).

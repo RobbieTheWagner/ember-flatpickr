@@ -18,6 +18,7 @@
 /bower.json
 /config/ember-try.js
 /coverage/
+/CONTRIBUTING.md
 /ember-cli-build.js
 /testem.js
 /tests/
