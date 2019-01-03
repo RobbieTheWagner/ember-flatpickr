@@ -51,6 +51,9 @@ export default Mixin.create({
       this._setDisabled(this.get("disabled"));
 
       this.set("flatpickrRef", flatpickrRef);
+      if (this.get("getFlatpickrRef")) {
+        this.get("getFlatpickrRef")(flatpickrRef);
+      }
     });
   },
 

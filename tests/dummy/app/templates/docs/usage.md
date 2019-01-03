@@ -17,7 +17,8 @@
   enable=datesToEnable
   enableSeconds=false
   enableTime=true
-  flatpickrRef=flatpickrRef
+  flatpickrRef=flatpickrRef   // two-way binding
+  getFlatpickrRef=(action (mut flatpickrRef))  // via action (prefered)
   hourIncrement=1
   inline=false
   locale='ru'
@@ -140,7 +141,7 @@ Check [flatpickr locale documentation](https://chmln.github.io/flatpickr/#locale
 
 ## flatpickrRef
 
-If you need to interact directly with the flatpickr instance you have created inside the component, you can pass in `flatpickrRef=myFlatpickrRefName`, which would then be accesible in the controller or parent component. You can then do things like `this.get('myFlatpickrRefName').close()` to close the datepicker, if you wanted to make a close button.
+If you need to interact directly with the flatpickr instance you have created inside the component, you can use the action `getFlatpickrRef` as `getFlatpickrRef=(action (mut flatpickrRef))`, which would then be accesible in the controller or parent component. You can then do things like `this.get('myFlatpickrRefName').close()` to close the datepicker, if you wanted to make a close button.
 
 ## Options
 
