@@ -24,6 +24,12 @@ export default Mixin.create({
       this.get("onChange") !== undefined
     );
 
+    // Wrap is not supported
+    assert(
+      "{{ember-flatpickr}} does not support the wrap option. Please see documentation for an alternative.",
+      this.attrs.wrap !== true
+    );
+
     // Pass all values and setup flatpickr
     run.scheduleOnce("afterRender", this, function() {
       const fastboot = getOwner(this).lookup("service:fastboot");
