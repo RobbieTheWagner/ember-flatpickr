@@ -39,7 +39,6 @@
   static=false
   time_24hr=false
   weekNumbers=false
-  wrap=false
 }}
 ```
 
@@ -145,6 +144,36 @@ If you need to interact directly with the flatpickr instance you have created in
 
 ## Options
 
-All options available to Flatpickr are available here.
+All options available to Flatpickr are available here with the exception of wrap.
+
+## ember-flatpickr and external elements
+
+The wrap option for flatpickr causes flatpickr to search its child elements for elements annotated with certain attributes. With ember-flatpickr this can be accomplished with the following
+
+```handlebars
+{{ember-flatpickr
+onChange=(action (mut dateValue))
+getFlatpickrRef=(action (mut flatpickrRef))
+}}
+
+<a class="input-button" title="toggle" onclick={{action "toggleCalendar"}}>
+    <i class="icon-calendar"></i>
+</a>
+
+<a class="input-button" title="clear" onclick={{action "clearCalendar"}}>
+    <i class="icon-close"></i>
+</a>
+```
+ 
+```javascript
+  actions: {
+    toggleCalendar() {
+      this.flatpickrRef.toggle();
+    },
+    clearCalendar() {
+      this.flatpickrRef.clear();
+    }
+  }
+```
 
 Please see the [flatpickr docs](https://chmln.github.io/flatpickr/) for a full list of options.
