@@ -79,7 +79,6 @@ module('Integration | Component | ember flatpickr', function(hooks) {
       altInput=true
       altFormat=altFormat
       date=(readonly dateValue)
-      flatpickrRef=flatpickrRef
       onChange="onChange"
       placeholder="Pick date"
       }}`);
@@ -89,6 +88,35 @@ module('Integration | Component | ember flatpickr', function(hooks) {
     this.set('altFormat', 'Y');
 
     assert.equal(find('.flatpickr-input[type="text"]').value, '2080', 'altFormat updates when changed');
+  });
+
+  test('flatpickrRef is accessible', async function(assert) {
+    assert.expect(2);
+
+    this.actions.onChange = () => {
+    };
+
+    this.set('dateValue', '2080-12-01T16:16:22.585Z');
+
+    await render(hbs`{{ember-flatpickr
+      date=(readonly dateValue)
+      flatpickrRef=flatpickrRef
+      onChange=(action "onChange")
+      placeholder="Pick date"
+      }}`);
+
+    assert.ok(this.flatpickrRef, 'flatpickrRef set via 2-way binding');
+
+    this.set("flatpickrRef", undefined);
+
+    await render(hbs`{{ember-flatpickr
+      date=(readonly dateValue)
+      onChange=(action "onChange")
+      getFlatpickrRef=(action (mut flatpickrRef))
+      placeholder="Pick date"
+      }}`);
+
+    assert.ok(this.flatpickrRef, 'flatpickrRef set via action');
   });
 
   test('value updates when set externally via flatpickrRef', async function(assert) {
@@ -103,7 +131,7 @@ module('Integration | Component | ember flatpickr', function(hooks) {
 
     await render(hbs`{{ember-flatpickr
       date=(readonly dateValue)
-      flatpickrRef=flatpickrRef
+      getFlatpickrRef=(action (mut flatpickrRef))
       maxDate=maxDate
       minDate=minDate
       onChange=(action "onChange")
@@ -330,7 +358,7 @@ module('Integration | Component | ember flatpickr', function(hooks) {
       date=(readonly dateValue)
       onChange=(action (mut dateValue))
       placeholder="Pick date"
-      flatpickrRef=flatpickrRef
+      getFlatpickrRef=(action (mut flatpickrRef))
       }}`);
 
     assert.equal(this.get('flatpickrRef').selectedDates.length, 1, '1 date is selected');
@@ -348,7 +376,7 @@ module('Integration | Component | ember flatpickr', function(hooks) {
       date=(readonly dateValue)
       onChange=(action (mut dateValue))
       placeholder="Pick date"
-      flatpickrRef=flatpickrRef
+      getFlatpickrRef=(action (mut flatpickrRef))
       }}`);
 
     assert.equal(this.get('flatpickrRef').selectedDates.length, 1, '1 date is selected');
@@ -366,7 +394,7 @@ module('Integration | Component | ember flatpickr', function(hooks) {
       date=(readonly dateValue)
       onChange=(action (mut dateValue))
       placeholder="Pick date"
-      flatpickrRef=flatpickrRef
+      getFlatpickrRef=(action (mut flatpickrRef))
       }}`);
 
     assert.equal(this.get('flatpickrRef').selectedDates.length, 1, '1 date is selected');
@@ -383,7 +411,7 @@ module('Integration | Component | ember flatpickr', function(hooks) {
     date=(readonly dateValue)
     onChange=(action (mut dateValue))
     placeholder="Pick date"
-    flatpickrRef=flatpickrRef
+      getFlatpickrRef=(action (mut flatpickrRef))
     }}`);
 
     assert.equal(this.get('flatpickrRef').selectedDates.length, 1, '1 date is selected');
