@@ -7,7 +7,7 @@ import { run } from "@ember/runloop";
 import { getOwner } from "@ember/application";
 import diffAttrs from 'ember-diff-attrs';
 
-export default Mixin.create({  
+export default Mixin.create({
   date: null,
   flatpickrRef: null,
 
@@ -91,7 +91,7 @@ export default Mixin.create({
 
       this._attributeHasChanged(changedAttrs, "locale", () => {
         this.field._flatpickr.destroy();
-        this.setupComponent();
+        this.setupFlatpickr();
       });
 
       this._attributeHasChanged(changedAttrs, "maxDate", newMaxDate => {
@@ -108,7 +108,6 @@ export default Mixin.create({
     this.field._flatpickr.destroy();
   },
 
-  
   _attributeHasChanged(changedAttrs, attr, callback) {
     if (changedAttrs && changedAttrs[attr]) {
       const [oldAttr, newAttr] = changedAttrs[attr];
@@ -118,38 +117,30 @@ export default Mixin.create({
     }
   },
 
-  
   onClose(/*selectedDates, dateStr, instance*/) {},
 
-  
   onOpen(/*selectedDates, dateStr, instance*/) {},
 
- 
   onReady(/*selectedDates, dateStr, instance*/) {},
 
-  
   _onChange(selectedDates, dateStr, instance) {
     if (this.onChange instanceof Function) {
       this.onChange(selectedDates, dateStr, instance);
     }
   },
 
-  
   _onClose(selectedDates, dateStr, instance) {
     this.onClose(selectedDates, dateStr, instance);
   },
 
-  
   _onOpen(selectedDates, dateStr, instance) {
     this.onOpen(selectedDates, dateStr, instance);
   },
 
-  
   _onReady(selectedDates, dateStr, instance) {
     this.onReady(selectedDates, dateStr, instance);
   },
 
-  
   _setDisabled(disabled) {
     if (this.get("altInput")) {
       this.field.nextSibling.disabled = disabled;
