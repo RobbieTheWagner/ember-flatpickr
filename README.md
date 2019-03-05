@@ -36,6 +36,12 @@ Contributing
 
 If there are features you would like to see implemented, or we have missed some flatpickr options, please open an issue and/or submit a PR!
 
+Contributing
+------------------------------------------------------------------------------
+
+See the [Contributing](CONTRIBUTING.md) guide for details.
+
+
 License
 ------------------------------------------------------------------------------
 
