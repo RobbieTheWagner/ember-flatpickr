@@ -4458,7 +4458,7 @@ ember-cli-addon-docs-yuidoc@^0.2.1:
     lodash "^4.17.5"
     yuidocjs "^0.10.2"
 
-ember-cli-addon-docs@^0.6.5:
+ember-cli-addon-docs@^0.6.9:
   version "0.6.9"
   resolved "https://registry.yarnpkg.com/ember-cli-addon-docs/-/ember-cli-addon-docs-0.6.9.tgz#343b9d57f2e0c24a6d2b262948d339df93eda4b0"
   integrity sha512-xnxJW/BjHVzokmwHIAitvBbSvYR8q0EgrVq0Vaw2v6g1KtqV5jDAuwsSLvcj+s4Ikxg8t9WsoX0Rpv0Ws+tMTQ==
@@ -5303,7 +5303,7 @@ ember-responsive@^3.0.0-beta.1:
   dependencies:
     ember-cli-babel "^6.6.0"
 
-ember-rfc176-data@^0.3.5, ember-rfc176-data@^0.3.8:
+ember-rfc176-data@^0.3.8:
   version "0.3.8"
   resolved "https://registry.yarnpkg.com/ember-rfc176-data/-/ember-rfc176-data-0.3.8.tgz#d46bbef9a0d57c803217b258cfd2e90d8e191848"
   integrity sha512-SQup3iG7SDLZNuf7nMMx5BC5truO8AYKRi80gApeQ07NsbuXV4LH75i5eOaxF0i8l9+H1tzv34kGe6rEh0C1NQ==
@@ -5602,12 +5602,12 @@ escodegen@^1.9.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-plugin-ember@^5.2.0:
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-5.4.0.tgz#2980a4389119b37d0450fff8e82d59c9aab126d0"
-  integrity sha512-tYMuxUrTad4f7Dq9gY9GUs9lXwKY+fZklzCJ0JoYbzK2PwSfdrPInr2Y4tHornc9dzPvNbRxsn5b26PrWp2iZg==
+eslint-plugin-ember@^6.3.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-6.3.0.tgz#92512711deb440dfac62a52a2c15b1f91ee0f23a"
+  integrity sha512-jXTPtrhEQg41A5u2rwsuh1m9R5e8qTCY04Pi6rXEZ/c3KUSRkYlIKA+GDLR1qy/JcgAR2X8Y8Xvec8imDK6b4A==
   dependencies:
-    ember-rfc176-data "^0.3.5"
+    ember-rfc176-data "^0.3.8"
     snake-case "^2.1.0"
 
 eslint-plugin-es@^1.3.1:
