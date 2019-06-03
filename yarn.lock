@@ -6241,10 +6241,10 @@ flat-cache@^2.0.1:
     rimraf "2.6.3"
     write "1.0.3"
 
-flatpickr@4.5.2:
-  version "4.5.2"
-  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.5.2.tgz#47c8ad472a096e5fb7e74b809b0703535383f20d"
-  integrity sha512-jDy4QYGpmiy7+Qk8QvKJ4spjDdxcx9cxMydmq1x427HkKWBw0qizLYeYM2F6tMcvvqGjU5VpJS55j4LnsaBblA==
+flatpickr@4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.6.0.tgz#bd17c03bcf61ead973922a1aeef5e0abd0eeec94"
+  integrity sha512-rLJTtTtWtpeTrqGxsfeUPph79njUPC+HTkvp9uqVOSSD6p1wCsM/VDFXC11tNHTdqIqY7zgImAjA4yiwCUep8A==
 
 flatted@^2.0.0:
   version "2.0.0"
