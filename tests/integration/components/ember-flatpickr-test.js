@@ -19,6 +19,132 @@ module('Integration | Component | ember flatpickr', function(hooks) {
     await triggerEvent(document.body, 'mousedown');
   }
 
+  test('when rendering with angle brackets', async function (assert) {
+    this.set('dateValue', [new Date(2001, 8, 11)]);
+
+    await render(hbs`<EmberFlatpickr @date={{readonly dateValue}}/>`);
+
+    assert.equal(findAll('.flatpickr-input').length, 1);
+    assert.equal(find('.flatpickr-input').value, '2001-09-11')
+  });
+
+  test('when adding aria-activedescendent attribute it is assigned to the picker input', async function (assert) {
+    this.set('dateValue', [new Date()]);
+
+    await render(hbs`{{ember-flatpickr
+      date=(readonly dateValue)
+      onChange=null
+      aria-activedescendent="aria-activedescendent"
+    }}`);
+
+    assert.equal(findAll('.flatpickr-input').length, 1);
+    assert.equal(find('.flatpickr-input').getAttribute('aria-activedescendent'), 'aria-activedescendent')
+  });
+
+  test('when adding aria-autocomplete attribute it is assigned to the picker input', async function (assert) {
+    this.set('dateValue', [new Date()]);
+
+    await render(hbs`{{ember-flatpickr
+      date=(readonly dateValue)
+      onChange=null
+      aria-autocomplete="aria-autocomplete"
+    }}`);
+
+    assert.equal(findAll('.flatpickr-input').length, 1);
+    assert.equal(find('.flatpickr-input').getAttribute('aria-autocomplete'), 'aria-autocomplete')
+  });
+
+  test('when adding aria-describedby attribute it is assigned to the picker input', async function (assert) {
+    this.set('dateValue', [new Date()]);
+
+    await render(hbs`{{ember-flatpickr
+    date=(readonly dateValue)
+    onChange=null
+    aria-describedby="described by"
+    }}`);
+
+    assert.equal(findAll('.flatpickr-input').length, 1);
+    assert.equal(find('.flatpickr-input').getAttribute('aria-describedby'), 'described by')
+  });
+
+  test('when adding aria-labelledby attribute it is assigned to the picker input', async function (assert) {
+    this.set('dateValue', [new Date()]);
+
+    await render(hbs`{{ember-flatpickr
+      date=(readonly dateValue)
+      onChange=null
+      aria-labelledby="aria-labelledby"
+    }}`);
+
+    assert.equal(findAll('.flatpickr-input').length, 1);
+    assert.equal(find('.flatpickr-input').getAttribute('aria-labelledby'), 'aria-labelledby')
+  });
+
+  test('when adding aria-multiline attribute it is assigned to the picker input', async function (assert) {
+    this.set('dateValue', [new Date()]);
+
+    await render(hbs`{{ember-flatpickr
+      date=(readonly dateValue)
+      onChange=null
+      aria-multiline="aria-multiline"
+    }}`);
+
+    assert.equal(findAll('.flatpickr-input').length, 1);
+    assert.equal(find('.flatpickr-input').getAttribute('aria-multiline'), 'aria-multiline')
+  });
+
+  test('when adding aria-placeholder attribute it is assigned to the picker input', async function (assert) {
+    this.set('dateValue', [new Date()]);
+
+    await render(hbs`{{ember-flatpickr
+      date=(readonly dateValue)
+      onChange=null
+      aria-placeholder="aria-placeholder"
+    }}`);
+
+    assert.equal(findAll('.flatpickr-input').length, 1);
+    assert.equal(find('.flatpickr-input').getAttribute('aria-placeholder'), 'aria-placeholder')
+  });
+
+  test('when adding aria-readonly attribute it is assigned to the picker input', async function (assert) {
+    this.set('dateValue', [new Date()]);
+
+    await render(hbs`{{ember-flatpickr
+      date=(readonly dateValue)
+      onChange=null
+      aria-readonly="aria-readonly"
+    }}`);
+
+    assert.equal(findAll('.flatpickr-input').length, 1);
+    assert.equal(find('.flatpickr-input').getAttribute('aria-readonly'), 'aria-readonly')
+  });
+
+  test('when adding aria-required attribute it is assigned to the picker input', async function (assert) {
+    this.set('dateValue', [new Date()]);
+
+    await render(hbs`{{ember-flatpickr
+      date=(readonly dateValue)
+      onChange=null
+      aria-required="aria-required"
+    }}`);
+
+    assert.equal(findAll('.flatpickr-input').length, 1);
+    assert.equal(find('.flatpickr-input').getAttribute('aria-required'), 'aria-required')
+  });
+
+  test('when adding a title attribute it is assigned to the picker input', async function (assert) {
+    this.set('dateValue', [new Date()]);
+
+    await render(hbs`{{ember-flatpickr
+    date=(readonly dateValue)
+    onChange=null
+    title="Choose a date"
+    }}`);
+
+    assert.equal(findAll('.flatpickr-input').length, 1);
+    assert.equal(find('.flatpickr-input').getAttribute('title'), 'Choose a date')
+  });
+
   test('disabled is updated when altInput=true', async function(assert) {
     assert.expect(4);
 

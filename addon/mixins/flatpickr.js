@@ -1,3 +1,4 @@
+/** @documenter yuidoc */
 
 /* eslint-disable ember/closure-actions, ember/no-attrs-in-components, ember/no-on-calls-in-components */
 import Mixin from "@ember/object/mixin";
@@ -7,8 +8,15 @@ import { run } from "@ember/runloop";
 import { getOwner } from "@ember/application";
 import diffAttrs from 'ember-diff-attrs';
 
+/**
+ * The mixin responsible for incorporating the [`flatpickr`](https://flatpickr.js.org)
+ * features into an input/element.
+ *
+ * @class Flatpickr
+ */
 export default Mixin.create({
   date: null,
+
   flatpickrRef: null,
 
   setupFlatpickr() {
@@ -117,10 +125,60 @@ export default Mixin.create({
     }
   },
 
+  /**
+   * Triggered when the user selects a date, or changes the time on a selected date.
+   *
+   * @method onClose
+   * @param {Array} selectedDates an array of Date objects selected by the user. When there are
+   * no dates selected, the array is empty.
+   * @param {String} dateStr a string representation of the latest selected Date object by the
+   * user. The string is formatted as per the dateFormat option
+   * @param {Object} instance the flatpickr object, containing various methods and properties.
+   * @type {Action}
+   * @return {void}
+   */
+  onChange(/*selectedDates, dateStr, instance*/) {},
+
+  /**
+   * Triggered when the calendar is closed.
+   *
+   * @method onClose
+   * @param {Array} selectedDates an array of Date objects selected by the user. When there are
+   * no dates selected, the array is empty.
+   * @param {String} dateStr a string representation of the latest selected Date object by the
+   * user. The string is formatted as per the dateFormat option
+   * @param {Object} instance the flatpickr object, containing various methods and properties.
+   * @type {Action}
+   * @return {void}
+   */
   onClose(/*selectedDates, dateStr, instance*/) {},
 
+  /**
+   * Triggered when the calendar is closed.
+   *
+   * @method onOpen
+   * @param {Array} selectedDates an array of Date objects selected by the user. When there are
+   * no dates selected, the array is empty.
+   * @param {String} dateStr a string representation of the latest selected Date object by the
+   * user. The string is formatted as per the dateFormat option
+   * @param {Object} instance the flatpickr object, containing various methods and properties.
+   * @type {Action}
+   * @return {void}
+   */
   onOpen(/*selectedDates, dateStr, instance*/) {},
 
+  /**
+   * Triggered once the calendar is in a ready state.
+   *
+   * @method onReady
+   * @param {Array} selectedDates an array of Date objects selected by the user. When there are
+   * no dates selected, the array is empty.
+   * @param {String} dateStr a string representation of the latest selected Date object by the
+   * user. The string is formatted as per the dateFormat option
+   * @param {Object} instance the flatpickr object, containing various methods and properties.
+   * @type {Action}
+   * @return {void}
+   */
   onReady(/*selectedDates, dateStr, instance*/) {},
 
   _onChange(selectedDates, dateStr, instance) {
@@ -143,6 +201,13 @@ export default Mixin.create({
 
   _setDisabled(disabled) {
     if (this.get("altInput")) {
+      // `this.field` is the hidden input storing the alternate date value sent to the server
+      // @see https://flatpickr.js.org/options/ `altInput` config options
+      // Refactored during https://github.com/shipshapecode/ember-flatpickr/issues/306 to instead
+      // extend Ember's `@ember/component/text-field`
+      this.field.disabled = !disabled;
+      // `this.field.nextSibling` is the text input that the user will interact with, so
+      // long as it is enabled
       this.field.nextSibling.disabled = disabled;
     } else {
       this.field.disabled = disabled;
