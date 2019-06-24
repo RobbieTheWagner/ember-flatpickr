@@ -45,6 +45,8 @@ export default TextField.extend(Flatpickr, {
     'aria-required'
   ],
 
+  classNames: ['ember-flatpickr-input'],
+
   /**
    * The date(s) that will be used to initialize the flatpickr.  When present, the date(s) will
    * be formatted accordingly.
