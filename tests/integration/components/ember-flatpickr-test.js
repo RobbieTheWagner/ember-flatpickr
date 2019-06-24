@@ -161,12 +161,12 @@ module('Integration | Component | ember flatpickr', function(hooks) {
     }}`);
 
     assert.equal(find('.flatpickr-input[type="hidden"]').disabled, false, 'hidden input not disabled');
-    assert.equal(find('.flatpickr-input[type="text"]').disabled, true, 'text input is disabled');
+    assert.equal(find('.ember-flatpickr-input[type="text"]').disabled, true, 'text input is disabled');
 
     this.set('disabled', false);
 
     assert.equal(find('.flatpickr-input[type="hidden"]').disabled, false, 'hidden input not disabled');
-    assert.equal(find('.flatpickr-input[type="text"]').disabled, false, 'text input not disabled');
+    assert.equal(find('.ember-flatpickr-input[type="text"]').disabled, false, 'text input not disabled');
   });
 
   test('disabled is updated when altInput=false', async function(assert) {
@@ -209,11 +209,11 @@ module('Integration | Component | ember flatpickr', function(hooks) {
       placeholder="Pick date"
       }}`);
 
-    assert.equal(find('.flatpickr-input[type="text"]').value, '1', 'initial altFormat value');
+    assert.equal(find('.ember-flatpickr-input[type="text"]').value, '1', 'initial altFormat value');
 
     this.set('altFormat', 'Y');
 
-    assert.equal(find('.flatpickr-input[type="text"]').value, '2080', 'altFormat updates when changed');
+    assert.equal(find('.ember-flatpickr-input[type="text"]').value, '2080', 'altFormat updates when changed');
   });
 
   test('flatpickrRef is accessible', async function(assert) {
@@ -348,7 +348,7 @@ module('Integration | Component | ember flatpickr', function(hooks) {
     this.set('minDate', '2080-12-24T16:16:22.585Z');
 
     find('.flatpickr-input').dispatchEvent(new Event('focus'));
-    const enabledDays = findAll('.flatpickr-days .flatpickr-day:not(.disabled)');
+    const enabledDays = findAll('.flatpickr-days .flatpickr-day:not(.flatpickr-disabled)');
     assert.equal(enabledDays.length, 2);
     assert.equal(enabledDays[0].textContent, '24');
     assert.equal(enabledDays[1].textContent, '25');
@@ -373,7 +373,7 @@ module('Integration | Component | ember flatpickr', function(hooks) {
       placeholder="Pick date"
       }}`);
 
-    assert.equal(find('.flatpickr-current-month .cur-month').textContent.trim(), 'décembre', 'French locale applied successfully');
+    assert.equal(find('.flatpickr-current-month .flatpickr-monthDropdown-month').textContent.trim(), 'décembre', 'French locale applied successfully');
   });
 
   test('onChange triggers value change only once', async function(assert) {
