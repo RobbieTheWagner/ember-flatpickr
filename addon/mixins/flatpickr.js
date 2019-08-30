@@ -128,7 +128,7 @@ export default Mixin.create({
   /**
    * Triggered when the user selects a date, or changes the time on a selected date.
    *
-   * @method onClose
+   * @method onChange
    * @param {Array} selectedDates an array of Date objects selected by the user. When there are
    * no dates selected, the array is empty.
    * @param {String} dateStr a string representation of the latest selected Date object by the

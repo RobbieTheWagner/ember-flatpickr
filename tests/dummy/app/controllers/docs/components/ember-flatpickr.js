@@ -4,6 +4,7 @@ import { run } from '@ember/runloop';
 
 export default Controller.extend({
   dateValue: null,
+  dateRangeValue: [null, null],
   defaultDate: '2080-12-27T16:16:22.585Z',
   classString: `docs-transition
     focus:docs-outline-0
@@ -30,18 +31,6 @@ export default Controller.extend({
     },
     clearTime() {
       this.set('timeValue', null);
-    },
-    onChange(selectedDates) {
-      run.next(() => {
-        this.set('dateValue', selectedDates[0]);
-        console.log('You selected: ', selectedDates[0]);
-      });
-    },
-    onChangeTime(selectedDates) {
-      run.next(() => {
-        this.set('timeValue', selectedDates[0]);
-        console.log('You selected: ', selectedDates[0]);
-      });
     },
     onClose() {
       console.log('Flatpickr closed');
