@@ -1,11 +1,11 @@
 /** @documenter yuidoc */
 
 /* eslint-disable ember/closure-actions, ember/no-attrs-in-components, ember/no-on-calls-in-components */
-import Mixin from "@ember/object/mixin";
-import { assert } from "@ember/debug";
-import { assign } from "@ember/polyfills";
-import { run } from "@ember/runloop";
-import { getOwner } from "@ember/application";
+import Mixin from '@ember/object/mixin';
+import { assert } from '@ember/debug';
+import { assign } from '@ember/polyfills';
+import { run } from '@ember/runloop';
+import { getOwner } from '@ember/application';
 import diffAttrs from 'ember-diff-attrs';
 
 /**
@@ -22,92 +22,63 @@ export default Mixin.create({
   setupFlatpickr() {
     // Require that users pass a date
     assert(
-      "{{ember-flatpickr}} requires a `date` to be passed as the value for flatpickr.",
-      this.get("date") !== undefined
+      '{{ember-flatpickr}} requires a `date` to be passed as the value for flatpickr.',
+      this.get('date') !== undefined
     );
 
     // Require that users pass an onChange
     assert(
-      "{{ember-flatpickr}} requires an `onChange` action or null for no action.",
-      this.get("onChange") !== undefined
+      '{{ember-flatpickr}} requires an `onChange` action or null for no action.',
+      this.get('onChange') !== undefined
     );
 
     // Wrap is not supported
     assert(
-      "{{ember-flatpickr}} does not support the wrap option. Please see documentation for an alternative.",
+      '{{ember-flatpickr}} does not support the wrap option. Please see documentation for an alternative.',
       this.attrs.wrap !== true
     );
 
     // Pass all values and setup flatpickr
-    run.scheduleOnce("afterRender", this, function() {
-      const fastboot = getOwner(this).lookup("service:fastboot");
-      if (fastboot && fastboot.isFastBoot) {
-        return;
-      }
-      const options = this.getProperties(Object.keys(this.attrs));
-
-      // Add defaultDate, change and close handlers
-      assign(options, {
-        inline: this.inline || options.inline,
-        defaultDate: this.get("date"),
-        onChange: this._onChange.bind(this),
-        onClose: this._onClose.bind(this),
-        onOpen: this._onOpen.bind(this),
-        onReady: this._onReady.bind(this)
-      });
-
-      const flatpickrRef = flatpickr(this.field, options);
-
-      if (this.get("appendDataInput")) {
-        this.field.setAttribute("data-input", "");
-      }
-
-      this._setDisabled(this.get("disabled"));
-
-      this.set("flatpickrRef", flatpickrRef);
-      if (this.get("getFlatpickrRef")) {
-        this.get("getFlatpickrRef")(flatpickrRef);
-      }
-    });
+    run.scheduleOnce('afterRender', this, this._setFlatpickrOptions);
   },
 
   didReceiveAttrs: diffAttrs(
-    "altFormat",
-    "date",
-    "disabled",
-    "locale",
-    "maxDate",
-    "minDate",
+    'altFormat',
+    'date',
+    'disabled',
+    'locale',
+    'maxDate',
+    'minDate',
     function(changedAttrs, ...args) {
       this._super(...args);
 
-      this._attributeHasChanged(changedAttrs, "altFormat", newAltFormat => {
-        this.field._flatpickr.set("altFormat", newAltFormat);
+      this._attributeHasChanged(changedAttrs, 'altFormat', newAltFormat => {
+        this.field._flatpickr.set('altFormat', newAltFormat);
       });
 
-      this._attributeHasChanged(changedAttrs, "date", newDate => {
-        if (typeof newDate !== "undefined") {
+      this._attributeHasChanged(changedAttrs, 'date', newDate => {
+        if (typeof newDate !== 'undefined') {
           this.field._flatpickr.setDate(newDate);
         }
       });
 
-      this._attributeHasChanged(changedAttrs, "disabled", newDisabled => {
-        if (typeof newDisabled !== "undefined") {
+      this._attributeHasChanged(changedAttrs, 'disabled', newDisabled => {
+        if (typeof newDisabled !== 'undefined') {
           this._setDisabled(newDisabled);
         }
       });
 
-      this._attributeHasChanged(changedAttrs, "locale", () => {
+      this._attributeHasChanged(changedAttrs, 'locale', () => {
         this.field._flatpickr.destroy();
         this.setupFlatpickr();
       });
 
-      this._attributeHasChanged(changedAttrs, "maxDate", newMaxDate => {
-        this.field._flatpickr.set("maxDate", newMaxDate);
+      this._attributeHasChanged(changedAttrs, 'maxDate', newMaxDate => {
+        this.field._flatpickr.set('maxDate', newMaxDate);
       });
 
-      this._attributeHasChanged(changedAttrs, "minDate", newMinDate => {
-        this.field._flatpickr.set("minDate", newMinDate);
+      this._attributeHasChanged(changedAttrs, 'minDate', newMinDate => {
+        this.field._flatpickr.set('minDate', newMinDate);
       });
     }
   ),
@@ -122,6 +93,37 @@ export default Mixin.create({
       if (oldAttr !== newAttr) {
         callback(newAttr);
       }
+    }
+  },
+
+  _setFlatpickrOptions() {
+    const fastboot = getOwner(this).lookup('service:fastboot');
+    if (fastboot && fastboot.isFastBoot) {
+      return;
+    }
+    const options = this.getProperties(Object.keys(this.attrs));
+
+    // Add defaultDate, change and close handlers
+    assign(options, {
+      inline: this.inline || options.inline,
+      defaultDate: this.get('date'),
+      onChange: this._onChange.bind(this),
+      onClose: this._onClose.bind(this),
+      onOpen: this._onOpen.bind(this),
+      onReady: this._onReady.bind(this)
+    });
+
+    const flatpickrRef = flatpickr(this.field, options);
+
+    if (this.get('appendDataInput')) {
+      this.field.setAttribute('data-input', '');
+    }
+
+    this._setDisabled(this.get('disabled'));
+
+    this.set('flatpickrRef', flatpickrRef);
+    if (this.get('getFlatpickrRef')) {
+      this.get('getFlatpickrRef')(flatpickrRef);
     }
   },
 
@@ -200,7 +202,7 @@ export default Mixin.create({
   },
 
   _setDisabled(disabled) {
-    if (this.get("altInput")) {
+    if (this.get('altInput')) {
       // `this.field` is the hidden input storing the alternate date value sent to the server
       // @see https://flatpickr.js.org/options/ `altInput` config options
       // Refactored during https://github.com/shipshapecode/ember-flatpickr/issues/306 to instead

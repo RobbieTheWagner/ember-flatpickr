@@ -18,7 +18,8 @@ module.exports = {
     flatpickr: false
   },
   rules: {
-    'no-console': 'off',
+    'ember/no-new-mixins': 'off',
+    'no-console': 'off'
   },
   overrides: [
     // node files

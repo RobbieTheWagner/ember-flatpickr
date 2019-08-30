@@ -26,18 +26,18 @@
     
     <h2>Options</h2>
     
-    {{#power-select
-      matchTriggerWidth=false
-      options=locales
-      placeholder="Choose a Locale"
-      searchEnabled=false
-      selected=locale
-      triggerClass=classString
-      onchange=(action (mut locale))
+    <PowerSelect
+      @matchTriggerWidth={{false}}
+      @options={{locales}}
+      @placeholder="Choose a Locale"
+      @searchEnabled={{false}}
+      @selected={{locale}}
+      @triggerClass={{classString}}
+      @onChange={{action (mut locale)}}
     as |option|
-    }}
+    >
       {{option}}
-    {{/power-select}}
+    </PowerSelect>
     
     <button {{action "updateMin"}} class="docs-btn docs-mt-2 docs-mr-2 docs-p-2">Set minDate to '2080-12-24T16:16:22.585Z'</button>
     <button {{action "clearDate"}} class="docs-btn docs-mt-2 docs-p-2">Clear date</button>
@@ -73,18 +73,18 @@
     
     <h2>Options</h2>
     
-    {{#power-select
-      matchTriggerWidth=false
-      options=locales
-      placeholder="Choose a Locale"
-      searchEnabled=false
-      selected=locale
-      triggerClass=classString
-      onchange=(action (mut locale))
+    <PowerSelect
+      @matchTriggerWidth={{false}}
+      @options={{locales}}
+      @placeholder="Choose a Locale"
+      @searchEnabled={{false}}
+      @selected={{locale}}
+      @triggerClass={{classString}}
+      @onChange={{action (mut locale)}}
     as |option|
-    }}
+    >
       {{option}}
-    {{/power-select}}
+    </PowerSelect>
     
     <button {{action "updateMin"}} class="docs-btn docs-mt-2 docs-mr-2 docs-p-2">Set minDate to '2080-12-24T16:16:22.585Z'</button>
     <button {{action "clearDate"}} class="docs-btn docs-mt-2 docs-p-2">Clear date</button>
