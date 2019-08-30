@@ -22,7 +22,7 @@ module('Integration | Component | ember flatpickr', function(hooks) {
   test('when rendering with angle brackets', async function (assert) {
     this.set('dateValue', [new Date(2001, 8, 11)]);
 
-    await render(hbs`<EmberFlatpickr @date={{readonly dateValue}} />`);
+    await render(hbs`<EmberFlatpickr @date={{readonly dateValue}} @onChange={{action (mut dateValue)}}/>`);
 
     assert.equal(findAll('.flatpickr-input').length, 1);
     assert.equal(find('.flatpickr-input').value, '2001-09-11')
