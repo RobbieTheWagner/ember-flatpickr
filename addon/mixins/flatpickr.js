@@ -128,20 +128,6 @@ export default Mixin.create({
   },
 
   /**
-   * Triggered when the user selects a date, or changes the time on a selected date.
-   *
-   * @method onChange
-   * @param {Array} selectedDates an array of Date objects selected by the user. When there are
-   * no dates selected, the array is empty.
-   * @param {String} dateStr a string representation of the latest selected Date object by the
-   * user. The string is formatted as per the dateFormat option
-   * @param {Object} instance the flatpickr object, containing various methods and properties.
-   * @type {Action}
-   * @return {void}
-   */
-  onChange(/*selectedDates, dateStr, instance*/) {},
-
-  /**
    * Triggered when the calendar is closed.
    *
    * @method onClose
