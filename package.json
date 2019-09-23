@@ -35,7 +35,7 @@
     "flatpickr": "^4.6.2"
   },
   "devDependencies": {
-    "@ember/optional-features": "^0.7.0",
+    "@ember/optional-features": "^1.0.0",
     "broccoli-asset-rev": "^3.0.0",
     "codeclimate-test-reporter": "^0.5.1",
     "ember-angle-bracket-invocation-polyfill": "^2.0.2",
