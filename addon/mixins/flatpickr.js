@@ -44,6 +44,7 @@ export default Mixin.create({
 
   didReceiveAttrs: diffAttrs(
     'altFormat',
+    'altInputClass',
     'date',
     'disabled',
     'locale',
@@ -54,6 +55,17 @@ export default Mixin.create({
 
       this._attributeHasChanged(changedAttrs, 'altFormat', newAltFormat => {
         this.field._flatpickr.set('altFormat', newAltFormat);
+      });
+
+      this._attributeHasChanged(changedAttrs, 'altInputClass', newAltInputClass => {
+        // updating config anyways, just to keep them in sync:
+        this.field._flatpickr.set('altInputClass', newAltInputClass);
+        
+        // https://github.com/flatpickr/flatpickr/issues/861
+        let { altInput } = this.field._flatpickr;
+        if (altInput) {
+          altInput.className = newAltInputClass;
+        }
       });
 
       this._attributeHasChanged(changedAttrs, 'date', newDate => {
