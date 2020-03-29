@@ -216,6 +216,33 @@ module('Integration | Component | ember flatpickr', function(hooks) {
     assert.equal(find('.ember-flatpickr-input[type="text"]').value, '2080', 'altFormat updates when changed');
   });
 
+  test('altInputClass updates when changed', async function(assert) {
+    assert.expect(2);
+
+    this.actions.onChange = () => {
+    };
+
+    const classNamesBefore = 'ember-flatpickr-input class-name-1a class-name-1b';
+    const classNamesAfter = 'ember-flatpickr-input class-name-2a class-name-2b';
+
+    this.set('dateValue', [new Date()]);
+    this.set('altInputClass', classNamesBefore);
+
+    await render(hbs`{{ember-flatpickr
+      altInput=true
+      altInputClass=altInputClass
+      date=(readonly dateValue)
+      onChange="onChange"
+      placeholder="Pick date"
+      }}`);
+
+    assert.equal(find('.ember-flatpickr-input[type="text"]').className, classNamesBefore, 'initial altInputClass value');
+
+    this.set('altInputClass', classNamesAfter);
+
+    assert.equal(find('.ember-flatpickr-input[type="text"]').className, classNamesAfter, 'altInputClass updates when changed');
+  });
+
   test('flatpickrRef is accessible', async function(assert) {
     assert.expect(2);
 
