@@ -2,38 +2,38 @@
 
 ## Date/Time Picker
 
-{{#docs-demo as |demo|}}
-  {{#demo.example name="date-time-picker.hbs"}}
-    {{ember-flatpickr
-      allowInput=true
-      appendDataInput=true
-      classNames=classString
-      date=(readonly dateValue)
-      enableTime=true
-      locale=locale
-      minDate=minDate
-      onClose=(action "onClose")
-      onChange=(action (mut dateValue))
-      onReady=(action "onReady")
-      placeholder="Pick date"
-    }}
-  {{/demo.example}}
+<DocsDemo as |demo|>
+  <demo.example @name="date-time-picker.hbs">
+    <EmberFlatpickr
+      @allowInput={{true}}
+      @appendDataInput={{true}}
+      @classNames={{this.classString}}
+      @date={{readonly this.dateValue}}
+      @enableTime={{true}}
+      @locale={{this.locale}}
+      @minDate={{this.minDate}}
+      @onClose={{action "onClose"}}
+      @onChange={{action (mut this.dateValue)}}
+      @onReady={{action "onReady"}}
+      @placeholder="Pick date"
+    />
+  </demo.example>
   
   <div class="docs-m-4">
     <p class="selectedValue">
-      You selected: {{dateValue}}
+      You selected: {{this.dateValue}}
     </p>
     
     <h2>Options</h2>
     
     <PowerSelect
       @matchTriggerWidth={{false}}
-      @options={{locales}}
+      @options={{this.locales}}
       @placeholder="Choose a Locale"
       @searchEnabled={{false}}
-      @selected={{locale}}
-      @triggerClass={{classString}}
-      @onChange={{action (mut locale)}}
+      @selected={{this.locale}}
+      @triggerClass={{this.classString}}
+      @onChange={{action (mut this.locale)}}
     as |option|
     >
       {{option}}
@@ -43,28 +43,28 @@
     <button {{action "clearDate"}} class="docs-btn docs-mt-2 docs-p-2">Clear date</button>
   </div>
   
-  {{demo.snippet "date-time-picker.hbs"}}
-{{/docs-demo}}
+  <demo.snippet @name="date-time-picker.hbs"/>
+</DocsDemo>
 
 ## Range Date/Time Picker
 
-{{#docs-demo as |demo|}}
-  {{#demo.example name="range-date-time-picker.hbs"}}
-    {{ember-flatpickr
-      allowInput=true
-      appendDataInput=true
-      classNames=classString
-      date=(readonly dateRangeValue)
-      enableTime=true
-      locale=locale
-      mode="range"
-      minDate=minDate
-      onClose=(action "onClose")
-      onChange=(action (mut dateRangeValue))
-      onReady=(action "onReady")
-      placeholder="Pick dates"
-    }}
-  {{/demo.example}}
+<DocsDemo as |demo|>
+  <demo.example @name="range-date-time-picker.hbs">
+    <EmberFlatpickr
+      @allowInput={{true}}
+      @appendDataInput={{true}}
+      @classNames={{this.classString}}
+      @date={{readonly this.dateRangeValue}}
+      @enableTime={{true}}
+      @locale={{this.locale}}
+      @mode="range"
+      @minDate={{this.minDate}}
+      @onClose={{action "onClose"}}
+      @onChange={{action (mut this.dateRangeValue)}}
+      @onReady={{action "onReady"}}
+      @placeholder="Pick dates"
+    />
+  </demo.example>
   
   <div class="docs-m-4">
     <p class="selectedValue">
@@ -90,31 +90,31 @@
     <button {{action "clearDate"}} class="docs-btn docs-mt-2 docs-p-2">Clear date</button>
   </div>
   
-  {{demo.snippet "range-date-time-picker.hbs"}}
-{{/docs-demo}}
+  <demo.snippet @name="range-date-time-picker.hbs"/>
+</DocsDemo>
 
 ## Time Picker
 
-{{#docs-demo as |demo|}}
-  {{#demo.example name="time-picker.hbs"}}
-    {{ember-flatpickr
-      appendDataInput=true
-      classNames=classString
-      date=(readonly timeValue)
-      enableTime=true
-      locale=locale
-      minDate=minDate
-      noCalendar=true
-      onClose=(action "onCloseTime")
-      onChange=(action (mut timeValue))
-      onReady=(action "onReadyTime")
-      placeholder="Pick time"
-    }}
-  {{/demo.example}}
+<DocsDemo as |demo|>
+  <demo.example @name="time-picker.hbs">
+    <EmberFlatpickr
+      @appendDataInput={{true}}
+      @classNames={{this.classString}}
+      @date={{readonly this.timeValue}}
+      @enableTime={{true}}
+      @locale={{this.locale}}
+      @minDate={{this.minDate}}
+      @noCalendar={{true}}
+      @onClose={{action "onCloseTime"}}
+      @onChange={{action (mut this.timeValue)}}
+      @onReady={{action "onReadyTime"}}
+      @placeholder="Pick time"
+    />
+  </demo.example>
   
   <div class="docs-m-4">
     <p class="selectedValue">
-      You selected: {{timeValue}}
+      You selected: {{this.timeValue}}
     </p>
     
     <h2>Options</h2>
@@ -122,5 +122,5 @@
     <button {{action "clearTime"}} class="docs-btn docs-mt-2 docs-mr-2 docs-p-2">Clear time</button>
   </div>
  
-  {{demo.snippet "time-picker.hbs"}}
-{{/docs-demo}}
+  <demo.snippet @name="time-picker.hbs"/>
+</DocsDemo>

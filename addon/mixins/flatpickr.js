@@ -22,19 +22,19 @@ export default Mixin.create({
   setupFlatpickr() {
     // Require that users pass a date
     assert(
-      '{{ember-flatpickr}} requires a `date` to be passed as the value for flatpickr.',
+      '<EmberFlatpickr> requires a `date` to be passed as the value for flatpickr.',
       this.date !== undefined
     );
 
     // Require that users pass an onChange
     assert(
-      '{{ember-flatpickr}} requires an `onChange` action or null for no action.',
+      '<EmberFlatpickr> requires an `onChange` action or null for no action.',
       this.onChange !== undefined
     );
 
     // Wrap is not supported
     assert(
-      '{{ember-flatpickr}} does not support the wrap option. Please see documentation for an alternative.',
+      '<EmberFlatpickr> does not support the wrap option. Please see documentation for an alternative.',
       this.attrs.wrap !== true
     );
 
@@ -60,7 +60,7 @@ export default Mixin.create({
       this._attributeHasChanged(changedAttrs, 'altInputClass', newAltInputClass => {
         // updating config anyways, just to keep them in sync:
         this.field._flatpickr.set('altInputClass', newAltInputClass);
-        
+
         // https://github.com/flatpickr/flatpickr/issues/861
         let { altInput } = this.field._flatpickr;
         if (altInput) {

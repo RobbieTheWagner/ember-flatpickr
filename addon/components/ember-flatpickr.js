@@ -11,19 +11,11 @@ import TextField from '@ember/component/text-field';
  * in `ember-flatpickr/mixins/flatpickr`.
  *
  * ```handlebars
- *  {{ember-flatpickr
- *    date=(readonly model.someDate)
- *  }}
- * ```
- *
- * Or using angle brackets:
- *
- * ```handlebars
  *  <EmberFlatpickr @date={{readonly model.someDate}}/>
  * ```
  *
  * @class EmberFlatpickr
- * @element ember-flatpickr
+ * @element EmberFlatpickr
  * @extends TextField
  * @public
  * @uses Flatpickr

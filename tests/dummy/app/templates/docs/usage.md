@@ -1,45 +1,45 @@
 ## Usage
 
 ```handlebars
-{{ember-flatpickr
-  allowInput=false
-  altFormat='Y-m-d'
-  altInput=true
-  altInputClass='my-alt-input'
-  clickOpens=true
-  date=(readonly defaultDate) // Required Option
-  dateFormat='M/D/Y'
-  defaultDate=defaultDate
-  defaultHour=12
-  defaultMinute=0
-  disable=datesToDisable
-  disableMobile=false
-  enable=datesToEnable
-  enableSeconds=false
-  enableTime=true
-  flatpickrRef=flatpickrRef   // two-way binding
-  getFlatpickrRef=(action (mut flatpickrRef))  // via action (prefered)
-  hourIncrement=1
-  inline=false
-  locale='ru'
-  maxDate=maxDate
-  minDate=minDate
-  minuteIncrement=5
-  mode='single'
-  nextArrow='>'
-  noCalendar=false
-  onChange=(action (mut dateValues)) // Required Option
-  onClose=(action 'doSomeStuffOnClose')
-  onOpen=(action 'doSomeStuffOnOpen')
-  onReady=(action 'doSomeStuffOnReady')
-  parseDate=false
-  placeholder='Choose a Date'
-  prevArrow='<'
-  shorthandCurrentMonth=false
-  static=false
-  time_24hr=false
-  weekNumbers=false
-}}
+<EmberFlatpickr
+  @allowInput={{false}}
+  @altFormat="Y-m-d"
+  @altInput={{true}}
+  @altInputClass="my-alt-input"
+  @clickOpens={{true}}
+  @date={{readonly this.defaultDate}} {{!-- Required Option --}}
+  @dateFormat="M/D/Y"
+  @defaultDate={{this.defaultDate}}
+  @defaultHour={{12}}
+  @defaultMinute={{0}}
+  @disable={{this.datesToDisable}}
+  @disableMobile={{false}}
+  @enable={{this.datesToEnable}}
+  @enableSeconds={{false}}
+  @enableTime={{true}}
+  @flatpickrRef={{this.flatpickrRef}}   {{!-- two-way binding --}}
+  @getFlatpickrRef={{action (mut this.flatpickrRef)}}  {{!-- via action (prefered) --}}
+  @hourIncrement={{1}}
+  @inline={{false}}
+  @locale="ru"
+  @maxDate={{maxDate}}
+  @minDate={{minDate}}
+  @minuteIncrement={{5}}
+  @mode="single"
+  @nextArrow=">"
+  @noCalendar={{false}}
+  @onChange={{action (mut dateValues)}} {{!-- Required Option --}}
+  @onClose={{action "doSomeStuffOnClose"}}
+  @onOpen={{action "doSomeStuffOnOpen"}}
+  @onReady={{action "doSomeStuffOnReady"}}
+  @parseDate={{false}}
+  @placeholder="Choose a Date"
+  @prevArrow="<"
+  @shorthandCurrentMonth={{false}}
+  @static={{false}}
+  @time_24hr={{false}}
+  @weekNumbers={{false}}
+/>
 ```
 
 *(`date` and `onChange` are the only required options, but you can pass null if you do not care about it. All other options are taken straight from the flatpickr options, but they have defaults and you only need to pass what you need.)
@@ -87,10 +87,10 @@ const app = new EmberApp(defaults, {
 You can then use the locales you imported by specifying which you want in your template, like so:
 
 ```handlebars
-{{ember-flatpickr
-locale='ru'
-onChange=(action (mut dateValue))
-}}
+<EmberFlatpickr
+  @locale="ru"
+  @onChange={{action (mut this.dateValue)}}
+/>
 ```
 
 ### Manual Localization Configuration
@@ -99,14 +99,15 @@ onChange=(action (mut dateValue))
 The following example is using `moment.js` and assumes that a `userLocale` is specified to look up the correct locale configuration from `moment.js`.
 
 ```javascript
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import { computed } from '@ember/object';
 import moment from 'moment';
 
 // app/controllers/some-controller.js
-export default Ember.Controller.extend({
+export default Controller.extend({
   userLocale: 'de',
   
-  customLocaleConfig: Ember.computed(function(){
+  customLocaleConfig: computed(function () {
     const userLocale = this.get('userLocale');
     const localeData = moment.localeData(userLocale);
     
@@ -126,10 +127,10 @@ export default Ember.Controller.extend({
 ```
 
 ```handlebars
-{{ember-flatpickr
-locale=customLocaleConfig
-onChange=(action (mut dateValue))
-}}
+<EmberFlatpickr
+  @locale={{this.customLocaleConfig}}
+  @onChange={{action (mut this.dateValue)}}
+/>
 ```
 
 Check [flatpickr locale documentation](https://chmln.github.io/flatpickr/#locale) for a list of config options.
@@ -151,10 +152,10 @@ All options available to Flatpickr are available here with the exception of wrap
 The wrap option for flatpickr causes flatpickr to search its child elements for elements annotated with certain attributes. With ember-flatpickr this can be accomplished with the following
 
 ```handlebars
-{{ember-flatpickr
-onChange=(action (mut dateValue))
-getFlatpickrRef=(action (mut flatpickrRef))
-}}
+<EmberFlatpickr
+  @onChange={{action (mut this.dateValue)}}
+  @getFlatpickrRef={{action (mut this.flatpickrRef)}}
+/>
 
 <a class="input-button" title="toggle" onclick={{action "toggleCalendar"}}>
     <i class="icon-calendar"></i>
