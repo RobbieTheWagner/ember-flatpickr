@@ -1,3 +1,12 @@
+## v2.16.0 (2020-05-05)
+
+#### :rocket: Enhancement
+* [#422](https://github.com/shipshapecode/ember-flatpickr/pull/422) allow update of altInputClass ([@roberkules](https://github.com/roberkules))
+
+#### Committers: 2
+- Robert Oswald ([@roberkules](https://github.com/roberkules))
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+
 # Changelog
 
 ## [v2.10.0](https://github.com/shipshapecode/ember-flatpickr/tree/v2.10.0) (2019-01-03)
