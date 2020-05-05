@@ -33,7 +33,7 @@
       @searchEnabled={{false}}
       @selected={{locale}}
       @triggerClass={{classString}}
-      @onchange={{action (mut locale)}}
+      @onChange={{action (mut locale)}}
     as |option|
     >
       {{option}}
@@ -80,7 +80,7 @@
       @searchEnabled={{false}}
       @selected={{locale}}
       @triggerClass={{classString}}
-      @onchange={{action (mut locale)}}
+      @onChange={{action (mut locale)}}
     as |option|
     >
       {{option}}
