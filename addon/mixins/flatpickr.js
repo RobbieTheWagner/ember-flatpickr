@@ -23,13 +23,13 @@ export default Mixin.create({
     // Require that users pass a date
     assert(
       '{{ember-flatpickr}} requires a `date` to be passed as the value for flatpickr.',
-      this.get('date') !== undefined
+      this.date !== undefined
     );
 
     // Require that users pass an onChange
     assert(
       '{{ember-flatpickr}} requires an `onChange` action or null for no action.',
-      this.get('onChange') !== undefined
+      this.onChange !== undefined
     );
 
     // Wrap is not supported
@@ -118,7 +118,7 @@ export default Mixin.create({
     // Add defaultDate, change and close handlers
     assign(options, {
       inline: this.inline || options.inline,
-      defaultDate: this.get('date'),
+      defaultDate: this.date,
       onChange: this._onChange.bind(this),
       onClose: this._onClose.bind(this),
       onOpen: this._onOpen.bind(this),
@@ -127,15 +127,15 @@ export default Mixin.create({
 
     const flatpickrRef = flatpickr(this.field, options);
 
-    if (this.get('appendDataInput')) {
+    if (this.appendDataInput) {
       this.field.setAttribute('data-input', '');
     }
 
-    this._setDisabled(this.get('disabled'));
+    this._setDisabled(this.disabled);
 
     this.set('flatpickrRef', flatpickrRef);
-    if (this.get('getFlatpickrRef')) {
-      this.get('getFlatpickrRef')(flatpickrRef);
+    if (this.getFlatpickrRef) {
+      this.getFlatpickrRef(flatpickrRef);
     }
   },
 
@@ -200,7 +200,7 @@ export default Mixin.create({
   },
 
   _setDisabled(disabled) {
-    if (this.get('altInput')) {
+    if (this.altInput) {
       // `this.field` is the hidden input storing the alternate date value sent to the server
       // @see https://flatpickr.js.org/options/ `altInput` config options
       // Refactored during https://github.com/shipshapecode/ember-flatpickr/issues/306 to instead

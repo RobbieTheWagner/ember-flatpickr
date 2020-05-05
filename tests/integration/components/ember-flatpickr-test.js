@@ -293,7 +293,7 @@ module('Integration | Component | ember flatpickr', function(hooks) {
 
     assert.equal(find('.flatpickr-days .flatpickr-day.selected').textContent, '1', 'initial selected date text');
 
-    this.get('flatpickrRef').setDate('2080-12-04T16:16:22.585Z');
+    this.flatpickrRef.setDate('2080-12-04T16:16:22.585Z');
 
     assert.equal(find('.flatpickr-days .flatpickr-day.selected').textContent, '4', 'selected changes with dateValue');
   });
@@ -495,9 +495,9 @@ module('Integration | Component | ember flatpickr', function(hooks) {
 
     assert.equal(find('.flatpickr-days .flatpickr-day.selected').textContent, newPosition, 'selected changes with dateValue');
 
-    assert.ok(this.get('dateValue') instanceof Array, 'dateValue is instanceof Array');
-    assert.ok(this.get('dateValue').length, 1, 'dateValue has 1 item');
-    assert.ok(this.get('dateValue')[0] instanceof Date, 'dateValue is an array of DateObjects');
+    assert.ok(this.dateValue instanceof Array, 'dateValue is instanceof Array');
+    assert.ok(this.dateValue.length, 1, 'dateValue has 1 item');
+    assert.ok(this.dateValue[0] instanceof Date, 'dateValue is an array of DateObjects');
   });
 
   test('date accepts string', async function(assert) {
@@ -514,8 +514,8 @@ module('Integration | Component | ember flatpickr', function(hooks) {
       getFlatpickrRef=(action (mut flatpickrRef))
       }}`);
 
-    assert.equal(this.get('flatpickrRef').selectedDates.length, 1, '1 date is selected');
-    assert.equal(this.get('flatpickrRef').selectedDates[0].valueOf(), new Date(originalDate).valueOf(), 'selected date is correct');
+    assert.equal(this.flatpickrRef.selectedDates.length, 1, '1 date is selected');
+    assert.equal(this.flatpickrRef.selectedDates[0].valueOf(), new Date(originalDate).valueOf(), 'selected date is correct');
   });
 
   test('date accepts date object', async function(assert) {
@@ -532,8 +532,8 @@ module('Integration | Component | ember flatpickr', function(hooks) {
       getFlatpickrRef=(action (mut flatpickrRef))
       }}`);
 
-    assert.equal(this.get('flatpickrRef').selectedDates.length, 1, '1 date is selected');
-    assert.equal(this.get('flatpickrRef').selectedDates[0].valueOf(), new Date(originalDate).valueOf(), 'selected date is correct');
+    assert.equal(this.flatpickrRef.selectedDates.length, 1, '1 date is selected');
+    assert.equal(this.flatpickrRef.selectedDates[0].valueOf(), new Date(originalDate).valueOf(), 'selected date is correct');
   });
 
   test('date accepts array of string', async function(assert) {
@@ -550,8 +550,8 @@ module('Integration | Component | ember flatpickr', function(hooks) {
       getFlatpickrRef=(action (mut flatpickrRef))
       }}`);
 
-    assert.equal(this.get('flatpickrRef').selectedDates.length, 1, '1 date is selected');
-    assert.equal(this.get('flatpickrRef').selectedDates[0].valueOf(), new Date(originalDate).valueOf(), 'selected date is correct');
+    assert.equal(this.flatpickrRef.selectedDates.length, 1, '1 date is selected');
+    assert.equal(this.flatpickrRef.selectedDates[0].valueOf(), new Date(originalDate).valueOf(), 'selected date is correct');
   });
 
   test('date accepts array of date objects', async function(assert) {
@@ -567,7 +567,7 @@ module('Integration | Component | ember flatpickr', function(hooks) {
       getFlatpickrRef=(action (mut flatpickrRef))
     }}`);
 
-    assert.equal(this.get('flatpickrRef').selectedDates.length, 1, '1 date is selected');
-    assert.equal(this.get('flatpickrRef').selectedDates[0].valueOf(), new Date(originalDate).valueOf(), 'selected date is correct');
+    assert.equal(this.flatpickrRef.selectedDates.length, 1, '1 date is selected');
+    assert.equal(this.flatpickrRef.selectedDates[0].valueOf(), new Date(originalDate).valueOf(), 'selected date is correct');
   });
 });

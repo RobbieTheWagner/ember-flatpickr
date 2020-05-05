@@ -25,6 +25,7 @@ module.exports = {
   },
   rules: {
     'ember/no-jquery': 'error',
+    'ember/no-mixins': 'off',
     'ember/no-new-mixins': 'off',
     'no-console': 'off'
   },
