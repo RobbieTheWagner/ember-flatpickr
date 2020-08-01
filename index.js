@@ -7,7 +7,7 @@ module.exports = {
   options: {
     nodeAssets: {
       flatpickr() {
-        const localePaths = this.locales.map(locale => `l10n/${locale}.js`);
+        const localePaths = this.locales?.map(locale => `l10n/${locale}.js`) ?? [];
 
         return {
           srcDir: 'dist',
