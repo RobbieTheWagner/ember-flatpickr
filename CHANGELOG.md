@@ -1,3 +1,12 @@
+## v2.16.3 (2020-08-05)
+
+#### :rocket: Enhancement
+* [#499](https://github.com/shipshapecode/ember-flatpickr/pull/499) Support no locales ([@rwwagner90](https://github.com/rwwagner90))
+
+#### Committers: 2
+- Robert Wagner ([@rwwagner90](https://github.com/rwwagner90))
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+
 ## v2.16.2 (2020-05-05)
 
 ## v2.16.1 (2020-05-05)
