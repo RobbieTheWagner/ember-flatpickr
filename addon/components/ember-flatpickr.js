@@ -10,25 +10,25 @@ import { getOwner } from '@ember/application';
  * Ember component that wraps the lightweight [`flatpickr`](https://flatpickr.js.org) datetime
  * chooser.
  *
- * The EmberFlatpickr component requires that you pass in at the very least a `date` property
- * and a `onChange` callback.
+ * The `EmberFlatpickr` component requires that you pass in at the very least a `date` property
+ * and an `onChange` callback.
  *
  * ```handlebars
  *  <EmberFlatpickr @date={{model.someDate}} @onChange={{this.onChange}} />
  * ```
  *
- * The EmberFlatpickr component internally makes use of ...attributes. This means that any
+ * The `EmberFlatpickr` component internally makes use of `...attributes`. This means that any
  * native input attributes that you pass in should be passed in without the `@` symbol.
  * For example
  *
  * ```handlebars
  *  <EmberFlatpickr
- *    @date={{model.someDate}}
- *    @onChange={{this.onChange}}
- *    placeholder="Pick a date"
  *    aria-activedescendent="aria-activedescendent"
  *    aria-autocomplete="aria-autocomplete"
- *    aria-describedby="described by"/>
+ *    aria-describedby="described by"
+ *    placeholder="Pick a date"
+ *    @date={{model.someDate}}
+ *    @onChange={{this.onChange}}
  * ```
  *
  * @class EmberFlatpickr
@@ -161,7 +161,7 @@ export default class EmberFlatpickr extends Component {
    * Triggered when the calendar is closed.
    *
    * @method onClose
-   * @param {Array} selectedDates an array of Date objects selected by the user. When there are
+   * @param {Date[]} selectedDates an array of Date objects selected by the user. When there are
    * no dates selected, the array is empty.
    * @param {String} dateStr a string representation of the latest selected Date object by the
    * user. The string is formatted as per the dateFormat option
@@ -177,7 +177,7 @@ export default class EmberFlatpickr extends Component {
    * Triggered when the calendar is closed.
    *
    * @method onOpen
-   * @param {Array} selectedDates an array of Date objects selected by the user. When there are
+   * @param {Date[]} selectedDates an array of Date objects selected by the user. When there are
    * no dates selected, the array is empty.
    * @param {String} dateStr a string representation of the latest selected Date object by the
    * user. The string is formatted as per the dateFormat option
@@ -193,7 +193,7 @@ export default class EmberFlatpickr extends Component {
    * Triggered once the calendar is in a ready state.
    *
    * @method onReady
-   * @param {Array} selectedDates an array of Date objects selected by the user. When there are
+   * @param {Date[]} selectedDates an array of Date objects selected by the user. When there are
    * no dates selected, the array is empty.
    * @param {String} dateStr a string representation of the latest selected Date object by the
    * user. The string is formatted as per the dateFormat option

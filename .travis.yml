@@ -3,7 +3,7 @@ language: node_js
 node_js:
   # we recommend testing addons with the same minimum supported node version as Ember CLI
   # so that your addon works for all apps
-  - '10'
+  - "10"
 
 dist: xenial
 
@@ -11,7 +11,7 @@ addons:
   chrome: stable
   code_climate:
     repo_token:
-      secure: 'UFdwRzKx+hJS+qHThLwrRHIXndLe4CZcuGU3hv2bDPAiyzNqzFs/fkxHyl+Dgl0ZPOVkFQAaIXL7FDsVdVHMHYsiDZ4wf2OQE+4ZrAyoLOBTju6183axWej0c5QNBYLNV/WbPfr+L+rc7c1rykF9dE5tfx8FAqgrX6gnKkQbjVcHHh+TlyvdMxXZ/sg1tOEdZv4G3nwKBY10fpvDaQAQL4oBqCgNu0Vw/Z9unOyxpHaKIrGmHotIs/71mgGteNeCFHMJtg+4Eshj7D6jYC5zDhIAQLOcBAnvGjGMT5KqG/MthMlPj509Zu+rJoQtA1gVb4v8SVUtA8sMHhZdcXViAWbQhj8JVkiEGhZhF6LSnNvmkLBhb7al9aOVkGasoc10HKXyZkl8hBS310wwbsegn9fJx9ijpj5V8rIPyJM3XifYBVu3I8KCOEXYc/FY7K9COaVBpwGs2gF+6VyQCdcaR1JN2Bzv2lQFFRlwrDiu3xvxR7hx1OkPZ6gHELC/0yUTX5ls3u5Z0vrk/lAPezWMZ95EWnJHy/ouKW26CeHQ5z7x3lEAAK2hNaeIEkiAD1r5gRd65pOKUsr0mCaBi+qOca5em8AERyT/fcXyUZ9OwFwKXC1pIsMcnkj6JcSiUyxsc+pN/0Xv92LrfregQ32yo0eXo1nIiwnU8ifezZnRI3A='
+      secure: "UFdwRzKx+hJS+qHThLwrRHIXndLe4CZcuGU3hv2bDPAiyzNqzFs/fkxHyl+Dgl0ZPOVkFQAaIXL7FDsVdVHMHYsiDZ4wf2OQE+4ZrAyoLOBTju6183axWej0c5QNBYLNV/WbPfr+L+rc7c1rykF9dE5tfx8FAqgrX6gnKkQbjVcHHh+TlyvdMxXZ/sg1tOEdZv4G3nwKBY10fpvDaQAQL4oBqCgNu0Vw/Z9unOyxpHaKIrGmHotIs/71mgGteNeCFHMJtg+4Eshj7D6jYC5zDhIAQLOcBAnvGjGMT5KqG/MthMlPj509Zu+rJoQtA1gVb4v8SVUtA8sMHhZdcXViAWbQhj8JVkiEGhZhF6LSnNvmkLBhb7al9aOVkGasoc10HKXyZkl8hBS310wwbsegn9fJx9ijpj5V8rIPyJM3XifYBVu3I8KCOEXYc/FY7K9COaVBpwGs2gF+6VyQCdcaR1JN2Bzv2lQFFRlwrDiu3xvxR7hx1OkPZ6gHELC/0yUTX5ls3u5Z0vrk/lAPezWMZ95EWnJHy/ouKW26CeHQ5z7x3lEAAK2hNaeIEkiAD1r5gRd65pOKUsr0mCaBi+qOca5em8AERyT/fcXyUZ9OwFwKXC1pIsMcnkj6JcSiUyxsc+pN/0Xv92LrfregQ32yo0eXo1nIiwnU8ifezZnRI3A="
 
 cache:
   yarn: true
@@ -34,14 +34,14 @@ jobs:
 
   include:
     # runs linting and tests with current locked deps
-    - stage: 'Tests'
-      name: 'Tests'
+    - stage: "Tests"
+      name: "Tests"
       script:
         - yarn lint
         - yarn test:ember
 
-    - stage: 'Additional Tests'
-      name: 'Floating Dependencies'
+    - stage: "Additional Tests"
+      name: "Floating Dependencies"
       install:
         - yarn install --no-lockfile --non-interactive
       script:
