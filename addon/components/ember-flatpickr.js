@@ -10,11 +10,25 @@ import { getOwner } from '@ember/application';
  * Ember component that wraps the lightweight [`flatpickr`](https://flatpickr.js.org) datetime
  * chooser.
  *
- * This component extends Ember's `@ember/component/text-field` and mixes
- * in `ember-flatpickr/mixins/flatpickr`.
+ * The EmberFlatpickr component requires that you pass in at the very least a `date` property
+ * and a `onChange` callback.
  *
  * ```handlebars
- *  <EmberFlatpickr @date={{readonly model.someDate}}/>
+ *  <EmberFlatpickr @date={{model.someDate}} @onChange={{this.onChange}} />
+ * ```
+ *
+ * The EmberFlatpickr component internally makes use of ...attributes. This means that any
+ * native input attributes that you pass in should be passed in without the `@` symbol.
+ * For example
+ *
+ * ```handlebars
+ *  <EmberFlatpickr
+ *    @date={{model.someDate}}
+ *    @onChange={{this.onChange}}
+ *    placeholder="Pick a date"
+ *    aria-activedescendent="aria-activedescendent"
+ *    aria-autocomplete="aria-autocomplete"
+ *    aria-describedby="described by"/>
  * ```
  *
  * @class EmberFlatpickr
@@ -98,11 +112,19 @@ export default class EmberFlatpickr extends Component {
       appendDataInput,
       getFlatpickrRef,
       disabled = false,
+      onChange,
+      onReady,
+      onOpen,
+      onClose,
       ...rest
     } = this.args;
 
     this.flatpickrRef = flatpickr(this.field, {
       defaultDate: date,
+      onChange,
+      onClose: onClose || this.onClose,
+      onOpen: onOpen || this.onOpen,
+      onReady: onReady || this.onReady,
       ...rest,
     });
 
@@ -112,8 +134,26 @@ export default class EmberFlatpickr extends Component {
 
     this._setDisabled(disabled);
 
-    if (getFlatpickrRef) {
+    if (getFlatpickrRef instanceof Function) {
       getFlatpickrRef(this.flatpickrRef);
+    }
+  }
+
+  _setDisabled(disabled) {
+    if (!this.flatpickrRef) {
+      return;
+    }
+
+    if (this.flatpickrRef.altInput) {
+      // `this.field` is the hidden input storing the alternate date value sent to the server
+      // @see https://flatpickr.js.org/options/ `altInput` config options
+      // Refactored during https://github.com/shipshapecode/ember-flatpickr/issues/306 to instead
+      // extend Ember's `@ember/component/text-field`
+      // `this.field.nextSibling` is the text input that the user will interact with, so
+      // long as it is enabled
+      this.field.nextSibling.disabled = disabled;
+    } else {
+      this.field.disabled = disabled;
     }
   }
 
@@ -121,34 +161,49 @@ export default class EmberFlatpickr extends Component {
    * Triggered when the calendar is closed.
    *
    * @method onClose
-   * @param selectedDates an array of Date objects selected by the user. When there are
+   * @param {Array} selectedDates an array of Date objects selected by the user. When there are
    * no dates selected, the array is empty.
-   * @param dateStr a string representation of the latest selected Date object by the
+   * @param {String} dateStr a string representation of the latest selected Date object by the
    * user. The string is formatted as per the dateFormat option
-   * @param instance the flatpickr object, containing various methods and properties.
+   * @param {Object} instance the flatpickr object, containing various methods and properties.
+   * @type {Action}
+   * @return {void}
    */
+
+  @action
+  onClose() {}
 
   /**
    * Triggered when the calendar is closed.
    *
    * @method onOpen
-   * @param selectedDates an array of Date objects selected by the user. When there are
+   * @param {Array} selectedDates an array of Date objects selected by the user. When there are
    * no dates selected, the array is empty.
-   * @param dateStr a string representation of the latest selected Date object by the
+   * @param {String} dateStr a string representation of the latest selected Date object by the
    * user. The string is formatted as per the dateFormat option
-   * @param instance the flatpickr object, containing various methods and properties.
+   * @param {Object} instance the flatpickr object, containing various methods and properties.
+   * @type {Action}
+   * @return {void}
    */
+
+  @action
+  onOpen() {}
 
   /**
    * Triggered once the calendar is in a ready state.
    *
    * @method onReady
-   * @param selectedDates an array of Date objects selected by the user. When there are
+   * @param {Array} selectedDates an array of Date objects selected by the user. When there are
    * no dates selected, the array is empty.
-   * @param dateStr a string representation of the latest selected Date object by the
+   * @param {String} dateStr a string representation of the latest selected Date object by the
    * user. The string is formatted as per the dateFormat option
-   * @param instance the flatpickr object, containing various methods and properties.
+   * @param {Object} instance the flatpickr object, containing various methods and properties.
+   * @type {Action}
+   * @return {void}
    */
+
+  @action
+  onReady() {}
 
   @action
   onAltFormatUpdated() {
@@ -202,23 +257,5 @@ export default class EmberFlatpickr extends Component {
   @action
   onMinDateUpdated() {
     this.field._flatpickr.set('minDate', this.args.minDate);
-  }
-
-  _setDisabled(disabled) {
-    if (!this.flatpickrRef) {
-      return;
-    }
-
-    if (this.flatpickrRef.altInput) {
-      // `this.field` is the hidden input storing the alternate date value sent to the server
-      // @see https://flatpickr.js.org/options/ `altInput` config options
-      // Refactored during https://github.com/shipshapecode/ember-flatpickr/issues/306 to instead
-      // extend Ember's `@ember/component/text-field`
-      // `this.field.nextSibling` is the text input that the user will interact with, so
-      // long as it is enabled
-      this.field.nextSibling.disabled = disabled;
-    } else {
-      this.field.disabled = disabled;
-    }
   }
 }

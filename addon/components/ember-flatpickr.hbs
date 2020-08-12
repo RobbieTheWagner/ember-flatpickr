@@ -1,6 +1,12 @@
-<input {{did-insert this.onInsert}} {{will-destroy this.onWillDestroy}}
-  {{did-update this.onAltFormatUpdated @altFormat}} {{did-update this.onAltInputClassUpdated @altInputClass}}
-  {{did-update this.onDateUpdated @date}} {{did-update this.onDisabledUpdated @disabled}}
-  {{did-update this.onLocaleUpdated @locale}} {{did-update this.onMaxDateUpdated @maxDate}}
-  {{did-update this.onMinDateUpdated @minDate}} type="text" class="ember-flatpickr-input" ...attributes>
+<input 
+  {{did-insert this.onInsert}} 
+  {{will-destroy this.onWillDestroy}}
+  {{did-update this.onAltFormatUpdated @altFormat}} 
+  {{did-update this.onAltInputClassUpdated @altInputClass}}
+  {{did-update this.onDateUpdated @date}} 
+  {{did-update this.onDisabledUpdated @disabled}}
+  {{did-update this.onLocaleUpdated @locale}} 
+  {{did-update this.onMaxDateUpdated @maxDate}}
+  {{did-update this.onMinDateUpdated @minDate}} 
+  type="text" class="ember-flatpickr-input" ...attributes>
 {{yield}}

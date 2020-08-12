@@ -6,27 +6,27 @@ import hbs from 'htmlbars-inline-precompile';
 module('Integration | Component | ember flatpickr', function (hooks) {
   setupRenderingTest(hooks);
 
-  async function clickDay(index) {
+  const clickDay = async (index) => {
     await triggerEvent(
       findAll('.flatpickr-days .flatpickr-day')[index],
-      'click'
+      'mousedown'
     );
-  }
+  };
 
-  async function openFlatpickr() {
-    await triggerEvent(find('.flatpickr-input'), 'click');
-  }
+  const openFlatpickr = async () => {
+    await triggerEvent(find('.flatpickr-input'), 'focus');
+  };
 
-  async function closeFlatpickr() {
-    await triggerEvent(document.body, 'click');
-  }
+  const closeFlatpickr = async () => {
+    await triggerEvent(document.body, 'mousedown');
+  };
 
   test('when rendering with angle brackets', async function (assert) {
     this.set('dateValue', [new Date(2001, 8, 11)]);
 
     await render(
       hbs`<EmberFlatpickr 
-        @date={{readonly this.dateValue}} 
+        @date={{this.dateValue}} 
         @onChange={{null}}/>`
     );
 
@@ -38,7 +38,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('dateValue', [new Date()]);
 
     await render(hbs`<EmberFlatpickr 
-      @date={{readonly this.dateValue}} 
+      @date={{this.dateValue}} 
       @onChange={{null}}
       aria-activedescendent="aria-activedescendent"
     />`);
@@ -54,7 +54,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('dateValue', [new Date()]);
 
     await render(hbs`<EmberFlatpickr 
-      @date={{readonly this.dateValue}} 
+      @date={{this.dateValue}} 
       @onChange={{null}}
       aria-autocomplete="aria-autocomplete"
     />`);
@@ -70,7 +70,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('dateValue', [new Date()]);
 
     await render(hbs`<EmberFlatpickr 
-      @date={{readonly this.dateValue}} 
+      @date={{this.dateValue}} 
       @onChange={{null}}
       aria-describedby="described by"
     />`);
@@ -86,7 +86,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('dateValue', [new Date()]);
 
     await render(hbs`<EmberFlatpickr 
-      @date={{readonly this.dateValue}} 
+      @date={{this.dateValue}} 
       @onChange={{null}}
       aria-labelledby="aria-labelledby"
     />`);
@@ -102,7 +102,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('dateValue', [new Date()]);
 
     await render(hbs`<EmberFlatpickr 
-      @date={{readonly this.dateValue}} 
+      @date={{this.dateValue}} 
       @onChange={{null}}
       aria-multiline="aria-multiline"
     />`);
@@ -118,7 +118,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('dateValue', [new Date()]);
 
     await render(hbs`<EmberFlatpickr 
-      @date={{readonly this.dateValue}} 
+      @date={{this.dateValue}} 
       @onChange={{null}}
       aria-placeholder="aria-placeholder"
     />`);
@@ -130,27 +130,24 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     );
   });
 
-  test('when adding aria-readonly attribute it is assigned to the picker input', async function (assert) {
+  test('when adding aria- attribute it is assigned to the picker input', async function (assert) {
     this.set('dateValue', [new Date()]);
 
     await render(hbs`<EmberFlatpickr 
-      @date={{readonly this.dateValue}} 
+      @date={{this.dateValue}} 
       @onChange={{null}}
-      aria-readonly="aria-readonly"
+      aria-="aria-"
     />`);
 
     assert.equal(findAll('.flatpickr-input').length, 1);
-    assert.equal(
-      find('.flatpickr-input').getAttribute('aria-readonly'),
-      'aria-readonly'
-    );
+    assert.equal(find('.flatpickr-input').getAttribute('aria-'), 'aria-');
   });
 
   test('when adding aria-required attribute it is assigned to the picker input', async function (assert) {
     this.set('dateValue', [new Date()]);
 
     await render(hbs`<EmberFlatpickr 
-      @date={{readonly this.dateValue}} 
+      @date={{this.dateValue}} 
       @onChange={{null}}
       aria-required="aria-required"
     />`);
@@ -166,7 +163,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('dateValue', [new Date()]);
 
     await render(hbs`<EmberFlatpickr 
-      @date={{readonly this.dateValue}}
+      @date={{this.dateValue}}
       @onChange={{null}}
       title="Choose a date"
     />`);
@@ -187,7 +184,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
 
     await render(hbs`<EmberFlatpickr 
       @altInput={{true}} 
-      @date={{readonly this.dateValue}}
+      @date={{this.dateValue}}
       @onChange={{null}} 
       @disabled={{this.disabled}} 
       placeholder="Pick date"
@@ -229,7 +226,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
 
     await render(hbs`<EmberFlatpickr 
       @altInput={{false}} 
-      @date={{readonly this.dateValue}} 
+      @date={{this.dateValue}} 
       @disabled={{disabled}} 
       @onChange={{null}} placeholder="Pick date"
      />`);
@@ -262,7 +259,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     await render(hbs`<EmberFlatpickr
       @altInput={{true}}
       @altFormat={{this.altFormat}}
-      @date={{readonly this.dateValue}}
+      @date={{this.dateValue}}
       @onChange={{null}}
       placeholder="Pick date"
     />`);
@@ -296,7 +293,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     await render(hbs`<EmberFlatpickr
       @altInput={{true}}
       @altInputClass={{this.altInputClass}}
-      @date={{readonly this.dateValue}}
+      @date={{this.dateValue}}
       @onChange={{null}}
       placeholder="Pick date"
     />`);
@@ -327,7 +324,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('setFlatPickerRef', setFlatPickerRef);
 
     await render(hbs`<EmberFlatpickr
-      @date={{readonly this.dateValue}}
+      @date={{this.dateValue}}
       @onChange={{null}}
       @getFlatpickrRef={{this.setFlatPickerRef}}
       placeholder="Pick date"
@@ -349,13 +346,13 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('setFlatPickerRef', setFlatPickerRef);
 
     await render(hbs`<EmberFlatpickr
-        @date={{readonly this.dateValue}}
+        @date={{this.dateValue}}
         @getFlatpickrRef={{this.setFlatPickerRef}}
         @maxDate={{this.maxDate}}
         @minDate={{this.minDate}}
         @onChange={{null}}
         placeholder="Pick date"
-      />`);
+    />`);
 
     assert.equal(
       find('.flatpickr-days .flatpickr-day.selected').textContent,
@@ -390,7 +387,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('onChange', onChange);
 
     await render(hbs`<EmberFlatpickr
-      @date={{readonly this.dateValue}}
+      @date={{this.dateValue}}
       @enableTime={{true}}
       @maxDate={{this.maxDate}}
       @minDate={{this.minDate}}
@@ -415,7 +412,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('onClose', onClose);
 
     await render(hbs`<EmberFlatpickr
-      @date={{readonly this.dateValue}}
+      @date={{this.dateValue}}
       @enableTime={{true}}
       @maxDate={{this.maxDate}}
       @minDate={{this.minDate}}
@@ -436,7 +433,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('minDate', null);
 
     await render(hbs`<EmberFlatpickr
-      @date={{readonly this.dateValue}}
+      @date={{this.dateValue}}
       @enableTime={{true}}
       @maxDate={{this.maxDate}}
       @minDate={{this.minDate}}
@@ -466,7 +463,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('minDate', '2080-12-01T16:16:22.585Z');
 
     await render(hbs`<EmberFlatpickr
-      @date={{readonly this.dateValue}}
+      @date={{this.dateValue}}
       @locale="fr"
       @maxDate={{this.maxDate}}
       @minDate={{this.minDate}}
@@ -499,7 +496,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('onChange', onChange);
 
     await render(hbs`<EmberFlatpickr
-      @date={{readonly this.dateValue}}
+      @date={{this.dateValue}}
       @onChange={{this.onChange}}
       placeholder="Pick date"
     />`);
@@ -555,7 +552,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
 
     await render(hbs`<EmberFlatpickr
       @dateFormat={{this.dateFormat}}
-      @date={{readonly this.dateValue}}
+      @date={{this.dateValue}}
       @onChange={{this.onChange}}
       placeholder="Pick date"
     />`);
@@ -599,7 +596,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('onChange', onChange);
 
     await render(hbs`<EmberFlatpickr
-      @date={{readonly this.dateValue}}
+      @date={{this.dateValue}}
       @onChange={{this.onChange}}
       placeholder="Pick date"
     />`);
@@ -639,7 +636,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('dateValue', originalDate);
 
     await render(hbs`<EmberFlatpickr
-      @date={{readonly this.dateValue}}
+      @date={{this.dateValue}}
       @onChange={{null}}
       @getFlatpickrRef={{this.setFlatPickerRef}}
       placeholder="Pick date"
@@ -670,7 +667,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('dateValue', new Date(originalDate));
 
     await render(hbs`<EmberFlatpickr
-      @date={{readonly this.dateValue}}
+      @date={{this.dateValue}}
       @onChange={{null}}
       @getFlatpickrRef={{this.setFlatPickerRef}}
       placeholder="Pick date"
@@ -700,7 +697,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('dateValue', [originalDate]);
 
     await render(hbs`<EmberFlatpickr
-      @date={{readonly this.dateValue}}
+      @date={{this.dateValue}}
       @onChange={{null}}
       @getFlatpickrRef={{this.setFlatPickerRef}}
       placeholder="Pick date"
@@ -731,7 +728,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('dateValue', [new Date(originalDate)]);
 
     await render(hbs`<EmberFlatpickr
-      @date={{readonly this.dateValue}}
+      @date={{this.dateValue}}
       @onChange={{null}}
       @getFlatpickrRef={{this.setFlatPickerRef}}
       placeholder="Pick date"
