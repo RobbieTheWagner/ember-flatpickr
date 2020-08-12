@@ -7,7 +7,7 @@
   @altInput={{true}}
   @altInputClass="my-alt-input"
   @clickOpens={{true}}
-  @date={{readonly this.defaultDate}} {{!-- Required Option --}}
+  @date={{this.defaultDate}} {{!-- Required Option --}}
   @dateFormat="M/D/Y"
   @defaultDate={{this.defaultDate}}
   @defaultHour={{12}}
@@ -17,23 +17,22 @@
   @enable={{this.datesToEnable}}
   @enableSeconds={{false}}
   @enableTime={{true}}
-  @flatpickrRef={{this.flatpickrRef}}   {{!-- two-way binding --}}
-  @getFlatpickrRef={{action (mut this.flatpickrRef)}}  {{!-- via action (prefered) --}}
+  @getFlatpickrRef={{this.setFlatpickrRef}}  {{!-- via action (prefered) --}}
   @hourIncrement={{1}}
   @inline={{false}}
   @locale="ru"
-  @maxDate={{maxDate}}
-  @minDate={{minDate}}
+  @maxDate={{this.maxDate}}
+  @minDate={{this.minDate}}
   @minuteIncrement={{5}}
   @mode="single"
   @nextArrow=">"
   @noCalendar={{false}}
-  @onChange={{action (mut dateValues)}} {{!-- Required Option --}}
-  @onClose={{action "doSomeStuffOnClose"}}
-  @onOpen={{action "doSomeStuffOnOpen"}}
-  @onReady={{action "doSomeStuffOnReady"}}
+  @onChange={{this.onChange}} {{!-- Required Option --}}
+  @onClose={{this.onClose}}
+  @onOpen={{this.onOpen}}
+  @onReady={{this.onReady}}
   @parseDate={{false}}
-  @placeholder="Choose a Date"
+  placeholder="Choose a Date"
   @prevArrow="<"
   @shorthandCurrentMonth={{false}}
   @static={{false}}
@@ -42,22 +41,24 @@
 />
 ```
 
-*(`date` and `onChange` are the only required options, but you can pass null if you do not care about it. All other options are taken straight from the flatpickr options, but they have defaults and you only need to pass what you need.)
+\*(`date` and `onChange` are the only required options, but you can pass null if you do not care about it. All other options are taken straight from the flatpickr options, but they have defaults and you only need to pass what you need.)
 
-**Note:** You should pass your `date` with the `readonly` helper, and you should only update your `date` selected in the `onChange` action. 
+**Note:** You should only update your `date` selected in the `onChange` action.
 
 `date` property accepts:
-  * A single `dateObject`
-  * A single `string` containing a date formatted accordingly to `dateFormat`
-  * An array of `dateObject`
-  * An array of `string` containing dates formatted accordingly to `dateFormat`
+
+- A single `dateObject`
+- A single `string` containing a date formatted accordingly to `dateFormat`
+- An array of `dateObject`
+- An array of `string` containing dates formatted accordingly to `dateFormat`
 
 `onChange`, `onClose`, `onOpen`, `onReady` receive 3 parameters:
-  * An array of `dateObjects` 
-  * A string formatted accordingly to `dateFormat` representing the last selected date
-  * The `Flatpickr` instance
 
-Whenever a new date is selected, the action `onChange` will be fired: if you just want the event to set the array of selected `dateObject`, you can use `(action (mut dateValues))` like the example above. Otherwise you should implement you own `onChange` action.
+- An array of `dateObjects`
+- A string formatted accordingly to `dateFormat` representing the last selected date
+- The `Flatpickr` instance
+
+Whenever a new date is selected, the action `onChange` will be fired. We highly encourage you to create your own `onChange` callback and not to use the `mut` helper so that your apps are much easier to reason about such as when a change in your date occurs.
 
 ## Themes
 
@@ -66,8 +67,8 @@ flatpickr provides several themes out of the box. You can specify a theme in you
 ```js
 const app = new EmberApp(defaults, {
   flatpickr: {
-    theme: 'material_blue'
-  }
+    theme: 'material_blue',
+  },
 });
 ```
 
@@ -79,8 +80,8 @@ in your `ember-cli-build.js`, which will include the necessary locale js files.
 ```js
 const app = new EmberApp(defaults, {
   flatpickr: {
-    locales: ['fr', 'de', 'ru', 'uk']
-  }
+    locales: ['fr', 'de', 'ru', 'uk'],
+  },
 });
 ```
 
@@ -89,28 +90,29 @@ You can then use the locales you imported by specifying which you want in your t
 ```handlebars
 <EmberFlatpickr
   @locale="ru"
-  @onChange={{action (mut this.dateValue)}}
+  @date={{this.date}}
+  @onChange={{this.onChange}}
 />
 ```
 
 ### Manual Localization Configuration
+
 `locales` option also accepts an object for [custom locale configuration](https://chmln.github.io/flatpickr/#locale). This is useful for reusing app locale code.
 
 The following example is using `moment.js` and assumes that a `userLocale` is specified to look up the correct locale configuration from `moment.js`.
 
 ```javascript
 import Controller from '@ember/controller';
-import { computed } from '@ember/object';
+import { tracked } from "@glimmer/tracking";
 import moment from 'moment';
 
 // app/controllers/some-controller.js
-export default Controller.extend({
-  userLocale: 'de',
-  
-  customLocaleConfig: computed(function () {
-    const userLocale = this.get('userLocale');
-    const localeData = moment.localeData(userLocale);
-    
+export default class SomeController extends Controller {
+  @tracked userLocale = 'de';
+
+  get customLocaleConfig() {
+    const localeData = moment.localeData(this.userLocale);
+
     return {
       ordinal: localeData.ordinal,
       weekdays: {
@@ -122,14 +124,15 @@ export default Controller.extend({
         shorthand: localeData.monthsShort()
       }
     };
-  })
-})
+  }
+}
 ```
 
 ```handlebars
 <EmberFlatpickr
   @locale={{this.customLocaleConfig}}
-  @onChange={{action (mut this.dateValue)}}
+  @date={{this.date}}
+  @onChange={{this.onChange}}
 />
 ```
 
@@ -141,7 +144,7 @@ Check [flatpickr locale documentation](https://chmln.github.io/flatpickr/#locale
 
 ## flatpickrRef
 
-If you need to interact directly with the flatpickr instance you have created inside the component, you can use the action `getFlatpickrRef` as `getFlatpickrRef=(action (mut flatpickrRef))`, which would then be accesible in the controller or parent component. You can then do things like `this.get('myFlatpickrRefName').close()` to close the datepicker, if you wanted to make a close button.
+If you need to interact directly with the flatpickr instance you have created inside the component, you can use the action `getFlatpickrRef` as `getFlatpickrRef={{this.setFlatpickrRef}}`, which would then be accesible in the controller or parent component. You can then do things like `this.get('myFlatpickrRefName').close()` to close the datepicker, if you wanted to make a close button.
 
 ## Options
 
@@ -153,28 +156,30 @@ The wrap option for flatpickr causes flatpickr to search its child elements for 
 
 ```handlebars
 <EmberFlatpickr
-  @onChange={{action (mut this.dateValue)}}
-  @getFlatpickrRef={{action (mut this.flatpickrRef)}}
+  @date={{this.date}}
+  @onChange={{this.onChange}}
+  @getFlatpickrRef={{this.setFlatpickrRef}}
 />
 
-<a class="input-button" title="toggle" onclick={{action "toggleCalendar"}}>
-    <i class="icon-calendar"></i>
+<a class="input-button" title="toggle" {{on "click" this.toggleCalendar}}>
+  <i class="icon-calendar"></i>
 </a>
 
-<a class="input-button" title="clear" onclick={{action "clearCalendar"}}>
-    <i class="icon-close"></i>
+<a class="input-button" title="clear" {{on "click" this.clearCalendar}}>
+  <i class="icon-close"></i>
 </a>
 ```
- 
+
 ```javascript
-  actions: {
-    toggleCalendar() {
-      this.flatpickrRef.toggle();
-    },
-    clearCalendar() {
-      this.flatpickrRef.clear();
-    }
-  }
+@action
+toggleCalendar() {
+  this.flatpickrRef.toggle();
+}
+
+@action
+clearCalendar() {
+  this.flatpickrRef.clear();
+}
 ```
 
 Please see the [flatpickr docs](https://chmln.github.io/flatpickr/) for a full list of options.
