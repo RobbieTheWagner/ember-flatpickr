@@ -103,16 +103,15 @@ The following example is using `moment.js` and assumes that a `userLocale` is sp
 
 ```javascript
 import Controller from '@ember/controller';
-import { computed } from '@ember/object';
+import { tracked } from "@glimmer/tracking";
 import moment from 'moment';
 
 // app/controllers/some-controller.js
-export default Controller.extend({
-  userLocale: 'de',
+export default class SomeController extends Controller {
+  @tracked userLocale = 'de';
 
-  customLocaleConfig: computed(function () {
-    const userLocale = this.get('userLocale');
-    const localeData = moment.localeData(userLocale);
+  get customLocaleConfig() {
+    const localeData = moment.localeData(this.userLocale);
 
     return {
       ordinal: localeData.ordinal,
@@ -125,8 +124,8 @@ export default Controller.extend({
         shorthand: localeData.monthsShort()
       }
     };
-  })
-})
+  }
+}
 ```
 
 ```handlebars

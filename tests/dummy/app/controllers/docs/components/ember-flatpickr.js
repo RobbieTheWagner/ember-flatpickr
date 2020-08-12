@@ -1,12 +1,21 @@
-/* eslint-disable ember/avoid-leaking-state-in-ember-objects */
 import Controller from '@ember/controller';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 import { run } from '@ember/runloop';
 
-export default Controller.extend({
-  dateValue: null,
-  dateRangeValue: [null, null],
-  defaultDate: '2080-12-27T16:16:22.585Z',
-  classString: `docs-transition
+export default class EmberFlatpickr extends Controller {
+  @tracked dateValue = null;
+  @tracked timeValue = null;
+  @tracked minDate = null;
+  @tracked locale = null;
+  @tracked dateRangeValue = [null, null];
+
+  get defaultDate() {
+    return '2080-12-27T16:16:22.585Z';
+  }
+
+  get classString() {
+    return `docs-transition
     focus:docs-outline-0
     docs-border docs-border-transparent
     focus:docs-bg-white
@@ -20,37 +29,73 @@ export default Controller.extend({
     docs-w-2/3
     docs-appearance-none
     docs-leading-normal
-    docs-ds-input`,
-  locale: null,
-  locales: ['default', 'fr', 'de', 'ru', 'uk'],
-  minDate: null,
-  timeValue: null,
-  actions: {
-    clearDate() {
-      this.set('dateValue', null);
-    },
-    clearTime() {
-      this.set('timeValue', null);
-    },
-    onClose() {
-      console.log('Flatpickr closed');
-    },
-    onCloseTime() {
-      console.log('Time Flatpickr closed');
-    },
-    onReady() {
-      this.set('dateValue', null);
-      console.log('onReady called');
-    },
-    onReadyTime() {
-      this.set('timeValue', null);
-      console.log('onReadyTime called');
-    },
-    updateMin() {
-      run.next(() => {
-        this.set('dateValue', null);
-        this.set('minDate', '2080-12-24T16:16:22.585Z');
-      });
-    }
+    docs-ds-input`;
   }
-});
+
+  get locales() {
+    return ['default', 'fr', 'de', 'ru', 'uk'];
+  }
+
+  @action
+  clearDate() {
+    this.dateValue = null;
+  }
+
+  @action
+  clearTime() {
+    this.timeValue = null;
+  }
+
+  @action
+  onClose() {
+    console.log('Flatpickr closed');
+  }
+
+  @action
+  onCloseTime() {
+    console.log('Time Flatpickr closed');
+  }
+
+  @action
+  onDateChange(_dates, dateStr) {
+    this.dateStr = dateStr;
+    console.log('onDateChange called');
+  }
+
+  @action
+  onDatesChange(dateRanges) {
+    this.dateRangeValue = dateRanges;
+    console.log('onDatesChange called');
+  }
+
+  @action
+  onTimeChange(_times, timeStr) {
+    this.timeValue = timeStr;
+    console.log('onTimeChange called');
+  }
+
+  @action
+  onReady() {
+    this.dateValue = this.defaultDate;
+    console.log('onReady called');
+  }
+
+  @action
+  onReadyTime() {
+    this.timeValue = null;
+    console.log('onReadyTime called');
+  }
+
+  @action
+  updateMin() {
+    run.next(() => {
+      this.dateValue = null;
+      this.minDate = '2080-12-24T16:16:22.585Z';
+    });
+  }
+
+  @action
+  onChangeLocale(locale) {
+    this.locale = locale;
+  }
+}
