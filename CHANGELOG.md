@@ -1,3 +1,11 @@
+## v2.16.4 (2020-08-12)
+
+#### :rocket: Enhancement
+* [#508](https://github.com/shipshapecode/ember-flatpickr/pull/508) Ember 3.20 ([@rwwagner90](https://github.com/rwwagner90))
+
+#### Committers: 1
+- Robert Wagner ([@rwwagner90](https://github.com/rwwagner90))
+
 ## v2.16.3 (2020-08-05)
 
 #### :rocket: Enhancement
