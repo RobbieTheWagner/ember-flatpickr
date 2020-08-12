@@ -1,7 +1,10 @@
 /** @documenter yuidoc */
 
-import Flatpickr from 'ember-flatpickr/mixins/flatpickr';
-import TextField from '@ember/component/text-field';
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
+import { assert } from '@ember/debug';
+import { run } from '@ember/runloop';
+import { getOwner } from '@ember/application';
 
 /**
  * Ember component that wraps the lightweight [`flatpickr`](https://flatpickr.js.org) datetime
@@ -16,28 +19,13 @@ import TextField from '@ember/component/text-field';
  *
  * @class EmberFlatpickr
  * @element EmberFlatpickr
- * @extends TextField
  * @public
  * @uses Flatpickr
  */
-export default TextField.extend(Flatpickr, {
-  /**
-   * ARIA bindings for a textbox.
-   * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/textbox_role
-   * @see https://labs.levelaccess.com/index.php/Category:ARIA
-   */
-  attributeBindings: [
-    'aria-activedescendent',
-    'aria-autocomplete',
-    'aria-describedby',
-    'aria-labelledby',
-    'aria-multiline',
-    'aria-placeholder',
-    'aria-readonly',
-    'aria-required'
-  ],
-
-  classNames: ['ember-flatpickr-input'],
+export default class EmberFlatpickr extends Component {
+  date = null;
+  flatpickrRef = null;
+  field = null;
 
   /**
    * The date(s) that will be used to initialize the flatpickr.  When present, the date(s) will
@@ -62,9 +50,175 @@ export default TextField.extend(Flatpickr, {
    * @type {String}
    */
 
-  didInsertElement() {
-    this._super(...arguments);
-    this.set('field', this.element);
+  @action
+  onInsert(element) {
+    this.field = element;
     this.setupFlatpickr();
   }
-});
+
+  @action
+  onWillDestroy() {
+    this.field._flatpickr.destroy();
+  }
+
+  setupFlatpickr() {
+    const { date, onChange, wrap } = this.args;
+
+    // Require that users pass a date
+    assert(
+      '<EmberFlatpickr> requires a `date` to be passed as the value for flatpickr.',
+      date !== undefined
+    );
+
+    // Require that users pass an onChange
+    assert(
+      '<EmberFlatpickr> requires an `onChange` action or null for no action.',
+      onChange !== undefined
+    );
+
+    // Wrap is not supported
+    assert(
+      '<EmberFlatpickr> does not support the wrap option. Please see documentation for an alternative.',
+      wrap !== true
+    );
+
+    // Pass all values and setup flatpickr
+    run.scheduleOnce('afterRender', this, this._setFlatpickrOptions);
+  }
+
+  _setFlatpickrOptions() {
+    const fastboot = getOwner(this).lookup('service:fastboot');
+
+    if (fastboot && fastboot.isFastBoot) {
+      return;
+    }
+
+    const {
+      date,
+      appendDataInput,
+      getFlatpickrRef,
+      disabled = false,
+      ...rest
+    } = this.args;
+
+    this.flatpickrRef = flatpickr(this.field, {
+      defaultDate: date,
+      ...rest,
+    });
+
+    if (appendDataInput) {
+      this.field.setAttribute('data-input', '');
+    }
+
+    this._setDisabled(disabled);
+
+    if (getFlatpickrRef) {
+      getFlatpickrRef(this.flatpickrRef);
+    }
+  }
+
+  /**
+   * Triggered when the calendar is closed.
+   *
+   * @method onClose
+   * @param selectedDates an array of Date objects selected by the user. When there are
+   * no dates selected, the array is empty.
+   * @param dateStr a string representation of the latest selected Date object by the
+   * user. The string is formatted as per the dateFormat option
+   * @param instance the flatpickr object, containing various methods and properties.
+   */
+
+  /**
+   * Triggered when the calendar is closed.
+   *
+   * @method onOpen
+   * @param selectedDates an array of Date objects selected by the user. When there are
+   * no dates selected, the array is empty.
+   * @param dateStr a string representation of the latest selected Date object by the
+   * user. The string is formatted as per the dateFormat option
+   * @param instance the flatpickr object, containing various methods and properties.
+   */
+
+  /**
+   * Triggered once the calendar is in a ready state.
+   *
+   * @method onReady
+   * @param selectedDates an array of Date objects selected by the user. When there are
+   * no dates selected, the array is empty.
+   * @param dateStr a string representation of the latest selected Date object by the
+   * user. The string is formatted as per the dateFormat option
+   * @param instance the flatpickr object, containing various methods and properties.
+   */
+
+  @action
+  onAltFormatUpdated() {
+    this.field._flatpickr.set('altFormat', this.args.altFormat);
+  }
+
+  @action
+  onAltInputClassUpdated() {
+    const { altInputClass } = this.args;
+
+    // updating config anyways, just to keep them in sync:
+    this.field._flatpickr.set('altInputClass', altInputClass || '');
+
+    // https://github.com/flatpickr/flatpickr/issues/861
+    const { altInput } = this.field._flatpickr;
+
+    if (altInput) {
+      altInput.className = altInputClass || '';
+    }
+  }
+
+  @action
+  onDateUpdated() {
+    const { date } = this.args;
+
+    if (typeof date !== 'undefined') {
+      this.field._flatpickr.setDate(date);
+    }
+  }
+
+  @action
+  onDisabledUpdated() {
+    const { disabled } = this.args;
+
+    if (typeof disabled !== 'undefined') {
+      this._setDisabled(disabled);
+    }
+  }
+
+  @action
+  onLocaleUpdated() {
+    this.field._flatpickr.destroy();
+    this.setupFlatpickr();
+  }
+
+  @action
+  onMaxDateUpdated() {
+    this.field._flatpickr.set('maxDate', this.args.maxDate);
+  }
+
+  @action
+  onMinDateUpdated() {
+    this.field._flatpickr.set('minDate', this.args.minDate);
+  }
+
+  _setDisabled(disabled) {
+    if (!this.flatpickrRef) {
+      return;
+    }
+
+    if (this.flatpickrRef.altInput) {
+      // `this.field` is the hidden input storing the alternate date value sent to the server
+      // @see https://flatpickr.js.org/options/ `altInput` config options
+      // Refactored during https://github.com/shipshapecode/ember-flatpickr/issues/306 to instead
+      // extend Ember's `@ember/component/text-field`
+      // `this.field.nextSibling` is the text input that the user will interact with, so
+      // long as it is enabled
+      this.field.nextSibling.disabled = disabled;
+    } else {
+      this.field.disabled = disabled;
+    }
+  }
+}
