@@ -9,16 +9,16 @@ module('Integration | Component | ember flatpickr', function (hooks) {
   const clickDay = async (index) => {
     await triggerEvent(
       findAll('.flatpickr-days .flatpickr-day')[index],
-      'mousedown'
+      'click'
     );
   };
 
   const openFlatpickr = async () => {
-    await triggerEvent(find('.flatpickr-input'), 'focus');
+    await triggerEvent(find('.flatpickr-input'), 'click');
   };
 
   const closeFlatpickr = async () => {
-    await triggerEvent(document.body, 'mousedown');
+    await triggerEvent(document.body, 'click');
   };
 
   test('when rendering with angle brackets', async function (assert) {

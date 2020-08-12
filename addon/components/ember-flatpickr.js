@@ -28,7 +28,7 @@ import { getOwner } from '@ember/application';
  *    aria-describedby="described by"
  *    placeholder="Pick a date"
  *    @date={{model.someDate}}
- *    @onChange={{this.onChange}}
+ *    @onChange={{this.onChange}} />
  * ```
  *
  * @class EmberFlatpickr
@@ -37,7 +37,6 @@ import { getOwner } from '@ember/application';
  * @uses Flatpickr
  */
 export default class EmberFlatpickr extends Component {
-  date = null;
   flatpickrRef = null;
   field = null;
 
