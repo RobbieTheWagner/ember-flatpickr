@@ -5,6 +5,8 @@
 <DocsDemo as |demo|>
   <demo.example @name="date-time-picker.hbs">
     <EmberFlatpickr
+      class={{this.classString}}
+      placeholder="Pick date"
       @allowInput={{true}}
       @date={{this.dateValue}}
       @enableTime={{true}}
@@ -13,8 +15,6 @@
       @onClose={{this.onClose}}
       @onChange={{this.onDateChange}}
       @onReady={{this.onReady}}
-      placeholder="Pick date"
-      class={{this.classString}}
     />
   </demo.example>
 
@@ -54,6 +54,8 @@
 <DocsDemo as |demo|>
   <demo.example @name="range-date-time-picker.hbs">
     <EmberFlatpickr
+      class={{this.classString}}
+      placeholder="Pick dates"
       @allowInput={{true}}
       @date={{this.dateRangeValue}}
       @enableTime={{true}}
@@ -63,8 +65,6 @@
       @onClose={{this.onClose}}
       @onChange={{this.onDatesChange}}
       @onReady={{this.onReady}}
-      placeholder="Pick dates"
-      class={{this.classString}}
     />
   </demo.example>
 
@@ -104,6 +104,8 @@
 <DocsDemo as |demo|>
   <demo.example @name="time-picker.hbs">
     <EmberFlatpickr
+      class={{this.classString}}
+      placeholder="Pick time"
       @date={{this.timeValue}}
       @enableTime={{true}}
       @locale={{this.locale}}
@@ -112,8 +114,6 @@
       @onClose={{this.onCloseTime}}
       @onChange={{this.onTimeChange}}
       @onReady={{this.onReadyTime}}
-      placeholder="Pick time"
-      class={{this.classString}}
     />
   </demo.example>
 

@@ -2,6 +2,7 @@
 
 ```handlebars
 <EmberFlatpickr
+  placeholder="Choose a Date"
   @allowInput={{false}}
   @altFormat="Y-m-d"
   @altInput={{true}}
@@ -31,7 +32,6 @@
   @onOpen={{this.onOpen}}
   @onReady={{this.onReady}} {{!-- Can be used to easily store a reference to the flatpickr input. --}}
   @parseDate={{false}}
-  placeholder="Choose a Date"
   @prevArrow="<"
   @shorthandCurrentMonth={{false}}
   @static={{false}}
@@ -40,7 +40,7 @@
 />
 ```
 
-\*(`date` and `onChange` are the only required options, but you can pass null if you do not care about it. All other options are taken straight from the flatpickr options, but they have defaults and you only need to pass what you need.)
+- (`date` and `onChange` are the only required options, but you can pass null if you do not care about it. All other options are taken straight from the flatpickr options, but they have defaults and you only need to pass what you need.)
 
 **Note:** You should only update your `date` selected in the `onChange` action.
 

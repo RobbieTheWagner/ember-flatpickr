@@ -120,7 +120,7 @@ export default class EmberFlatpickr extends Component {
       onClose: onClose || this.onClose,
       onOpen: onOpen || this.onOpen,
       onReady: onReady || this.onReady,
-      ...rest,
+      ...rest
     });
 
     this._setDisabled(disabled);
