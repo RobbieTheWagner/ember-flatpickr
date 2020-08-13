@@ -17,7 +17,6 @@
   @enable={{this.datesToEnable}}
   @enableSeconds={{false}}
   @enableTime={{true}}
-  @getFlatpickrRef={{this.setFlatpickrRef}}  {{!-- via action (prefered) --}}
   @hourIncrement={{1}}
   @inline={{false}}
   @locale="ru"
@@ -30,7 +29,7 @@
   @onChange={{this.onChange}} {{!-- Required Option --}}
   @onClose={{this.onClose}}
   @onOpen={{this.onOpen}}
-  @onReady={{this.onReady}}
+  @onReady={{this.onReady}} {{!-- Can be used to easily store a reference to the flatpickr input. --}}
   @parseDate={{false}}
   placeholder="Choose a Date"
   @prevArrow="<"
@@ -144,7 +143,18 @@ Check [flatpickr locale documentation](https://chmln.github.io/flatpickr/#locale
 
 ## flatpickrRef
 
-If you need to interact directly with the flatpickr instance you have created inside the component, you can use the action `getFlatpickrRef` as `getFlatpickrRef={{this.setFlatpickrRef}}`, which would then be accesible in the controller or parent component. You can then do things like `this.get('myFlatpickrRefName').close()` to close the datepicker, if you wanted to make a close button.
+If you need to interact directly with the flatpickr instance you have created inside the component, you can use the action `onReady` as `onReady={{this.onReady}}`. The function signature of your onReady callback should look like the following example:
+
+```javascript
+@action
+onReady(_selectedDates, _dateStr, instance) {
+  this.flatpickrRef = instance;
+};
+```
+
+This action will only get called once per instance and that is when the flatpickr input has been fully created.
+
+Once you have stored the instance, you can then do things like `this.flatpickrRef.close()` to close the datepicker, if you wanted to make a close button.
 
 ## Options
 
@@ -158,7 +168,7 @@ The wrap option for flatpickr causes flatpickr to search its child elements for 
 <EmberFlatpickr
   @date={{this.date}}
   @onChange={{this.onChange}}
-  @getFlatpickrRef={{this.setFlatpickrRef}}
+  @onReady={{this.onReady}}
 />
 
 <a class="input-button" title="toggle" {{on "click" this.toggleCalendar}}>

@@ -28,7 +28,7 @@ import { getOwner } from '@ember/application';
  *    aria-describedby="described by"
  *    placeholder="Pick a date"
  *    @date={{model.someDate}}
- *    @onChange={{this.onChange}}
+ *    @onChange={{this.onChange}} />
  * ```
  *
  * @class EmberFlatpickr
@@ -37,9 +37,7 @@ import { getOwner } from '@ember/application';
  * @uses Flatpickr
  */
 export default class EmberFlatpickr extends Component {
-  date = null;
   flatpickrRef = null;
-  field = null;
 
   /**
    * The date(s) that will be used to initialize the flatpickr.  When present, the date(s) will
@@ -66,16 +64,15 @@ export default class EmberFlatpickr extends Component {
 
   @action
   onInsert(element) {
-    this.field = element;
-    this.setupFlatpickr();
+    this.setupFlatpickr(element);
   }
 
   @action
   onWillDestroy() {
-    this.field._flatpickr.destroy();
+    this.flatpickrRef.destroy();
   }
 
-  setupFlatpickr() {
+  setupFlatpickr(element) {
     const { date, onChange, wrap } = this.args;
 
     // Require that users pass a date
@@ -97,10 +94,10 @@ export default class EmberFlatpickr extends Component {
     );
 
     // Pass all values and setup flatpickr
-    run.scheduleOnce('afterRender', this, this._setFlatpickrOptions);
+    run.scheduleOnce('afterRender', this, this._setFlatpickrOptions, element);
   }
 
-  _setFlatpickrOptions() {
+  _setFlatpickrOptions(element) {
     const fastboot = getOwner(this).lookup('service:fastboot');
 
     if (fastboot && fastboot.isFastBoot) {
@@ -109,8 +106,6 @@ export default class EmberFlatpickr extends Component {
 
     const {
       date,
-      appendDataInput,
-      getFlatpickrRef,
       disabled = false,
       onChange,
       onReady,
@@ -119,7 +114,7 @@ export default class EmberFlatpickr extends Component {
       ...rest
     } = this.args;
 
-    this.flatpickrRef = flatpickr(this.field, {
+    this.flatpickrRef = flatpickr(element, {
       defaultDate: date,
       onChange,
       onClose: onClose || this.onClose,
@@ -128,15 +123,7 @@ export default class EmberFlatpickr extends Component {
       ...rest,
     });
 
-    if (appendDataInput) {
-      this.field.setAttribute('data-input', '');
-    }
-
     this._setDisabled(disabled);
-
-    if (getFlatpickrRef instanceof Function) {
-      getFlatpickrRef(this.flatpickrRef);
-    }
   }
 
   _setDisabled(disabled) {
@@ -144,16 +131,18 @@ export default class EmberFlatpickr extends Component {
       return;
     }
 
-    if (this.flatpickrRef.altInput) {
-      // `this.field` is the hidden input storing the alternate date value sent to the server
+    const { altInput, element } = this.flatpickrRef;
+
+    if (altInput) {
+      // `element` is the hidden input storing the alternate date value sent to the server
       // @see https://flatpickr.js.org/options/ `altInput` config options
       // Refactored during https://github.com/shipshapecode/ember-flatpickr/issues/306 to instead
       // extend Ember's `@ember/component/text-field`
-      // `this.field.nextSibling` is the text input that the user will interact with, so
+      // `element.nextSibling` is the text input that the user will interact with, so
       // long as it is enabled
-      this.field.nextSibling.disabled = disabled;
+      element.nextSibling.disabled = disabled;
     } else {
-      this.field.disabled = disabled;
+      element.disabled = disabled;
     }
   }
 
@@ -207,7 +196,7 @@ export default class EmberFlatpickr extends Component {
 
   @action
   onAltFormatUpdated() {
-    this.field._flatpickr.set('altFormat', this.args.altFormat);
+    this.flatpickrRef.set('altFormat', this.args.altFormat);
   }
 
   @action
@@ -215,10 +204,10 @@ export default class EmberFlatpickr extends Component {
     const { altInputClass } = this.args;
 
     // updating config anyways, just to keep them in sync:
-    this.field._flatpickr.set('altInputClass', altInputClass || '');
+    this.flatpickrRef.set('altInputClass', altInputClass || '');
 
     // https://github.com/flatpickr/flatpickr/issues/861
-    const { altInput } = this.field._flatpickr;
+    const { altInput } = this.flatpickrRef;
 
     if (altInput) {
       altInput.className = altInputClass || '';
@@ -230,7 +219,7 @@ export default class EmberFlatpickr extends Component {
     const { date } = this.args;
 
     if (typeof date !== 'undefined') {
-      this.field._flatpickr.setDate(date);
+      this.flatpickrRef.setDate(date);
     }
   }
 
@@ -244,18 +233,18 @@ export default class EmberFlatpickr extends Component {
   }
 
   @action
-  onLocaleUpdated() {
-    this.field._flatpickr.destroy();
-    this.setupFlatpickr();
+  onLocaleUpdated(element) {
+    this.flatpickrRef.destroy();
+    this.setupFlatpickr(element);
   }
 
   @action
   onMaxDateUpdated() {
-    this.field._flatpickr.set('maxDate', this.args.maxDate);
+    this.flatpickrRef.set('maxDate', this.args.maxDate);
   }
 
   @action
   onMinDateUpdated() {
-    this.field._flatpickr.set('minDate', this.args.minDate);
+    this.flatpickrRef.set('minDate', this.args.minDate);
   }
 }
