@@ -6,7 +6,6 @@
   <demo.example @name="date-time-picker.hbs">
     <EmberFlatpickr
       @allowInput={{true}}
-      @appendDataInput={{true}}
       @date={{this.dateValue}}
       @enableTime={{true}}
       @locale={{this.locale}}
@@ -56,7 +55,6 @@
   <demo.example @name="range-date-time-picker.hbs">
     <EmberFlatpickr
       @allowInput={{true}}
-      @appendDataInput={{true}}
       @date={{this.dateRangeValue}}
       @enableTime={{true}}
       @locale={{this.locale}}
@@ -106,7 +104,6 @@
 <DocsDemo as |demo|>
   <demo.example @name="time-picker.hbs">
     <EmberFlatpickr
-      @appendDataInput={{true}}
       @date={{this.timeValue}}
       @enableTime={{true}}
       @locale={{this.locale}}

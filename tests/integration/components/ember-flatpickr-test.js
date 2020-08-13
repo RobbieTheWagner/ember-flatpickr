@@ -480,6 +480,36 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     );
   });
 
+  test('onLocaleUpdated fired', async function (assert) {
+    assert.expect(1);
+
+    this.set('dateValue', '2080-12-01T16:16:22.585Z');
+    this.set('maxDate', '2080-12-31T16:16:22.585Z');
+    this.set('minDate', '2080-12-01T16:16:22.585Z');
+    this.set('locale', 'fr');
+
+    await render(hbs`<EmberFlatpickr
+      @date={{this.dateValue}}
+      @locale={{this.locale}}
+      @maxDate={{this.maxDate}}
+      @minDate={{this.minDate}}
+      @onChange={{null}}
+      placeholder="Pick date"
+    />`);
+
+    this.set('locale', 'ru');
+
+    await openFlatpickr();
+
+    assert.equal(
+      find(
+        '.flatpickr-current-month .flatpickr-monthDropdown-month'
+      ).textContent.trim(),
+      'Декабрь',
+      'Russian locale applied successfully'
+    );
+  });
+
   test('onChange triggers value change only once', async function (assert) {
     assert.expect(3);
 

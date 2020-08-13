@@ -37,11 +37,7 @@ import { getOwner } from '@ember/application';
  * @uses Flatpickr
  */
 export default class EmberFlatpickr extends Component {
-  field = null;
-
-  get flatpickrRef() {
-    return this.field && this.field._flatpickr ? this.field._flatpickr : null;
-  }
+  flatpickrRef = null;
 
   /**
    * The date(s) that will be used to initialize the flatpickr.  When present, the date(s) will
@@ -68,8 +64,7 @@ export default class EmberFlatpickr extends Component {
 
   @action
   onInsert(element) {
-    this.field = element;
-    this.setupFlatpickr();
+    this.setupFlatpickr(element);
   }
 
   @action
@@ -77,7 +72,7 @@ export default class EmberFlatpickr extends Component {
     this.flatpickrRef.destroy();
   }
 
-  setupFlatpickr() {
+  setupFlatpickr(element) {
     const { date, onChange, wrap } = this.args;
 
     // Require that users pass a date
@@ -99,10 +94,10 @@ export default class EmberFlatpickr extends Component {
     );
 
     // Pass all values and setup flatpickr
-    run.scheduleOnce('afterRender', this, this._setFlatpickrOptions);
+    run.scheduleOnce('afterRender', this, this._setFlatpickrOptions, element);
   }
 
-  _setFlatpickrOptions() {
+  _setFlatpickrOptions(element) {
     const fastboot = getOwner(this).lookup('service:fastboot');
 
     if (fastboot && fastboot.isFastBoot) {
@@ -111,7 +106,6 @@ export default class EmberFlatpickr extends Component {
 
     const {
       date,
-      appendDataInput,
       getFlatpickrRef,
       disabled = false,
       onChange,
@@ -121,7 +115,7 @@ export default class EmberFlatpickr extends Component {
       ...rest
     } = this.args;
 
-    const flatpickrRef = flatpickr(this.field, {
+    this.flatpickrRef = flatpickr(element, {
       defaultDate: date,
       onChange,
       onClose: onClose || this.onClose,
@@ -130,34 +124,30 @@ export default class EmberFlatpickr extends Component {
       ...rest,
     });
 
-    if (appendDataInput) {
-      this.field.setAttribute('data-input', '');
-    }
-
     this._setDisabled(disabled);
 
     if (getFlatpickrRef instanceof Function) {
-      getFlatpickrRef(flatpickrRef);
+      getFlatpickrRef(this.flatpickrRef);
     }
   }
 
   _setDisabled(disabled) {
-    const flatpickrRef = this.flatpickrRef;
-
-    if (!flatpickrRef) {
+    if (!this.flatpickrRef) {
       return;
     }
 
-    if (flatpickrRef.altInput) {
-      // `this.field` is the hidden input storing the alternate date value sent to the server
+    const { altInput, element } = this.flatpickrRef;
+
+    if (altInput) {
+      // `element` is the hidden input storing the alternate date value sent to the server
       // @see https://flatpickr.js.org/options/ `altInput` config options
       // Refactored during https://github.com/shipshapecode/ember-flatpickr/issues/306 to instead
       // extend Ember's `@ember/component/text-field`
-      // `this.field.nextSibling` is the text input that the user will interact with, so
+      // `element.nextSibling` is the text input that the user will interact with, so
       // long as it is enabled
-      this.field.nextSibling.disabled = disabled;
+      element.nextSibling.disabled = disabled;
     } else {
-      this.field.disabled = disabled;
+      element.disabled = disabled;
     }
   }
 
@@ -217,13 +207,12 @@ export default class EmberFlatpickr extends Component {
   @action
   onAltInputClassUpdated() {
     const { altInputClass } = this.args;
-    const flatpickrRef = this.flatpickrRef;
 
     // updating config anyways, just to keep them in sync:
-    flatpickrRef.set('altInputClass', altInputClass || '');
+    this.flatpickrRef.set('altInputClass', altInputClass || '');
 
     // https://github.com/flatpickr/flatpickr/issues/861
-    const { altInput } = flatpickrRef;
+    const { altInput } = this.flatpickrRef;
 
     if (altInput) {
       altInput.className = altInputClass || '';
@@ -249,9 +238,9 @@ export default class EmberFlatpickr extends Component {
   }
 
   @action
-  onLocaleUpdated() {
+  onLocaleUpdated(element) {
     this.flatpickrRef.destroy();
-    this.setupFlatpickr();
+    this.setupFlatpickr(element);
   }
 
   @action
