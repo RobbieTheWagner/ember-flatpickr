@@ -1,3 +1,12 @@
+## v3.0.0 (2020-08-13)
+
+#### :boom: Breaking Change
+* [#514](https://github.com/shipshapecode/ember-flatpickr/pull/514) Remove `getFlatpickrRef` and `appendDataInput`, update flatpickr to 4.6.6 ([@LuisAverhoff](https://github.com/LuisAverhoff))
+* [#513](https://github.com/shipshapecode/ember-flatpickr/pull/513) Remove Mixin, refactor to glimmer component ([@LuisAverhoff](https://github.com/LuisAverhoff))
+
+#### Committers: 1
+- Luis Manuel Averhoff ([@LuisAverhoff](https://github.com/LuisAverhoff))
+
 ## v2.16.4 (2020-08-12)
 
 #### :rocket: Enhancement
