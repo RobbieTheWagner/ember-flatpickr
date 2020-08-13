@@ -154,7 +154,7 @@ onReady(_selectedDates, _dateStr, instance) {
 
 This action will only get called once per instance and that is when the flatpickr input has been fully created.
 
-Once you have stored the instance, you can then do things like `this.get('myFlatpickrRefName').close()` to close the datepicker, if you wanted to make a close button.
+Once you have stored the instance, you can then do things like `this.flatpickrRef.close()` to close the datepicker, if you wanted to make a close button.
 
 ## Options
 
