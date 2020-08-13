@@ -6770,7 +6770,7 @@ ember-svg-jar@^2.2.3:
     mkdirp "^0.5.1"
     path-posix "^1.0.0"
 
-ember-template-lint@^2.9.1:
+ember-template-lint@^2.10.0:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/ember-template-lint/-/ember-template-lint-2.10.0.tgz#15283b1a1d2f9d7454735e3387a1d0e6c3f1be44"
   integrity sha512-pSqXckhhAmdrA40Wo41sgsuhQKSnr5F+ovMQ+kbX7CxTvrg/7ox8xNcI/nxvwyhgClofFPxxn9rocqJ6sIS+JA==
@@ -7098,7 +7098,7 @@ escodegen@^1.11.0, escodegen@^1.11.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-plugin-ember@^8.9.1:
+eslint-plugin-ember@^8.10.1:
   version "8.10.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-8.10.1.tgz#359e31dc5478959244481c03323e22813ff65508"
   integrity sha512-NmsrB8E4An8ErjHz5exCS4zjJSueFetZ9UCqdqYyERV6i/yucSBlPsop6tM2Bfopj0nSbB+qdSzTF3AZWVAAqA==
@@ -7156,7 +7156,7 @@ eslint-visitor-keys@^1.0.0, eslint-visitor-keys@^1.1.0, eslint-visitor-keys@^1.3
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-1.3.0.tgz#30ebd1ef7c2fdff01c3a4f151044af25fab0523e"
   integrity sha512-6J72N8UNa462wa/KFODt/PJ3IU60SDpC3QXC1Hjc1BXXpfL2C9R5+AU7jhe0F6GREqVMh4Juu+NY7xn+6dipUQ==
 
-eslint@^7.5.0:
+eslint@^7.6.0:
   version "7.6.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.6.0.tgz#522d67cfaea09724d96949c70e7a0550614d64d6"
   integrity sha512-QlAManNtqr7sozWm5TF4wIH9gmUm2hE3vNRUvyoYAa4y1l5/jxD/PQStEjBMQtCqZmSep8UxrcecI60hOpe61w==
@@ -11983,7 +11983,7 @@ quick-temp@^0.1.2, quick-temp@^0.1.3, quick-temp@^0.1.5, quick-temp@^0.1.8:
     rimraf "^2.5.4"
     underscore.string "~3.3.4"
 
-qunit-dom@^1.2.0:
+qunit-dom@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/qunit-dom/-/qunit-dom-1.4.0.tgz#912d3e99aac5f3ff8cb3296269ddc3855ae17801"
   integrity sha512-kDR6A4IdDZBluyCRCfJLVoplWIAQdAijVfZdRN3yTBIjOyaFQT+BlHR0IsNTFbB7LAa0/6u/UQEYKClYvwjROQ==
@@ -12293,7 +12293,7 @@ release-it-lerna-changelog@^2.3.0:
     tmp "^0.2.0"
     which "^2.0.2"
 
-release-it@^13.5.5, release-it@^13.6.2:
+release-it@^13.5.5, release-it@^13.6.6:
   version "13.6.6"
   resolved "https://registry.yarnpkg.com/release-it/-/release-it-13.6.6.tgz#c1f770449177e1906297aa5dfc15b15334eeb77a"
   integrity sha512-tR0RkcMxc0lhtnPGWE2tBcjAG7Z+NXsQZTGiNr6M/XM5tOL4cSkWPrBo9+vEtVS2S7XlBiLtCZ85jCzcovBnBw==
