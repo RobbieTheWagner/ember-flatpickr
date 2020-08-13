@@ -313,20 +313,20 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     );
   });
 
-  test('flatpickrRef is accessible via action', async function (assert) {
+  test('The onReady callback can used as a mechanism for storing a reference to the flatpickr input.', async function (assert) {
     assert.expect(1);
 
-    const setFlatPickerRef = (instance) => {
+    const onReady = (_selectedDates, _dateStr, instance) => {
       this.set('flatpickrRef', instance);
     };
 
     this.set('dateValue', '2080-12-01T16:16:22.585Z');
-    this.set('setFlatPickerRef', setFlatPickerRef);
+    this.set('onReady', onReady);
 
     await render(hbs`<EmberFlatpickr
       @date={{this.dateValue}}
       @onChange={{null}}
-      @getFlatpickrRef={{this.setFlatPickerRef}}
+      @onReady={{this.onReady}}
       placeholder="Pick date"
     />`);
 
@@ -336,21 +336,21 @@ module('Integration | Component | ember flatpickr', function (hooks) {
   test('value updates when set externally via flatpickrRef', async function (assert) {
     assert.expect(2);
 
-    const setFlatPickerRef = (instance) => {
+    const onReady = (_selectedDates, _dateStr, instance) => {
       this.set('flatpickrRef', instance);
     };
 
     this.set('dateValue', '2080-12-01T16:16:22.585Z');
     this.set('maxDate', '2080-12-31T16:16:22.585Z');
     this.set('minDate', '2080-12-01T16:16:22.585Z');
-    this.set('setFlatPickerRef', setFlatPickerRef);
+    this.set('onReady', onReady);
 
     await render(hbs`<EmberFlatpickr
         @date={{this.dateValue}}
-        @getFlatpickrRef={{this.setFlatPickerRef}}
         @maxDate={{this.maxDate}}
         @minDate={{this.minDate}}
         @onChange={{null}}
+        @onReady={{this.onReady}}
         placeholder="Pick date"
     />`);
 
@@ -658,17 +658,17 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     assert.expect(2);
 
     const originalDate = '2080-12-05T20:00:00.000Z';
-    const setFlatPickerRef = (instance) => {
+    const onReady = (_selectedDates, _dateStr, instance) => {
       this.set('flatpickrRef', instance);
     };
 
-    this.set('setFlatPickerRef', setFlatPickerRef);
+    this.set('onReady', onReady);
     this.set('dateValue', originalDate);
 
     await render(hbs`<EmberFlatpickr
       @date={{this.dateValue}}
       @onChange={{null}}
-      @getFlatpickrRef={{this.setFlatPickerRef}}
+      @onReady={{this.onReady}}
       placeholder="Pick date"
     />`);
 
@@ -689,17 +689,17 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     assert.expect(2);
 
     const originalDate = '2080-12-05T20:00:00.000Z';
-    const setFlatPickerRef = (instance) => {
+    const onReady = (_selectedDates, _dateStr, instance) => {
       this.set('flatpickrRef', instance);
     };
 
-    this.set('setFlatPickerRef', setFlatPickerRef);
+    this.set('onReady', onReady);
     this.set('dateValue', new Date(originalDate));
 
     await render(hbs`<EmberFlatpickr
       @date={{this.dateValue}}
       @onChange={{null}}
-      @getFlatpickrRef={{this.setFlatPickerRef}}
+      @onReady={{this.onReady}}
       placeholder="Pick date"
     />`);
 
@@ -719,17 +719,17 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     assert.expect(2);
 
     const originalDate = '2080-12-05T20:00:00.000Z';
-    const setFlatPickerRef = (instance) => {
+    const onReady = (_selectedDates, _dateStr, instance) => {
       this.set('flatpickrRef', instance);
     };
 
-    this.set('setFlatPickerRef', setFlatPickerRef);
+    this.set('onReady', onReady);
     this.set('dateValue', [originalDate]);
 
     await render(hbs`<EmberFlatpickr
       @date={{this.dateValue}}
       @onChange={{null}}
-      @getFlatpickrRef={{this.setFlatPickerRef}}
+      @onReady={{this.onReady}}
       placeholder="Pick date"
     />`);
 
@@ -750,17 +750,17 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     assert.expect(2);
 
     const originalDate = '2080-12-05T20:00:00.000Z';
-    const setFlatPickerRef = (instance) => {
+    const onReady = (_selectedDates, _dateStr, instance) => {
       this.set('flatpickrRef', instance);
     };
 
-    this.set('setFlatPickerRef', setFlatPickerRef);
+    this.set('onReady', onReady);
     this.set('dateValue', [new Date(originalDate)]);
 
     await render(hbs`<EmberFlatpickr
       @date={{this.dateValue}}
       @onChange={{null}}
-      @getFlatpickrRef={{this.setFlatPickerRef}}
+      @onReady={{this.onReady}}
       placeholder="Pick date"
     />`);
 

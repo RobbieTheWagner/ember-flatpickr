@@ -106,7 +106,6 @@ export default class EmberFlatpickr extends Component {
 
     const {
       date,
-      getFlatpickrRef,
       disabled = false,
       onChange,
       onReady,
@@ -125,10 +124,6 @@ export default class EmberFlatpickr extends Component {
     });
 
     this._setDisabled(disabled);
-
-    if (getFlatpickrRef instanceof Function) {
-      getFlatpickrRef(this.flatpickrRef);
-    }
   }
 
   _setDisabled(disabled) {
