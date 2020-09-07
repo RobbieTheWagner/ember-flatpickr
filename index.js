@@ -1,29 +1,7 @@
 'use strict';
 
-const fastbootTransform = require('fastboot-transform');
-
 module.exports = {
   name: require('./package').name,
-  options: {
-    nodeAssets: {
-      flatpickr() {
-        const localePaths = Array.isArray(this.locales) ? this.locales.map(locale => `l10n/${locale}.js`) : [];
-
-        return {
-          srcDir: 'dist',
-          import: {
-            include: [
-              'flatpickr.js',
-              this.theme || 'flatpickr.css'
-            ].concat(localePaths),
-            processTree(tree) {
-              return fastbootTransform(tree);
-            }
-          }
-        };
-      }
-    }
-  },
 
   included() {
     let app;
@@ -41,15 +19,61 @@ module.exports = {
       } while (current.parent.parent && (current = current.parent));
     }
 
+    const distPath = 'node_modules/flatpickr/dist';
+    const vendorPath = 'vendor/flatpickr';
+
+    this.import(`${vendorPath}/flatpickr.js`);
+
     if (app.options && app.options.flatpickr && app.options.flatpickr.theme) {
-      this.theme = `themes/${app.options.flatpickr.theme}.css`;
+      this.import(`${distPath}/themes/${app.options.flatpickr.theme}.css`);
+    } else {
+      this.import(`${distPath}/flatpickr.css`);
     }
 
-    this.locales = [];
+    let locales = [];
     if (app.options && app.options.flatpickr && app.options.flatpickr.locales) {
-      this.locales = app.options.flatpickr.locales;
+      locales = app.options.flatpickr.locales;
+      const localePaths = Array.isArray(locales)
+        ? locales.map((locale) => `l10n/${locale}.js`)
+        : [];
+      localePaths.forEach((locale) => {
+        this.import(`${vendorPath}/${locale}`);
+      });
     }
 
     this._super.included.apply(this, arguments);
+  },
+
+  treeForVendor(defaultTree) {
+    const map = require('broccoli-stew').map;
+    const Funnel = require('broccoli-funnel');
+    const mergeTrees = require('broccoli-merge-trees');
+
+    let browserVendorLib = new Funnel('node_modules/flatpickr/dist/', {
+      destDir: 'flatpickr',
+      files: ['flatpickr.js']
+    });
+
+    browserVendorLib = map(
+      browserVendorLib,
+      (content) => `if (typeof FastBoot === 'undefined') { ${content} }`
+    );
+
+    let browserVendorLocales = new Funnel('node_modules/flatpickr/dist/l10n', {
+      destDir: 'flatpickr/l10n',
+      include: ['*.js']
+    });
+    
+    browserVendorLocales = map(
+      browserVendorLocales,
+      (content) => `if (typeof FastBoot === 'undefined') { ${content} }`
+    );
+
+    let nodes = [browserVendorLib, browserVendorLocales];
+    if (defaultTree) {
+      nodes.unshift(defaultTree);
+    }
+
+    return new mergeTrees(nodes);
   }
 };
