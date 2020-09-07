@@ -1,3 +1,17 @@
+## v3.0.1 (2020-09-07)
+
+#### :memo: Documentation
+* [#534](https://github.com/shipshapecode/ember-flatpickr/pull/534) Fixed code typo and broken URL ([@AddisonG](https://github.com/AddisonG))
+
+#### :house: Internal
+* [#535](https://github.com/shipshapecode/ember-flatpickr/pull/535) Do not use ember-cli-node-assets for imports ([@rwwagner90](https://github.com/rwwagner90))
+* [#515](https://github.com/shipshapecode/ember-flatpickr/pull/515) Prettier fixes, remove power-select styles, cleanup ([@rwwagner90](https://github.com/rwwagner90))
+
+#### Committers: 3
+- Addison G ([@AddisonG](https://github.com/AddisonG))
+- Robert Wagner ([@rwwagner90](https://github.com/rwwagner90))
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+
 ## v3.0.0 (2020-08-13)
 
 #### :boom: Breaking Change
