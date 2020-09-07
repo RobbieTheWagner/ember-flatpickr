@@ -119,7 +119,7 @@ export default class SomeController extends Controller {
         shorthand: localeData.weekdaysShort()
       },
       months: {
-        longhand: localeData.months()
+        longhand: localeData.months(),
         shorthand: localeData.monthsShort()
       }
     };
