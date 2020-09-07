@@ -73,7 +73,7 @@ const app = new EmberApp(defaults, {
 
 ## Localization
 
-flatpickr supports [over 25 languages](https://github.com/chmln/flatpickr/tree/master/dist/l10n). You can specify the locales you want to support
+flatpickr supports [over 25 languages](https://github.com/flatpickr/flatpickr/tree/master/src/l10n). You can specify the locales you want to support
 in your `ember-cli-build.js`, which will include the necessary locale js files.
 
 ```js
@@ -119,7 +119,7 @@ export default class SomeController extends Controller {
         shorthand: localeData.weekdaysShort()
       },
       months: {
-        longhand: localeData.months()
+        longhand: localeData.months(),
         shorthand: localeData.monthsShort()
       }
     };
