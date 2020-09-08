@@ -1263,7 +1263,7 @@
     postcss "7.0.32"
     purgecss "^2.3.0"
 
-"@glimmer/component@^1.0.0", "@glimmer/component@^1.0.1":
+"@glimmer/component@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@glimmer/component/-/component-1.0.1.tgz#f304b2f9cf4f2762396abed2b8962486767e0b2e"
   integrity sha512-Bo+R6e2fnydZz0JQrV6E5cAIYvCEUQVh6mmXexVSgFmPr/7Q1DB/afAgTQrpK5vXUGRAU7sBB8gzoO0t7vl+Ng==
@@ -5828,10 +5828,10 @@ ember-auto-import@^1.5.3, ember-auto-import@^1.6.0:
     walk-sync "^0.3.3"
     webpack "~4.28"
 
-ember-basic-dropdown@^3.0.3:
-  version "3.0.8"
-  resolved "https://registry.yarnpkg.com/ember-basic-dropdown/-/ember-basic-dropdown-3.0.8.tgz#9c2eca5b638338d8a8ccbe72c0d9c657025f3af8"
-  integrity sha512-4RXxGeUr5sVrslUWERewhvkPh8etE1kD8SMBKLG7sqPoupW0y3mMsyw3jt84TPE6CnHntlFfRAefQHfduXxMag==
+ember-basic-dropdown@^3.0.10:
+  version "3.0.10"
+  resolved "https://registry.yarnpkg.com/ember-basic-dropdown/-/ember-basic-dropdown-3.0.10.tgz#47ed9fe9ff9e69d1a021771a91823c730985ffe0"
+  integrity sha512-TabEKUIlLPQLZqyXx1N8M/tDhrf/2meXjK2mNw6RfiOvwMHYJ41MwIhJusnlQd/Rn7cL0MbA+EGCnjdI0HhB/w==
   dependencies:
     "@ember/render-modifiers" "^1.0.2"
     "@glimmer/component" "^1.0.1"
@@ -6683,15 +6683,15 @@ ember-on-modifier@^1.0.0:
     ember-modifier-manager-polyfill "^1.2.0"
 
 ember-power-select@^4.0.3:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/ember-power-select/-/ember-power-select-4.0.3.tgz#73a98154abf9c5c19c11cdae98294a94d082b381"
-  integrity sha512-WkMq2eLUgq3oBW/6lxBS5u0oBu8sh9Y0ACgMPe2hP3YmZKnfXCuUzV2QrttbeNnxehmyiXKAleuev7J4BvObdA==
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/ember-power-select/-/ember-power-select-4.0.4.tgz#a48205e9d095522e6a40b6372eca23f08023451e"
+  integrity sha512-loE6wZx01HXnFlU4Gq0r7eobjggdocB8OXPYk3NXKkuymANA8R9zHCeygNwHL183llrh2saUeo6AzSJTVr25+w==
   dependencies:
     "@ember-decorators/component" "^6.1.0"
-    "@glimmer/component" "^1.0.0"
+    "@glimmer/component" "^1.0.1"
     "@glimmer/tracking" "^1.0.0"
     ember-assign-helper "^0.3.0"
-    ember-basic-dropdown "^3.0.3"
+    ember-basic-dropdown "^3.0.10"
     ember-cli-babel "^7.21.0"
     ember-cli-htmlbars "^5.2.0"
     ember-cli-typescript "^3.1.4"
