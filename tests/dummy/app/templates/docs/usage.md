@@ -166,7 +166,7 @@ The wrap option for flatpickr causes flatpickr to search its child elements for 
 
 
 ```handlebars
-<!-- components/my-date-picker.hbs -->
+{{!-- components/my-date-picker.hbs --}}
 
 <EmberFlatpickr
   @date={{this.date}}
