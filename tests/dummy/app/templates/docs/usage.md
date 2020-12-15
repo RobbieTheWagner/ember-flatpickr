@@ -215,7 +215,7 @@ export default MyDatePicker extends Component {
 ```
 
 **Note:** In the above example, the `toggleCalendar` and `clearCalendar` actions
-receive an argument `e` (the click event) and call `e.stopPropagation` on said event. FlatPickr
+receive an argument `e` (the click event) and call `e.stopPropagation` on said event. flatpickr
 is designed to immediately close the calendar popup when user clicks outside of its bounding DOM element. Clicking the above _toggle_ button will call the "open" method on the flatpickr instance, but since our button lives outside of the bounds of the picker's calendar, flatpickr immediately closes the calendar popup. By stopping the propagation of our external click event, flatpickr does not detect the outside click and the calendar opens as expected.
 
 
