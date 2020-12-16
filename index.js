@@ -4,6 +4,7 @@ module.exports = {
   name: require('./package').name,
 
   included() {
+    const path = require('path');
     let app;
 
     // If the addon has the _findHost() method (in ember-cli >= 2.7.0), we'll just
@@ -19,7 +20,7 @@ module.exports = {
       } while (current.parent.parent && (current = current.parent));
     }
 
-    const distPath = 'node_modules/flatpickr/dist';
+    const distPath = path.dirname(require.resolve('flatpickr'));
     const vendorPath = 'vendor/flatpickr';
 
     this.import(`${vendorPath}/flatpickr.js`);
@@ -48,8 +49,11 @@ module.exports = {
     const map = require('broccoli-stew').map;
     const Funnel = require('broccoli-funnel');
     const mergeTrees = require('broccoli-merge-trees');
+    const path = require('path');
 
-    let browserVendorLib = new Funnel('node_modules/flatpickr/dist/', {
+    const distPath = path.dirname(require.resolve('flatpickr'));
+
+    let browserVendorLib = new Funnel(distPath, {
       destDir: 'flatpickr',
       files: ['flatpickr.js']
     });
@@ -59,11 +63,11 @@ module.exports = {
       (content) => `if (typeof FastBoot === 'undefined') { ${content} }`
     );
 
-    let browserVendorLocales = new Funnel('node_modules/flatpickr/dist/l10n', {
+    let browserVendorLocales = new Funnel(path.join(distPath, '/l10n'), {
       destDir: 'flatpickr/l10n',
       include: ['*.js']
     });
-    
+
     browserVendorLocales = map(
       browserVendorLocales,
       (content) => `if (typeof FastBoot === 'undefined') { ${content} }`
