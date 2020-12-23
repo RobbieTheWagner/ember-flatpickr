@@ -14,11 +14,11 @@ module('Integration | Component | ember flatpickr', function (hooks) {
   };
 
   const openFlatpickr = async () => {
-    await triggerEvent(find('.flatpickr-input'), 'click');
+    await triggerEvent(find('.flatpickr-input'), 'mousedown');
   };
 
   const closeFlatpickr = async () => {
-    await triggerEvent(document.body, 'click');
+    await triggerEvent(document.body, 'mousedown');
   };
 
   test('when rendering with angle brackets', async function (assert) {
@@ -402,8 +402,11 @@ module('Integration | Component | ember flatpickr', function (hooks) {
   test('onClose action fired', async function (assert) {
     assert.expect(1);
 
+    const done = assert.async();
+
     const onClose = () => {
       assert.ok(true, 'onClose action was executed');
+      done();
     };
 
     this.set('dateValue', null);
