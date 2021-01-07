@@ -1,25 +1,27 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, find, findAll, triggerEvent } from '@ember/test-helpers';
+import { click, focus, render, find, findAll, triggerEvent } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+
+const clickDay = async (index) => {
+  await triggerEvent(findAll('.flatpickr-days .flatpickr-day')[index], 'click');
+};
+
+const openFlatpickr = async () => {
+  await triggerEvent(find('.flatpickr-input'), 'mousedown');
+  await focus('.flatpickr-input');
+};
+
+const closeFlatpickr = async () => {
+  await click(document.body);
+};
 
 module('Integration | Component | ember flatpickr', function (hooks) {
   setupRenderingTest(hooks);
 
-  const clickDay = async (index) => {
-    await triggerEvent(
-      findAll('.flatpickr-days .flatpickr-day')[index],
-      'click'
-    );
-  };
-
-  const openFlatpickr = async () => {
-    await triggerEvent(find('.flatpickr-input'), 'mousedown');
-  };
-
-  const closeFlatpickr = async () => {
-    await triggerEvent(document.body, 'mousedown');
-  };
+  hooks.afterEach(function () {
+    closeFlatpickr();
+  });
 
   test('when rendering with angle brackets', async function (assert) {
     this.set('dateValue', [new Date(2001, 8, 11)]);
@@ -396,7 +398,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       />`);
 
     await openFlatpickr();
-    await clickDay(5);
+    await clickDay(4);
   });
 
   test('onClose action fired', async function (assert) {
