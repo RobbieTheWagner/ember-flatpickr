@@ -31,6 +31,8 @@
     "test:ember-compatibility": "ember try:each"
   },
   "dependencies": {
+    "@glimmer/component": "^1.0.2",
+    "@glimmer/tracking": "^1.0.2",
     "@ember/render-modifiers": "^1.0.2",
     "broccoli-funnel": "^3.0.3",
     "broccoli-merge-trees": "^4.2.0",
@@ -42,8 +44,6 @@
   "devDependencies": {
     "@babel/core": "^7.0.0-0",
     "@ember/optional-features": "^2.0.0",
-    "@glimmer/component": "^1.0.2",
-    "@glimmer/tracking": "^1.0.2",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "codeclimate-test-reporter": "^0.5.1",
