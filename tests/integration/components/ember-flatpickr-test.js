@@ -398,7 +398,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       />`);
 
     await openFlatpickr();
-    await clickDay(4);
+    await clickDay(5);
   });
 
   test('onClose action fired', async function (assert) {
