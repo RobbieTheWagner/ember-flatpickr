@@ -5906,10 +5906,10 @@ ember-auto-import@^1.2.19, ember-auto-import@^1.5.3, ember-auto-import@^1.6.0, e
     walk-sync "^0.3.3"
     webpack "^4.43.0"
 
-ember-basic-dropdown@^3.0.11:
-  version "3.0.11"
-  resolved "https://registry.yarnpkg.com/ember-basic-dropdown/-/ember-basic-dropdown-3.0.11.tgz#d74e931381595678bede7adea91631db3a269aaa"
-  integrity sha512-J6PFb+BGD7Md43ZJo8N2c/y0sgcoG3O1/m488XxVbb20UpIRlGXjw9Zwm8cd2f7xhSefNXsbVWyQHEkl4iXzDg==
+ember-basic-dropdown@^3.0.12:
+  version "3.0.12"
+  resolved "https://registry.yarnpkg.com/ember-basic-dropdown/-/ember-basic-dropdown-3.0.12.tgz#dc9eb1098cec6e1af27402c62cc3c3402e6d5824"
+  integrity sha512-W67UtAWaANCEwwHYTiagfLRlAcn6dC6f0NO0DpJRIZK9iflBzV6nSIkbCuN1lwf6JFRbEGoFj2bV+io0maMCsg==
   dependencies:
     "@ember/render-modifiers" "^1.0.2"
     "@glimmer/component" "^1.0.1"
@@ -5919,6 +5919,7 @@ ember-basic-dropdown@^3.0.11:
     ember-cli-typescript "^3.1.2"
     ember-element-helper "^0.2.0"
     ember-maybe-in-element "^2.0.1"
+    ember-style-modifier "^0.6.0"
     ember-truth-helpers "^2.1.0 || ^3.0.0"
 
 ember-classic-decorator@^2.0.0:
@@ -6750,14 +6751,14 @@ ember-on-modifier@^1.0.0:
     ember-modifier-manager-polyfill "^1.2.0"
 
 ember-power-select@^4.0.3:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/ember-power-select/-/ember-power-select-4.1.0.tgz#0897ae56ed96835b2393452b3303126407d468b7"
-  integrity sha512-HJQDQq8riUUtrfrN69yRIOCx8hsLPGmA6/pAn8BOnmL+N+86It8d/xRpXrZBQw/Dw9cnj9EQp2Vqi0PhPBBhGg==
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/ember-power-select/-/ember-power-select-4.1.2.tgz#f19306db7612b440861f23b12a35e4484d3a4203"
+  integrity sha512-Bhr3Gfq1emXbs82+trjiqt2K8tUIZMJ82ZJ5yaKgEsptLGrI/3pZ43PP8ziZEjN/Kfor/H0bfL+JP+5oWh612g==
   dependencies:
     "@glimmer/component" "^1.0.2"
     "@glimmer/tracking" "^1.0.2"
     ember-assign-helper "^0.3.0"
-    ember-basic-dropdown "^3.0.11"
+    ember-basic-dropdown "^3.0.12"
     ember-cli-babel "^7.22.1"
     ember-cli-htmlbars "^5.3.1"
     ember-cli-typescript "^3.1.4"
@@ -6871,6 +6872,14 @@ ember-source@~3.24.0:
     resolve "^1.17.0"
     semver "^6.1.1"
     silent-error "^1.1.1"
+
+ember-style-modifier@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/ember-style-modifier/-/ember-style-modifier-0.6.0.tgz#cc5e58db7f6d6662028a7b4e3cf63cf25ba59a8f"
+  integrity sha512-KqW4vyR80l/GMJsuFV+WLqTmGjXKLpoQ/HAmno+oMDrMt13p/5ImrvarQ6lFgXttFnLCxl6YpMY4YX27p1G54g==
+  dependencies:
+    ember-cli-babel "^7.21.0"
+    ember-modifier "^2.1.0"
 
 ember-svg-jar@^2.2.3:
   version "2.2.3"
