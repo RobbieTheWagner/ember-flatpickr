@@ -6,12 +6,12 @@ const Router = AddonDocsRouter.extend({
   rootURL: config.rootURL
 });
 
-Router.map(function() {
-  docsRoute(this, function() {
+Router.map(function () {
+  docsRoute(this, function () {
     this.route('test-helpers');
     this.route('usage');
 
-    this.route('components', function() {
+    this.route('components', function () {
       this.route('ember-flatpickr');
     });
   });
