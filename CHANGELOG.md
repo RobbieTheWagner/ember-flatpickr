@@ -1,3 +1,25 @@
+## v3.1.0 (2021-02-20)
+
+#### :rocket: Enhancement
+* [#644](https://github.com/shipshapecode/ember-flatpickr/pull/644) ember-cli 3.25, fix lint ([@rwwagner90](https://github.com/rwwagner90))
+* [#603](https://github.com/shipshapecode/ember-flatpickr/pull/603) compatibility with workspaces ([@jakesjews](https://github.com/jakesjews))
+
+#### :bug: Bug Fix
+* [#616](https://github.com/shipshapecode/ember-flatpickr/pull/616) Moved @glimmer/component and @glimmer/tracking as production dependencies ([@LuisAverhoff](https://github.com/LuisAverhoff))
+
+#### :house: Internal
+* [#645](https://github.com/shipshapecode/ember-flatpickr/pull/645) Convert to TypeScript ([@rwwagner90](https://github.com/rwwagner90))
+* [#609](https://github.com/shipshapecode/ember-flatpickr/pull/609) Update eslint-plugin-ember, fix lint ([@rwwagner90](https://github.com/rwwagner90))
+* [#608](https://github.com/shipshapecode/ember-flatpickr/pull/608) Bump flatpickr, fix tests ([@rwwagner90](https://github.com/rwwagner90))
+* [#589](https://github.com/shipshapecode/ember-flatpickr/pull/589) Migrate to GitHub actions ([@rwwagner90](https://github.com/rwwagner90))
+
+#### Committers: 5
+- Jacob Jewell ([@jakesjews](https://github.com/jakesjews))
+- Kyle Davis ([@validkeys](https://github.com/validkeys))
+- Luis Manuel Averhoff ([@LuisAverhoff](https://github.com/LuisAverhoff))
+- Robert Wagner ([@rwwagner90](https://github.com/rwwagner90))
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+
 ## v3.0.1 (2020-09-07)
 
 #### :memo: Documentation
