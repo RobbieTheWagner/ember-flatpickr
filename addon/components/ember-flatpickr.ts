@@ -70,16 +70,16 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
    */
 
   @action
-  onInsert(element: HTMLInputElement) {
+  onInsert(element: HTMLInputElement): void {
     this.setupFlatpickr(element);
   }
 
   @action
-  onWillDestroy() {
+  onWillDestroy(): void {
     this.flatpickrRef?.destroy();
   }
 
-  setupFlatpickr(element: HTMLInputElement) {
+  setupFlatpickr(element: HTMLInputElement): void {
     const { date, onChange, wrap } = this.args;
 
     // Require that users pass a date
@@ -104,7 +104,7 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
     run.scheduleOnce('afterRender', this, this._setFlatpickrOptions, element);
   }
 
-  _setFlatpickrOptions(element: HTMLInputElement) {
+  _setFlatpickrOptions(element: HTMLInputElement): void {
     const fastboot = getOwner(this).lookup('service:fastboot');
 
     if (fastboot && fastboot.isFastBoot) {
@@ -139,7 +139,8 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
     }
 
     const altInput = this.flatpickrRef.altInput;
-    const element: HTMLInputElement = this.flatpickrRef.element as HTMLInputElement;
+    const element: HTMLInputElement = this.flatpickrRef
+      .element as HTMLInputElement;
 
     if (altInput && element?.nextSibling) {
       // `element` is the hidden input storing the alternate date value sent to the server
@@ -167,7 +168,9 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
    */
 
   @action
-  onClose(): void {}
+  onClose(): void {
+    // Intentionaly empty. This method should be overridden.
+  }
 
   /**
    * Triggered when the calendar is closed.
@@ -182,7 +185,9 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
    */
 
   @action
-  onOpen(): void {}
+  onOpen(): void {
+    // Intentionaly empty. This method should be overridden.
+  }
 
   /**
    * Triggered once the calendar is in a ready state.
@@ -197,15 +202,17 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
    */
 
   @action
-  onReady(): void {}
+  onReady(): void {
+    // Intentionaly empty. This method should be overridden.
+  }
 
   @action
-  onAltFormatUpdated() {
+  onAltFormatUpdated(): void {
     this.flatpickrRef?.set('altFormat', this.args.altFormat);
   }
 
   @action
-  onAltInputClassUpdated() {
+  onAltInputClassUpdated(): void {
     const { altInputClass } = this.args;
 
     // updating config anyways, just to keep them in sync:
@@ -220,7 +227,7 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
   }
 
   @action
-  onDateUpdated() {
+  onDateUpdated(): void {
     const { date } = this.args;
 
     if (typeof date !== 'undefined') {
@@ -229,7 +236,7 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
   }
 
   @action
-  onDisabledUpdated() {
+  onDisabledUpdated(): void {
     const { disabled } = this.args;
 
     if (typeof disabled !== 'undefined') {
@@ -238,18 +245,18 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
   }
 
   @action
-  onLocaleUpdated(element: HTMLInputElement) {
+  onLocaleUpdated(element: HTMLInputElement): void {
     this.flatpickrRef?.destroy();
     this.setupFlatpickr(element);
   }
 
   @action
-  onMaxDateUpdated() {
+  onMaxDateUpdated(): void {
     this.flatpickrRef?.set('maxDate', this.args.maxDate);
   }
 
   @action
-  onMinDateUpdated() {
+  onMinDateUpdated(): void {
     this.flatpickrRef?.set('minDate', this.args.minDate);
   }
 }

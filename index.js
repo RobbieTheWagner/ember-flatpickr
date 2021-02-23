@@ -4,7 +4,6 @@ module.exports = {
   name: require('./package').name,
 
   included() {
-    const path = require('path');
     let app;
 
     // If the addon has the _findHost() method (in ember-cli >= 2.7.0), we'll just
@@ -20,15 +19,14 @@ module.exports = {
       } while (current.parent.parent && (current = current.parent));
     }
 
-    const distPath = path.dirname(require.resolve('flatpickr'));
     const vendorPath = 'vendor/flatpickr';
 
     this.import(`${vendorPath}/flatpickr.js`);
 
     if (app.options && app.options.flatpickr && app.options.flatpickr.theme) {
-      this.import(`${distPath}/themes/${app.options.flatpickr.theme}.css`);
+      this.import(`${vendorPath}/themes/${app.options.flatpickr.theme}.css`);
     } else {
-      this.import(`${distPath}/flatpickr.css`);
+      this.import(`${vendorPath}/flatpickr.css`);
     }
 
     let locales = [];
@@ -73,7 +71,18 @@ module.exports = {
       (content) => `if (typeof FastBoot === 'undefined') { ${content} }`
     );
 
-    let nodes = [browserVendorLib, browserVendorLocales];
+    let defaultCSS = new Funnel(distPath, {
+      destDir: 'flatpickr',
+      include: ['flatpickr.css']
+    });
+
+    let themes = new Funnel(path.join(distPath, '/themes'), {
+      destDir: 'flatpickr/themes',
+      include: ['*.css']
+    });
+
+    let nodes = [browserVendorLib, browserVendorLocales, defaultCSS, themes];
+
     if (defaultTree) {
       nodes.unshift(defaultTree);
     }
