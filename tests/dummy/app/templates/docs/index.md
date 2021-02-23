@@ -11,7 +11,7 @@
 [![Code Climate](https://codeclimate.com/github/shipshapecode/ember-flatpickr/badges/gpa.svg)](https://codeclimate.com/github/shipshapecode/ember-flatpickr)
 [![Test Coverage](https://codeclimate.com/github/shipshapecode/ember-flatpickr/badges/coverage.svg)](https://codeclimate.com/github/shipshapecode/ember-flatpickr/coverage)
 
-This is an Ember addon that wraps the date picker [flatpickr](http://chmln.github.io/flatpickr/). It uses ember-cli-node-assets to pull in flatpickr from npm.
+This is an Ember addon that wraps the date picker [flatpickr](http://chmln.github.io/flatpickr/).
 
 ## Installation
 
