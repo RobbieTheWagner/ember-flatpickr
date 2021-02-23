@@ -4,7 +4,6 @@ module.exports = {
   name: require('./package').name,
 
   included() {
-    const path = require('path');
     let app;
 
     // If the addon has the _findHost() method (in ember-cli >= 2.7.0), we'll just
