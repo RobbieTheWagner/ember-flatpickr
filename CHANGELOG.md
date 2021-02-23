@@ -1,3 +1,12 @@
+## v3.1.1 (2021-02-23)
+
+#### :bug: Bug Fix
+* [#649](https://github.com/shipshapecode/ember-flatpickr/pull/649) Add themes to vendor to fix paths ([@rwwagner90](https://github.com/rwwagner90))
+
+#### Committers: 2
+- Robert Wagner ([@rwwagner90](https://github.com/rwwagner90))
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+
 ## v3.1.0 (2021-02-20)
 
 #### :rocket: Enhancement
