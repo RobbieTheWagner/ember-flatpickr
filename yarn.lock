@@ -1887,9 +1887,9 @@
   integrity sha512-bnB58krc18B8qgSMsRBbrVbNb4msyb8pMzS9Yo3brw/bRjuPb1ONUrjieAVHeespXlXNJOusvvX/pji641iCPQ==
 
 "@types/ember__object@*", "@types/ember__object@^3.12.3":
-  version "3.12.3"
-  resolved "https://registry.yarnpkg.com/@types/ember__object/-/ember__object-3.12.3.tgz#35bb1cdabbdbdb62c360000902159c99ad7f3735"
-  integrity sha512-TcVbfhG5c8uZ7Ug+vHnIwbTsvAiW9RA/KH8I+BCvSnzXVQvqnlXO5OW0qVLisk5p6eeGZHZ4L7VlIzu24KibEw==
+  version "3.12.4"
+  resolved "https://registry.yarnpkg.com/@types/ember__object/-/ember__object-3.12.4.tgz#bebbcbed87d80b4674d27c1bd4f7a00656094767"
+  integrity sha512-C5T47d4X9ZmVfbLi0GlCoGvuJWtWF12sJdAOea2HtpyOiYtdZ90jpkjQXNyRnFkhQFclcTRjYazC4ytCyrXcdw==
   dependencies:
     "@types/ember__object" "*"
     "@types/rsvp" "*"
