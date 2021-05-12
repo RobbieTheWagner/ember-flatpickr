@@ -10,9 +10,8 @@ import { find } from '@ember/test-helpers';
  * @function isFlatpickrOpen
  */
 export function isFlatpickrOpen(pickrIndex = 0) {
-  const flatpickerCal = document.getElementsByClassName('flatpickr-calendar')[
-    pickrIndex
-  ];
+  const flatpickerCal =
+    document.getElementsByClassName('flatpickr-calendar')[pickrIndex];
   return flatpickerCal.classList.contains('open');
 }
 
