@@ -121,12 +121,16 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
       ...rest
     } = this.args;
 
+    const config: Partial<FlatpickrOptions> = Object.fromEntries(
+      Object.entries(rest).filter((entry) => entry[1] !== undefined)
+    );
+
     this.flatpickrRef = flatpickr(element, {
       onChange,
       onClose: onClose || this.onClose,
       onOpen: onOpen || this.onOpen,
       onReady: onReady || this.onReady,
-      ...rest,
+      ...config,
       defaultDate: date
     });
 

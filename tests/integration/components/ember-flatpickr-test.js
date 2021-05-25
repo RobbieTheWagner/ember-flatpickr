@@ -787,4 +787,28 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       'selected date is correct'
     );
   });
+
+  test('it will not override Flatpickr defaults with undefined', async function (assert) {
+    const onReady = (_selectedDates, _dateStr, instance) => {
+      this.set('flatpickrRef', instance);
+    };
+
+    this.set('dateValue', '2080-12-01T16:16:22.585Z');
+    this.set('onReady', onReady);
+
+    await render(
+      hbs`<EmberFlatpickr
+        @date={{this.dateValue}}
+        @onChange={{null}}
+        @onReady={{this.onReady}}
+        @disable={{undefined}}
+      />`
+    );
+
+    assert.deepEqual(
+      this.flatpickrRef.config.disable,
+      [],
+      'disable config was not overwritten'
+    );
+  });
 });
