@@ -34,8 +34,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('dateValue', [new Date(2001, 8, 11)]);
 
     await render(
-      hbs`<EmberFlatpickr 
-        @date={{this.dateValue}} 
+      hbs`<EmberFlatpickr
+        @date={{this.dateValue}}
         @onChange={{null}}/>`
     );
 
@@ -46,8 +46,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
   test('when adding aria-activedescendent attribute it is assigned to the picker input', async function (assert) {
     this.set('dateValue', [new Date()]);
 
-    await render(hbs`<EmberFlatpickr 
-      @date={{this.dateValue}} 
+    await render(hbs`<EmberFlatpickr
+      @date={{this.dateValue}}
       @onChange={{null}}
       aria-activedescendent="aria-activedescendent"
     />`);
@@ -62,8 +62,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
   test('when adding aria-autocomplete attribute it is assigned to the picker input', async function (assert) {
     this.set('dateValue', [new Date()]);
 
-    await render(hbs`<EmberFlatpickr 
-      @date={{this.dateValue}} 
+    await render(hbs`<EmberFlatpickr
+      @date={{this.dateValue}}
       @onChange={{null}}
       aria-autocomplete="aria-autocomplete"
     />`);
@@ -78,8 +78,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
   test('when adding aria-describedby attribute it is assigned to the picker input', async function (assert) {
     this.set('dateValue', [new Date()]);
 
-    await render(hbs`<EmberFlatpickr 
-      @date={{this.dateValue}} 
+    await render(hbs`<EmberFlatpickr
+      @date={{this.dateValue}}
       @onChange={{null}}
       aria-describedby="described by"
     />`);
@@ -94,8 +94,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
   test('when adding aria-labelledby attribute it is assigned to the picker input', async function (assert) {
     this.set('dateValue', [new Date()]);
 
-    await render(hbs`<EmberFlatpickr 
-      @date={{this.dateValue}} 
+    await render(hbs`<EmberFlatpickr
+      @date={{this.dateValue}}
       @onChange={{null}}
       aria-labelledby="aria-labelledby"
     />`);
@@ -110,8 +110,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
   test('when adding aria-multiline attribute it is assigned to the picker input', async function (assert) {
     this.set('dateValue', [new Date()]);
 
-    await render(hbs`<EmberFlatpickr 
-      @date={{this.dateValue}} 
+    await render(hbs`<EmberFlatpickr
+      @date={{this.dateValue}}
       @onChange={{null}}
       aria-multiline="aria-multiline"
     />`);
@@ -126,8 +126,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
   test('when adding aria-placeholder attribute it is assigned to the picker input', async function (assert) {
     this.set('dateValue', [new Date()]);
 
-    await render(hbs`<EmberFlatpickr 
-      @date={{this.dateValue}} 
+    await render(hbs`<EmberFlatpickr
+      @date={{this.dateValue}}
       @onChange={{null}}
       aria-placeholder="aria-placeholder"
     />`);
@@ -142,8 +142,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
   test('when adding aria- attribute it is assigned to the picker input', async function (assert) {
     this.set('dateValue', [new Date()]);
 
-    await render(hbs`<EmberFlatpickr 
-      @date={{this.dateValue}} 
+    await render(hbs`<EmberFlatpickr
+      @date={{this.dateValue}}
       @onChange={{null}}
       aria-="aria-"
     />`);
@@ -155,8 +155,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
   test('when adding aria-required attribute it is assigned to the picker input', async function (assert) {
     this.set('dateValue', [new Date()]);
 
-    await render(hbs`<EmberFlatpickr 
-      @date={{this.dateValue}} 
+    await render(hbs`<EmberFlatpickr
+      @date={{this.dateValue}}
       @onChange={{null}}
       aria-required="aria-required"
     />`);
@@ -171,7 +171,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
   test('when adding a title attribute it is assigned to the picker input', async function (assert) {
     this.set('dateValue', [new Date()]);
 
-    await render(hbs`<EmberFlatpickr 
+    await render(hbs`<EmberFlatpickr
       @date={{this.dateValue}}
       @onChange={{null}}
       title="Choose a date"
@@ -191,11 +191,11 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('dateValue', [new Date(originalDate)]);
     this.set('disabled', true);
 
-    await render(hbs`<EmberFlatpickr 
-      @altInput={{true}} 
+    await render(hbs`<EmberFlatpickr
+      @altInput={{true}}
       @date={{this.dateValue}}
-      @onChange={{null}} 
-      @disabled={{this.disabled}} 
+      @onChange={{null}}
+      @disabled={{this.disabled}}
       placeholder="Pick date"
     />`);
 
@@ -233,10 +233,10 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('dateValue', [new Date(originalDate)]);
     this.set('disabled', true);
 
-    await render(hbs`<EmberFlatpickr 
-      @altInput={{false}} 
-      @date={{this.dateValue}} 
-      @disabled={{disabled}} 
+    await render(hbs`<EmberFlatpickr
+      @altInput={{false}}
+      @date={{this.dateValue}}
+      @disabled={{disabled}}
       @onChange={{null}} placeholder="Pick date"
      />`);
 
@@ -785,6 +785,30 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       this.flatpickrRef.selectedDates[0].valueOf(),
       new Date(originalDate).valueOf(),
       'selected date is correct'
+    );
+  });
+
+  test('it will not override Flatpickr defaults with undefined', async function (assert) {
+    const onReady = (_selectedDates, _dateStr, instance) => {
+      this.set('flatpickrRef', instance);
+    };
+
+    this.set('dateValue', '2080-12-01T16:16:22.585Z');
+    this.set('onReady', onReady);
+
+    await render(
+      hbs`<EmberFlatpickr
+        @date={{this.dateValue}}
+        @onChange={{null}}
+        @onReady={{this.onReady}}
+        @disable={{undefined}}
+      />`
+    );
+
+    assert.deepEqual(
+      this.flatpickrRef.config.disable,
+      [],
+      'disable config was not overwritten'
     );
   });
 });
