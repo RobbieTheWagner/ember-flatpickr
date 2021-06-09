@@ -3,7 +3,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
-import { run } from '@ember/runloop';
+import { scheduleOnce } from '@ember/runloop';
 import { getOwner } from '@ember/application';
 import { Instance as FlatpickrInstance } from 'flatpickr/dist/types/instance';
 import { BaseOptions as FlatpickrOptions } from 'flatpickr/dist/types/options';
@@ -101,7 +101,7 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
     );
 
     // Pass all values and setup flatpickr
-    run.scheduleOnce('afterRender', this, this._setFlatpickrOptions, element);
+    scheduleOnce('afterRender', this, this._setFlatpickrOptions, element);
   }
 
   _setFlatpickrOptions(element: HTMLInputElement): void {
