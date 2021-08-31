@@ -199,29 +199,25 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       placeholder="Pick date"
     />`);
 
-    assert.equal(
+    assert.false(
       find('.flatpickr-input[type="hidden"]').disabled,
-      false,
       'hidden input not disabled'
     );
 
-    assert.equal(
+    assert.true(
       find('.ember-flatpickr-input[type="text"]').disabled,
-      true,
       'text input is disabled'
     );
 
     this.set('disabled', false);
 
-    assert.equal(
+    assert.false(
       find('.flatpickr-input[type="hidden"]').disabled,
-      false,
       'hidden input not disabled'
     );
 
-    assert.equal(
+    assert.false(
       find('.ember-flatpickr-input[type="text"]').disabled,
-      false,
       'text input not disabled'
     );
   });
@@ -244,17 +240,15 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       find('.flatpickr-input[type="hidden"]'),
       'hidden input does not exist'
     );
-    assert.equal(
+    assert.true(
       find('.flatpickr-input[type="text"]').disabled,
-      true,
       'text input is disabled'
     );
 
     this.set('disabled', false);
 
-    assert.equal(
+    assert.false(
       find('.flatpickr-input[type="text"]').disabled,
-      false,
       'text input not disabled'
     );
   });
