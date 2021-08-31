@@ -232,7 +232,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     await render(hbs`<EmberFlatpickr
       @altInput={{false}}
       @date={{this.dateValue}}
-      @disabled={{disabled}}
+      @disabled={{this.disabled}}
       @onChange={{null}} placeholder="Pick date"
      />`);
 
@@ -554,6 +554,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
   });
 
   test('onChange gets called with the correct parameters', async function (assert) {
+    assert.expect(13);
+
     const originalPosition = '1';
     const originalDate = '2080-12-01T20:00:00.000Z';
     const newPosition = '5';
@@ -653,7 +655,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     );
 
     assert.ok(this.dateValue instanceof Array, 'dateValue is instanceof Array');
-    assert.ok(this.dateValue.length, 1, 'dateValue has 1 item');
+    assert.ok(this.dateValue.length, 1);
     assert.ok(
       this.dateValue[0] instanceof Date,
       'dateValue is an array of DateObjects'
