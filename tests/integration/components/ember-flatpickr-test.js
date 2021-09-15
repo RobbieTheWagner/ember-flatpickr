@@ -199,29 +199,25 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       placeholder="Pick date"
     />`);
 
-    assert.equal(
+    assert.false(
       find('.flatpickr-input[type="hidden"]').disabled,
-      false,
       'hidden input not disabled'
     );
 
-    assert.equal(
+    assert.true(
       find('.ember-flatpickr-input[type="text"]').disabled,
-      true,
       'text input is disabled'
     );
 
     this.set('disabled', false);
 
-    assert.equal(
+    assert.false(
       find('.flatpickr-input[type="hidden"]').disabled,
-      false,
       'hidden input not disabled'
     );
 
-    assert.equal(
+    assert.false(
       find('.ember-flatpickr-input[type="text"]').disabled,
-      false,
       'text input not disabled'
     );
   });
@@ -244,17 +240,15 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       find('.flatpickr-input[type="hidden"]'),
       'hidden input does not exist'
     );
-    assert.equal(
+    assert.true(
       find('.flatpickr-input[type="text"]').disabled,
-      true,
       'text input is disabled'
     );
 
     this.set('disabled', false);
 
-    assert.equal(
+    assert.false(
       find('.flatpickr-input[type="text"]').disabled,
-      false,
       'text input not disabled'
     );
   });
@@ -560,6 +554,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
   });
 
   test('onChange gets called with the correct parameters', async function (assert) {
+    assert.expect(8);
+
     const originalPosition = '1';
     const originalDate = '2080-12-01T20:00:00.000Z';
     const newPosition = '5';
@@ -658,8 +654,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       'selected changes with dateValue'
     );
 
-    assert.ok(this.dateValue instanceof Array, 'dateValue is instanceof Array');
-    assert.ok(this.dateValue.length, 1, 'dateValue has 1 item');
+    assert.ok(this.dateValue instanceof Array);
+    assert.ok(this.dateValue.length, 1);
     assert.ok(
       this.dateValue[0] instanceof Date,
       'dateValue is an array of DateObjects'
