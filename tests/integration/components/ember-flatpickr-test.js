@@ -554,7 +554,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
   });
 
   test('onChange gets called with the correct parameters', async function (assert) {
-    assert.expect(8);
+    assert.expect(13);
 
     const originalPosition = '1';
     const originalDate = '2080-12-01T20:00:00.000Z';
