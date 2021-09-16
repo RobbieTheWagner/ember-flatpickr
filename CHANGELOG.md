@@ -1,3 +1,20 @@
+## v3.2.0 (2021-09-16)
+
+#### :rocket: Enhancement
+* [#777](https://github.com/shipshapecode/ember-flatpickr/pull/777) Don't pass undefined arguments through to Flatpickr config ([@gitKrystan](https://github.com/gitKrystan))
+
+#### :house: Internal
+* [#898](https://github.com/shipshapecode/ember-flatpickr/pull/898) Update ember-auto-import, ember-cli-addon-docs, Ember 3.28 ([@rwwagner90](https://github.com/rwwagner90))
+* [#797](https://github.com/shipshapecode/ember-flatpickr/pull/797) fix: run.scheduleOnce import deprecation ([@knownasilya](https://github.com/knownasilya))
+* [#760](https://github.com/shipshapecode/ember-flatpickr/pull/760) Update prettier, apply fixes ([@rwwagner90](https://github.com/rwwagner90))
+* [#759](https://github.com/shipshapecode/ember-flatpickr/pull/759) Add dependabot automerge ([@rwwagner90](https://github.com/rwwagner90))
+
+#### Committers: 4
+- Ilya Radchenko ([@knownasilya](https://github.com/knownasilya))
+- Krystan HuffMenne ([@gitKrystan](https://github.com/gitKrystan))
+- Robert Wagner ([@rwwagner90](https://github.com/rwwagner90))
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+
 ## v3.1.1 (2021-02-23)
 
 #### :bug: Bug Fix
