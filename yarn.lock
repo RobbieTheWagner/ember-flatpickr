@@ -1165,7 +1165,7 @@
     mkdirp "^1.0.4"
     silent-error "^1.1.1"
 
-"@ember/render-modifiers@^1.0.1", "@ember/render-modifiers@^1.0.2", "@ember/render-modifiers@cibernox/ember-render-modifiers#e3574ed03409ef7a048d7716b8bea361ed6cd6e2":
+"@ember/render-modifiers@^1.0.1", "@ember/render-modifiers@^1.0.2", "@ember/render-modifiers@cibernox/ember-render-modifiers#e3574ed03409ef7a048d7716b8bea361ed6cd6e2", "@ember/render-modifiers@github:cibernox/ember-render-modifiers#e3574ed03409ef7a048d7716b8bea361ed6cd6e2":
   version "1.0.2"
   resolved "https://codeload.github.com/cibernox/ember-render-modifiers/tar.gz/e3574ed03409ef7a048d7716b8bea361ed6cd6e2"
   dependencies:
@@ -6437,13 +6437,15 @@ ember-cli-addon-docs-yuidoc@^1.0.0:
     yuidocjs "^0.10.2"
 
 ember-cli-addon-docs@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-addon-docs/-/ember-cli-addon-docs-4.0.0.tgz#2501f346652643518d65722e75717de092b9d08b"
-  integrity sha512-Qi9MCdppbarZXEuRVBNC9SOtW6OGaE2no/zduRWL284np7w3aYd/Z83dsE3ABs5epONhkBgsMRymM8nDNtLqCQ==
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/ember-cli-addon-docs/-/ember-cli-addon-docs-4.0.2.tgz#57310ae589a0f00e6ef95b753e0c2f69e2671462"
+  integrity sha512-XIhs6bK6xXNSURD4psXkUVhE/JrAv38ILtBLw7WZb21bTnvzrPrbK+sLBt9P/5CCno15fxQJ4f8xZ1F0uzAMZw==
   dependencies:
     "@csstools/postcss-sass" "^4.0.0"
-    "@ember/render-modifiers" cibernox/ember-render-modifiers#e3574ed03409ef7a048d7716b8bea361ed6cd6e2
+    "@ember/render-modifiers" "github:cibernox/ember-render-modifiers#e3574ed03409ef7a048d7716b8bea361ed6cd6e2"
+    "@glimmer/component" "^1.0.4"
     "@glimmer/syntax" "^0.80.0"
+    "@glimmer/tracking" "^1.0.4"
     broccoli-bridge "^1.0.0"
     broccoli-caching-writer "^3.0.3"
     broccoli-debug "^0.6.5"
@@ -6458,7 +6460,7 @@ ember-cli-addon-docs@^4.0.0:
     ember-auto-import "^2.2.0"
     ember-cli-autoprefixer "^1.0.2"
     ember-cli-babel "^7.26.6"
-    ember-cli-clipboard jkusa/ember-cli-clipboard#e27143fe91c486baa4fe2abf654f73ef594b5216
+    ember-cli-clipboard "github:jkusa/ember-cli-clipboard#e27143fe91c486baa4fe2abf654f73ef594b5216"
     ember-cli-htmlbars "^5.7.1"
     ember-cli-postcss "^7.0.2"
     ember-cli-string-helpers "^6.1.0"
@@ -6472,7 +6474,7 @@ ember-cli-addon-docs@^4.0.0:
     ember-get-config "^0.3.0"
     ember-href-to "^4.0.0"
     ember-keyboard "^6.0.3"
-    ember-modal-dialog yapplabs/ember-modal-dialog#76b74f1c4b791fed5b084836c3b1c8c54836ac71
+    ember-modal-dialog "github:yapplabs/ember-modal-dialog#76b74f1c4b791fed5b084836c3b1c8c54836ac71"
     ember-responsive "^4.0.2"
     ember-router-generator "^2.0.0"
     ember-router-scroll "^4.0.2"
@@ -6572,7 +6574,7 @@ ember-cli-babel@^7.0.0, ember-cli-babel@^7.1.0, ember-cli-babel@^7.1.2, ember-cl
     rimraf "^3.0.1"
     semver "^5.5.0"
 
-ember-cli-clipboard@jkusa/ember-cli-clipboard#e27143fe91c486baa4fe2abf654f73ef594b5216:
+"ember-cli-clipboard@github:jkusa/ember-cli-clipboard#e27143fe91c486baa4fe2abf654f73ef594b5216":
   version "0.15.0"
   uid e27143fe91c486baa4fe2abf654f73ef594b5216
   resolved "https://codeload.github.com/jkusa/ember-cli-clipboard/tar.gz/e27143fe91c486baa4fe2abf654f73ef594b5216"
@@ -7248,7 +7250,7 @@ ember-maybe-in-element@^2.0.2:
     ember-cli-version-checker "^5.1.1"
     ember-in-element-polyfill "^1.0.1"
 
-ember-modal-dialog@yapplabs/ember-modal-dialog#76b74f1c4b791fed5b084836c3b1c8c54836ac71:
+"ember-modal-dialog@github:yapplabs/ember-modal-dialog#76b74f1c4b791fed5b084836c3b1c8c54836ac71":
   version "4.0.0-alpha.1"
   uid "76b74f1c4b791fed5b084836c3b1c8c54836ac71"
   resolved "https://codeload.github.com/yapplabs/ember-modal-dialog/tar.gz/76b74f1c4b791fed5b084836c3b1c8c54836ac71"
