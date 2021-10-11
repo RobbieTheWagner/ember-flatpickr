@@ -6353,9 +6353,9 @@ ember-auto-import@^1.10.1, ember-auto-import@^1.11.3, ember-auto-import@^1.2.19:
     webpack "^4.43.0"
 
 ember-auto-import@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/ember-auto-import/-/ember-auto-import-2.2.0.tgz#6206be37e676fb490f03dd20afab973d5abe9da9"
-  integrity sha512-ngluzmtV31mTY+1ceOnWfGUIgGyZt850xFncMX/14Dfx0OhXaUKBpFjKjIor/Cen4WEF+OrdgNJAjH3sM07o6w==
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/ember-auto-import/-/ember-auto-import-2.2.1.tgz#5ed5477a86583770d53afc18e9aae997b22315c6"
+  integrity sha512-dmRs7gZcxTjQ9cRLPH5MBB14UO5yMD4ZSnZyzaNv+MZzxmkO3RyuHslraLpOnJ660NjSyWukg2AD5RZhk84x2w==
   dependencies:
     "@babel/core" "^7.1.6"
     "@babel/plugin-proposal-class-properties" "^7.13.0"
@@ -6576,8 +6576,9 @@ ember-cli-babel@^7.0.0, ember-cli-babel@^7.1.0, ember-cli-babel@^7.1.2, ember-cl
     rimraf "^3.0.1"
     semver "^5.5.0"
 
-"ember-cli-clipboard@github:jkusa/ember-cli-clipboard#e27143fe91c486baa4fe2abf654f73ef594b5216":
+ember-cli-clipboard@jkusa/ember-cli-clipboard#e27143fe91c486baa4fe2abf654f73ef594b5216:
   version "0.15.0"
+  uid e27143fe91c486baa4fe2abf654f73ef594b5216
   resolved "https://codeload.github.com/jkusa/ember-cli-clipboard/tar.gz/e27143fe91c486baa4fe2abf654f73ef594b5216"
   dependencies:
     "@ember/render-modifiers" "^1.0.1"
@@ -7251,8 +7252,9 @@ ember-maybe-in-element@^2.0.2:
     ember-cli-version-checker "^5.1.1"
     ember-in-element-polyfill "^1.0.1"
 
-"ember-modal-dialog@github:yapplabs/ember-modal-dialog#76b74f1c4b791fed5b084836c3b1c8c54836ac71":
+ember-modal-dialog@yapplabs/ember-modal-dialog#76b74f1c4b791fed5b084836c3b1c8c54836ac71:
   version "4.0.0-alpha.1"
+  uid "76b74f1c4b791fed5b084836c3b1c8c54836ac71"
   resolved "https://codeload.github.com/yapplabs/ember-modal-dialog/tar.gz/76b74f1c4b791fed5b084836c3b1c8c54836ac71"
   dependencies:
     "@embroider/macros" "^0.43.5"
