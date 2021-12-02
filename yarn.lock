@@ -6496,10 +6496,10 @@ ember-cli-addon-docs-yuidoc@^1.0.0:
     lodash "^4.17.20"
     yuidocjs "^0.10.2"
 
-ember-cli-addon-docs@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-addon-docs/-/ember-cli-addon-docs-4.1.0.tgz#bf012265f2266ef1ae4b26ff95a887288350a041"
-  integrity sha512-o5YAPjtj6IJ0UXXAiDDntHxW5ndufqr9jMz8ccHWyxnY60ciMe0vkFKkOuoO7IW6lBl2WovMU1w8HrOUVr5Gxg==
+ember-cli-addon-docs@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-addon-docs/-/ember-cli-addon-docs-4.2.0.tgz#f178e79d5643fb356816737417ff3bb4ef65a54e"
+  integrity sha512-hsnDLgvs1pChm+60KpnHOiXtHDm9ilhiqji5bnxFNJIoS8YvuoDNL1o8UW6JWjQ41NLDAF0oFJX6hbxoMI+6SQ==
   dependencies:
     "@csstools/postcss-sass" "^4.0.0"
     "@ember/legacy-built-in-components" "^0.4.0"
