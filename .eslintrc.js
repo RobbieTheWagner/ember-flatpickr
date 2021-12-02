@@ -30,6 +30,7 @@ module.exports = {
         './.eslintrc.js',
         './.prettierrc.js',
         './.template-lintrc.js',
+        './babel.config.js',
         './ember-cli-build.js',
         './index.js',
         './testem.js',
