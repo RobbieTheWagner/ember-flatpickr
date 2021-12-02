@@ -2190,7 +2190,7 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
-"@types/htmlbars-inline-precompile@*", "@types/htmlbars-inline-precompile@^1.0.1":
+"@types/htmlbars-inline-precompile@*":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/htmlbars-inline-precompile/-/htmlbars-inline-precompile-1.0.1.tgz#de564513fabb165746aecd76369c87bd85e5bbb4"
   integrity sha512-sVD2e6QAAHW0Y6Btse+tTA9k9g0iKm87wjxRsgZRU5EwSooz80tenbV+fA+f2BI2g0G2CqxsS1rIlwQCtPRQow==
@@ -7323,7 +7323,7 @@ ember-maybe-in-element@^2.0.3:
     ember-cli-version-checker "^5.1.1"
     ember-in-element-polyfill "^1.0.1"
 
-ember-modal-dialog@yapplabs/ember-modal-dialog#76b74f1c4b791fed5b084836c3b1c8c54836ac71:
+"ember-modal-dialog@github:yapplabs/ember-modal-dialog#76b74f1c4b791fed5b084836c3b1c8c54836ac71":
   version "4.0.0-alpha.1"
   resolved "https://codeload.github.com/yapplabs/ember-modal-dialog/tar.gz/76b74f1c4b791fed5b084836c3b1c8c54836ac71"
   dependencies:
@@ -7362,10 +7362,10 @@ ember-page-title@^7.0.0:
   dependencies:
     ember-cli-babel "^7.26.6"
 
-ember-power-select@^4.0.3:
-  version "4.1.7"
-  resolved "https://registry.yarnpkg.com/ember-power-select/-/ember-power-select-4.1.7.tgz#eb547dd37448357d8f3fa789db18ddbba43fb8ca"
-  integrity sha512-Q4cjUudWb7JA6q7qe0jhcpLsipuFUHMwkYC05HxST5qm3MRMEzs6KfZ3Xd/TcrjBLSoWniw3Q61Quwcb41w5Jw==
+ember-power-select@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/ember-power-select/-/ember-power-select-5.0.0.tgz#0f374dcba7dc39e1f4744b5f04659e9214be3859"
+  integrity sha512-KMy6jGLrCQ3BL7mOqGQEdBoi8pKptsmByfqy42ivo3RfF0FEkSTzs1QZDd3EGagevkKIKS9NqgvNn+nqeoBDog==
   dependencies:
     "@glimmer/component" "^1.0.4"
     "@glimmer/tracking" "^1.0.4"
@@ -7450,10 +7450,10 @@ ember-source-channel-url@^3.0.0:
   dependencies:
     node-fetch "^2.6.0"
 
-ember-source@~3.28.7:
-  version "3.28.7"
-  resolved "https://registry.yarnpkg.com/ember-source/-/ember-source-3.28.7.tgz#80abaa5de0995c8ae13c7761d1f99cba20b821fe"
-  integrity sha512-N+whv43SXHiTl93z33LULaxe24jAJGq7IORVBBevGZ3N4mDxe5OpH3jiNfr4HT48Xp8OLxa/cOH73NkEoQAS4w==
+ember-source@3.28.4:
+  version "3.28.4"
+  resolved "https://registry.yarnpkg.com/ember-source/-/ember-source-3.28.4.tgz#b6ac2b1e369ef533d05164c65078b4ceafdb6390"
+  integrity sha512-s7kVy0E08erAHUTI/8SZZvXt3an/xb2g5K+m4Rybvo8Tr/noMk3lIdtyQkSvmgMZ/BbvoW8spS630sO0/JN4Eg==
   dependencies:
     "@babel/helper-module-imports" "^7.8.3"
     "@babel/plugin-transform-block-scoping" "^7.8.3"

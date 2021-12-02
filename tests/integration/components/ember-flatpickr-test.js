@@ -8,7 +8,7 @@ import {
   findAll,
   triggerEvent
 } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { hbs } from 'ember-cli-htmlbars';
 
 const clickDay = async (index) => {
   await triggerEvent(findAll('.flatpickr-days .flatpickr-day')[index], 'click');
