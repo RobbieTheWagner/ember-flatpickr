@@ -4,9 +4,6 @@ const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
 module.exports = function (defaults) {
   let options = {
-    'ember-cli-babel': {
-      useBabelConfig: true
-    },
     flatpickr: {
       theme: 'dark',
       locales: ['fr', 'de', 'ru', 'uk']
