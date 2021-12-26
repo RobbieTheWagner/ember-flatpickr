@@ -8,7 +8,7 @@ import {
   findAll,
   triggerEvent
 } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { hbs } from 'ember-cli-htmlbars';
 
 const clickDay = async (index) => {
   await triggerEvent(findAll('.flatpickr-days .flatpickr-day')[index], 'click');
@@ -39,8 +39,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
         @onChange={{null}}/>`
     );
 
-    assert.equal(findAll('.flatpickr-input').length, 1);
-    assert.equal(find('.flatpickr-input').value, '2001-09-11');
+    assert.strictEqual(findAll('.flatpickr-input').length, 1);
+    assert.strictEqual(find('.flatpickr-input').value, '2001-09-11');
   });
 
   test('when adding aria-activedescendent attribute it is assigned to the picker input', async function (assert) {
@@ -52,8 +52,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       aria-activedescendent="aria-activedescendent"
     />`);
 
-    assert.equal(findAll('.flatpickr-input').length, 1);
-    assert.equal(
+    assert.strictEqual(findAll('.flatpickr-input').length, 1);
+    assert.strictEqual(
       find('.flatpickr-input').getAttribute('aria-activedescendent'),
       'aria-activedescendent'
     );
@@ -68,8 +68,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       aria-autocomplete="aria-autocomplete"
     />`);
 
-    assert.equal(findAll('.flatpickr-input').length, 1);
-    assert.equal(
+    assert.strictEqual(findAll('.flatpickr-input').length, 1);
+    assert.strictEqual(
       find('.flatpickr-input').getAttribute('aria-autocomplete'),
       'aria-autocomplete'
     );
@@ -84,8 +84,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       aria-describedby="described by"
     />`);
 
-    assert.equal(findAll('.flatpickr-input').length, 1);
-    assert.equal(
+    assert.strictEqual(findAll('.flatpickr-input').length, 1);
+    assert.strictEqual(
       find('.flatpickr-input').getAttribute('aria-describedby'),
       'described by'
     );
@@ -100,8 +100,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       aria-labelledby="aria-labelledby"
     />`);
 
-    assert.equal(findAll('.flatpickr-input').length, 1);
-    assert.equal(
+    assert.strictEqual(findAll('.flatpickr-input').length, 1);
+    assert.strictEqual(
       find('.flatpickr-input').getAttribute('aria-labelledby'),
       'aria-labelledby'
     );
@@ -116,8 +116,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       aria-multiline="aria-multiline"
     />`);
 
-    assert.equal(findAll('.flatpickr-input').length, 1);
-    assert.equal(
+    assert.strictEqual(findAll('.flatpickr-input').length, 1);
+    assert.strictEqual(
       find('.flatpickr-input').getAttribute('aria-multiline'),
       'aria-multiline'
     );
@@ -132,8 +132,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       aria-placeholder="aria-placeholder"
     />`);
 
-    assert.equal(findAll('.flatpickr-input').length, 1);
-    assert.equal(
+    assert.strictEqual(findAll('.flatpickr-input').length, 1);
+    assert.strictEqual(
       find('.flatpickr-input').getAttribute('aria-placeholder'),
       'aria-placeholder'
     );
@@ -148,8 +148,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       aria-="aria-"
     />`);
 
-    assert.equal(findAll('.flatpickr-input').length, 1);
-    assert.equal(find('.flatpickr-input').getAttribute('aria-'), 'aria-');
+    assert.strictEqual(findAll('.flatpickr-input').length, 1);
+    assert.strictEqual(find('.flatpickr-input').getAttribute('aria-'), 'aria-');
   });
 
   test('when adding aria-required attribute it is assigned to the picker input', async function (assert) {
@@ -161,8 +161,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       aria-required="aria-required"
     />`);
 
-    assert.equal(findAll('.flatpickr-input').length, 1);
-    assert.equal(
+    assert.strictEqual(findAll('.flatpickr-input').length, 1);
+    assert.strictEqual(
       find('.flatpickr-input').getAttribute('aria-required'),
       'aria-required'
     );
@@ -177,8 +177,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       title="Choose a date"
     />`);
 
-    assert.equal(findAll('.flatpickr-input').length, 1);
-    assert.equal(
+    assert.strictEqual(findAll('.flatpickr-input').length, 1);
+    assert.strictEqual(
       find('.flatpickr-input').getAttribute('title'),
       'Choose a date'
     );
@@ -232,7 +232,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     await render(hbs`<EmberFlatpickr
       @altInput={{false}}
       @date={{this.dateValue}}
-      @disabled={{disabled}}
+      @disabled={{this.disabled}}
       @onChange={{null}} placeholder="Pick date"
      />`);
 
@@ -267,7 +267,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       placeholder="Pick date"
     />`);
 
-    assert.equal(
+    assert.strictEqual(
       find('.ember-flatpickr-input[type="text"]').value,
       '1',
       'initial altFormat value'
@@ -275,7 +275,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
 
     this.set('altFormat', 'Y');
 
-    assert.equal(
+    assert.strictEqual(
       find('.ember-flatpickr-input[type="text"]').value,
       '2080',
       'altFormat updates when changed'
@@ -301,7 +301,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       placeholder="Pick date"
     />`);
 
-    assert.equal(
+    assert.strictEqual(
       find('.ember-flatpickr-input[type="text"]').className,
       classNamesBefore,
       'initial altInputClass value'
@@ -309,7 +309,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
 
     this.set('altInputClass', classNamesAfter);
 
-    assert.equal(
+    assert.strictEqual(
       find('.ember-flatpickr-input[type="text"]').className,
       classNamesAfter,
       'altInputClass updates when changed'
@@ -357,7 +357,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
         placeholder="Pick date"
     />`);
 
-    assert.equal(
+    assert.strictEqual(
       find('.flatpickr-days .flatpickr-day.selected').textContent,
       '1',
       'initial selected date text'
@@ -365,7 +365,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
 
     this.flatpickrRef.setDate('2080-12-04T16:16:22.585Z');
 
-    assert.equal(
+    assert.strictEqual(
       find('.flatpickr-days .flatpickr-day.selected').textContent,
       '4',
       'selected changes with dateValue'
@@ -378,7 +378,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('dateValue', null);
 
     const onChange = (selectedDates) => {
-      assert.equal(
+      assert.strictEqual(
         selectedDates[0].toISOString().substring(0, 10),
         '2080-12-06',
         'onChange action was executed'
@@ -456,9 +456,9 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       '.flatpickr-days .flatpickr-day:not(.flatpickr-disabled)'
     );
 
-    assert.equal(enabledDays.length, 2);
-    assert.equal(enabledDays[0].textContent, '24');
-    assert.equal(enabledDays[1].textContent, '25');
+    assert.strictEqual(enabledDays.length, 2);
+    assert.strictEqual(enabledDays[0].textContent, '24');
+    assert.strictEqual(enabledDays[1].textContent, '25');
   });
 
   test('locale works correctly', async function (assert) {
@@ -477,7 +477,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       placeholder="Pick date"
     />`);
 
-    assert.equal(
+    assert.strictEqual(
       find(
         '.flatpickr-current-month .flatpickr-monthDropdown-month'
       ).textContent.trim(),
@@ -507,7 +507,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
 
     await openFlatpickr();
 
-    assert.equal(
+    assert.strictEqual(
       find(
         '.flatpickr-current-month .flatpickr-monthDropdown-month'
       ).textContent.trim(),
@@ -537,7 +537,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       placeholder="Pick date"
     />`);
 
-    assert.equal(
+    assert.strictEqual(
       find('.flatpickr-days .flatpickr-day.selected').textContent,
       originalPosition,
       'initial selected date text'
@@ -546,7 +546,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     await openFlatpickr();
     await clickDay(newPosition - 1);
 
-    assert.equal(
+    assert.strictEqual(
       find('.flatpickr-days .flatpickr-day.selected').textContent,
       newPosition,
       'selected changes with dateValue'
@@ -564,7 +564,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
 
     const onChange = (selectedDates, dateStr) => {
       assert.ok(selectedDates instanceof Array, 'selectedDates is an array');
-      assert.equal(
+      assert.strictEqual(
         selectedDates.length,
         1,
         'selectedDates contains a single entry'
@@ -575,13 +575,17 @@ module('Integration | Component | ember flatpickr', function (hooks) {
         'selectedDates contains DateObjects'
       );
 
-      assert.equal(
+      assert.strictEqual(
         selectedDates[0].toDateString(),
         'Thu Dec 05 2080',
         'selectedDates contains the correct Date'
       );
 
-      assert.equal(dateStr, newFormattedDate, 'dateStr is formatted correctly');
+      assert.strictEqual(
+        dateStr,
+        newFormattedDate,
+        'dateStr is formatted correctly'
+      );
     };
 
     this.set('dateValue', originalDate);
@@ -595,7 +599,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       placeholder="Pick date"
     />`);
 
-    assert.equal(
+    assert.strictEqual(
       find('.flatpickr-days .flatpickr-day.selected').textContent,
       originalPosition,
       'initial selected date text'
@@ -604,7 +608,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     await openFlatpickr();
     await clickDay(newPosition - 1);
 
-    assert.equal(
+    assert.strictEqual(
       find('.flatpickr-days .flatpickr-day.selected').textContent,
       newPosition,
       'selected changes with dateValue'
@@ -613,7 +617,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     await openFlatpickr();
     await clickDay(newPosition - 1);
 
-    assert.equal(
+    assert.strictEqual(
       find('.flatpickr-days .flatpickr-day.selected').textContent,
       newPosition,
       'selected changes with dateValue'
@@ -639,7 +643,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       placeholder="Pick date"
     />`);
 
-    assert.equal(
+    assert.strictEqual(
       find('.flatpickr-days .flatpickr-day.selected').textContent,
       originalPosition,
       'initial selected date text'
@@ -648,7 +652,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     find('.flatpickr-input').dispatchEvent(new Event('focus'));
     await clickDay(newPosition - 1);
 
-    assert.equal(
+    assert.strictEqual(
       find('.flatpickr-days .flatpickr-day.selected').textContent,
       newPosition,
       'selected changes with dateValue'
@@ -680,13 +684,13 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       placeholder="Pick date"
     />`);
 
-    assert.equal(
+    assert.strictEqual(
       this.flatpickrRef.selectedDates.length,
       1,
       '1 date is selected'
     );
 
-    assert.equal(
+    assert.strictEqual(
       this.flatpickrRef.selectedDates[0].valueOf(),
       new Date(originalDate).valueOf(),
       'selected date is correct'
@@ -711,12 +715,12 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       placeholder="Pick date"
     />`);
 
-    assert.equal(
+    assert.strictEqual(
       this.flatpickrRef.selectedDates.length,
       1,
       '1 date is selected'
     );
-    assert.equal(
+    assert.strictEqual(
       this.flatpickrRef.selectedDates[0].valueOf(),
       new Date(originalDate).valueOf(),
       'selected date is correct'
@@ -741,13 +745,13 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       placeholder="Pick date"
     />`);
 
-    assert.equal(
+    assert.strictEqual(
       this.flatpickrRef.selectedDates.length,
       1,
       '1 date is selected'
     );
 
-    assert.equal(
+    assert.strictEqual(
       this.flatpickrRef.selectedDates[0].valueOf(),
       new Date(originalDate).valueOf(),
       'selected date is correct'
@@ -772,12 +776,12 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       placeholder="Pick date"
     />`);
 
-    assert.equal(
+    assert.strictEqual(
       this.flatpickrRef.selectedDates.length,
       1,
       '1 date is selected'
     );
-    assert.equal(
+    assert.strictEqual(
       this.flatpickrRef.selectedDates[0].valueOf(),
       new Date(originalDate).valueOf(),
       'selected date is correct'

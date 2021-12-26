@@ -14,12 +14,14 @@
 /.eslintignore
 /.eslintrc.js
 /.git/
+/.github/
 /.gitignore
 /.prettierignore
 /.prettierrc.js
 /.template-lintrc.js
 /.travis.yml
 /.watchmanconfig
+/babel.config.js
 /bower.json
 /config/ember-try.js
 /coverage/
@@ -34,7 +36,10 @@
 # ember-try
 /.node_modules.ember-try/
 /bower.json.ember-try
+/npm-shrinkwrap.json.ember-try
 /package.json.ember-try
+/package-lock.json.ember-try
+/yarn.lock.ember-try
 
 .idea/
 /config/addon-docs.js
