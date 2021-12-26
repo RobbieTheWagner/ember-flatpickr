@@ -232,7 +232,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     await render(hbs`<EmberFlatpickr
       @altInput={{false}}
       @date={{this.dateValue}}
-      @disabled={{disabled}}
+      @disabled={{this.disabled}}
       @onChange={{null}} placeholder="Pick date"
      />`);
 
