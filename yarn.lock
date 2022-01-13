@@ -1402,9 +1402,9 @@
     typescript-memoize "^1.0.0-alpha.3"
 
 "@embroider/test-setup@^0.50.0":
-  version "0.50.0"
-  resolved "https://registry.yarnpkg.com/@embroider/test-setup/-/test-setup-0.50.0.tgz#7394ae3edd100eb2293d9f0888d2d91b55ac45d3"
-  integrity sha512-skZQpUQWvDP/AlC3SZGZf8YAJv4zLM2Q9KzaZbIoZf5Veozx/G8rrU/l+wI0uatZPQ1VjxxSNzh3u8IhEu231A==
+  version "0.50.1"
+  resolved "https://registry.yarnpkg.com/@embroider/test-setup/-/test-setup-0.50.1.tgz#6ac7154e368161cb77e5c4fa41544a94c6a41ec8"
+  integrity sha512-xERHPKpH4cOHa3WF1+rKOUPIjiAdGXOvkxizbRkTo9wmwcrSCg4+BubAEP2OA/rYoljrRjr+ggqfzCU4hfZjFg==
   dependencies:
     lodash "^4.17.21"
     resolve "^1.20.0"
@@ -7355,8 +7355,9 @@ ember-maybe-in-element@^2.0.3:
     ember-cli-version-checker "^5.1.1"
     ember-in-element-polyfill "^1.0.1"
 
-"ember-modal-dialog@github:yapplabs/ember-modal-dialog#76b74f1c4b791fed5b084836c3b1c8c54836ac71":
+ember-modal-dialog@yapplabs/ember-modal-dialog#76b74f1c4b791fed5b084836c3b1c8c54836ac71:
   version "4.0.0-alpha.1"
+  uid "76b74f1c4b791fed5b084836c3b1c8c54836ac71"
   resolved "https://codeload.github.com/yapplabs/ember-modal-dialog/tar.gz/76b74f1c4b791fed5b084836c3b1c8c54836ac71"
   dependencies:
     "@embroider/macros" "^0.43.5"
