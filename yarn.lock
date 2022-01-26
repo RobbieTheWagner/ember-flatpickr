@@ -2285,18 +2285,10 @@
     "@types/ember__object" "*"
     "@types/ember__routing" "*"
 
-"@types/ember__array@*":
-  version "3.16.4"
-  resolved "https://registry.yarnpkg.com/@types/ember__array/-/ember__array-3.16.4.tgz#d61b5b876e4976de03aa027ea89cb48cd640d49d"
-  integrity sha512-K21LKDNDW3ug0fLsFUTHZPyaFnzUUZEOtsmzmmeXKI6apJcoaz/yF3V0fvM2FUWNLs6rXB3PXegtzik6lq44Yw==
-  dependencies:
-    "@types/ember__array" "*"
-    "@types/ember__object" "*"
-
-"@types/ember__array@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@types/ember__array/-/ember__array-4.0.0.tgz#68cc7d5d2f219314187a9a068eda990787134bd4"
-  integrity sha512-C3kFMgUI/rTEIemVWc5oanjek7oLLWCQscBtkEcC7dQVr3GstXxBYHYjmAscI2vqLgjGmdibk7SYbfrde5qHjg==
+"@types/ember__array@*", "@types/ember__array@^4.0.0":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@types/ember__array/-/ember__array-4.0.1.tgz#b62126ed080b29351a5633bd28e595a5cfee27ce"
+  integrity sha512-fwrYcYmFbsEnu77Xn9z3WSAp6tqpwn8Wksx8RzGg5pib6VmFD/dkT5jefwoKtlcImsxUNEoP1VgWKrdrpGaQcg==
   dependencies:
     "@types/ember" "*"
     "@types/ember__array" "*"
@@ -2385,15 +2377,7 @@
   resolved "https://registry.yarnpkg.com/@types/ember__error/-/ember__error-4.0.0.tgz#c73037e65c1c3d7060b97f98135ba73c712972b1"
   integrity sha512-1WVMR65/QTqPzMWafK2vKEwGafILxRxItbWJng6eEJyKDHRvvHFCl3XzJ4dQjdFcfOlozsn0mmEYCpjKoyzMqA==
 
-"@types/ember__object@*":
-  version "3.12.6"
-  resolved "https://registry.yarnpkg.com/@types/ember__object/-/ember__object-3.12.6.tgz#5f77662881e3c6f877d63e08b46861c52a36714a"
-  integrity sha512-LAGldyJmFpErWLCm1HOAGd3G4E7Sem+AzQycKH+zSiYSwKVxNSpzUIU1yewlScHn5WvKwLEVE2H6mPvwvkQ+yA==
-  dependencies:
-    "@types/ember__object" "*"
-    "@types/rsvp" "*"
-
-"@types/ember__object@^4.0.0":
+"@types/ember__object@*", "@types/ember__object@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/ember__object/-/ember__object-4.0.0.tgz#18ffa0747ebaceed8ea3dbc9793dd033dc47adf2"
   integrity sha512-mOd53VoaHTKZiRDnZlY1aouCb6P62OK2IrBLEY4pmnpmQPIFM8Q1COceMw8bh6Xjg8xOnhae5jsi3Ux2Ucnd2A==
