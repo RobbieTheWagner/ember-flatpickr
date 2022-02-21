@@ -1997,9 +1997,9 @@
   integrity sha512-7t2fcIdKXg5sWR5HrmtoCeI/ItxDXO04AM8/AaHwEhh0BHUqq9aYpfT2KbDdQjHSzHQFhaR5YB2CJ6vm7lsiBg==
 
 "@types/ember__object@*", "@types/ember__object@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@types/ember__object/-/ember__object-4.0.0.tgz#18ffa0747ebaceed8ea3dbc9793dd033dc47adf2"
-  integrity sha512-mOd53VoaHTKZiRDnZlY1aouCb6P62OK2IrBLEY4pmnpmQPIFM8Q1COceMw8bh6Xjg8xOnhae5jsi3Ux2Ucnd2A==
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@types/ember__object/-/ember__object-4.0.1.tgz#0713bd5ffc6aa41520b2684f5577817649226099"
+  integrity sha512-ra9/ZV6YaQi2UQ0rchDJGveQEOnTCzkgUQzeJLSvvtJc1JPvAfYX55+kdYl79QTqwYxl86YMAlElSvdJNbjTPQ==
   dependencies:
     "@types/ember" "*"
     "@types/ember__object" "*"
