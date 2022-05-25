@@ -1,7 +1,7 @@
 import {
   setupApplicationTest as upstreamSetupApplicationTest,
   setupRenderingTest as upstreamSetupRenderingTest,
-  setupTest as upstreamSetupTest,
+  setupTest as upstreamSetupTest
 } from 'ember-qunit';
 
 // This file exists to provide wrappers around ember-qunit's / ember-mocha's
