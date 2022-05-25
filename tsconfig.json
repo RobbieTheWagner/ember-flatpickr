@@ -7,6 +7,7 @@
     "noImplicitAny": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
+    "skipLibCheck": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "noFallthroughCasesInSwitch": true,

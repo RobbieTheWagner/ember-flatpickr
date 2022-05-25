@@ -105,6 +105,7 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
   }
 
   _setFlatpickrOptions(element: HTMLInputElement): void {
+    //@ts-ignore
     const fastboot = getOwner(this).lookup('service:fastboot');
 
     if (fastboot && fastboot.isFastBoot) {
