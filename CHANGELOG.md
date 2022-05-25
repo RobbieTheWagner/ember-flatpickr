@@ -1,3 +1,19 @@
+
+## v3.2.3 (2022-05-25)
+
+#### :memo: Documentation
+* [#1142](https://github.com/shipshapecode/ember-flatpickr/pull/1142) Fix broken "Edit this page" link in docs ([@AddisonG](https://github.com/AddisonG))
+
+#### :house: Internal
+* [#1181](https://github.com/shipshapecode/ember-flatpickr/pull/1181) ember-cli 4.3 ([@rwwagner90](https://github.com/rwwagner90))
+* [#1029](https://github.com/shipshapecode/ember-flatpickr/pull/1029) Bump deps and types ([@rwwagner90](https://github.com/rwwagner90))
+* [#1007](https://github.com/shipshapecode/ember-flatpickr/pull/1007) ember-cli 4.1.0 ([@rwwagner90](https://github.com/rwwagner90))
+* [#982](https://github.com/shipshapecode/ember-flatpickr/pull/982) ember-cli 4, update most deps ([@rwwagner90](https://github.com/rwwagner90))
+
+#### Committers: 2
+- Addison G ([@AddisonG](https://github.com/AddisonG))
+- Robert Wagner ([@rwwagner90](https://github.com/rwwagner90))
+
 ## v3.2.2 (2021-10-07)
 
 ## v3.2.0 (2021-09-16)
