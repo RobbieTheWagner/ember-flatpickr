@@ -2078,9 +2078,9 @@
   integrity sha512-kXjFVd7pm5wOfZdV2OE7+6Q+59EXdpW2FZsdmxREqUBuRu9In01WzIrtXZUROuhSzf5wPNuVfCXAo5he0Ol4MA==
 
 "@types/ember__routing@*", "@types/ember__routing@^4.0.0":
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/@types/ember__routing/-/ember__routing-4.0.5.tgz#f4e5c3d0e966859594d0303aa863053538802928"
-  integrity sha512-9f5wWoDn1snfjwtgX4uCvuvJSbG71vUzQcD1LDH6k5oWdhjk3iUsIalN4xD9jWzWF9JkasrTuOv+0wyNR4ahFw==
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/@types/ember__routing/-/ember__routing-4.0.6.tgz#b70cb6c85714f5e7ff4102a90cdd350eeb4f536c"
+  integrity sha512-V+HVgDYUKCeWZUvpMoVRgfE5mGxKModYbblfV2Da1Wj8zjq06ptlTfWw5H4P1UVH/DnRoUML4BSABXbg/G/hlg==
   dependencies:
     "@types/ember" "*"
     "@types/ember__controller" "*"
