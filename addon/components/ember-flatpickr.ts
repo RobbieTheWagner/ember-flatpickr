@@ -105,7 +105,7 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
   }
 
   _setFlatpickrOptions(element: HTMLInputElement): void {
-    //@ts-ignore
+    //@ts-expect-error: getOwner returns type unknown, so we have to ignore this until Ember fixes the types
     const fastboot = getOwner(this).lookup('service:fastboot');
 
     if (fastboot && fastboot.isFastBoot) {

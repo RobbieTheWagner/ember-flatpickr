@@ -43,3 +43,7 @@
 
 .idea/
 /config/addon-docs.js
+
+# TODO: should be removed (so that it is included!) once
+# https://github.com/ember-modifier/ember-modifier/issues/102 is resolved
+/babel.config.js

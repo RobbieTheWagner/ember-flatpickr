@@ -2,7 +2,7 @@
 
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module',
@@ -47,6 +47,16 @@ module.exports = {
       },
       plugins: ['node'],
       extends: ['plugin:node/recommended']
+    },
+    // Typescript files
+    {
+      parser: '@typescript-eslint/parser',
+      files: ['addon/**/*.ts'],
+      plugins: ['@typescript-eslint'],
+      extends: ['plugin:@typescript-eslint/recommended'],
+      rules: {
+        'prefer-rest-params': 'off'
+      }
     },
     {
       // test files
