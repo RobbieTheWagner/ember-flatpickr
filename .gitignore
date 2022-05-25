@@ -29,3 +29,6 @@
 /yarn.lock.ember-try
 
 .idea/
+
+# broccoli-debug
+/DEBUG/
