@@ -23,7 +23,7 @@ module.exports = {
 
     const options = (app.options && app.options.flatpickr) || {};
 
-    // To be included in vendor file by default and should be ignored if includeFlatpickr is false
+    // To be included in vendor file by default and should be ignored if includeInVendor is false
     if (options.includeInVendor !== false) {
       this.import(`${vendorPath}/flatpickr.js`);
     }
