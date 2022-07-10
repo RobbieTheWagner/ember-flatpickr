@@ -1,6 +1,12 @@
 'use strict';
 
 module.exports = {
+  options: {
+    babel: {
+      plugins: [ require.resolve('ember-auto-import/babel-plugin') ]
+    }
+  },
+  
   name: require('./package').name,
 
   included() {

@@ -47,7 +47,10 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
 
   constructor(...args: any[]) {
     super(...args);
-    import('flatpickr').then((module) => module.default);
+    import('flatpickr').then((module) => {
+        return module.default
+      }
+    );
   }
 
   flatpickrRef?: FlatpickrInstance;
