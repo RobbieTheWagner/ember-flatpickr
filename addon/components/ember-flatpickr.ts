@@ -44,6 +44,12 @@ interface EmberFlatpickrArgs extends FlatpickrOptions {
  * @uses Flatpickr
  */
 export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
+
+  constructor(...args: any[]) {
+    super(...args);
+    import('flatpickr').then((module) => module.default);
+  }
+
   flatpickrRef?: FlatpickrInstance;
 
   /**

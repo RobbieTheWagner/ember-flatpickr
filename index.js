@@ -21,7 +21,7 @@ module.exports = {
 
     const vendorPath = 'vendor/flatpickr';
 
-    this.import(`${vendorPath}/flatpickr.js`);
+    // this.import(`${vendorPath}/flatpickr.js`);
 
     if (app.options && app.options.flatpickr && app.options.flatpickr.theme) {
       this.import(`${vendorPath}/themes/${app.options.flatpickr.theme}.css`);
