@@ -125,17 +125,22 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
     const config: Partial<FlatpickrOptions> = Object.fromEntries(
       Object.entries(rest).filter((entry) => entry[1] !== undefined)
     );
-
-    this.flatpickrRef = flatpickr(element, {
-      onChange,
-      onClose: onClose || this.onClose,
-      onOpen: onOpen || this.onOpen,
-      onReady: onReady || this.onReady,
-      ...config,
-      defaultDate: date
+    import('flatpickr').then((module) => {
+      // imported the french translation for example. We need to import translations in dynamic way
+      import('flatpickr/dist/l10n/fr').then((module) => {
+        this.flatpickrRef = flatpickr(element, {
+          onChange,
+          onClose: onClose || this.onClose,
+          onOpen: onOpen || this.onOpen,
+          onReady: onReady || this.onReady,
+          ...config,
+          defaultDate: date
+        });
+        this._setDisabled(disabled);
+        return module.default
+      });
+      return module.default
     });
-
-    this._setDisabled(disabled);
   }
 
   _setDisabled(disabled: boolean): void {
