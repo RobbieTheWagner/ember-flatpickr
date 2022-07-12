@@ -44,7 +44,6 @@ interface EmberFlatpickrArgs extends FlatpickrOptions {
  * @uses Flatpickr
  */
 export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
-
   flatpickrRef?: FlatpickrInstance;
 
   /**
@@ -127,6 +126,7 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
       Object.entries(rest).filter((entry) => entry[1] !== undefined)
     );
     import('flatpickr').then((module) => {
+      // imported the french translation for example. We need to import translations in dynamic way
       import('flatpickr/dist/l10n/fr').then((module) => {
         this.flatpickrRef = flatpickr(element, {
           onChange,
