@@ -1319,7 +1319,7 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
-"@glimmer/component@^1.0.4", "@glimmer/component@^1.1.2":
+"@glimmer/component@^1.0.4", "@glimmer/component@^1.1.0", "@glimmer/component@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@glimmer/component/-/component-1.1.2.tgz#892ec0c9f0b6b3e41c112be502fde073cf24d17c"
   integrity sha512-XyAsEEa4kWOPy+gIdMjJ8XlzA3qrGH55ZDv6nA16ibalCR17k74BI0CztxuRds+Rm6CtbUVgheCVlcCULuqD7A==
@@ -1894,15 +1894,17 @@
     "@types/rsvp" "*"
 
 "@types/ember__application@*", "@types/ember__application@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@types/ember__application/-/ember__application-4.0.0.tgz#a4d2fead37845550dad83bb1fd8afd52052563a7"
-  integrity sha512-1Atwevfyu1/vjiezPPdP4s96BxWGelEQlCJRU5ZQV9WlzVuMTuCDPumZ1lQdS4/EYycFZeod030FjE3CT9mZFA==
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@types/ember__application/-/ember__application-4.0.1.tgz#1bdbd4bf4a995558c5e6297856ad705f181899cc"
+  integrity sha512-dKyiEHpZRENCRNyS9PQOnYjrcO4QsmeTU+csmiH8B3McYBCp1AKwlnjOd6eTs3O69WDcUq2mFk6BAQM49bAF7Q==
   dependencies:
+    "@glimmer/component" "^1.1.0"
     "@types/ember" "*"
     "@types/ember-resolver" "*"
     "@types/ember__application" "*"
     "@types/ember__engine" "*"
     "@types/ember__object" "*"
+    "@types/ember__owner" "*"
     "@types/ember__routing" "*"
 
 "@types/ember__application@^3":
