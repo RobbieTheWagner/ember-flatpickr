@@ -7602,9 +7602,9 @@ ember-page-title@^7.0.0:
     ember-cli-babel "^7.26.6"
 
 ember-power-select@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/ember-power-select/-/ember-power-select-6.0.0.tgz#180e31ad1e5ac8c1a2bb3145f2b440d131ea65b9"
-  integrity sha512-mrsb1e5Q3tBXk6iJLKIhyiqni9Nm7PQJOKyUVZpRNeIuXBzDRwIT/h/HzcvPw+jP/pN89uF4Pp/GYl9MZlgjVQ==
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/ember-power-select/-/ember-power-select-6.0.1.tgz#0f0c7bdda83adc59363fb1009c34786d783fff95"
+  integrity sha512-YslsjEUzdHhFfUP7IlklQuKt6rFG/VS38JLCjTYiCcBKrl76pxky/PoGMx3V+Ukh5mI77mGfA7BSKpKv8MAQAw==
   dependencies:
     "@embroider/util" "^1.0.0"
     "@glimmer/component" "^1.1.2"
