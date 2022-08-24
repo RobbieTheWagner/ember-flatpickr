@@ -1918,9 +1918,9 @@
     "@types/ember__routing" "^3"
 
 "@types/ember__array@*", "@types/ember__array@^4.0.0":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@types/ember__array/-/ember__array-4.0.1.tgz#b62126ed080b29351a5633bd28e595a5cfee27ce"
-  integrity sha512-fwrYcYmFbsEnu77Xn9z3WSAp6tqpwn8Wksx8RzGg5pib6VmFD/dkT5jefwoKtlcImsxUNEoP1VgWKrdrpGaQcg==
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@types/ember__array/-/ember__array-4.0.2.tgz#795b377f6cbb9830413227522680feed674aa126"
+  integrity sha512-d2eU8O5QtqDd/ZqMV3yzIbULh8wPx6UMvxwJ0ThnNgCIFcZLO98deM5w6m5aU6K48Xu1wWzjJBa0jktGSFWXJw==
   dependencies:
     "@types/ember" "*"
     "@types/ember__array" "*"
