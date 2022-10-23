@@ -3,14 +3,12 @@
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
 module.exports = function (defaults) {
-  let options = {
+  const app = new EmberAddon(defaults, {
     flatpickr: {
       theme: 'dark',
       locales: ['fr', 'de', 'ru', 'uk']
     }
-  };
-
-  let app = new EmberAddon(defaults, options);
+  });
 
   /*
     This build file specifies the options for the dummy test app of this
