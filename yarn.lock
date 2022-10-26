@@ -1846,9 +1846,9 @@
     "@types/qunit" "*"
 
 "@types/ember-resolver@*", "@types/ember-resolver@^5.0.11":
-  version "5.0.11"
-  resolved "https://registry.yarnpkg.com/@types/ember-resolver/-/ember-resolver-5.0.11.tgz#db931fb5c2d6bda4e29adea132fb48c7ed17aa62"
-  integrity sha512-2BL9d8kBdNUO9Je6KBF7Q34BSwbQG6vzCzTeSopt8FAmLDfaDU9xDDdyZobpfy9GR36mCSeG9b9wr4bgYh/MYw==
+  version "5.0.12"
+  resolved "https://registry.yarnpkg.com/@types/ember-resolver/-/ember-resolver-5.0.12.tgz#2b741a5e0cad764f7fd7ef1bb2d1cd4dfe1d880a"
+  integrity sha512-7q06lKbrfRUrXQX7v9kskYxeZfElPfv9i4l2s855JdlcQx9OIqSHhexzECNwqHFvSckdNqjrQM3/nFm/LYCDAQ==
   dependencies:
     "@types/ember__object" "*"
 
