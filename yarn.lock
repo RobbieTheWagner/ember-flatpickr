@@ -1974,13 +1974,13 @@
     "@types/ember__object" "^3"
 
 "@types/ember__debug@*", "@types/ember__debug@^4.0.0":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@types/ember__debug/-/ember__debug-4.0.2.tgz#50b49a63a027ef7f77a6f3433a60260a26cd6e65"
-  integrity sha512-TrD47X7WQyAvXOCo003soMH6lc4X5+jg5sJ8r81Trk0I2AYVm/8Pn4YPRFECDl6TL/ceYiK3qSgeI8GnDlh7Cw==
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@types/ember__debug/-/ember__debug-4.0.3.tgz#87a45e2a62bd453c732ee0c9e647f9c186f3691d"
+  integrity sha512-LvSLFgNlzpbsdb479ohS2szCFwkAsaqPnTjyPML7xFF3r3VGFMQjVNTXQpFYQCKTMAC1FYRX1N6hw/8lpXWHKA==
   dependencies:
-    "@types/ember-resolver" "*"
     "@types/ember__debug" "*"
     "@types/ember__object" "*"
+    "@types/ember__owner" "*"
 
 "@types/ember__debug@^3":
   version "3.16.7"
