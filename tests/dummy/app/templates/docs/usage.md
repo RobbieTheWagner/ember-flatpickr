@@ -14,6 +14,7 @@
   @defaultHour={{12}}
   @defaultMinute={{0}}
   @disable={{this.datesToDisable}}
+  @disabled={{false}} {{!-- Sets disabled on the input or altInput --}}
   @disableMobile={{false}}
   @enable={{this.datesToEnable}}
   @enableSeconds={{false}}

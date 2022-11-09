@@ -1,12 +1,15 @@
 <DocsViewer as |viewer|>
   <viewer.nav as |nav|>
-    {{nav.section "Introduction"}}
-    {{nav.item "Introduction" "docs.index"}}
-    {{nav.item "Usage" "docs.usage"}}
-    {{nav.item "Test Helpers" "docs.test-helpers"}}
+    <nav.section @label="Introduction" />
+    <nav.item @label="Introduction" @route="docs.index" />
+    <nav.item @label="Usage" @route="docs.usage" />
+    <nav.item @label="Test Helpers" @route="docs.test-helpers" />
 
-    {{nav.section "Components"}}
-    {{nav.item "ember-flatpickr" "docs.components.ember-flatpickr"}}
+    <nav.section @label="Components" />
+    <nav.item
+      @label="ember-flatpickr"
+      @route="docs.components.ember-flatpickr"
+    />
   </viewer.nav>
 
   <viewer.main>
