@@ -1222,7 +1222,7 @@
   dependencies:
     ember-cli-babel "^7.26.6"
 
-"@ember/test-helpers@^2.8.1":
+"@ember/test-helpers@*", "@ember/test-helpers@^2.8.1":
   version "2.9.1"
   resolved "https://registry.yarnpkg.com/@ember/test-helpers/-/test-helpers-2.9.1.tgz#142a8d5175fc79bb328b7af0cd36755c10181050"
   integrity sha512-1ZFZCnNfkXcQOf6Vxep/vbZMwFLfD+8heiLiQ6LSB5SY9F3VCF1yNslfgtDqmyQZXhAbbhRTDhy+rHuzzpd+yA==
@@ -2143,16 +2143,11 @@
   integrity sha512-eIv2eyff3dhW7FMKbnl49xnuFm6igZ7IoG6BCI4kM3pqwauVXk6gU0e9pA56N/VKNJsVBe95t+QUxZYYBm3+WQ==
 
 "@types/ember__test-helpers@*", "@types/ember__test-helpers@^2.6.1":
-  version "2.8.2"
-  resolved "https://registry.yarnpkg.com/@types/ember__test-helpers/-/ember__test-helpers-2.8.2.tgz#59ca672c152ff9044b4f4b9eeb66fc847e0f853a"
-  integrity sha512-Ho3TTcnbjdQO9UvLwoswRMpCR2j7X6T8qSOaKehnST9s15ACb4MXHwec1NhmpCOhdvBRREYfG3YbduNeXoITMg==
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/@types/ember__test-helpers/-/ember__test-helpers-2.9.1.tgz#1d804d1f0331a912aba450485571f9e79cb2931f"
+  integrity sha512-KZ6jYr0ZiQHlklLcfyuy1j+FkvygEayf5mZ9FcaSOahw9ghK3K5TYSRDCuIBELRw//OB/WP9J7v9NduFRNfRgg==
   dependencies:
-    "@types/ember-resolver" "*"
-    "@types/ember__application" "*"
-    "@types/ember__error" "*"
-    "@types/ember__owner" "*"
-    "@types/ember__test-helpers" "*"
-    "@types/htmlbars-inline-precompile" "*"
+    "@ember/test-helpers" "*"
 
 "@types/ember__test@*", "@types/ember__test@^4.0.0":
   version "4.0.1"
