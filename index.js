@@ -53,7 +53,7 @@ module.exports = {
 
     let browserVendorLib = new Funnel(distPath, {
       destDir: 'flatpickr',
-      files: ['flatpickr.js']
+      files: ['flatpickr.js'],
     });
 
     browserVendorLib = map(
@@ -63,7 +63,7 @@ module.exports = {
 
     let browserVendorLocales = new Funnel(path.join(distPath, '/l10n'), {
       destDir: 'flatpickr/l10n',
-      include: ['*.js']
+      include: ['*.js'],
     });
 
     browserVendorLocales = map(
@@ -73,12 +73,12 @@ module.exports = {
 
     let defaultCSS = new Funnel(distPath, {
       destDir: 'flatpickr',
-      include: ['flatpickr.css']
+      include: ['flatpickr.css'],
     });
 
     let themes = new Funnel(path.join(distPath, '/themes'), {
       destDir: 'flatpickr/themes',
-      include: ['*.css']
+      include: ['*.css'],
     });
 
     let nodes = [browserVendorLib, browserVendorLocales, defaultCSS, themes];
@@ -88,5 +88,5 @@ module.exports = {
     }
 
     return new mergeTrees(nodes);
-  }
+  },
 };

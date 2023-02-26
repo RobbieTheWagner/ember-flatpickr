@@ -6,8 +6,8 @@ module.exports = function (defaults) {
   const app = new EmberAddon(defaults, {
     flatpickr: {
       theme: 'dark',
-      locales: ['fr', 'de', 'ru', 'uk']
-    }
+      locales: ['fr', 'de', 'ru', 'uk'],
+    },
   });
 
   /*
@@ -21,8 +21,8 @@ module.exports = function (defaults) {
   return maybeEmbroider(app, {
     skipBabel: [
       {
-        package: 'qunit'
-      }
-    ]
+        package: 'qunit',
+      },
+    ],
   });
 };

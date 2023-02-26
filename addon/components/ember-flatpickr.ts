@@ -132,7 +132,7 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
       onOpen: onOpen || this.onOpen,
       onReady: onReady || this.onReady,
       ...config,
-      defaultDate: date
+      defaultDate: date,
     });
 
     this._setDisabled(disabled);

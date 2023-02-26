@@ -6,7 +6,7 @@ import {
   render,
   find,
   findAll,
-  triggerEvent
+  triggerEvent,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
