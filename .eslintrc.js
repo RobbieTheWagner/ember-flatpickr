@@ -46,7 +46,7 @@ module.exports = {
         node: true
       },
       plugins: ['node'],
-      extends: ['plugin:node/recommended']
+      extends: ['plugin:n/recommended'],
     },
     // Typescript files
     {

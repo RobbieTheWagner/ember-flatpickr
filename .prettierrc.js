@@ -1,15 +1,12 @@
 'use strict';
 
 module.exports = {
-  singleQuote: true,
-  trailingComma: 'none',
   overrides: [
     {
-      files: '**/*.hbs',
+      files: '*.{js,ts}',
       options: {
-        parser: 'glimmer',
-        singleQuote: false
-      }
-    }
-  ]
+        singleQuote: true,
+      },
+    },
+  ],
 };
