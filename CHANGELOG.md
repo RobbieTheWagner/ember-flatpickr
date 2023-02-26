@@ -1,4 +1,23 @@
 
+
+## v4.0.0 (2023-02-26)
+
+#### :boom: Breaking Change
+* [#1270](https://github.com/shipshapecode/ember-flatpickr/pull/1270) Require node >= 14, bump deps ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
+#### :memo: Documentation
+* [#1463](https://github.com/shipshapecode/ember-flatpickr/pull/1463) Fix typo in usage.md ([@Yelinz](https://github.com/Yelinz))
+* [#1410](https://github.com/shipshapecode/ember-flatpickr/pull/1410) Add disabled to usage docs ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
+#### :house: Internal
+* [#1541](https://github.com/shipshapecode/ember-flatpickr/pull/1541) ember 4.10 ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+* [#1412](https://github.com/shipshapecode/ember-flatpickr/pull/1412) Pin ember-data ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+* [#1371](https://github.com/shipshapecode/ember-flatpickr/pull/1371) Ember 4.8 ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
+#### Committers: 2
+- Robbie Wagner ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+- Yelin Zhang ([@Yelinz](https://github.com/Yelinz))
+
 ## v3.2.3 (2022-05-25)
 
 #### :memo: Documentation
