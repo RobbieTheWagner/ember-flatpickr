@@ -6,7 +6,7 @@ import {
   render,
   find,
   findAll,
-  triggerEvent
+  triggerEvent,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
@@ -43,36 +43,18 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     assert.strictEqual(find('.flatpickr-input').value, '2001-09-11');
   });
 
-  test('when adding aria-activedescendent attribute it is assigned to the picker input', async function (assert) {
-    this.set('dateValue', [new Date()]);
-
-    await render(hbs`<EmberFlatpickr
-      @date={{this.dateValue}}
-      @onChange={{null}}
-      aria-activedescendent="aria-activedescendent"
-    />`);
-
-    assert.strictEqual(findAll('.flatpickr-input').length, 1);
-    assert.strictEqual(
-      find('.flatpickr-input').getAttribute('aria-activedescendent'),
-      'aria-activedescendent'
-    );
-  });
-
   test('when adding aria-autocomplete attribute it is assigned to the picker input', async function (assert) {
     this.set('dateValue', [new Date()]);
 
     await render(hbs`<EmberFlatpickr
       @date={{this.dateValue}}
       @onChange={{null}}
-      aria-autocomplete="aria-autocomplete"
+      aria-autocomplete="both"
     />`);
 
     assert.strictEqual(findAll('.flatpickr-input').length, 1);
-    assert.strictEqual(
-      find('.flatpickr-input').getAttribute('aria-autocomplete'),
-      'aria-autocomplete'
-    );
+    const flatpickrInput = find('.flatpickr-input');
+    assert.dom(flatpickrInput).hasAttribute('aria-autocomplete', 'both');
   });
 
   test('when adding aria-describedby attribute it is assigned to the picker input', async function (assert) {
@@ -85,10 +67,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     />`);
 
     assert.strictEqual(findAll('.flatpickr-input').length, 1);
-    assert.strictEqual(
-      find('.flatpickr-input').getAttribute('aria-describedby'),
-      'described by'
-    );
+    const flatpickrInput = find('.flatpickr-input');
+    assert.dom(flatpickrInput).hasAttribute('aria-describedby', 'described by');
   });
 
   test('when adding aria-labelledby attribute it is assigned to the picker input', async function (assert) {
@@ -101,10 +81,10 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     />`);
 
     assert.strictEqual(findAll('.flatpickr-input').length, 1);
-    assert.strictEqual(
-      find('.flatpickr-input').getAttribute('aria-labelledby'),
-      'aria-labelledby'
-    );
+    const flatpickrInput = find('.flatpickr-input');
+    assert
+      .dom(flatpickrInput)
+      .hasAttribute('aria-labelledby', 'aria-labelledby');
   });
 
   test('when adding aria-multiline attribute it is assigned to the picker input', async function (assert) {
@@ -113,14 +93,12 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     await render(hbs`<EmberFlatpickr
       @date={{this.dateValue}}
       @onChange={{null}}
-      aria-multiline="aria-multiline"
+      aria-multiline="true"
     />`);
 
     assert.strictEqual(findAll('.flatpickr-input').length, 1);
-    assert.strictEqual(
-      find('.flatpickr-input').getAttribute('aria-multiline'),
-      'aria-multiline'
-    );
+    const flatpickrInput = find('.flatpickr-input');
+    assert.dom(flatpickrInput).hasAttribute('aria-multiline', 'true');
   });
 
   test('when adding aria-placeholder attribute it is assigned to the picker input', async function (assert) {
@@ -133,23 +111,10 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     />`);
 
     assert.strictEqual(findAll('.flatpickr-input').length, 1);
-    assert.strictEqual(
-      find('.flatpickr-input').getAttribute('aria-placeholder'),
-      'aria-placeholder'
-    );
-  });
-
-  test('when adding aria- attribute it is assigned to the picker input', async function (assert) {
-    this.set('dateValue', [new Date()]);
-
-    await render(hbs`<EmberFlatpickr
-      @date={{this.dateValue}}
-      @onChange={{null}}
-      aria-="aria-"
-    />`);
-
-    assert.strictEqual(findAll('.flatpickr-input').length, 1);
-    assert.strictEqual(find('.flatpickr-input').getAttribute('aria-'), 'aria-');
+    const flatpickrInput = find('.flatpickr-input');
+    assert
+      .dom(flatpickrInput)
+      .hasAttribute('aria-placeholder', 'aria-placeholder');
   });
 
   test('when adding aria-required attribute it is assigned to the picker input', async function (assert) {
@@ -158,14 +123,12 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     await render(hbs`<EmberFlatpickr
       @date={{this.dateValue}}
       @onChange={{null}}
-      aria-required="aria-required"
+      aria-required="true"
     />`);
 
     assert.strictEqual(findAll('.flatpickr-input').length, 1);
-    assert.strictEqual(
-      find('.flatpickr-input').getAttribute('aria-required'),
-      'aria-required'
-    );
+    const flatpickrInput = find('.flatpickr-input');
+    assert.dom(flatpickrInput).hasAttribute('aria-required', 'true');
   });
 
   test('when adding a title attribute it is assigned to the picker input', async function (assert) {

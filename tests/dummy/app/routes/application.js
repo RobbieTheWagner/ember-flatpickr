@@ -7,19 +7,19 @@ export default class ApplicationRoute extends Route {
         {
           href: 'https://github.com/shipshapecode/ember-flatpickr',
           text: 'Docs',
-          type: 'href'
+          type: 'href',
         },
         {
           href: 'https://github.com/shipshapecode/ember-flatpickr',
           text: 'GitHub',
-          type: 'href'
+          type: 'href',
         },
         {
           href: 'https://shipshape.io',
           text: 'Ship Shape',
-          type: 'href'
-        }
-      ]
+          type: 'href',
+        },
+      ],
     };
   }
 }
