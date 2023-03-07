@@ -7977,10 +7977,10 @@ ember-page-title@^7.0.0:
   dependencies:
     ember-cli-babel "^7.26.6"
 
-ember-power-select@^6.0.0:
-  version "6.0.2"
-  resolved "https://registry.yarnpkg.com/ember-power-select/-/ember-power-select-6.0.2.tgz#b4adaeac14f56b21e289f19ef9600786279e4b26"
-  integrity sha512-ntOFm7tlFGI5nSgaEg1lVL44t+oaSZwG2Ir7x8oP+SbfDClKW8kqTYrbTdOMkn2JBygkJ0d1KkxV1NxwF2B4dQ==
+ember-power-select@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/ember-power-select/-/ember-power-select-7.0.0.tgz#fda9e693141c6f22e1578ca4788afe5c4491ad45"
+  integrity sha512-FKeeF1PqYw5XfPPGoHP0aPG0X/3W15v9O2nk0z54oVeLIUTn2R3Ry9iSLa0/mAjDi1Cn7Zdnyki4Z1oM2aWOuA==
   dependencies:
     "@embroider/util" "^1.0.0"
     "@glimmer/component" "^1.1.2"
