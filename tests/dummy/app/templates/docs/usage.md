@@ -161,6 +161,33 @@ Once you have stored the instance, you can then do things like `this.flatpickrRe
 
 All options available to Flatpickr are available here with the exception of wrap.
 
+## Plugins
+Usage of plugins like [monthSelect](https://flatpickr.js.org/plugins/#monthselectplugin) can be accomplished via the `@plugins` property on the component. In general, every property which is not predefined in the components itself will get passed to `EmberFlatpickr` as is, just like the `...attributes` splatter, only for component properties.
+
+Keep in mind to import the plugin and eventual stylesheets, so you can instantiate it in your component and pass it to the `@plugins` array. *This utilizes the included flatpickr package as dependecy of ember-flatpickr.*
+
+```js
+// ember-cli-build.js
+app.import("node_modules/flatpickr/dist/plugins/monthSelect/style.css");
+app.import("node_modules/flatpickr/dist/plugins/monthSelect/index.js");
+```
+
+```js
+// component.js
+export default class MyDateComponeten extends Compontent {
+  // eslint-disable-next-line no-undef
+  monthSelect = new monthSelectPlugin({});
+}
+```
+
+```handlebars
+{{! template.hbs }}
+    <EmberFlatpickr
+      @date={{this.date}}
+      @plugins={{array this.monthSelect}}
+    />
+```
+
 ## ember-flatpickr and external elements
 
 The wrap option for flatpickr causes flatpickr to search its child elements for elements annotated with certain attributes. With ember-flatpickr this can be accomplished with the following
