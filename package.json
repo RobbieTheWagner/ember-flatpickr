@@ -81,7 +81,7 @@
     "babel-plugin-dynamic-import-node": "^2.3.3",
     "broccoli-asset-rev": "^3.0.0",
     "codeclimate-test-reporter": "^0.5.1",
-    "concurrently": "^7.6.0",
+    "concurrently": "^8.0.1",
     "ember-auto-import": "^2.5.0",
     "ember-cli": "~4.10.0",
     "ember-cli-addon-docs": "^5.0.0",
