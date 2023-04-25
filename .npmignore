@@ -19,7 +19,6 @@
 /.prettierignore
 /.prettierrc.js
 /.template-lintrc.js
-/.travis.yml
 /.watchmanconfig
 /babel.config.js
 /bower.json
