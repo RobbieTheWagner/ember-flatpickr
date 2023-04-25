@@ -15,8 +15,8 @@ This is an Ember addon that wraps the date picker [flatpickr](http://chmln.githu
 
 ## Compatibility
 
-* Ember.js v3.28 or above
-* Ember CLI v3.28 or above
+* Ember.js v4.4 or above
+* Ember CLI v4.4 or above
 * Node.js v14 or above
 
 ## Installation
