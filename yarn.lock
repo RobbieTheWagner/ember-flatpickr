@@ -8232,9 +8232,9 @@ ember-page-title@^8.0.0:
     "@embroider/addon-shim" "^1.0.0"
 
 ember-power-select@^7.0.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/ember-power-select/-/ember-power-select-7.1.0.tgz#32157e60656b8ddb218d7f35cdebb2f68554cbae"
-  integrity sha512-SFJ3INAbwru1SJv3Tb/RSn/ohIARkfHhCyi6IgoLuztMAURTF6dXgJy/+7RLJGUejUbxJqm8ON1A4RhOmL1G+g==
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/ember-power-select/-/ember-power-select-7.1.1.tgz#a6be7300909ce866b30f9cc96b2ec83d11d8e0ff"
+  integrity sha512-y1qzhAa16Kx4tUi88f5gBSjjYJMjDz45L8a6dhfRHLBKDkH3y8ZIgGymx3aqQ8GyTVAdK0UN7oeiIbhtdWjJLQ==
   dependencies:
     "@ember/string" "^3.1.1"
     "@embroider/util" "^1.11.0"
