@@ -2324,9 +2324,9 @@
     "@types/rsvp" "*"
 
 "@types/ember__application@*", "@types/ember__application@^4.0.0":
-  version "4.0.6"
-  resolved "https://registry.yarnpkg.com/@types/ember__application/-/ember__application-4.0.6.tgz#2535bd5566065a00bfc08c12488b13cd5adcfbe6"
-  integrity sha512-ojZUGF8zmTpkTg6MJy4hplGvwTJEBCB3ku6UwgQhu0TizeGESBTUXxZIeyiORNBgfzkqT3Ugo+i+777zsIAfhg==
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/@types/ember__application/-/ember__application-4.0.7.tgz#e899ad085c87f45d0d97046e607127482d5e387f"
+  integrity sha512-5mvsFku+VBgYdvisBQnFtLhpuR2FPdFbTflFo3A1vd39njJXjOqOljn+BvhPzH2I95aFYZwKrJVegX1f0t/64Q==
   dependencies:
     "@glimmer/component" "^1.1.0"
     "@types/ember" "*"
