@@ -2386,9 +2386,9 @@
     "@types/jquery" "*"
 
 "@types/ember__controller@*", "@types/ember__controller@^4.0.0":
-  version "4.0.6"
-  resolved "https://registry.yarnpkg.com/@types/ember__controller/-/ember__controller-4.0.6.tgz#5999acce29c71590c7811d33da5cbd06e0fe4e42"
-  integrity sha512-o7mrKBE34JrQWTf3VvRsBzIEw36ChDW/2Ldv3SZKI7u/AwXUjbN1UzjHzYrokV6/iNtymTHx3F1DwNtCTSEMjA==
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/@types/ember__controller/-/ember__controller-4.0.8.tgz#2e3e46af1d1533b78a00732c1f86fd3475de9bbe"
+  integrity sha512-5CdPyjpYLvflbPvInIS4ukU6fdusJavVzPnPhTvojG1Nny+eLli5xqGaRWE3itt7ElcPsmi55XfrUQI4lgAFJg==
   dependencies:
     "@types/ember__object" "*"
 
