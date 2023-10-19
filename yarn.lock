@@ -2545,9 +2545,9 @@
   integrity sha512-eIv2eyff3dhW7FMKbnl49xnuFm6igZ7IoG6BCI4kM3pqwauVXk6gU0e9pA56N/VKNJsVBe95t+QUxZYYBm3+WQ==
 
 "@types/ember__test@*", "@types/ember__test@^4.0.1":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@types/ember__test/-/ember__test-4.0.3.tgz#43389352162993f78874ddb1baa0d72045886cdb"
-  integrity sha512-aPfPBdWaOSj9Tc5ol/KU1vA2M35iB8knsmSxopIZHb4Mx/oTuAp3JzC4zm4DZYfuF5+l/rng6Zru+4PkG2KQRw==
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@types/ember__test/-/ember__test-4.0.4.tgz#933bce6a704859b5272ed0ba2c2bb6796538bb44"
+  integrity sha512-ur4/HjOSt7zMBFHZR9zsjtXKbdbEfvQXiQr2DknUCVxYS3PHwLU3mazjyd9QcupINxW/gtaNGAjdEhuV1V71iQ==
   dependencies:
     "@types/ember__application" "*"
 
