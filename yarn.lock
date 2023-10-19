@@ -2433,12 +2433,11 @@
   integrity sha512-7t2fcIdKXg5sWR5HrmtoCeI/ItxDXO04AM8/AaHwEhh0BHUqq9aYpfT2KbDdQjHSzHQFhaR5YB2CJ6vm7lsiBg==
 
 "@types/ember__object@*", "@types/ember__object@^4.0.0":
-  version "4.0.8"
-  resolved "https://registry.yarnpkg.com/@types/ember__object/-/ember__object-4.0.8.tgz#b17401ae317f077f71ce56ab5405fedeac061f7d"
-  integrity sha512-ZpMUVWnOr/FespCyriI2I3PvvJLUVkVZx8tlCFql9Cd3dqMF1O4RN4IdaFTWHcT/4rNdjAFKF5CxzoVSzKU/9A==
+  version "4.0.9"
+  resolved "https://registry.yarnpkg.com/@types/ember__object/-/ember__object-4.0.9.tgz#7c2f9367ac989e00a2fe9a08ecd5f3aa6f55dcd6"
+  integrity sha512-yf20VPBWNdDjgZpmY33rg4OBt1nm0OasU1zuRrMDnATSUgIK2KLc2DxMPAXqr9YTpMtOd599LWdvYf4w+u4S5g==
   dependencies:
     "@types/ember" "*"
-    "@types/ember__object" "*"
     "@types/rsvp" "*"
 
 "@types/ember__object@^3":
