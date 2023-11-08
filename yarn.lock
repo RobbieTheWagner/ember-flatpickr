@@ -2481,9 +2481,9 @@
     "@types/ember__service" "^3"
 
 "@types/ember__runloop@*", "@types/ember__runloop@^4.0.0":
-  version "4.0.7"
-  resolved "https://registry.yarnpkg.com/@types/ember__runloop/-/ember__runloop-4.0.7.tgz#ff5a940dc70f1afb69f4d42c66af290030f8b3ae"
-  integrity sha512-xMRuANKydjwy0zNnb2COyDSCRe2j/TpBnDYAy2MkjaPXFnHn8MSZUAurQmU+Mg5BMQx6PLhxaPmzFBPQ73+VrA==
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/@types/ember__runloop/-/ember__runloop-4.0.8.tgz#4edbff1593306d9e38f9b6e76eb1b2d1280c3369"
+  integrity sha512-odNg8x5rWGlKcrig8QJvF3YmZmQKwLP/RIuRbksCK8dZJ5JfVI7BC7MZpyLsTDwY6OBHajZ/1plGM+2BAiyL7Q==
   dependencies:
     "@types/ember" "*"
 
