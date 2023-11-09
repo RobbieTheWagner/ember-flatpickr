@@ -2427,9 +2427,9 @@
     "@types/ember__object" "^3"
 
 "@types/ember__error@*", "@types/ember__error@^4.0.0":
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/@types/ember__error/-/ember__error-4.0.4.tgz#7e0c29c573cfab76b0bbf523708f7a3e02e2e0a7"
-  integrity sha512-fCDdF5oSzSMIdBjYnJsU1qG/3LdBVZrnQ1oPgRC23/NeOr+bAQHZxTjtSO3/ruyEPtRc02q3a9K/ITz1uphz7g==
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/@types/ember__error/-/ember__error-4.0.5.tgz#66fd2ada95ba03c9173b8aae60dc909f96177136"
+  integrity sha512-TxV6ODYFy6rZM5NweXdraNE/46nJ2Tc7tZWdA2rso3K6oF1Wf9fNlMT0nZ/QVUpMJMkD7ilNt94INnoQKyN/8w==
 
 "@types/ember__error@^3":
   version "3.16.2"
