@@ -2450,9 +2450,9 @@
   integrity sha512-7ZotJNCkZUvJpcGHYswQlQsHyRITQ3aNOoFPi86NFxmOXEIVAGVKPHB87w8ZlMmhssG2vitCuNzuQCeDwPaokQ==
 
 "@types/ember__polyfills@*", "@types/ember__polyfills@^4.0.0":
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/@types/ember__polyfills/-/ember__polyfills-4.0.4.tgz#c684803433e11581d7383301c86c1c09610dfc86"
-  integrity sha512-icOWTR6f++nHTBLrrWp/X3sjGFs3PpenEwoWoQM6LL3wUFLSeAwsvXNp1zdDV3Sq0H61sAWymBmUeBLNO18Ogg==
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/@types/ember__polyfills/-/ember__polyfills-4.0.5.tgz#e9527cb9755aa7fe12b021d720561e5200975121"
+  integrity sha512-KOdgOFGCIMtBb6bMEsze7LDA2+h588qJCmFTsFBdicZFMX7lWg3hju5568bD7SXBpXvBF2a9a1Xv4fpNdRntWA==
 
 "@types/ember__polyfills@^3":
   version "3.12.2"
