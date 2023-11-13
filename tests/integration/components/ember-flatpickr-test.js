@@ -9,6 +9,11 @@ import {
   triggerEvent,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import {
+  clearFlatpickrDate,
+  closeFlatpickrDate,
+  setFlatpickrDate,
+} from 'ember-flatpickr/test-support/helpers';
 
 const clickDay = async (index) => {
   await triggerEvent(findAll('.flatpickr-days .flatpickr-day')[index], 'click');
@@ -773,5 +778,59 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       [],
       'disable config was not overwritten'
     );
+  });
+
+  module('Addon test support', (hooks) => {
+    async function renderFlatPickr() {
+      await render(
+        hbs`<EmberFlatpickr
+          @date={{this.date}}
+          @onChange={{null}}
+          data-test-ember-flatpickr
+        />`
+      );
+    }
+
+    hooks.beforeEach(async function () {
+      this.set('date', null);
+      await renderFlatPickr();
+    });
+
+    test('setFlatpickrDate allows an html element as selector', async function (assert) {
+      assert.expect(1);
+      const flatpickr = find('[data-test-ember-flatpickr]');
+      const date = new Date('2080-12-01T16:16:22.585Z');
+
+      setFlatpickrDate(flatpickr, date);
+
+      assert.strictEqual(
+        flatpickr._flatpickr.selectedDates[0].toISOString(),
+        '2080-12-01T16:16:22.000Z'
+      );
+    });
+
+    test('closeFlatpickrDate allows an html element as selector', async function (assert) {
+      assert.expect(2);
+      const flatpickr = find('[data-test-ember-flatpickr]');
+
+      flatpickr._flatpickr.open();
+
+      assert.true(flatpickr._flatpickr.isOpen);
+
+      closeFlatpickrDate(flatpickr);
+
+      assert.false(flatpickr._flatpickr.isOpen);
+    });
+
+    test('clearFlatpickrDate allows an html element as selector', async function (assert) {
+      this.set('date', new Date('2080-12-01T16:16:22.000Z'));
+      const flatpickr = find('[data-test-ember-flatpickr]');
+      assert.strictEqual(
+        flatpickr._flatpickr.selectedDates[0].toISOString(),
+        '2080-12-01T16:16:22.000Z'
+      );
+      clearFlatpickrDate(flatpickr);
+      assert.strictEqual(flatpickr._flatpickr.selectedDates[0], undefined);
+    });
   });
 });

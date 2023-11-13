@@ -24,7 +24,8 @@ export function isFlatpickrOpen(pickrIndex = 0) {
  * @function setFlatpickrDate
  */
 export function setFlatpickrDate(selector, date, triggerChange = true) {
-  const flatpickrInput = find(selector);
+  const flatpickrInput =
+    selector instanceof HTMLElement ? selector : find(selector);
   if (!flatpickrInput) _throwSelectorError(selector, 'setFlatpickrDate');
   flatpickrInput._flatpickr.setDate(date, triggerChange);
 }
@@ -34,7 +35,8 @@ export function setFlatpickrDate(selector, date, triggerChange = true) {
  * @function closeFlatpickrDate
  */
 export function closeFlatpickrDate(selector) {
-  const flatpickrInput = find(selector);
+  const flatpickrInput =
+    selector instanceof HTMLElement ? selector : find(selector);
   if (!flatpickrInput) _throwSelectorError(selector, 'closeFlatpickrDate');
   flatpickrInput._flatpickr.close();
 }
@@ -45,7 +47,8 @@ export function closeFlatpickrDate(selector) {
  * @function clearFlatpickrDate
  */
 export function clearFlatpickrDate(selector) {
-  const flatpickrInput = find(selector);
+  const flatpickrInput =
+    selector instanceof HTMLElement ? selector : find(selector);
   if (!flatpickrInput) _throwSelectorError(selector, 'clearFlatpickrDate');
   flatpickrInput._flatpickr.clear(); // eslint-disable-line
 }
