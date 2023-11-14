@@ -132,7 +132,7 @@
     "colors": "1.4.0"
   },
   "peerDependencies": {
-    "ember-source": "^4.0.0"
+    "ember-source": "^4.0.0 || ^5.0.0"
   },
   "engines": {
     "node": "14.* || 16.* || >= 18"
