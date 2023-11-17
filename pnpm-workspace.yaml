@@ -1,0 +1,3 @@
+packages:
+  - 'ember-flatpickr'
+  - 'test-app'
