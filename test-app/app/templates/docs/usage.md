@@ -62,38 +62,56 @@ Whenever a new date is selected, the action `onChange` will be fired. We highly 
 
 ## Themes
 
-flatpickr provides several themes out of the box. You can specify a theme in your `ember-cli-build.js`.
+Themes can be imported from `flatpickr/dist/themes/`.
 
 ```js
-const app = new EmberApp(defaults, {
-  flatpickr: {
-    theme: 'material_blue',
-  },
-});
+import "flatpickr/dist/themes/<theme>.css";
 ```
 
 ## Localization
 
-flatpickr supports [over 25 languages](https://github.com/flatpickr/flatpickr/tree/master/src/l10n). You can specify the locales you want to support
-in your `ember-cli-build.js`, which will include the necessary locale js files.
+flatpickr supports [over 25 languages](https://github.com/flatpickr/flatpickr/tree/master/src/l10n). 
+
+## Default Language
+
+If you want to switch the default language for all flatpickr instances, you can do so by setting the language using the static flatpickr method localize:
 
 ```js
-const app = new EmberApp(defaults, {
-  flatpickr: {
-    locales: ['fr', 'de', 'ru', 'uk'],
-  },
-});
+import lang from 'flatpickr/dist/l10n';
+
+flatpickr.localize(lang.fr);
 ```
 
-You can then use the locales you imported by specifying which you want in your template, like so:
+## Per-Instance Language
+
+If you want to use a different language for a specific flatpickr instance, you can do so by passing the language to the `locale` option:
 
 ```handlebars
-<EmberFlatpickr
-  @locale="ru"
-  @date={{this.date}}
-  @onChange={{this.onChange}}
-/>
+  <EmberFlatpickr
+    @locale="fr"
+    @date={{this.date}}
+    @onChange={{this.onChange}}
+  />
 ```
+
+You can also pass a locale object to the `locale` option:
+
+```js
+  import lang from 'flatpickr/dist/l10n';
+
+  export default class MyComponent extends Component {
+    locale = lang.fr;
+  }
+```
+
+```handlebars
+  <EmberFlatpickr
+    @locale={{this.locale}}
+    @date={{this.date}}
+    @onChange={{this.onChange}}
+  />
+```
+
 
 ### Manual Localization Configuration
 

@@ -4,11 +4,6 @@ settings:
   autoInstallPeers: false
   excludeLinksFromLockfile: false
 
-patchedDependencies:
-  ember-cli-addon-docs@6.0.2:
-    hash: zycz5546wzymysogfyhw5acqzu
-    path: patches/ember-cli-addon-docs@6.0.2.patch
-
 importers:
 
   .:
@@ -114,6 +109,9 @@ importers:
       '@ember/test-helpers':
         specifier: ~3.2.0
         version: 3.2.0(ember-source@5.4.0)(webpack@5.89.0)
+      '@embroider/macros':
+        specifier: ^1.13.3
+        version: 1.13.3
       '@embroider/test-setup':
         specifier: ^3.0.3
         version: 3.0.3
@@ -152,7 +150,7 @@ importers:
         version: 5.4.0
       ember-cli-addon-docs:
         specifier: ^6.0.2
-        version: 6.0.2(patch_hash=zycz5546wzymysogfyhw5acqzu)(@babel/core@7.23.3)(@ember/test-helpers@3.2.0)(ember-data@4.12.4)(ember-fetch@8.1.2)(ember-source@5.4.0)(webpack@5.89.0)
+        version: 6.0.2(@babel/core@7.23.3)(@ember/test-helpers@3.2.0)(ember-data@4.12.4)(ember-fetch@8.1.2)(ember-source@5.4.0)(webpack@5.89.0)
       ember-cli-addon-docs-yuidoc:
         specifier: ^1.0.0
         version: 1.0.0
@@ -7390,7 +7388,7 @@ packages:
       - supports-color
     dev: true
 
-  /ember-cli-addon-docs@6.0.2(patch_hash=zycz5546wzymysogfyhw5acqzu)(@babel/core@7.23.3)(@ember/test-helpers@3.2.0)(ember-data@4.12.4)(ember-fetch@8.1.2)(ember-source@5.4.0)(webpack@5.89.0):
+  /ember-cli-addon-docs@6.0.2(@babel/core@7.23.3)(@ember/test-helpers@3.2.0)(ember-data@4.12.4)(ember-fetch@8.1.2)(ember-source@5.4.0)(webpack@5.89.0):
     resolution: {integrity: sha512-pHcrMttJV5pH6QKvHUhoCLxraxJFVvyVRwXuU09yXcmrNI5jSaqnOCyif2wa/ibTQvejt/kwsAn1yHB4bZVs4w==}
     engines: {node: 16.* || >= 18}
     peerDependencies:
@@ -7477,7 +7475,6 @@ packages:
       - utf-8-validate
       - webpack
     dev: true
-    patched: true
 
   /ember-cli-autoprefixer@2.0.0:
     resolution: {integrity: sha512-WVwfcwRoSjoR7NMfzsS4yWmAhs7FF5BfWzvdcyhvKl4wNzv4QSx9rjVV4dVcnY7pnj19OlSgLaXZ5Rt/P6u6dw==}

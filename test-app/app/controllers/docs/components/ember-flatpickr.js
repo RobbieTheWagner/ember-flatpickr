@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import { run } from '@ember/runloop';
+import { next } from '@ember/runloop';
 
 export default class EmberFlatpickr extends Controller {
   @tracked dateValue = null;
@@ -88,7 +88,7 @@ export default class EmberFlatpickr extends Controller {
 
   @action
   updateMin() {
-    run.next(() => {
+    next(this, () => {
       this.dateValue = null;
       this.minDate = '2080-12-24T16:16:22.585Z';
     });
