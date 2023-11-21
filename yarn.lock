@@ -2547,9 +2547,9 @@
     "@types/node" "*"
 
 "@types/rsvp@*", "@types/rsvp@^4.0.3", "@types/rsvp@^4.0.4":
-  version "4.0.7"
-  resolved "https://registry.yarnpkg.com/@types/rsvp/-/rsvp-4.0.7.tgz#755b861e1c086059a2b1fb8676e004f6f75b7a5e"
-  integrity sha512-TOsoofOK1MNrZvsoq9op8Qc8r+pYJ6zwH4YCvDXNcsgjtFgS6IP/uGfLW0JH4zJgXGEC1TxJuKe0EBUPIAIA0A==
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/@types/rsvp/-/rsvp-4.0.8.tgz#79fb4525d7e4c22322bbbee2648fcbf2d6bbb2f8"
+  integrity sha512-OraQXMlBrD3nll0VuEKENY3IoR4N3eDIqElVWo5dSheMveYYMDSIUMbtcI7wOGWyUilLwfaOx9VF8U8LdrHXkg==
 
 "@types/semver@^7.3.12":
   version "7.3.12"
