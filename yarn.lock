@@ -2303,9 +2303,9 @@
     "@types/ember__runloop" "^3"
 
 "@types/ember__service@*", "@types/ember__service@^4.0.0":
-  version "4.0.7"
-  resolved "https://registry.yarnpkg.com/@types/ember__service/-/ember__service-4.0.7.tgz#61957b1741096e2df62968c0cd5db7c16ba60be7"
-  integrity sha512-FE+oY5QJWVS3aSbywrYp4IPsJQ4F3Sp4dgFZ+4cRkOZj0m94qrfGsDZZj+1/STBmrf8U5oLX33sglk+YxZZFKA==
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/@types/ember__service/-/ember__service-4.0.8.tgz#3f5ca8e87d9a1e154e6fdafcb6ea3ed610344967"
+  integrity sha512-LKPDKA8eG0pN0p7QMwW6DW87vO0WA5EjzLOjR2lZkWhxIqKUbHAQF32BdlyZkPL+DxAE4q0DqrbLAWAgT21hQQ==
   dependencies:
     "@types/ember__object" "*"
 
