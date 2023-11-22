@@ -2147,9 +2147,9 @@
     "@types/ember__routing" "^3"
 
 "@types/ember__array@*", "@types/ember__array@^4.0.0":
-  version "4.0.8"
-  resolved "https://registry.yarnpkg.com/@types/ember__array/-/ember__array-4.0.8.tgz#12d89194391f9338c5c046873a9a2e1c0785cac8"
-  integrity sha512-EEJBDd8IsWVMmfU4wiWR3uu/UH+jIEvKiN4ULvpp+TYddp83Fzj8T78PIjRgPp0iyCQ7PBPyV1WjqbHAqB35MQ==
+  version "4.0.9"
+  resolved "https://registry.yarnpkg.com/@types/ember__array/-/ember__array-4.0.9.tgz#6a2e3552b5d31be46b8cda9886389a7f0a9e32e5"
+  integrity sha512-c1ifxQyYxRY9DLrSD5H0O4yhqQNGpMzxeE8ZDVUFNJePaheHnkkhOcgSozRvAexpWkYU33QgZO/331KaZGY7BQ==
   dependencies:
     "@types/ember" "*"
     "@types/ember__object" "*"
