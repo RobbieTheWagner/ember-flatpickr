@@ -62,10 +62,10 @@ Whenever a new date is selected, the action `onChange` will be fired. We highly 
 
 ## Themes
 
-Themes can be imported from `flatpickr/dist/themes/`.
+Themes can be imported from `flatpickr/dist/themes/` in your `app.css` file:
 
-```js
-import "flatpickr/dist/themes/<theme>.css";
+```css
+@import "flatpickr/dist/themes/<theme>.css";
 ```
 
 ## Localization
