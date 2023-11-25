@@ -72,7 +72,7 @@ Themes can be imported from `flatpickr/dist/themes/` in your `app.css` file:
 
 flatpickr supports [over 25 languages](https://github.com/flatpickr/flatpickr/tree/master/src/l10n). 
 
-## Default Language
+### Default Language
 
 If you want to switch the default language for all flatpickr instances, you can do so by setting the language using the static flatpickr method localize:
 
@@ -82,9 +82,17 @@ import lang from 'flatpickr/dist/l10n';
 flatpickr.localize(lang.fr);
 ```
 
-## Per-Instance Language
+### Per-Instance Language
 
 If you want to use a different language for a specific flatpickr instance, you can do so by passing the language to the `locale` option:
+
+#### String locale
+
+If you want to use a string to identify the locale, the lang file must be loaded in your app from `flatpickr/dist/l10n`:
+
+```js
+  import 'flatpickr/dist/l10n/fr';
+```
 
 ```handlebars
   <EmberFlatpickr
@@ -93,6 +101,8 @@ If you want to use a different language for a specific flatpickr instance, you c
     @onChange={{this.onChange}}
   />
 ```
+
+#### Object locale
 
 You can also pass a locale object to the `locale` option:
 
@@ -111,7 +121,6 @@ You can also pass a locale object to the `locale` option:
     @onChange={{this.onChange}}
   />
 ```
-
 
 ### Manual Localization Configuration
 

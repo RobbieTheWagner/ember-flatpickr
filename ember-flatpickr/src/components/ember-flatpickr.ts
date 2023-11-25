@@ -8,7 +8,6 @@ import type { Instance as FlatpickrInstance } from 'flatpickr/dist/types/instanc
 import type { BaseOptions as FlatpickrOptions } from 'flatpickr/dist/types/options';
 import flatpickr from 'flatpickr';
 import { getOwner } from '@ember/owner';
-import lang from 'flatpickr/dist/l10n';
 
 interface EmberFlatpickrArgs extends FlatpickrOptions {
   date: FlatpickrOptions['defaultDate'];
@@ -137,7 +136,6 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
       onOpen: onOpen || this.onOpen,
       onReady: onReady || this.onReady,
       ...config,
-      locale: config.locale ? lang[config.locale as keyof typeof lang] : undefined,
       defaultDate: date,
     });
 

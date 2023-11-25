@@ -19,6 +19,14 @@ This is an Ember addon that wraps the date picker [flatpickr](http://chmln.githu
 ember install ember-flatpickr
 ```
 
+ember-flatpickr requires `flatpickr` as a peer dependency. Install it with your favorite package manager:
+
+```bash
+npm install -D flatpickr
+pnpm add -D flatpickr
+yarn add -D flatpickr
+```
+
 ### Default style
 
 By default, ember-flatpickr does not include any styles. You can include the default flatpickr styles by adding the following to your `app.css` file:
