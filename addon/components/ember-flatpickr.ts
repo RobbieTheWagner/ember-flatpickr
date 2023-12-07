@@ -43,7 +43,7 @@ interface EmberFlatpickrArgs extends FlatpickrOptions {
  * @public
  * @uses Flatpickr
  */
-export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
+export default class EmberFlatpickr<T extends EmberFlatpickrArgs = EmberFlatpickrArgs>  extends Component<T> {
   flatpickrRef?: FlatpickrInstance;
 
   /**
