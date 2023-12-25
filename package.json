@@ -17,10 +17,5 @@
   },
   "devDependencies": {
     "concurrently": "^8.0.1"
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "ember-cli-addon-docs@6.0.2": "patches/ember-cli-addon-docs@6.0.2.patch"
-    }
   }
 }
