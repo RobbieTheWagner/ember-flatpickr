@@ -12,13 +12,11 @@
 *.tgz
 
 # compiled output
-/dist/
 /tmp/
 
 # dependencies
 /bower_components/
 /node_modules/
-node_modules/
 
 # misc
 /.env*
