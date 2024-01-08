@@ -1,0 +1,132 @@
+{
+  "name": "ember-flatpickr",
+  "version": "5.0.0",
+  "description": "An Ember addon that wraps the date picker Flatpickr",
+  "keywords": [
+    "ember-addon",
+    "flatpickr",
+    "datepicker",
+    "datetime picker"
+  ],
+  "homepage": "https://shipshapecode.github.io/ember-flatpickr",
+  "repository": "https://github.com/shipshapecode/ember-flatpickr",
+  "license": "MIT",
+  "author": {
+    "name": "Robert Wagner",
+    "email": "rwwagner90@gmail.com",
+    "url": "https://github.com/rwwagner90"
+  },
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "concurrently \"npm:build:*\" --names \"build:\"",
+    "build:js": "rollup --config",
+    "build:types": "tsc",
+    "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
+    "lint:fix": "concurrently \"npm:lint:*:fix\" --names \"fix:\"",
+    "lint:hbs": "ember-template-lint .",
+    "lint:hbs:fix": "ember-template-lint . --fix",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
+    "lint:types": "tsc --emitDeclarationOnly false --noEmit",
+    "prepack": "rollup --config",
+    "start": "concurrently \"npm:start:*\" --names \"start:\"",
+    "start:js": "rollup --config --watch --no-watch.clearScreen",
+    "start:types": "tsc --watch",
+    "test": "echo 'A v2 addon does not have tests, run tests in test-app'",
+    "test:ember": "ember test",
+    "test:ember-compatibility": "ember try:each"
+  },
+  "dependencies": {
+    "@ember/render-modifiers": "^2.0.3",
+    "@embroider/addon-shim": "^1.8.6",
+    "@ember/test-helpers": "~2.7.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@glimmer/component": "~1.1.2",
+    "ember-template-lint": "~5.12.0",
+    "@babel/plugin-proposal-decorators": "^7.21.0",
+    "@babel/plugin-transform-class-properties": "^7.22.5",
+    "@babel/plugin-transform-class-static-block": "^7.22.11",
+    "@babel/plugin-transform-typescript": "^7.22.15",
+    "@babel/runtime": "^7.23.2",
+    "@embroider/addon-dev": "^4.1.1",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@tsconfig/ember": "^3.0.2",
+    "babel-plugin-ember-template-compilation": "^2.2.1",
+    "concurrently": "^8.0.1",
+    "ember-source": "~5.4.0",
+    "flatpickr": "^4.6.9",
+    "rollup": "^4.3.0",
+    "rollup-plugin-copy": "^3.5.0",
+    "rsvp": "^4.8.5",
+    "typescript": "^5.0.2",
+    "webpack": "^5.89.0"
+  },
+  "peerDependencies": {
+    "ember-source": "^4.0.0 || ^5.0.0",
+    "flatpickr": "^4.0.0"
+  },
+  "engines": {
+    "node": "14.* || 16.* || >= 18"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "ember": {
+    "edition": "octane"
+  },
+  "ember-addon": {
+    "app-js": {
+      "./components/ember-flatpickr.js": "./dist/_app_/components/ember-flatpickr.js"
+    },
+    "main": "addon-main.cjs",
+    "type": "addon",
+    "version": 2
+  },
+  "release-it": {
+    "plugins": {
+      "release-it-lerna-changelog": {
+        "infile": "CHANGELOG.md",
+        "launchEditor": true
+      }
+    },
+    "git": {
+      "tagName": "v${version}"
+    },
+    "github": {
+      "release": true,
+      "tokenRef": "GITHUB_AUTH"
+    }
+  },
+  "volta": {
+    "node": "16.15.1",
+    "pnpm": "8.10.1"
+  },
+  "exports": {
+    ".": {
+      "types": "./declarations/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./declarations/*.d.ts",
+      "default": "./dist/*.js"
+    },
+    "./addon-main.js": "./addon-main.cjs"
+  },
+  "files": [
+    "addon-main.cjs",
+    "declarations",
+    "dist"
+  ],
+  "typesVersions": {
+    "*": {
+      "*": [
+        "declarations/*"
+      ]
+    }
+  }
+}
