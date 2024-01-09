@@ -42,7 +42,7 @@
   "dependencies": {
     "@ember/render-modifiers": "^2.0.3",
     "@embroider/addon-shim": "^1.8.7",
-    "@ember/test-helpers": "~2.7.0"
+    "@ember/test-helpers": "~3.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-0",
