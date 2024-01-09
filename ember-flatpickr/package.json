@@ -60,7 +60,7 @@
     "concurrently": "^8.0.1",
     "ember-source": "~5.4.0",
     "flatpickr": "^4.6.9",
-    "rollup": "^4.3.0",
+    "rollup": "^4.9.4",
     "rollup-plugin-copy": "^3.5.0",
     "rsvp": "^4.8.5",
     "typescript": "^5.0.2",
