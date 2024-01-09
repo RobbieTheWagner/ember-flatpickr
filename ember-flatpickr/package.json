@@ -52,7 +52,7 @@
     "@babel/plugin-transform-class-properties": "^7.22.5",
     "@babel/plugin-transform-class-static-block": "^7.22.11",
     "@babel/plugin-transform-typescript": "^7.22.15",
-    "@babel/runtime": "^7.23.2",
+    "@babel/runtime": "^7.23.8",
     "@embroider/addon-dev": "^4.1.1",
     "@rollup/plugin-babel": "^6.0.4",
     "@tsconfig/ember": "^3.0.2",
