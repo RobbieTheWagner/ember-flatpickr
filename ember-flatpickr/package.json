@@ -87,25 +87,6 @@
     "type": "addon",
     "version": 2
   },
-  "release-it": {
-    "plugins": {
-      "release-it-lerna-changelog": {
-        "infile": "CHANGELOG.md",
-        "launchEditor": true
-      }
-    },
-    "git": {
-      "tagName": "v${version}"
-    },
-    "github": {
-      "release": true,
-      "tokenRef": "GITHUB_AUTH"
-    }
-  },
-  "volta": {
-    "node": "16.15.1",
-    "pnpm": "8.10.1"
-  },
   "exports": {
     ".": {
       "types": "./declarations/index.d.ts",

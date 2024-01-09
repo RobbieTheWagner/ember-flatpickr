@@ -37,7 +37,7 @@
     "postpack": "ember ts:clean"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-0",
+    "@babel/core": "^7.23.2",
     "@babel/eslint-parser": "^7.22.15",
     "@babel/plugin-proposal-decorators": "^7.23.2",
     "@babel/preset-env": "^7.18.2",
@@ -72,8 +72,6 @@
     "ember-cli-inject-live-reload": "^2.1.0",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-terser": "^4.0.2",
-    "ember-cli-typescript": "^5.0.0",
-    "ember-cli-typescript-blueprints": "^3.0.0",
     "ember-data": "4.12.4",
     "ember-fetch": "^8.0.2",
     "ember-flatpickr": "workspace:*",
@@ -99,8 +97,6 @@
     "prettier": "^3.0.3",
     "qunit": "^2.20.0",
     "qunit-dom": "^3.0.0",
-    "release-it": "^17.0.0",
-    "release-it-lerna-changelog": "^5.0.0",
     "rsvp": "^4.8.5",
     "sass": "^1.69.5",
     "stylelint": "^15.11.0",
@@ -118,27 +114,5 @@
   "ember": {
     "edition": "octane"
   },
-  "release-it": {
-    "plugins": {
-      "release-it-lerna-changelog": {
-        "infile": "CHANGELOG.md",
-        "launchEditor": true
-      }
-    },
-    "git": {
-      "tagName": "v${version}"
-    },
-    "github": {
-      "release": true,
-      "tokenRef": "GITHUB_AUTH"
-    }
-  },
-  "volta": {
-    "node": "16.15.1",
-    "pnpm": "8.10.1"
-  },
-  "private": true,
-  "dependencies": {
-    "@babel/core": "^7.23.2"
-  }
+  "private": true
 }

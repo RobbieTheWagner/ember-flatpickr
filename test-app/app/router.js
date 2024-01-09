@@ -11,6 +11,7 @@ Router.map(function () {
 
   docsRoute(this, function () {
     this.route('test-helpers');
+    this.route('localization');
     this.route('usage');
 
     this.route('components', function () {
