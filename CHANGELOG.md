@@ -1,5 +1,25 @@
 
 
+
+## v5.0.0 (2024-01-09)
+
+#### :boom: Breaking Change
+* [#1911](https://github.com/RobbieTheWagner/ember-flatpickr/pull/1911) V2 addon format and switch to pnpm, change localization and styles setup ([@AmauryD](https://github.com/AmauryD))
+* [#1619](https://github.com/RobbieTheWagner/ember-flatpickr/pull/1619) ember-cli 4.12.1, drop support for Ember < 4.4 ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
+#### :rocket: Enhancement
+* [#1907](https://github.com/RobbieTheWagner/ember-flatpickr/pull/1907) add ability to pass an html element to test helpers ([@AmauryD](https://github.com/AmauryD))
+
+#### :bug: Bug Fix
+* [#1908](https://github.com/RobbieTheWagner/ember-flatpickr/pull/1908) allow ember-source 5.0.0 in peerdeps ([@AmauryD](https://github.com/AmauryD))
+
+#### :house: Internal
+* [#1975](https://github.com/RobbieTheWagner/ember-flatpickr/pull/1975) Tweaks to docs, deps, etc before v6 ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
+#### Committers: 2
+- Amaury ([@AmauryD](https://github.com/AmauryD))
+- Robbie Wagner ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
 ## v4.0.0 (2023-02-26)
 
 #### :boom: Breaking Change
