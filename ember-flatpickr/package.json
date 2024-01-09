@@ -59,7 +59,13 @@
     "babel-plugin-ember-template-compilation": "^2.2.1",
     "concurrently": "^8.0.1",
     "ember-source": "~5.4.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-ember": "^11.12.0",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-prettier": "^5.1.2",
     "flatpickr": "^4.6.9",
+    "prettier": "^3.0.3",
     "rollup": "^4.9.4",
     "rollup-plugin-copy": "^3.5.0",
     "rsvp": "^4.8.5",
@@ -86,25 +92,6 @@
     "main": "addon-main.cjs",
     "type": "addon",
     "version": 2
-  },
-  "release-it": {
-    "plugins": {
-      "release-it-lerna-changelog": {
-        "infile": "CHANGELOG.md",
-        "launchEditor": true
-      }
-    },
-    "git": {
-      "tagName": "v${version}"
-    },
-    "github": {
-      "release": true,
-      "tokenRef": "GITHUB_AUTH"
-    }
-  },
-  "volta": {
-    "node": "16.15.1",
-    "pnpm": "8.10.1"
   },
   "exports": {
     ".": {
