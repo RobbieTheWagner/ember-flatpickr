@@ -5,12 +5,12 @@ export default class ApplicationRoute extends Route {
     return {
       links: [
         {
-          href: 'https://github.com/shipshapecode/ember-flatpickr',
+          href: 'https://github.com/RobbieTheWagner/ember-flatpickr',
           text: 'Docs',
           type: 'href',
         },
         {
-          href: 'https://github.com/shipshapecode/ember-flatpickr',
+          href: 'https://github.com/RobbieTheWagner/ember-flatpickr',
           text: 'GitHub',
           type: 'href',
         },

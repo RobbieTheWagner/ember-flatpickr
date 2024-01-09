@@ -2,9 +2,14 @@
   "name": "workspace-root",
   "version": "5.0.0",
   "private": true,
-  "repository": "",
+  "homepage": "https://RobbieTheWagner.github.io/ember-flatpickr",
+  "repository": "https://github.com/RobbieTheWagner/ember-flatpickr",
   "license": "MIT",
-  "author": "",
+  "author": {
+    "name": "Robert Wagner",
+    "email": "rwwagner90@gmail.com",
+    "url": "https://github.com/RobbieTheWagner"
+  },
   "scripts": {
     "build": "pnpm --filter ember-flatpickr build",
     "lint": "pnpm --filter '*' lint",

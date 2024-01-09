@@ -156,7 +156,7 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
     if (altInput && element?.nextSibling) {
       // `element` is the hidden input storing the alternate date value sent to the server
       // @see https://flatpickr.js.org/options/ `altInput` config options
-      // Refactored during https://github.com/shipshapecode/ember-flatpickr/issues/306 to instead
+      // Refactored during https://github.com/RobbieTheWagner/ember-flatpickr/issues/306 to instead
       // extend Ember's `@ember/component/text-field`
       // `element.nextSibling` is the text input that the user will interact with, so
       // long as it is enabled

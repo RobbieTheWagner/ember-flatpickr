@@ -7,13 +7,13 @@
     "datepicker",
     "datetime picker"
   ],
-  "homepage": "https://shipshapecode.github.io/ember-flatpickr",
-  "repository": "https://github.com/shipshapecode/ember-flatpickr",
+  "homepage": "https://RobbieTheWagner.github.io/ember-flatpickr",
+  "repository": "https://github.com/RobbieTheWagner/ember-flatpickr",
   "license": "MIT",
   "author": {
     "name": "Robert Wagner",
     "email": "rwwagner90@gmail.com",
-    "url": "https://github.com/rwwagner90"
+    "url": "https://github.com/RobbieTheWagner"
   },
   "directories": {
     "doc": "doc",
