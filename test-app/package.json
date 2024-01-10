@@ -56,7 +56,7 @@
     "broccoli-asset-rev": "^3.0.0",
     "codeclimate-test-reporter": "^0.5.1",
     "concurrently": "^8.2.2",
-    "ember-auto-import": "^2.6.3",
+    "ember-auto-import": "^2.7.2",
     "ember-cli": "~5.4.0",
     "ember-cli-addon-docs": "~7.0.0",
     "ember-cli-addon-docs-yuidoc": "^1.0.0",
