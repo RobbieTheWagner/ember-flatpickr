@@ -151,8 +151,8 @@ importers:
         specifier: ^2.11.3
         version: 2.19.8
       '@types/rsvp':
-        specifier: ^4.0.3
-        version: 4.0.7
+        specifier: ^4.0.8
+        version: 4.0.8
       '@typescript-eslint/eslint-plugin':
         specifier: ^6.11.0
         version: 6.11.0(@typescript-eslint/parser@6.11.0)(eslint@8.53.0)(typescript@5.2.2)
@@ -3107,7 +3107,7 @@ packages:
       '@types/ember__template': 3.16.6
       '@types/ember__test': 3.16.6
       '@types/ember__utils': 3.16.7
-      '@types/rsvp': 4.0.7
+      '@types/rsvp': 4.0.8
     dev: true
 
   /@types/ember__application@3.16.9:
@@ -3157,7 +3157,7 @@ packages:
   /@types/ember__object@3.12.12:
     resolution: {integrity: sha512-pCKXB4OJ3mHZhG3p8UJRm07N4dPe0573N3/bIJoXyKqF6gplHocA4xgQ+90bgHUuI4+GtHGLnNeOYsE2A0dGyw==}
     dependencies:
-      '@types/rsvp': 4.0.7
+      '@types/rsvp': 4.0.8
     dev: true
 
   /@types/ember__polyfills@3.12.6:
@@ -3352,8 +3352,8 @@ packages:
       '@types/glob': 8.1.0
       '@types/node': 20.9.0
 
-  /@types/rsvp@4.0.7:
-    resolution: {integrity: sha512-TOsoofOK1MNrZvsoq9op8Qc8r+pYJ6zwH4YCvDXNcsgjtFgS6IP/uGfLW0JH4zJgXGEC1TxJuKe0EBUPIAIA0A==}
+  /@types/rsvp@4.0.8:
+    resolution: {integrity: sha512-OraQXMlBrD3nll0VuEKENY3IoR4N3eDIqElVWo5dSheMveYYMDSIUMbtcI7wOGWyUilLwfaOx9VF8U8LdrHXkg==}
     dev: true
 
   /@types/semver@7.5.5:
@@ -7408,7 +7408,7 @@ packages:
     dependencies:
       '@ember/test-waiters': 3.1.0
       '@types/ember': 3.16.12
-      '@types/rsvp': 4.0.7
+      '@types/rsvp': 4.0.8
       ember-cli-babel: 7.26.11
       ember-cli-typescript: 4.2.1
       ember-compatibility-helpers: 1.2.7(@babel/core@7.23.3)
