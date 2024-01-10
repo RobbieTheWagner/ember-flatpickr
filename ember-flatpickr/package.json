@@ -50,7 +50,7 @@
     "ember-template-lint": "~5.12.0",
     "@babel/plugin-proposal-decorators": "^7.23.7",
     "@babel/plugin-transform-class-properties": "^7.22.5",
-    "@babel/plugin-transform-class-static-block": "^7.22.11",
+    "@babel/plugin-transform-class-static-block": "^7.23.4",
     "@babel/plugin-transform-typescript": "^7.23.6",
     "@babel/runtime": "^7.23.8",
     "@embroider/addon-dev": "^4.1.3",
