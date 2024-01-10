@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: false
+  excludeLinksFromLockfile: false
+
 importers:
 
   .:
@@ -228,8 +232,8 @@ importers:
         specifier: ^2.1.2
         version: 2.1.2(@babel/core@7.23.3)
       ember-page-title:
-        specifier: ^8.0.0
-        version: 8.1.0(ember-source@5.4.0)
+        specifier: ^8.2.0
+        version: 8.2.0(ember-source@5.4.0)
       ember-power-select:
         specifier: ^7.2.0
         version: 7.2.0(@babel/core@7.23.3)(ember-source@5.4.0)(webpack@5.89.0)
@@ -8664,13 +8668,14 @@ packages:
       - supports-color
     dev: true
 
-  /ember-page-title@8.1.0(ember-source@5.4.0):
-    resolution: {integrity: sha512-c5V4sWu+OSRhN6Fsa0M71PkdNpKkV7Lg9FwqogK3iE++R43G6ySLV/Ls0cE5K+IWS1om7XSPqcUvkfhrfZ3y0g==}
+  /ember-page-title@8.2.0(ember-source@5.4.0):
+    resolution: {integrity: sha512-8t6kJ4V47BLccXH5I/0h86MG0TqwGi7UDxbLGn8yudg8Hit3iAkB3YrN2378uLUluYZM8KBxu1NsrMRsxhi48A==}
     engines: {node: 16.* || >= 18}
     peerDependencies:
       ember-source: '>= 3.28.0'
     dependencies:
       '@embroider/addon-shim': 1.8.7
+      '@simple-dom/document': 1.4.0
       ember-source: 5.4.0(@babel/core@7.23.3)(@glimmer/component@1.1.2)(rsvp@4.8.5)(webpack@5.89.0)
     transitivePeerDependencies:
       - supports-color
@@ -17814,7 +17819,3 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
-
-settings:
-  autoInstallPeers: false
-  excludeLinksFromLockfile: false
