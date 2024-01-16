@@ -26,6 +26,10 @@
     "concurrently": "^8.0.1",
     "release-it": "^16.3.0"
   },
+  "engines": {
+    "node": "18.* || >= 20",
+    "pnpm": "^8.14.1"
+  },
   "release-it": {
     "plugins": {
       "@release-it-plugins/workspaces": {
