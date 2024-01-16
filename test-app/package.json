@@ -50,7 +50,7 @@
     "@glimmer/tracking": "^1.1.2",
     "@types/qunit": "^2.19.9",
     "@types/rsvp": "^4.0.8",
-    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
     "@typescript-eslint/parser": "^6.18.1",
     "babel-plugin-dynamic-import-node": "^2.3.3",
     "broccoli-asset-rev": "^3.0.0",
