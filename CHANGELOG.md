@@ -1,6 +1,15 @@
 
 
 
+
+## v6.0.0 (2024-01-16)
+
+#### :boom: Breaking Change
+* [#2009](https://github.com/RobbieTheWagner/ember-flatpickr/pull/2009) Drop support for node < 18 ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
+#### Committers: 1
+- Robbie Wagner ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
 ## v5.0.1 (2024-01-16)
 
 ## v5.0.0 (2024-01-09)
