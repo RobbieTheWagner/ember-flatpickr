@@ -247,8 +247,8 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0
       ember-svg-jar:
-        specifier: ^2.4.2
-        version: 2.4.7
+        specifier: ^2.4.8
+        version: 2.4.8
       ember-template-lint:
         specifier: ^5.13.0
         version: 5.13.0
@@ -6149,11 +6149,6 @@ packages:
       yargs: 16.2.0
     dev: true
 
-  /cli-spinners@2.9.1:
-    resolution: {integrity: sha512-jHgecW0pxkonBJdrKsqxgRX9AcG+u/5k0Q7WPDfi8AogLAdwxEkyYYNWwZ5GvVFoFx2uiY1eNcSK00fh+1+FyQ==}
-    engines: {node: '>=6'}
-    dev: true
-
   /cli-spinners@2.9.2:
     resolution: {integrity: sha512-ywqV+5MmyL4E7ybXgKys4DugZbX0FC6LnwrhjuykIjnK9k8OQacQ7axGKnjDXWNhns0xot3bZI5h55H8yo9cJg==}
     engines: {node: '>=6'}
@@ -7594,7 +7589,7 @@ packages:
       ember-router-scroll: 4.1.2(@babel/core@7.23.9)
       ember-set-helper: 2.0.1
       ember-source: 5.6.0(@babel/core@7.23.9)(@glimmer/component@1.1.2)(rsvp@4.8.5)(webpack@5.90.0)
-      ember-svg-jar: 2.4.7
+      ember-svg-jar: 2.4.8
       ember-tether: 3.0.0(@babel/core@7.23.9)(ember-source@5.6.0)(webpack@5.90.0)
       ember-truth-helpers: 4.0.3(ember-source@5.6.0)
       esm: 3.2.25
@@ -8805,8 +8800,8 @@ packages:
       - webpack
     dev: true
 
-  /ember-svg-jar@2.4.7:
-    resolution: {integrity: sha512-W1PWqiQOAcNvUIomkZP5oi4JdV2eQPEuGLa1ic0LPhpx/OHKwtW35M1TTDQ+YWwCnKJf0uh/Bl8ZumVw38YXBQ==}
+  /ember-svg-jar@2.4.8:
+    resolution: {integrity: sha512-xXfPzpJ+aP9k4w6FOboAcABdoK1VF+12sTM6y8CJI4biLNzphmkQ0zFr+m+8w9U8PPTUlaRqeJShTGOa4y9z6g==}
     engines: {node: 12.* || 14.* || >= 16}
     dependencies:
       '@embroider/macros': 1.13.4
@@ -13610,7 +13605,7 @@ packages:
     dependencies:
       chalk: 2.4.2
       cli-cursor: 2.1.0
-      cli-spinners: 2.9.1
+      cli-spinners: 2.9.2
       log-symbols: 2.2.0
       strip-ansi: 5.2.0
       wcwidth: 1.0.1
@@ -13623,7 +13618,7 @@ packages:
       bl: 4.1.0
       chalk: 4.1.2
       cli-cursor: 3.1.0
-      cli-spinners: 2.9.1
+      cli-spinners: 2.9.2
       is-interactive: 1.0.0
       is-unicode-supported: 0.1.0
       log-symbols: 4.1.0
