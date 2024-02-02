@@ -70,7 +70,7 @@
     "rollup-plugin-copy": "^3.5.0",
     "rsvp": "^4.8.5",
     "typescript": "^5.3.3",
-    "webpack": "^5.90.0"
+    "webpack": "^5.90.1"
   },
   "peerDependencies": {
     "ember-source": "^4.0.0 || ^5.0.0",
