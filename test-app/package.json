@@ -58,7 +58,7 @@
     "concurrently": "^8.2.2",
     "ember-auto-import": "^2.7.2",
     "ember-cli": "~5.4.0",
-    "ember-cli-addon-docs": "~7.0.0",
+    "ember-cli-addon-docs": "~7.0.1",
     "ember-cli-addon-docs-yuidoc": "^1.0.0",
     "ember-cli-babel": "^8.2.0",
     "ember-cli-code-coverage": "^2.0.3",
