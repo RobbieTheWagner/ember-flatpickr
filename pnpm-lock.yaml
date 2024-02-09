@@ -179,7 +179,7 @@ importers:
         version: 5.6.0
       ember-cli-addon-docs:
         specifier: ~7.0.1
-        version: 7.0.1(@babel/core@7.23.9)(@ember/test-helpers@2.7.0)(ember-data@5.3.0)(ember-fetch@8.1.2)(ember-source@5.6.0)(webpack@5.90.1)
+        version: 7.0.1(@babel/core@7.23.9)(@ember/test-helpers@3.2.1)(ember-data@5.3.0)(ember-fetch@8.1.2)(ember-source@5.6.0)(webpack@5.90.1)
       ember-cli-addon-docs-yuidoc:
         specifier: ^1.0.0
         version: 1.0.0
@@ -219,6 +219,9 @@ importers:
       ember-data:
         specifier: 5.3.0
         version: 5.3.0(@babel/core@7.23.9)(@ember/string@3.1.1)(@glimmer/tracking@1.1.2)(ember-source@5.6.0)
+      ember-element-helper:
+        specifier: ^0.8.5
+        version: 0.8.5(ember-source@5.6.0)
       ember-fetch:
         specifier: ^8.0.2
         version: 8.1.2
@@ -252,6 +255,9 @@ importers:
       ember-template-lint:
         specifier: ^5.13.0
         version: 5.13.0
+      ember-truth-helpers:
+        specifier: ^4.0.3
+        version: 4.0.3(ember-source@5.6.0)
       ember-try:
         specifier: ^3.0.0
         version: 3.0.0
@@ -7594,7 +7600,7 @@ packages:
       - supports-color
     dev: true
 
-  /ember-cli-addon-docs@7.0.1(@babel/core@7.23.9)(@ember/test-helpers@2.7.0)(ember-data@5.3.0)(ember-fetch@8.1.2)(ember-source@5.6.0)(webpack@5.90.1):
+  /ember-cli-addon-docs@7.0.1(@babel/core@7.23.9)(@ember/test-helpers@3.2.1)(ember-data@5.3.0)(ember-fetch@8.1.2)(ember-source@5.6.0)(webpack@5.90.1):
     resolution: {integrity: sha512-5XIlga3wPZ/XZi3I0LxRVPaeojRnT0zGA+L3eR3B1VlvVeWeMXQOvgM3k92/6331ncbBmtxKZMgrG54rSOdo5w==}
     engines: {node: '>= 18'}
     peerDependencies:

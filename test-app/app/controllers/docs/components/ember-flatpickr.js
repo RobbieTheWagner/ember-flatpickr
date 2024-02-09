@@ -2,6 +2,10 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { next } from '@ember/runloop';
+import 'flatpickr/dist/l10n/de';
+import 'flatpickr/dist/l10n/fr';
+import 'flatpickr/dist/l10n/ru';
+import 'flatpickr/dist/l10n/uk';
 
 export default class EmberFlatpickr extends Controller {
   @tracked dateValue = null;
