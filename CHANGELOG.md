@@ -2,6 +2,15 @@
 
 
 
+
+## v7.0.0 (2024-02-09)
+
+#### :boom: Breaking Change
+* [#2036](https://github.com/RobbieTheWagner/ember-flatpickr/pull/2036) Require ember 4.8+ and test-helpers 3.x ([@AmauryD](https://github.com/AmauryD))
+
+#### Committers: 1
+- Amaury ([@AmauryD](https://github.com/AmauryD))
+
 ## v6.0.0 (2024-01-16)
 
 #### :boom: Breaking Change
