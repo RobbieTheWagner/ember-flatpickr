@@ -15,6 +15,7 @@ import {
   setFlatpickrDate,
 } from 'ember-flatpickr/test-support/helpers';
 import langs from 'flatpickr/dist/l10n';
+import 'flatpickr/dist/l10n/fr';
 
 const clickDay = async (index) => {
   await triggerEvent(findAll('.flatpickr-days .flatpickr-day')[index], 'click');
@@ -437,6 +438,33 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('maxDate', '2080-12-31T16:16:22.585Z');
     this.set('minDate', '2080-12-01T16:16:22.585Z');
     this.set('locale', langs.fr);
+
+    await render(hbs`<EmberFlatpickr
+      @date={{this.dateValue}}
+      @locale={{this.locale}}
+      @maxDate={{this.maxDate}}
+      @minDate={{this.minDate}}
+      @onChange={{null}}
+      placeholder="Pick date"
+    />`);
+
+    assert.strictEqual(
+      find(
+        '.flatpickr-current-month .flatpickr-monthDropdown-month',
+      ).textContent.trim(),
+      'décembre',
+      'French locale applied successfully',
+    );
+  });
+
+  test('locale as string works correctly', async function (assert) {
+    assert.expect(1);
+
+    this.set('dateValue', '2080-12-01T16:16:22.585Z');
+    this.set('maxDate', '2080-12-31T16:16:22.585Z');
+    this.set('minDate', '2080-12-01T16:16:22.585Z');
+
+    this.set('locale', 'fr');
 
     await render(hbs`<EmberFlatpickr
       @date={{this.dateValue}}

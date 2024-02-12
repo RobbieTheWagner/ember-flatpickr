@@ -2,3 +2,10 @@
 // These will *not* be published as part of your addon, so be careful that your published code does not rely on them!
 import "ember-source/types/stable";
 import "ember-source/types/preview";
+import type flatpickr from "flatpickr";
+
+declare global {
+  interface Window {
+    flatpickr: flatpickr;
+  }
+}

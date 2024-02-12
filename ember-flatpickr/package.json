@@ -88,7 +88,8 @@
   },
   "ember-addon": {
     "app-js": {
-      "./components/ember-flatpickr.js": "./dist/_app_/components/ember-flatpickr.js"
+      "./components/ember-flatpickr.js": "./dist/_app_/components/ember-flatpickr.js",
+      "./initializers/ember-flatpickr.js": "./dist/_app_/initializers/ember-flatpickr.js"
     },
     "main": "addon-main.cjs",
     "type": "addon",
