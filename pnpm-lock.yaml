@@ -179,7 +179,7 @@ importers:
         version: 5.6.0
       ember-cli-addon-docs:
         specifier: ~7.0.1
-        version: 7.0.1(@babel/core@7.23.9)(@ember/test-helpers@2.7.0)(ember-data@5.3.0)(ember-fetch@8.1.2)(ember-source@5.6.0)(webpack@5.90.1)
+        version: 7.0.1(@babel/core@7.23.9)(@ember/test-helpers@3.2.1)(ember-data@5.3.0)(ember-fetch@8.1.2)(ember-source@5.6.0)(webpack@5.90.1)
       ember-cli-addon-docs-yuidoc:
         specifier: ^1.0.0
         version: 1.0.0
@@ -271,8 +271,8 @@ importers:
         specifier: ^5.1.3
         version: 5.1.3(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.2.5)
       eslint-plugin-qunit:
-        specifier: ^8.0.1
-        version: 8.0.1(eslint@8.56.0)
+        specifier: ^8.1.1
+        version: 8.1.1(eslint@8.56.0)
       flatpickr:
         specifier: ^4.0.0
         version: 4.6.13
@@ -7594,7 +7594,7 @@ packages:
       - supports-color
     dev: true
 
-  /ember-cli-addon-docs@7.0.1(@babel/core@7.23.9)(@ember/test-helpers@2.7.0)(ember-data@5.3.0)(ember-fetch@8.1.2)(ember-source@5.6.0)(webpack@5.90.1):
+  /ember-cli-addon-docs@7.0.1(@babel/core@7.23.9)(@ember/test-helpers@3.2.1)(ember-data@5.3.0)(ember-fetch@8.1.2)(ember-source@5.6.0)(webpack@5.90.1):
     resolution: {integrity: sha512-5XIlga3wPZ/XZi3I0LxRVPaeojRnT0zGA+L3eR3B1VlvVeWeMXQOvgM3k92/6331ncbBmtxKZMgrG54rSOdo5w==}
     engines: {node: '>= 18'}
     peerDependencies:
@@ -9370,8 +9370,8 @@ packages:
       synckit: 0.8.8
     dev: true
 
-  /eslint-plugin-qunit@8.0.1(eslint@8.56.0):
-    resolution: {integrity: sha512-3bFOPryXoQOez95oP/JfWTxHBc/bgDQQZqTuv9uYTwH5sdIvSM2TES1iHDcy/F/LvqiqIpscDAOPAjlqSCnNPg==}
+  /eslint-plugin-qunit@8.1.1(eslint@8.56.0):
+    resolution: {integrity: sha512-j3xhiAf2Wvr8Dfwl5T6tlJ+F55vqYE9ZdAHUOTzq1lGerYrXzOS46RvK4SSWug2D8sl3ZYr2lA4/hgVXgLloxw==}
     engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
     dependencies:
       eslint-utils: 3.0.0(eslint@8.56.0)
