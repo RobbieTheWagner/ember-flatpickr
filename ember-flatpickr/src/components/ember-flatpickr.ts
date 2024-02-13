@@ -10,7 +10,6 @@ import flatpickr from 'flatpickr';
 /* Replace getOwner from @ember/application to @ember/owner when we can do a conditional macro for ember < 4.10 or ember 4.x is not supported by ember-flatpickr anymore  */
 import { getOwner } from '@ember/application';
 
-
 interface EmberFlatpickrArgs extends FlatpickrOptions {
   date: FlatpickrOptions['defaultDate'];
   disabled: boolean;
@@ -18,7 +17,7 @@ interface EmberFlatpickrArgs extends FlatpickrOptions {
 
 type FastbootService = {
   isFastBoot: boolean;
-}
+};
 
 /**
  * Ember component that wraps the lightweight [`flatpickr`](https://flatpickr.js.org) datetime
@@ -92,19 +91,19 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
     // Require that users pass a date
     assert(
       '<EmberFlatpickr> requires a `date` to be passed as the value for flatpickr.',
-      date !== undefined
+      date !== undefined,
     );
 
     // Require that users pass an onChange
     assert(
       '<EmberFlatpickr> requires an `onChange` action or null for no action.',
-      onChange !== undefined
+      onChange !== undefined,
     );
 
     // Wrap is not supported
     assert(
       '<EmberFlatpickr> does not support the wrap option. Please see documentation for an alternative.',
-      wrap !== true
+      wrap !== true,
     );
 
     // Pass all values and setup flatpickr
@@ -112,7 +111,9 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
   }
 
   _setFlatpickrOptions(element: HTMLInputElement): void {
-    const fastboot = getOwner(this)?.lookup('service:fastboot') as unknown as (FastbootService | undefined);
+    const fastboot = getOwner(this)?.lookup('service:fastboot') as unknown as
+      | FastbootService
+      | undefined;
 
     if (fastboot && fastboot['isFastBoot']) {
       return;
@@ -129,7 +130,7 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
     } = this.args;
 
     const config: Partial<FlatpickrOptions> = Object.fromEntries(
-      Object.entries(rest).filter((entry) => entry[1] !== undefined)
+      Object.entries(rest).filter((entry) => entry[1] !== undefined),
     );
 
     this.flatpickrRef = flatpickr(element, {

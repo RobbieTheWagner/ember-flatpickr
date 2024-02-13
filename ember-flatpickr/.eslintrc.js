@@ -30,12 +30,8 @@ module.exports = {
         './.prettierrc.js',
         './.stylelintrc.js',
         './.template-lintrc.js',
-        './ember-cli-build.js',
-        './index.js',
-        './testem.js',
+        './addon-main.cjs',
         './blueprints/*/index.js',
-        './config/**/*.js',
-        './tests/dummy/config/**/*.js',
       ],
       parserOptions: {
         sourceType: 'script',
@@ -49,17 +45,12 @@ module.exports = {
     // Typescript files
     {
       parser: '@typescript-eslint/parser',
-      files: ['addon/**/*.ts'],
+      files: ['src/**/*.ts'],
       plugins: ['@typescript-eslint'],
       extends: ['plugin:@typescript-eslint/recommended'],
       rules: {
         'prefer-rest-params': 'off',
       },
-    },
-    {
-      // test files
-      files: ['tests/**/*-test.{js,ts}'],
-      extends: ['plugin:qunit/recommended'],
     },
   ],
 };
