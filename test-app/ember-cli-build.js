@@ -19,16 +19,4 @@ module.exports = function (defaults) {
   const { maybeEmbroider } = require('@embroider/test-setup');
 
   return maybeEmbroider(app);
-
-  // bundle analyzer
-  // const { Webpack } = require('@embroider/webpack');
-  // const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-
-  // return require('@embroider/compat').compatBuild(app, Webpack, {
-  //   packagerOptions: {
-  //     webpackConfig: {
-  //       plugins: [new BundleAnalyzerPlugin()],
-  //     },
-  //   },
-  // });
 };

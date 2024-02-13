@@ -45,7 +45,7 @@ module.exports = {
     // Typescript files
     {
       parser: '@typescript-eslint/parser',
-      files: ['src/**/*.ts'],
+      files: ['src/**/*.ts', 'unpublished-development-types/**/*.ts'],
       plugins: ['@typescript-eslint'],
       extends: ['plugin:@typescript-eslint/recommended'],
       rules: {
