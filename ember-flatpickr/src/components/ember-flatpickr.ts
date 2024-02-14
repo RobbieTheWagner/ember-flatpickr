@@ -110,7 +110,7 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
     scheduleOnce('afterRender', this, this._setFlatpickrOptions, element);
   }
 
-  _setFlatpickrOptions(element: HTMLInputElement): void {
+  async _setFlatpickrOptions(element: HTMLInputElement): Promise<void> {
     const fastboot = getOwner(this)?.lookup('service:fastboot') as unknown as
       | FastbootService
       | undefined;
@@ -132,6 +132,10 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
     const config: Partial<FlatpickrOptions> = Object.fromEntries(
       Object.entries(rest).filter((entry) => entry[1] !== undefined),
     );
+
+    if (typeof this.args.locale === 'string') {
+      await import(`flatpickr/dist/l10n/${this.args.locale}.js`);
+    }
 
     this.flatpickrRef = flatpickr(element, {
       onChange,

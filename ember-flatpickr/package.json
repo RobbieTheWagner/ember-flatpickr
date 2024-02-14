@@ -42,8 +42,7 @@
   "dependencies": {
     "@ember/render-modifiers": "^2.0.3",
     "@ember/test-helpers": "~3.3.0",
-    "@embroider/addon-shim": "^1.8.7",
-    "@embroider/macros": "^1.13.5"
+    "@embroider/addon-shim": "^1.8.7"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",
@@ -89,8 +88,7 @@
   },
   "ember-addon": {
     "app-js": {
-      "./components/ember-flatpickr.js": "./dist/_app_/components/ember-flatpickr.js",
-      "./initializers/ember-flatpickr.js": "./dist/_app_/initializers/ember-flatpickr.js"
+      "./components/ember-flatpickr.js": "./dist/_app_/components/ember-flatpickr.js"
     },
     "main": "addon-main.cjs",
     "type": "addon",

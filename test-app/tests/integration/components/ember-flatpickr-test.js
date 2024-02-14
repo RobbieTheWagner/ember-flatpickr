@@ -7,6 +7,7 @@ import {
   find,
   findAll,
   triggerEvent,
+  waitFor,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import {
@@ -15,7 +16,6 @@ import {
   setFlatpickrDate,
 } from 'ember-flatpickr/test-support/helpers';
 import langs from 'flatpickr/dist/l10n';
-import 'flatpickr/dist/l10n/fr';
 
 const clickDay = async (index) => {
   await triggerEvent(findAll('.flatpickr-days .flatpickr-day')[index], 'click');
@@ -474,6 +474,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       @onChange={{null}}
       placeholder="Pick date"
     />`);
+
+    await waitFor('.flatpickr-current-month .flatpickr-monthDropdown-month');
 
     assert.strictEqual(
       find(
