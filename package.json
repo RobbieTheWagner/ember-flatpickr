@@ -24,7 +24,7 @@
     "@release-it-plugins/lerna-changelog": "^6.1.0",
     "@release-it-plugins/workspaces": "^4.2.0",
     "concurrently": "^8.0.1",
-    "release-it": "^17.0.3"
+    "release-it": "^17.0.5"
   },
   "engines": {
     "node": "18.* || >= 20",
