@@ -9,6 +9,7 @@ import type { BaseOptions as FlatpickrOptions } from 'flatpickr/dist/types/optio
 import flatpickr from 'flatpickr';
 /* Replace getOwner from @ember/application to @ember/owner when we can do a conditional macro for ember < 4.10 or ember 4.x is not supported by ember-flatpickr anymore  */
 import { getOwner } from '@ember/application';
+import { waitFor } from '@ember/test-waiters';
 
 interface EmberFlatpickrArgs extends FlatpickrOptions {
   date: FlatpickrOptions['defaultDate'];
@@ -110,6 +111,7 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
     scheduleOnce('afterRender', this, this._setFlatpickrOptions, element);
   }
 
+  @waitFor
   async _setFlatpickrOptions(element: HTMLInputElement): Promise<void> {
     const fastboot = getOwner(this)?.lookup('service:fastboot') as unknown as
       | FastbootService
