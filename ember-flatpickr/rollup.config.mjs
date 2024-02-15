@@ -29,8 +29,7 @@ export default {
       'components/**/*.js',
       'helpers/**/*.js',
       'modifiers/**/*.js',
-      'services/**/*.js',
-      'initializers/**/*.js',
+      'services/**/*.js'
     ]),
 
     // Follow the V2 Addon rules about dependencies. Your code can import from
