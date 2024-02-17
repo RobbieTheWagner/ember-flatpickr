@@ -7,6 +7,7 @@ import {
   find,
   findAll,
   triggerEvent,
+  waitFor,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import {
@@ -473,6 +474,8 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       @onChange={{null}}
       placeholder="Pick date"
     />`);
+
+    await waitFor('.flatpickr-current-month .flatpickr-monthDropdown-month');
 
     assert.strictEqual(
       find(
