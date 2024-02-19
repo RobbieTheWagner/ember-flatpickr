@@ -7,6 +7,7 @@ import {
   find,
   findAll,
   triggerEvent,
+  waitFor,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import {
@@ -446,6 +447,35 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       @onChange={{null}}
       placeholder="Pick date"
     />`);
+
+    assert.strictEqual(
+      find(
+        '.flatpickr-current-month .flatpickr-monthDropdown-month',
+      ).textContent.trim(),
+      'décembre',
+      'French locale applied successfully',
+    );
+  });
+
+  test('locale as string works correctly', async function (assert) {
+    assert.expect(1);
+
+    this.set('dateValue', '2080-12-01T16:16:22.585Z');
+    this.set('maxDate', '2080-12-31T16:16:22.585Z');
+    this.set('minDate', '2080-12-01T16:16:22.585Z');
+
+    this.set('locale', 'fr');
+
+    await render(hbs`<EmberFlatpickr
+      @date={{this.dateValue}}
+      @locale={{this.locale}}
+      @maxDate={{this.maxDate}}
+      @minDate={{this.minDate}}
+      @onChange={{null}}
+      placeholder="Pick date"
+    />`);
+
+    await waitFor('.flatpickr-current-month .flatpickr-monthDropdown-month');
 
     assert.strictEqual(
       find(
