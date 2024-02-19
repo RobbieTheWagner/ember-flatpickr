@@ -1,0 +1,5 @@
+(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[7949],{7949:function(a,e){!function(a){"use strict"
+var e="undefined"!=typeof window&&void 0!==window.flatpickr?window.flatpickr:{l10ns:{}},r={weekdays:{shorthand:["Paz","Pzt","Sal","Çar","Per","Cum","Cmt"],longhand:["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"]},months:{shorthand:["Oca","Şub","Mar","Nis","May","Haz","Tem","Ağu","Eyl","Eki","Kas","Ara"],longhand:["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"]},firstDayOfWeek:1,ordinal:function(){return"."},rangeSeparator:" - ",weekAbbreviation:"Hf",scrollTitle:"Artırmak için kaydırın",toggleTitle:"Aç/Kapa",amPM:["ÖÖ","ÖS"],time_24hr:!0}
+e.l10ns.tr=r
+var t=e.l10ns
+a.Turkish=r,a.default=t,Object.defineProperty(a,"__esModule",{value:!0})}(e)}}])
