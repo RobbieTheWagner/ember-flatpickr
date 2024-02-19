@@ -219,6 +219,9 @@ importers:
       ember-data:
         specifier: 5.3.0
         version: 5.3.0(@babel/core@7.23.9)(@ember/string@3.1.1)(@glimmer/tracking@1.1.2)(ember-source@5.6.0)
+      ember-element-helper:
+        specifier: ^0.8.5
+        version: 0.8.5(ember-source@5.6.0)
       ember-fetch:
         specifier: ^8.0.2
         version: 8.1.2
@@ -252,6 +255,9 @@ importers:
       ember-template-lint:
         specifier: ^5.13.0
         version: 5.13.0
+      ember-truth-helpers:
+        specifier: ^4.0.3
+        version: 4.0.3(ember-source@5.6.0)
       ember-try:
         specifier: ^3.0.0
         version: 3.0.0
@@ -3810,6 +3816,9 @@ packages:
 
   /ajv-formats@2.1.1:
     resolution: {integrity: sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==}
+    peerDependenciesMeta:
+      ajv:
+        optional: true
     dependencies:
       ajv: 8.12.0
 
