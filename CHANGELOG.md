@@ -3,6 +3,15 @@
 
 
 
+
+## v7.1.0 (2024-02-19)
+
+#### :rocket: Enhancement
+* [#2047](https://github.com/RobbieTheWagner/ember-flatpickr/pull/2047) Dynamically import locales ([@AmauryD](https://github.com/AmauryD))
+
+#### Committers: 1
+- Amaury ([@AmauryD](https://github.com/AmauryD))
+
 ## v7.0.0 (2024-02-09)
 
 #### :boom: Breaking Change
