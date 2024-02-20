@@ -1,5 +1,3 @@
-import { deprecate } from '@ember/debug';
-import { registerHelper } from '@ember/test';
 import { find } from '@ember/test-helpers';
 
 /**
@@ -51,40 +49,6 @@ export function clearFlatpickrDate(selector) {
     selector instanceof HTMLElement ? selector : find(selector);
   if (!flatpickrInput) _throwSelectorError(selector, 'clearFlatpickrDate');
   flatpickrInput._flatpickr.clear(); // eslint-disable-line
-}
-
-// Registers helpers for acceptance tests
-
-export default function () {
-  registerHelper('closeFlatpickrDate', function (app, selector) {
-    deprecate(
-      'Using the implicit global helper `closeFlatpickrDate` is deprecated. Please, import it explicitly with `import { closeFlatpickrDate } from "ember-flatpickr/test-support"`',
-      true,
-      { id: 'ember-flatpickr-global-close-flatpickr-date', until: '3.0.0' },
-    );
-    return closeFlatpickrDate(selector);
-  });
-
-  registerHelper(
-    'setFlatpickrDate',
-    function (app, selector, date, triggerChange) {
-      deprecate(
-        'Using the implicit global helper `setFlatpickrDate` is deprecated. Please, import it explicitly with `import { setFlatpickrDate } from "ember-flatpickr/test-support"`',
-        true,
-        { id: 'ember-flatpickr-global-set-flatpickr-date', until: '3.0.0' },
-      );
-      return setFlatpickrDate(selector, date, triggerChange);
-    },
-  );
-
-  registerHelper('clearFlatpickrDate', function (app, selector) {
-    deprecate(
-      'Using the implicit global helper `clearFlatpickrDate` is deprecated. Please, import it explicitly with `import { clearFlatpickrDate } from "ember-flatpickr/test-support"`',
-      true,
-      { id: 'ember-flatpickr-global-clear-flatpickr-date', until: '3.0.0' },
-    );
-    return clearFlatpickrDate(selector);
-  });
 }
 
 function _throwSelectorError(selector, functionName) {
