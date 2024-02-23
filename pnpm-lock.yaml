@@ -187,8 +187,8 @@ importers:
         specifier: ^8.2.0
         version: 8.2.0(@babel/core@7.23.9)
       ember-cli-code-coverage:
-        specifier: ^2.0.3
-        version: 2.0.3
+        specifier: ^2.1.1
+        version: 2.1.1
       ember-cli-dependency-checker:
         specifier: ^3.3.2
         version: 3.3.2(ember-cli@5.6.0)
@@ -7820,8 +7820,8 @@ packages:
       - webpack
     dev: true
 
-  /ember-cli-code-coverage@2.0.3:
-    resolution: {integrity: sha512-xBItw4kPffuy4QVCniBSwvyzFJiwU/+tqTyoyshug9LtiRDOaOepPVuQ8Ig+e5sYmxp3OXXcaR9iK5IY2J62Zg==}
+  /ember-cli-code-coverage@2.1.1:
+    resolution: {integrity: sha512-WP/XdyvtHMzg/WWPJvmC+FXgLRwCLOu9N0WZINTKQSXoYHxcFjLpQFH4Yw+jUmX2iFa5H9yUKKxNIXWY9FwGiw==}
     engines: {node: 14.* || 16.* || >= 18}
     peerDependencies:
       '@embroider/compat': ^0.47.0 || ^1.0.0 || ^2.0.0 || >=3.0.0
@@ -7839,6 +7839,7 @@ packages:
       fs-extra: 9.1.0
       istanbul-lib-coverage: 3.2.2
       istanbul-lib-report: 3.0.1
+      istanbul-lib-source-maps: 4.0.1
       istanbul-reports: 3.1.6
       node-dir: 0.1.17
       walk-sync: 2.2.0
@@ -11850,6 +11851,17 @@ packages:
       istanbul-lib-coverage: 3.2.2
       make-dir: 4.0.0
       supports-color: 7.2.0
+    dev: true
+
+  /istanbul-lib-source-maps@4.0.1:
+    resolution: {integrity: sha512-n3s8EwkdFIJCG3BPKBYvskgXGoy88ARzvegkitk60NxRdwltLOTaH7CUiMRXvwYorl0Q712iEjcWB+fK/MrWVw==}
+    engines: {node: '>=10'}
+    dependencies:
+      debug: 4.3.4
+      istanbul-lib-coverage: 3.2.2
+      source-map: 0.6.1
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /istanbul-reports@3.1.6:
