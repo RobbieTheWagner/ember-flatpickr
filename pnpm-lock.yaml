@@ -181,8 +181,8 @@ importers:
         specifier: ~7.0.1
         version: 7.0.1(@babel/core@7.23.9)(@ember/test-helpers@3.3.0)(ember-data@5.3.0)(ember-fetch@8.1.2)(ember-source@5.6.0)(webpack@5.90.3)
       ember-cli-addon-docs-yuidoc:
-        specifier: ^1.0.0
-        version: 1.0.0
+        specifier: ^1.1.0
+        version: 1.1.0
       ember-cli-babel:
         specifier: ^8.2.0
         version: 8.2.0(@babel/core@7.23.9)
@@ -7586,8 +7586,8 @@ packages:
       - supports-color
     dev: true
 
-  /ember-cli-addon-docs-yuidoc@1.0.0:
-    resolution: {integrity: sha512-q7tNVbD4niPgXEQ1Exfeh7Mfiwi3sbT5IG8vXgAumpJgATouTJrk3MGeZjInR7x6CV0AKDiExF/BdMwAshTmrg==}
+  /ember-cli-addon-docs-yuidoc@1.1.0:
+    resolution: {integrity: sha512-Cx8znIPNJA/mlpKdS/F+lRTExuTzvUIkk1Nr6FNWfaNJlrFAtaN6QgSEcGi09lHdjNOcgFvuriPMoW1Y9XHAiA==}
     engines: {node: 10.* || >= 12}
     dependencies:
       broccoli-caching-writer: 3.0.3
