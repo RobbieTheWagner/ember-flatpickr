@@ -232,8 +232,8 @@ importers:
         specifier: ^2.1.2
         version: 2.1.2(@babel/core@7.24.0)
       ember-page-title:
-        specifier: ^8.2.2
-        version: 8.2.2(ember-source@5.7.0)
+        specifier: ^8.2.3
+        version: 8.2.3(ember-source@5.7.0)
       ember-power-select:
         specifier: ^7.2.0
         version: 7.2.0(@babel/core@7.24.0)(ember-source@5.7.0)(webpack@5.90.3)
@@ -9261,8 +9261,8 @@ packages:
       - supports-color
     dev: true
 
-  /ember-page-title@8.2.2(ember-source@5.7.0):
-    resolution: {integrity: sha512-DpIVgDaYstMSvHuhjG8QRnyfFD+E9/uy9GXO35kzmHaCg2hGB4e5Z6jcfitk8qh/lp5VRX8Tpl4HTBX+CKwMWw==}
+  /ember-page-title@8.2.3(ember-source@5.7.0):
+    resolution: {integrity: sha512-9XH4EVPCpSCyXRsLPzdDydU4HgQnaVeJJTrRF0WVh5bZERI9DgxuHv1NPmZU28todHRH91KcBc5nx8kIVJmqUw==}
     engines: {node: 16.* || >= 18}
     peerDependencies:
       ember-source: '>= 3.28.0'
