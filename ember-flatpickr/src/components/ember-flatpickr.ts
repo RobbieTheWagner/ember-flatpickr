@@ -133,7 +133,7 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
       Object.entries(rest).filter((entry) => entry[1] !== undefined),
     );
 
-    if (typeof this.args.locale === 'string') {
+    if (typeof this.args.locale === 'string' && this.args.locale !== "en") {
       await import(`flatpickr/dist/l10n/${this.args.locale}.js`);
     }
 
