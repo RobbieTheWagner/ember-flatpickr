@@ -1,0 +1,14 @@
+@import "flatpickr/dist/flatpickr.css";
+@import "flatpickr/dist/themes/dark.css";
+
+:root {
+  --brand-primary: #ef898b;
+}
+
+body {
+  background-color: white !important;
+}
+
+.hero {
+  padding: 0 2rem;
+}

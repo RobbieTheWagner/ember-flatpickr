@@ -1,0 +1,3 @@
+(globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[3220],{3220:function(a,e){!function(a){"use strict"
+var e=("undefined"!=typeof window&&void 0!==window.flatpickr?window.flatpickr:{l10ns:{}}).l10ns
+a.Malaysian={weekdays:{shorthand:["Aha","Isn","Sel","Rab","Kha","Jum","Sab"],longhand:["Ahad","Isnin","Selasa","Rabu","Khamis","Jumaat","Sabtu"]},months:{shorthand:["Jan","Feb","Mac","Apr","Mei","Jun","Jul","Ogo","Sep","Okt","Nov","Dis"],longhand:["Januari","Februari","Mac","April","Mei","Jun","Julai","Ogos","September","Oktober","November","Disember"]},firstDayOfWeek:1,ordinal:function(){return""}},a.default=e,Object.defineProperty(a,"__esModule",{value:!0})}(e)}}])
