@@ -12,6 +12,7 @@
 /coverage/
 /npm-debug.log*
 /testem.log
+/tmp/
 /yarn-error.log
 
 # ember-try

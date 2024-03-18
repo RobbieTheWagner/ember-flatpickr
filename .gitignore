@@ -9,3 +9,4 @@ node_modules/
 npm-debug.log*
 yarn-error.log
 .eslintcache
+/deploy-test-app/
