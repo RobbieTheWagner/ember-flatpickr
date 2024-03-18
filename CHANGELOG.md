@@ -4,6 +4,19 @@
 
 
 
+
+## v8.0.0 (2024-03-18)
+
+#### :boom: Breaking Change
+* [#2065](https://github.com/RobbieTheWagner/ember-flatpickr/pull/2065) Remove old registerHelper in favor of importing helpers directly ([@AmauryD](https://github.com/AmauryD))
+
+#### :bug: Bug Fix
+* [#2098](https://github.com/RobbieTheWagner/ember-flatpickr/pull/2098) fix(locale): don't try dynamically importing the default locale ([@anehx](https://github.com/anehx))
+
+#### Committers: 2
+- Amaury ([@AmauryD](https://github.com/AmauryD))
+- Jonas Metzener ([@anehx](https://github.com/anehx))
+
 ## v7.1.0 (2024-02-19)
 
 #### :rocket: Enhancement
