@@ -1,5 +1,26 @@
 # Changelog
 
+## Release (2024-08-06)
+
+ember-flatpickr 8.0.1 (patch)
+
+#### :bug: Bug Fix
+* `ember-flatpickr`, `test-app`
+  * [#2100](https://github.com/RobbieTheWagner/ember-flatpickr/pull/2100) bugfix: Waited for dynamic import to resolve ([@ijlee2](https://github.com/ijlee2))
+
+#### :memo: Documentation
+* `test-app`
+  * [#2064](https://github.com/RobbieTheWagner/ember-flatpickr/pull/2064) Cleanup localization documentation ([@AmauryD](https://github.com/AmauryD))
+
+#### :house: Internal
+* `ember-flatpickr`, `test-app`
+  * [#2101](https://github.com/RobbieTheWagner/ember-flatpickr/pull/2101) Allow latest pnpm ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
+#### Committers: 3
+- Amaury ([@AmauryD](https://github.com/AmauryD))
+- Isaac Lee ([@ijlee2](https://github.com/ijlee2))
+- Robbie Wagner ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
 ## v8.0.0 (2024-03-18)
 
 #### :boom: Breaking Change
