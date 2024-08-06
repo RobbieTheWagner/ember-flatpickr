@@ -79,7 +79,7 @@
   },
   "engines": {
     "node": "18.* || >= 20",
-    "pnpm": "^8.14.1"
+    "pnpm": "^9.6.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
