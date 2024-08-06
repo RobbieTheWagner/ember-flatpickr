@@ -6,8 +6,8 @@ import {
   render,
   find,
   findAll,
+  settled,
   triggerEvent,
-  waitFor,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import {
@@ -431,7 +431,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     assert.strictEqual(enabledDays[1].textContent, '25');
   });
 
-  test('locale works correctly', async function (assert) {
+  test('locale as object works correctly', async function (assert) {
     assert.expect(1);
 
     this.set('dateValue', '2080-12-01T16:16:22.585Z');
@@ -463,7 +463,6 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     this.set('dateValue', '2080-12-01T16:16:22.585Z');
     this.set('maxDate', '2080-12-31T16:16:22.585Z');
     this.set('minDate', '2080-12-01T16:16:22.585Z');
-
     this.set('locale', 'fr');
 
     await render(hbs`<EmberFlatpickr
@@ -475,8 +474,6 @@ module('Integration | Component | ember flatpickr', function (hooks) {
       placeholder="Pick date"
     />`);
 
-    await waitFor('.flatpickr-current-month .flatpickr-monthDropdown-month');
-
     assert.strictEqual(
       find(
         '.flatpickr-current-month .flatpickr-monthDropdown-month',
@@ -486,7 +483,7 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     );
   });
 
-  test('onLocaleUpdated fired', async function (assert) {
+  test('onLocaleUpdated (locale as object)', async function (assert) {
     assert.expect(1);
 
     this.set('dateValue', '2080-12-01T16:16:22.585Z');
@@ -504,6 +501,38 @@ module('Integration | Component | ember flatpickr', function (hooks) {
     />`);
 
     this.set('locale', langs.ru);
+    await settled();
+
+    await openFlatpickr();
+
+    assert.strictEqual(
+      find(
+        '.flatpickr-current-month .flatpickr-monthDropdown-month',
+      ).textContent.trim(),
+      'Декабрь',
+      'Russian locale applied successfully',
+    );
+  });
+
+  test('onLocaleUpdated (locale as string)', async function (assert) {
+    assert.expect(1);
+
+    this.set('dateValue', '2080-12-01T16:16:22.585Z');
+    this.set('maxDate', '2080-12-31T16:16:22.585Z');
+    this.set('minDate', '2080-12-01T16:16:22.585Z');
+    this.set('locale', 'fr');
+
+    await render(hbs`<EmberFlatpickr
+      @date={{this.dateValue}}
+      @locale={{this.locale}}
+      @maxDate={{this.maxDate}}
+      @minDate={{this.minDate}}
+      @onChange={{null}}
+      placeholder="Pick date"
+    />`);
+
+    this.set('locale', 'ru');
+    await settled();
 
     await openFlatpickr();
 
