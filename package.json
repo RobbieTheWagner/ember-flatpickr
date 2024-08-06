@@ -21,33 +21,11 @@
     "test": "pnpm --filter '*' test"
   },
   "devDependencies": {
-    "@release-it-plugins/lerna-changelog": "^6.1.0",
-    "@release-it-plugins/workspaces": "^4.2.0",
     "concurrently": "^8.0.1",
-    "release-it": "^17.1.1"
+    "release-plan": "^0.9.0"
   },
   "engines": {
     "node": "18.* || >= 20",
     "pnpm": "^8.14.1"
-  },
-  "release-it": {
-    "plugins": {
-      "@release-it-plugins/workspaces": {
-        "workspaces": [
-          "ember-flatpickr"
-        ]
-      },
-      "@release-it-plugins/lerna-changelog": {
-        "infile": "CHANGELOG.md"
-      }
-    },
-    "git": {
-      "tagName": "v${version}"
-    },
-    "github": {
-      "release": true,
-      "tokenRef": "GITHUB_AUTH"
-    },
-    "npm": false
   }
 }
