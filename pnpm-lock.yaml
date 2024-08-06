@@ -21,8 +21,11 @@ importers:
         specifier: ^2.0.3
         version: 2.1.0(@babel/core@7.24.0)(ember-source@5.7.0)
       '@ember/test-helpers':
-        specifier: ~3.3.0
+        specifier: ^3.3.0
         version: 3.3.0(ember-source@5.7.0)(webpack@5.90.3)
+      '@ember/test-waiters':
+        specifier: ^3.1.0
+        version: 3.1.0
       '@embroider/addon-shim':
         specifier: ^1.8.7
         version: 1.8.7

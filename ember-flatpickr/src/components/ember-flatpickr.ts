@@ -4,6 +4,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { scheduleOnce } from '@ember/runloop';
+import { waitForPromise } from '@ember/test-waiters';
 import type { Instance as FlatpickrInstance } from 'flatpickr/dist/types/instance';
 import type { BaseOptions as FlatpickrOptions } from 'flatpickr/dist/types/options';
 import flatpickr from 'flatpickr';
@@ -133,8 +134,10 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
       Object.entries(rest).filter((entry) => entry[1] !== undefined),
     );
 
-    if (typeof this.args.locale === 'string' && this.args.locale !== "en") {
-      await import(`flatpickr/dist/l10n/${this.args.locale}.js`);
+    if (typeof this.args.locale === 'string' && this.args.locale !== 'en') {
+      await waitForPromise(
+        import(`flatpickr/dist/l10n/${this.args.locale}.js`),
+      );
     }
 
     this.flatpickrRef = flatpickr(element, {
