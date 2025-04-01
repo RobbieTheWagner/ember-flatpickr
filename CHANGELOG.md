@@ -1,5 +1,10 @@
 # Changelog
 
+
+
+
+
+
 ## Release (2024-08-06)
 
 ember-flatpickr 8.0.1 (patch)
