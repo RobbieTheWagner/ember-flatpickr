@@ -4,12 +4,11 @@
       "@babel/plugin-transform-typescript",
       {
         "allExtensions": true,
-        "allowDeclareFields": true,
-        "onlyRemoveTypeImports": true
+        "onlyRemoveTypeImports": true,
+        "allowDeclareFields": true
       }
     ],
     "@embroider/addon-dev/template-colocation-plugin",
-    "@babel/plugin-transform-class-static-block",
     [
       "babel-plugin-ember-template-compilation",
       {
@@ -17,7 +16,9 @@
         "transforms": []
       }
     ],
-    ["@babel/plugin-proposal-decorators", { "version": "legacy" }],
-    "@babel/plugin-transform-class-properties"
+    [
+      "module:decorator-transforms",
+      { "runtime": { "import": "decorator-transforms/runtime" } }
+    ]
   ]
 }

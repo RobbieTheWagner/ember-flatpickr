@@ -4,12 +4,15 @@
   "packages": [
     {
       "name": "@embroider/addon-blueprint",
-      "version": "2.18.0",
+      "version": "4.1.1",
       "blueprints": [
         {
           "name": "@embroider/addon-blueprint",
           "isBaseBlueprint": true,
-          "options": ["--pnpm", "--typescript"]
+          "options": [
+            "--pnpm",
+            "--typescript"
+          ]
         }
       ]
     }
