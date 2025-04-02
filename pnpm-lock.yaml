@@ -264,6 +264,9 @@ importers:
       ember-fetch:
         specifier: ^8.1.2
         version: 8.1.2(encoding@0.1.13)
+      ember-flatpickr:
+        specifier: workspace:*
+        version: link:../ember-flatpickr
       ember-load-initializers:
         specifier: ^3.0.1
         version: 3.0.1(ember-source@6.4.0-beta.2(@glimmer/component@2.0.0)(rsvp@4.8.5))
