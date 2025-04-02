@@ -50,8 +50,6 @@ jobs:
           # This creates an .npmrc that reads the NODE_AUTH_TOKEN environment variable
           registry-url: 'https://registry.npmjs.org'
       - uses: pnpm/action-setup@v4
-        with:
-          version: 9
       - run: pnpm install --frozen-lockfile
       - name: npm publish
         run: pnpm release-plan publish
