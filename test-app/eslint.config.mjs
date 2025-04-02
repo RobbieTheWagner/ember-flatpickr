@@ -82,6 +82,10 @@ export default ts.config(
         ...globals.browser,
       },
     },
+    rules: {
+      'ember/no-at-ember-render-modifiers': 'off',
+      'ember/no-runloop': 'off',
+    },
   },
   {
     files: ['**/*.{ts,gts}'],
@@ -90,6 +94,10 @@ export default ts.config(
       parserOptions: parserOptions.esm.ts,
     },
     extends: [...ts.configs.recommendedTypeChecked, ember.configs.gts],
+    rules: {
+      'ember/no-at-ember-render-modifiers': 'off',
+      'ember/no-runloop': 'off',
+    },
   },
   {
     files: ['tests/**/*-test.{js,gjs,ts,gts}'],

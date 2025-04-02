@@ -3,20 +3,20 @@
 ## Date/Time Picker
 
 <DocsDemo as |demo|>
-  <demo.example @name="date-time-picker.hbs">
-    <EmberFlatpickr
-      class={{this.classString}}
-      placeholder="Pick date"
-      @allowInput={{true}}
-      @date={{this.dateValue}}
-      @enableTime={{true}}
-      @locale={{this.locale}}
-      @minDate={{this.minDate}}
-      @onClose={{this.onClose}}
-      @onChange={{this.onDateChange}}
-      @onReady={{this.onReady}}
-    />
-  </demo.example>
+<demo.example @name="date-time-picker.hbs">
+<EmberFlatpickr
+class={{this.classString}}
+placeholder="Pick date"
+@allowInput={{true}}
+@date={{this.dateValue}}
+@enableTime={{true}}
+@locale={{this.locale}}
+@minDate={{this.minDate}}
+@onClose={{this.onClose}}
+@onChange={{this.onDateChange}}
+@onReady={{this.onReady}}
+/>
+</demo.example>
 
   <div class="docs-m-4">
     <p class="selectedValue">
@@ -52,21 +52,21 @@
 ## Range Date/Time Picker
 
 <DocsDemo as |demo|>
-  <demo.example @name="range-date-time-picker.hbs">
-    <EmberFlatpickr
-      class={{this.classString}}
-      placeholder="Pick dates"
-      @allowInput={{true}}
-      @date={{this.dateRangeValue}}
-      @enableTime={{true}}
-      @locale={{this.locale}}
-      @mode="range"
-      @minDate={{this.minDate}}
-      @onClose={{this.onClose}}
-      @onChange={{this.onDatesChange}}
-      @onReady={{this.onReady}}
-    />
-  </demo.example>
+<demo.example @name="range-date-time-picker.hbs">
+<EmberFlatpickr
+class={{this.classString}}
+placeholder="Pick dates"
+@allowInput={{true}}
+@date={{this.dateRangeValue}}
+@enableTime={{true}}
+@locale={{this.locale}}
+@mode="range"
+@minDate={{this.minDate}}
+@onClose={{this.onClose}}
+@onChange={{this.onDatesChange}}
+@onReady={{this.onReady}}
+/>
+</demo.example>
 
   <div class="docs-m-4">
     <p class="selectedValue">
@@ -102,20 +102,20 @@
 ## Time Picker
 
 <DocsDemo as |demo|>
-  <demo.example @name="time-picker.hbs">
-    <EmberFlatpickr
-      class={{this.classString}}
-      placeholder="Pick time"
-      @date={{this.timeValue}}
-      @enableTime={{true}}
-      @locale={{this.locale}}
-      @minDate={{this.minDate}}
-      @noCalendar={{true}}
-      @onClose={{this.onCloseTime}}
-      @onChange={{this.onTimeChange}}
-      @onReady={{this.onReadyTime}}
-    />
-  </demo.example>
+<demo.example @name="time-picker.hbs">
+<EmberFlatpickr
+class={{this.classString}}
+placeholder="Pick time"
+@date={{this.timeValue}}
+@enableTime={{true}}
+@locale={{this.locale}}
+@minDate={{this.minDate}}
+@noCalendar={{true}}
+@onClose={{this.onCloseTime}}
+@onChange={{this.onTimeChange}}
+@onReady={{this.onReadyTime}}
+/>
+</demo.example>
 
   <div class="docs-m-4">
     <p class="selectedValue">

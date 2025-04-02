@@ -12,20 +12,20 @@
  *     npx eslint --inspect-config
  *
  */
-import babelParser from '@babel/eslint-parser';
-import js from '@eslint/js';
-import prettier from 'eslint-config-prettier';
-import ember from 'eslint-plugin-ember/recommended';
-import importPlugin from 'eslint-plugin-import';
-import n from 'eslint-plugin-n';
-import globals from 'globals';
-import ts from 'typescript-eslint';
+import babelParser from "@babel/eslint-parser";
+import js from "@eslint/js";
+import prettier from "eslint-config-prettier";
+import ember from "eslint-plugin-ember/recommended";
+import importPlugin from "eslint-plugin-import";
+import n from "eslint-plugin-n";
+import globals from "globals";
+import ts from "typescript-eslint";
 
 const parserOptions = {
   esm: {
     js: {
       ecmaFeatures: { modules: true },
-      ecmaVersion: 'latest',
+      ecmaVersion: "latest",
     },
     ts: {
       projectService: true,
@@ -46,47 +46,56 @@ export default ts.config(
    * https://eslint.org/docs/latest/use/configure/ignore
    */
   {
-    ignores: ['dist/', 'declarations/', 'node_modules/', 'coverage/', '!**/.*'],
+    ignores: ["dist/", "declarations/", "node_modules/", "coverage/", "!**/.*"],
   },
   /**
    * https://eslint.org/docs/latest/use/configure/configuration-files#configuring-linter-options
    */
   {
     linterOptions: {
-      reportUnusedDisableDirectives: 'error',
+      reportUnusedDisableDirectives: "error",
     },
   },
   {
-    files: ['**/*.js'],
+    files: ["**/*.js"],
     languageOptions: {
       parser: babelParser,
     },
   },
   {
-    files: ['**/*.{js,gjs}'],
+    files: ["**/*.{js,gjs}"],
     languageOptions: {
       parserOptions: parserOptions.esm.js,
       globals: {
         ...globals.browser,
       },
     },
+    rules: {
+      "ember/no-at-ember-render-modifiers": "off",
+      "ember/no-runloop": "off",
+    },
   },
   {
-    files: ['**/*.{ts,gts}'],
+    files: ["**/*.{ts,gts}"],
     languageOptions: {
       parser: ember.parser,
       parserOptions: parserOptions.esm.ts,
     },
     extends: [...ts.configs.recommendedTypeChecked, ember.configs.gts],
+    rules: {
+      "@typescript-eslint/unbound-method": "off",
+      "ember/no-at-ember-render-modifiers": "off",
+      "ember/no-runloop": "off",
+    },
   },
   {
-    files: ['src/**/*'],
+    files: ["src/**/*"],
     plugins: {
       import: importPlugin,
     },
     rules: {
       // require relative imports use full extensions
-      'import/extensions': ['error', 'always', { ignorePackages: true }],
+      "import/extensions": ["error", "always", { ignorePackages: true }],
     },
   },
   /**
@@ -94,19 +103,19 @@ export default ts.config(
    */
   {
     files: [
-      '**/*.cjs',
-      '.prettierrc.js',
-      '.stylelintrc.js',
-      '.template-lintrc.js',
-      'addon-main.cjs',
+      "**/*.cjs",
+      ".prettierrc.js",
+      ".stylelintrc.js",
+      ".template-lintrc.js",
+      "addon-main.cjs",
     ],
     plugins: {
       n,
     },
 
     languageOptions: {
-      sourceType: 'script',
-      ecmaVersion: 'latest',
+      sourceType: "script",
+      ecmaVersion: "latest",
       globals: {
         ...globals.node,
       },
@@ -116,14 +125,14 @@ export default ts.config(
    * ESM node files
    */
   {
-    files: ['**/*.mjs'],
+    files: ["**/*.mjs"],
     plugins: {
       n,
     },
 
     languageOptions: {
-      sourceType: 'module',
-      ecmaVersion: 'latest',
+      sourceType: "module",
+      ecmaVersion: "latest",
       parserOptions: parserOptions.esm.js,
       globals: {
         ...globals.node,

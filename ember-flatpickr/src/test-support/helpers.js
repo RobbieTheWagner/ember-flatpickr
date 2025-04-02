@@ -48,7 +48,7 @@ export function clearFlatpickrDate(selector) {
   const flatpickrInput =
     selector instanceof HTMLElement ? selector : find(selector);
   if (!flatpickrInput) _throwSelectorError(selector, 'clearFlatpickrDate');
-  flatpickrInput._flatpickr.clear(); // eslint-disable-line
+  flatpickrInput._flatpickr.clear();
 }
 
 function _throwSelectorError(selector, functionName) {

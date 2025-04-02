@@ -8,13 +8,15 @@
   @altInput={{true}}
   @altInputClass="my-alt-input"
   @clickOpens={{true}}
-  @date={{this.defaultDate}} {{!-- Required Option --}}
+  @date={{this.defaultDate}}
+  {{! Required Option }}
   @dateFormat="M/D/Y"
   @defaultDate={{this.defaultDate}}
   @defaultHour={{12}}
   @defaultMinute={{0}}
   @disable={{this.datesToDisable}}
-  @disabled={{false}} {{!-- Sets disabled on the input or altInput --}}
+  @disabled={{false}}
+  {{! Sets disabled on the input or altInput }}
   @disableMobile={{false}}
   @enable={{this.datesToEnable}}
   @enableSeconds={{false}}
@@ -28,10 +30,12 @@
   @mode="single"
   @nextArrow=">"
   @noCalendar={{false}}
-  @onChange={{this.onChange}} {{!-- Required Option --}}
+  @onChange={{this.onChange}}
+  {{! Required Option }}
   @onClose={{this.onClose}}
   @onOpen={{this.onOpen}}
-  @onReady={{this.onReady}} {{!-- Can be used to easily store a reference to the flatpickr input. --}}
+  @onReady={{this.onReady}}
+  {{! Can be used to easily store a reference to the flatpickr input. }}
   @parseDate={{false}}
   @prevArrow="<"
   @shorthandCurrentMonth={{false}}
@@ -95,9 +99,8 @@ All options available to Flatpickr are available here with the exception of wrap
 
 The wrap option for flatpickr causes flatpickr to search its child elements for elements annotated with certain attributes. With ember-flatpickr this can be accomplished with the following
 
-
 ```handlebars
-{{!-- components/my-date-picker.hbs --}}
+{{! components/my-date-picker.hbs }}
 
 <EmberFlatpickr
   @date={{this.date}}
@@ -117,37 +120,34 @@ The wrap option for flatpickr causes flatpickr to search its child elements for 
 ```javascript
 // components/my-date-picker.js
 
-import Component from '@glimmer/component'
-import { tracked } from '@glimmer/tracking'
-import { action } from '@ember/object'
+import Component from "@glimmer/component";
+import { tracked } from "@glimmer/tracking";
+import { action } from "@ember/object";
 
 export default class MyDatePicker extends Component {
-
-  @tracked flatpickrRef = null
+  @tracked flatpickrRef = null;
 
   @action
   onReady(_selectedDates, _dateStr, flatpickrRef) {
-    this.flatpickrRef = flatpickrRef
+    this.flatpickrRef = flatpickrRef;
   }
 
   @action
   toggleCalendar(e) {
-    e.stopPropagation()
+    e.stopPropagation();
     this.flatpickrRef.toggle();
   }
 
   @action
   clearCalendar(e) {
-    e.stopPropagation()
+    e.stopPropagation();
     this.flatpickrRef.clear();
   }
-
 }
 ```
 
 **Note:** In the above example, the `toggleCalendar` and `clearCalendar` actions
 receive an argument `e` (the click event) and call `e.stopPropagation` on said event. flatpickr
 is designed to immediately close the calendar popup when user clicks outside of its bounding DOM element. Clicking the above _toggle_ button will call the "open" method on the flatpickr instance, but since our button lives outside of the bounds of the picker's calendar, flatpickr immediately closes the calendar popup. By stopping the propagation of our external click event, flatpickr does not detect the outside click and the calendar opens as expected.
-
 
 Please see the [flatpickr docs](https://chmln.github.io/flatpickr/) for a full list of options.

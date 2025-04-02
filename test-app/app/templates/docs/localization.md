@@ -1,14 +1,14 @@
 # Localization
 
-flatpickr supports [over 25 languages](https://github.com/flatpickr/flatpickr/tree/master/src/l10n). 
+flatpickr supports [over 25 languages](https://github.com/flatpickr/flatpickr/tree/master/src/l10n).
 
 ## Default Language
 
 If you want to switch the default language for all flatpickr instances, you can do so by setting the language using the static flatpickr method localize:
 
 ```js
-import flatpickr from 'flatpickr';
-import lang from 'flatpickr/dist/l10n';
+import flatpickr from "flatpickr";
+import lang from "flatpickr/dist/l10n";
 
 flatpickr.localize(lang.fr);
 ```
@@ -20,11 +20,7 @@ If you want to use a different language for a specific flatpickr instance, you c
 ### String locale
 
 ```handlebars
-  <EmberFlatpickr
-    @locale="fr"
-    @date={{this.date}}
-    @onChange={{this.onChange}}
-  />
+<EmberFlatpickr @locale="fr" @date={{this.date}} @onChange={{this.onChange}} />
 ```
 
 ### Locale object
@@ -32,19 +28,19 @@ If you want to use a different language for a specific flatpickr instance, you c
 You can also pass a `locale object` imported from flatpickr to the `locale` option:
 
 ```js
-  import lang from 'flatpickr/dist/l10n';
+import lang from "flatpickr/dist/l10n";
 
-  export default class MyComponent extends Component {
-    locale = lang.fr;
-  }
+export default class MyComponent extends Component {
+  locale = lang.fr;
+}
 ```
 
 ```handlebars
-  <EmberFlatpickr
-    @locale={{this.locale}}
-    @date={{this.date}}
-    @onChange={{this.onChange}}
-  />
+<EmberFlatpickr
+  @locale={{this.locale}}
+  @date={{this.date}}
+  @onChange={{this.onChange}}
+/>
 ```
 
 ## Manual Localization Configuration
@@ -54,13 +50,13 @@ You can also pass a `locale object` imported from flatpickr to the `locale` opti
 The following example is using `moment.js` and assumes that a `userLocale` is specified to look up the correct locale configuration from `moment.js`.
 
 ```javascript
-import Controller from '@ember/controller';
+import Controller from "@ember/controller";
 import { tracked } from "@glimmer/tracking";
-import moment from 'moment';
+import moment from "moment";
 
 // app/controllers/some-controller.js
 export default class SomeController extends Controller {
-  @tracked userLocale = 'de';
+  @tracked userLocale = "de";
 
   get customLocaleConfig() {
     const localeData = moment.localeData(this.userLocale);
@@ -69,12 +65,12 @@ export default class SomeController extends Controller {
       ordinal: localeData.ordinal,
       weekdays: {
         longhand: localeData.weekdays(),
-        shorthand: localeData.weekdaysShort()
+        shorthand: localeData.weekdaysShort(),
       },
       months: {
         longhand: localeData.months(),
-        shorthand: localeData.monthsShort()
-      }
+        shorthand: localeData.monthsShort(),
+      },
     };
   }
 }
