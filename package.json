@@ -20,7 +20,7 @@
     "start:test-app": "pnpm --filter test-app start",
     "test": "pnpm --filter '*' test"
   },
-  "packageManager": "pnpm@10.0.0",
+  "packageManager": "pnpm@10.7.1",
   "devDependencies": {
     "concurrently": "^9.1.2",
     "release-plan": "^0.9.0"
