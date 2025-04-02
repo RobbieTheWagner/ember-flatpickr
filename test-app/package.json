@@ -93,6 +93,7 @@
     "eslint-plugin-ember": "^12.5.0",
     "eslint-plugin-n": "^17.16.2",
     "eslint-plugin-qunit": "^8.1.2",
+    "flatpickr": "^4.6.9",
     "globals": "^15.15.0",
     "loader.js": "^4.7.0",
     "prettier": "^3.5.3",
