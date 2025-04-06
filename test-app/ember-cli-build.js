@@ -1,8 +1,15 @@
 'use strict';
 
+const path = require('path');
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function (defaults) {
+  // dist/index.js
+  let entry = require.resolve('ember-flatpickr');
+
+  // We can never assume a node_modules structure
+  let dir = path.dirname(path.dirname(entry));
+
   const app = new EmberApp(defaults, {
     // Add options here
     autoImport: {
@@ -12,7 +19,7 @@ module.exports = function (defaults) {
       enableTypeScriptTransform: true,
     },
     'ember-cli-addon-docs': {
-      documentingAddonAt: '../ember-flatpickr',
+      documentingAddonAt: dir,
     },
   });
 
