@@ -1,0 +1,7 @@
+# Unlabeled Changes
+
+* `ember-flatpickr`
+  * [#2107](https://github.com/RobbieTheWagner/ember-flatpickr/pull/2107) Support ember 6 ([@evoactivity](https://github.com/evoactivity))
+
+
+*Cannot plan release until the above changes are labeled*.
