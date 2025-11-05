@@ -3,4 +3,6 @@ packages:
   - test-app
 
 onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - core-js
   - ember-modal-dialog
