@@ -1,3 +1,6 @@
 packages:
-  - 'ember-flatpickr'
-  - 'test-app'
+  - ember-flatpickr
+  - test-app
+
+onlyBuiltDependencies:
+  - ember-modal-dialog
