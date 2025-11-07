@@ -8,12 +8,17 @@ import { waitForPromise } from '@ember/test-waiters';
 import type { Instance as FlatpickrInstance } from 'flatpickr/dist/types/instance';
 import type { BaseOptions as FlatpickrOptions } from 'flatpickr/dist/types/options';
 import flatpickr from 'flatpickr';
-/* Replace getOwner from @ember/application to @ember/owner when we can do a conditional macro for ember < 4.10 or ember 4.x is not supported by ember-flatpickr anymore  */
-import { getOwner } from '@ember/application';
+import { getOwner } from '@ember/owner';
 
 interface EmberFlatpickrArgs extends FlatpickrOptions {
   date: FlatpickrOptions['defaultDate'];
   disabled: boolean;
+}
+
+interface EmberFlatpickrSignature {
+  Element: HTMLInputElement;
+  Args: EmberFlatpickrArgs;
+  Blocks: { default: [] };
 }
 
 type FastbootService = {
@@ -50,7 +55,7 @@ type FastbootService = {
  * @public
  * @uses Flatpickr
  */
-export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
+export default class EmberFlatpickr extends Component<EmberFlatpickrSignature> {
   flatpickrRef?: FlatpickrInstance;
 
   /**

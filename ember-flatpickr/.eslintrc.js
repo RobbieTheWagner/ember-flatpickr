@@ -49,6 +49,8 @@ module.exports = {
       plugins: ['@typescript-eslint'],
       extends: ['plugin:@typescript-eslint/recommended'],
       rules: {
+        'ember/no-at-ember-render-modifiers': 'off',
+        'ember/no-runloop': 'off',
         'prefer-rest-params': 'off',
       },
     },

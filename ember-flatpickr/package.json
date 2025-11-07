@@ -16,65 +16,64 @@
     "email": "rwwagner90@gmail.com",
     "url": "https://github.com/RobbieTheWagner"
   },
-  "directories": {
-    "doc": "doc",
-    "test": "tests"
-  },
+  "files": [
+    "addon-main.cjs",
+    "declarations",
+    "dist"
+  ],
   "scripts": {
-    "build": "concurrently \"npm:build:*\" --names \"build:\"",
-    "build:js": "rollup --config",
-    "build:types": "tsc",
-    "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
-    "lint:fix": "concurrently \"npm:lint:*:fix\" --names \"fix:\"",
-    "lint:hbs": "ember-template-lint .",
-    "lint:hbs:fix": "ember-template-lint . --fix",
+    "build": "rollup --config",
+    "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\"",
+    "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\"",
+    "lint:hbs": "ember-template-lint . --no-error-on-unmatched-pattern",
     "lint:js": "eslint . --cache",
+    "lint:hbs:fix": "ember-template-lint . --fix --no-error-on-unmatched-pattern",
     "lint:js:fix": "eslint . --fix",
-    "lint:types": "tsc --emitDeclarationOnly false --noEmit",
-    "prepack": "rollup --config",
-    "start": "concurrently \"npm:start:*\" --names \"start:\"",
-    "start:js": "rollup --config --watch --no-watch.clearScreen",
-    "start:types": "tsc --watch",
+    "lint:types": "glint",
+    "start": "rollup --config --watch",
     "test": "echo 'A v2 addon does not have tests, run tests in test-app'",
-    "test:ember": "ember test",
-    "test:ember-compatibility": "ember try:each"
+    "prepack": "concurrently 'pnpm:build:*'"
   },
   "dependencies": {
-    "@ember/render-modifiers": "^2.0.3",
-    "@ember/test-helpers": "^3.3.0",
+    "@ember/render-modifiers": "^3.0.0",
+    "@ember/test-helpers": "^3.3.1",
     "@ember/test-waiters": "^3.1.0",
-    "@embroider/addon-shim": "^1.8.7"
+    "@embroider/addon-shim": "^1.10.0",
+    "@glimmer/component": "^1.1.2",
+    "decorator-transforms": "^2.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.0",
-    "@babel/plugin-proposal-decorators": "^7.24.0",
-    "@babel/plugin-transform-class-properties": "^7.22.5",
-    "@babel/plugin-transform-class-static-block": "^7.23.4",
-    "@babel/plugin-transform-typescript": "^7.23.6",
-    "@babel/runtime": "^7.24.0",
-    "@embroider/addon-dev": "^4.2.1",
-    "@glimmer/component": "~1.1.2",
-    "@rollup/plugin-babel": "^6.0.4",
-    "@tsconfig/ember": "^3.0.5",
-    "babel-plugin-ember-template-compilation": "^2.2.1",
-    "concurrently": "^8.0.1",
-    "ember-source": "~5.7.0",
-    "ember-template-lint": "~5.13.0",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-ember": "^11.12.0",
-    "eslint-plugin-n": "^16.6.2",
-    "eslint-plugin-prettier": "^5.1.3",
-    "flatpickr": "^4.6.9",
-    "prettier": "^3.2.5",
-    "rollup": "^4.13.0",
+    "@babel/core": "^7.28.5",
+    "@babel/plugin-transform-typescript": "^7.28.5",
+    "@babel/runtime": "^7.28.4",
+    "@embroider/addon-dev": "^7.1.5",
+    "@glint/core": "^1.5.2",
+    "@glint/environment-ember-loose": "^1.5.2",
+    "@glint/environment-ember-template-imports": "^1.5.2",
+    "@glint/template": "^1.7.2",
+    "@rollup/plugin-babel": "^6.1.0",
+    "@tsconfig/ember": "^3.0.11",
+    "@typescript-eslint/eslint-plugin": "^8.46.3",
+    "@typescript-eslint/parser": "^8.46.3",
+    "babel-plugin-ember-template-compilation": "^2.4.1",
+    "concurrently": "^9.2.1",
+    "ember-source": "^5.12.0",
+    "ember-template-lint": "^6.1.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.2",
+    "eslint-plugin-ember": "^12.7.4",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-n": "^17.23.1",
+    "eslint-plugin-prettier": "^5.5.4",
+    "flatpickr": "^4.6.13",
+    "prettier": "^3.6.2",
+    "prettier-plugin-ember-template-tag": "^2.1.0",
+    "rollup": "^4.52.5",
     "rollup-plugin-copy": "^3.5.0",
-    "rsvp": "^4.8.5",
-    "typescript": "^5.4.2",
-    "webpack": "^5.90.3"
+    "typescript": "^5.9.3"
   },
   "peerDependencies": {
-    "ember-source": "^4.8.0 || ^5.0.0 || ^6.0.0",
+    "ember-source": ">= 4.12.0",
     "flatpickr": "^4.0.0"
   },
   "engines": {
@@ -88,12 +87,12 @@
     "edition": "octane"
   },
   "ember-addon": {
+    "version": 2,
+    "type": "addon",
+    "main": "addon-main.cjs",
     "app-js": {
       "./components/ember-flatpickr.js": "./dist/_app_/components/ember-flatpickr.js"
-    },
-    "main": "addon-main.cjs",
-    "type": "addon",
-    "version": 2
+    }
   },
   "exports": {
     ".": {
@@ -106,11 +105,6 @@
     },
     "./addon-main.js": "./addon-main.cjs"
   },
-  "files": [
-    "addon-main.cjs",
-    "declarations",
-    "dist"
-  ],
   "typesVersions": {
     "*": {
       "*": [
