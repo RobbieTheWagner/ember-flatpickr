@@ -285,8 +285,8 @@ importers:
         specifier: ^10.1.8
         version: 10.1.8(eslint@8.57.1)
       eslint-plugin-ember:
-        specifier: ^11.12.0
-        version: 11.12.0(eslint@8.57.1)
+        specifier: ^12.7.4
+        version: 12.7.4(8a945b39bf93506049bf7263d87b69f7)
       eslint-plugin-n:
         specifier: ^16.6.2
         version: 16.6.2(eslint@8.57.1)
@@ -4920,12 +4920,6 @@ packages:
       eslint-import-resolver-webpack:
         optional: true
 
-  eslint-plugin-ember@11.12.0:
-    resolution: {integrity: sha512-7Ow1ky5JnRR0k3cxuvgYi4AWTe9DzGjlLgOJbU5VABLgr7Q0iq3ioC+YwAP79nV48cpw2HOgMgkZ1MynuIg59g==}
-    engines: {node: 14.* || 16.* || >= 18}
-    peerDependencies:
-      eslint: '>= 7'
-
   eslint-plugin-ember@12.7.4:
     resolution: {integrity: sha512-0q6C9VEnHe9hbgs6TgFWHVyEZRrPwOdkqkiLFh7HkxQH0Y/RhCLCLiU695sfTacIk8ofzLcQSp9Fhd1WIZY9eA==}
     engines: {node: 18.* || 20.* || >= 21}
@@ -6547,9 +6541,6 @@ packages:
 
   magic-string@0.25.9:
     resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
-
-  magic-string@0.30.21:
-    resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
 
   make-dir@3.1.0:
     resolution: {integrity: sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==}
@@ -16133,25 +16124,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-ember@11.12.0(eslint@8.57.1):
-    dependencies:
-      '@ember-data/rfc395-data': 0.0.4
-      '@glimmer/syntax': 0.84.3
-      css-tree: 2.3.1
-      ember-rfc176-data: 0.3.18
-      ember-template-imports: 3.4.2
-      ember-template-recast: 6.1.5
-      eslint: 8.57.1
-      eslint-utils: 3.0.0(eslint@8.57.1)
-      estraverse: 5.3.0
-      lodash.camelcase: 4.3.0
-      lodash.kebabcase: 4.1.1
-      magic-string: 0.30.21
-      requireindex: 1.2.0
-      snake-case: 3.0.4
-    transitivePeerDependencies:
-      - supports-color
-
   eslint-plugin-ember@12.7.4(8a945b39bf93506049bf7263d87b69f7):
     dependencies:
       '@ember-data/rfc395-data': 0.0.4
@@ -18100,10 +18072,6 @@ snapshots:
   magic-string@0.25.9:
     dependencies:
       sourcemap-codec: 1.4.8
-
-  magic-string@0.30.21:
-    dependencies:
-      '@jridgewell/sourcemap-codec': 1.5.5
 
   make-dir@3.1.0:
     dependencies:
