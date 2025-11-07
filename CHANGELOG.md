@@ -1,5 +1,25 @@
 # Changelog
 
+## Release (2025-11-07)
+
+ember-flatpickr 9.0.0 (major)
+
+#### :boom: Breaking Change
+* `ember-flatpickr`, `test-app`
+  * [#2121](https://github.com/RobbieTheWagner/ember-flatpickr/pull/2121) Require ember 4.12+ ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
+#### :rocket: Enhancement
+* `ember-flatpickr`
+  * [#2107](https://github.com/RobbieTheWagner/ember-flatpickr/pull/2107) Support ember 6 ([@evoactivity](https://github.com/evoactivity))
+
+#### :house: Internal
+* `ember-flatpickr`, `test-app`
+  * [#2120](https://github.com/RobbieTheWagner/ember-flatpickr/pull/2120) Bump node to 22 and pnpm to 10 ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
+#### Committers: 2
+- Liam Potter ([@evoactivity](https://github.com/evoactivity))
+- Robbie Wagner ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
 ## Release (2024-08-06)
 
 ember-flatpickr 8.0.1 (patch)
