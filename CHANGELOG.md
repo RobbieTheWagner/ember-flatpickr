@@ -2,6 +2,17 @@
 
 ## Release (2025-11-07)
 
+ember-flatpickr 9.0.1 (patch)
+
+#### :bug: Bug Fix
+* `ember-flatpickr`
+  * [#2123](https://github.com/RobbieTheWagner/ember-flatpickr/pull/2123) Move @ember/test-waiters to peerDeps ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
+#### Committers: 1
+- Robbie Wagner ([@RobbieTheWagner](https://github.com/RobbieTheWagner))
+
+## Release (2025-11-07)
+
 ember-flatpickr 9.0.0 (major)
 
 #### :boom: Breaking Change

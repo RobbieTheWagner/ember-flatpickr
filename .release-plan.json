@@ -1,25 +1,17 @@
 {
   "solution": {
     "ember-flatpickr": {
-      "impact": "major",
-      "oldVersion": "8.0.1",
-      "newVersion": "9.0.0",
+      "impact": "patch",
+      "oldVersion": "9.0.0",
+      "newVersion": "9.0.1",
       "constraints": [
         {
-          "impact": "major",
-          "reason": "Appears in changelog section :boom: Breaking Change"
-        },
-        {
-          "impact": "minor",
-          "reason": "Appears in changelog section :rocket: Enhancement"
-        },
-        {
           "impact": "patch",
-          "reason": "Appears in changelog section :house: Internal"
+          "reason": "Appears in changelog section :bug: Bug Fix"
         }
       ],
       "pkgJSONPath": "./ember-flatpickr/package.json"
     }
   },
-  "description": "## Release (2025-11-07)\n\nember-flatpickr 9.0.0 (major)\n\n#### :boom: Breaking Change\n* `ember-flatpickr`, `test-app`\n  * [#2121](https://github.com/RobbieTheWagner/ember-flatpickr/pull/2121) Require ember 4.12+ ([@RobbieTheWagner](https://github.com/RobbieTheWagner))\n\n#### :rocket: Enhancement\n* `ember-flatpickr`\n  * [#2107](https://github.com/RobbieTheWagner/ember-flatpickr/pull/2107) Support ember 6 ([@evoactivity](https://github.com/evoactivity))\n\n#### :house: Internal\n* `ember-flatpickr`, `test-app`\n  * [#2120](https://github.com/RobbieTheWagner/ember-flatpickr/pull/2120) Bump node to 22 and pnpm to 10 ([@RobbieTheWagner](https://github.com/RobbieTheWagner))\n\n#### Committers: 2\n- Liam Potter ([@evoactivity](https://github.com/evoactivity))\n- Robbie Wagner ([@RobbieTheWagner](https://github.com/RobbieTheWagner))\n"
+  "description": "## Release (2025-11-07)\n\nember-flatpickr 9.0.1 (patch)\n\n#### :bug: Bug Fix\n* `ember-flatpickr`\n  * [#2123](https://github.com/RobbieTheWagner/ember-flatpickr/pull/2123) Move @ember/test-waiters to peerDeps ([@RobbieTheWagner](https://github.com/RobbieTheWagner))\n\n#### Committers: 1\n- Robbie Wagner ([@RobbieTheWagner](https://github.com/RobbieTheWagner))\n"
 }
