@@ -11,10 +11,9 @@ module.exports = function (defaults) {
     'ember-cli-babel': {
       enableTypeScriptTransform: true,
     },
-    // TODO: Fix addon docs one day maybe?
-    // 'ember-cli-addon-docs': {
-    //   documentingAddonAt: '../ember-flatpickr',
-    // },
+    'ember-cli-addon-docs': {
+      documentingAddonAt: '../ember-flatpickr',
+    },
   });
 
   const { maybeEmbroider } = require('@embroider/test-setup');
