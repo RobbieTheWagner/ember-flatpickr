@@ -30,7 +30,7 @@ importers:
     dependencies:
       '@ember/render-modifiers':
         specifier: ^3.0.0
-        version: 3.0.0(4b822fe67d46219df3e749e1a24e819a)
+        version: 3.0.0(cf6ff531321fd6c1f60d1036880d0368)
       '@ember/test-helpers':
         specifier: ^3.3.1
         version: 3.3.1(3602ecc8d582ab3b3db6d843d93978a0)
@@ -175,10 +175,10 @@ importers:
         version: 4.0.9
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.18.0
-        version: 7.18.0(8fc91bc9e037ac46f9602859a06b2440)
+        version: 7.18.0(701c2a932d0f96054d1e03de4cf14e07)
       '@typescript-eslint/parser':
-        specifier: ^7.18.0
-        version: 7.18.0(eslint@8.57.1)(typescript@5.9.3)
+        specifier: ^8.46.3
+        version: 8.46.3(eslint@8.57.1)(typescript@5.9.3)
       babel-plugin-dynamic-import-node:
         specifier: ^2.3.3
         version: 2.3.3
@@ -2279,16 +2279,6 @@ packages:
       '@typescript-eslint/parser': ^8.46.3
       eslint: ^8.57.0 || ^9.0.0
       typescript: '>=4.8.4 <6.0.0'
-
-  '@typescript-eslint/parser@7.18.0':
-    resolution: {integrity: sha512-4Z+L8I2OqhZV8qA132M4wNL30ypZGYOQVBfMgxDH/K5UX0PNqTu1c6za9ST5r9+tavvHiTWmBnKzpCJ/GlVFtg==}
-    engines: {node: ^18.18.0 || >=20.0.0}
-    peerDependencies:
-      eslint: ^8.56.0
-      typescript: '*'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
 
   '@typescript-eslint/parser@8.46.3':
     resolution: {integrity: sha512-6m1I5RmHBGTnUGS113G04DMu3CpSdxCAU/UvtjNWL4Nuf3MW9tQhiJqRlHzChIkhy6kZSAQmc+I1bcGjE3yNKg==}
@@ -10465,7 +10455,7 @@ snapshots:
       - '@babel/core'
       - supports-color
 
-  '@ember/render-modifiers@3.0.0(4b822fe67d46219df3e749e1a24e819a)':
+  '@ember/render-modifiers@3.0.0(cf6ff531321fd6c1f60d1036880d0368)':
     dependencies:
       '@babel/core': 7.28.5
       '@embroider/macros': 1.19.2(@glint/template@1.7.2)
@@ -11932,10 +11922,10 @@ snapshots:
 
   '@types/symlink-or-copy@1.2.2': {}
 
-  '@typescript-eslint/eslint-plugin@7.18.0(8fc91bc9e037ac46f9602859a06b2440)':
+  '@typescript-eslint/eslint-plugin@7.18.0(701c2a932d0f96054d1e03de4cf14e07)':
     dependencies:
       '@eslint-community/regexpp': 4.12.2
-      '@typescript-eslint/parser': 7.18.0(eslint@8.57.1)(typescript@5.9.3)
+      '@typescript-eslint/parser': 8.46.3(eslint@8.57.1)(typescript@5.9.3)
       '@typescript-eslint/scope-manager': 7.18.0
       '@typescript-eslint/type-utils': 7.18.0(eslint@8.57.1)(typescript@5.9.3)
       '@typescript-eslint/utils': 7.18.0(eslint@8.57.1)(typescript@5.9.3)
@@ -11963,19 +11953,6 @@ snapshots:
       ignore: 7.0.5
       natural-compare: 1.4.0
       ts-api-utils: 2.1.0(typescript@5.9.3)
-      typescript: 5.9.3
-    transitivePeerDependencies:
-      - supports-color
-
-  '@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.9.3)':
-    dependencies:
-      '@typescript-eslint/scope-manager': 7.18.0
-      '@typescript-eslint/types': 7.18.0
-      '@typescript-eslint/typescript-estree': 7.18.0(typescript@5.9.3)
-      '@typescript-eslint/visitor-keys': 7.18.0
-      debug: 4.4.3(supports-color@9.4.0)
-      eslint: 8.57.1
-    optionalDependencies:
       typescript: 5.9.3
     transitivePeerDependencies:
       - supports-color
@@ -15544,7 +15521,7 @@ snapshots:
 
   ember-flatpickr@file:ember-flatpickr(7d0170959e75b4e903f1698558f56011):
     dependencies:
-      '@ember/render-modifiers': 3.0.0(4b822fe67d46219df3e749e1a24e819a)
+      '@ember/render-modifiers': 3.0.0(cf6ff531321fd6c1f60d1036880d0368)
       '@ember/test-helpers': 3.3.1(3602ecc8d582ab3b3db6d843d93978a0)
       '@ember/test-waiters': 3.1.0
       '@embroider/addon-shim': 1.10.0

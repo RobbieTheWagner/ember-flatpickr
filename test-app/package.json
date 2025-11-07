@@ -51,7 +51,7 @@
     "@types/qunit": "^2.19.13",
     "@types/rsvp": "^4.0.9",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@typescript-eslint/parser": "^7.18.0",
+    "@typescript-eslint/parser": "^8.46.3",
     "babel-plugin-dynamic-import-node": "^2.3.3",
     "broccoli-asset-rev": "^3.0.0",
     "concurrently": "^8.2.2",
