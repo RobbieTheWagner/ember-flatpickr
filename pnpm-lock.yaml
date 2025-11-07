@@ -34,9 +34,6 @@ importers:
       '@ember/test-helpers':
         specifier: ^3.3.1
         version: 3.3.1(3602ecc8d582ab3b3db6d843d93978a0)
-      '@ember/test-waiters':
-        specifier: ^3.1.0
-        version: 3.1.0
       '@embroider/addon-shim':
         specifier: ^1.10.0
         version: 1.10.0
@@ -56,6 +53,9 @@ importers:
       '@babel/runtime':
         specifier: ^7.28.4
         version: 7.28.4
+      '@ember/test-waiters':
+        specifier: ^3.1.0
+        version: 3.1.0
       '@embroider/addon-dev':
         specifier: ^7.1.5
         version: 7.1.5(@glint/template@1.7.2)(rollup@4.52.5)
@@ -244,7 +244,7 @@ importers:
         version: 8.1.2(encoding@0.1.13)
       ember-flatpickr:
         specifier: workspace:*
-        version: file:ember-flatpickr(7d0170959e75b4e903f1698558f56011)
+        version: file:ember-flatpickr(dddf4bd3013a4dd4884c4fcb64d4f5a7)
       ember-load-initializers:
         specifier: ^2.1.2
         version: 2.1.2(@babel/core@7.28.5)
@@ -4587,6 +4587,7 @@ packages:
     resolution: {directory: ember-flatpickr, type: directory}
     engines: {node: '>= 22', pnpm: ^10.20.0}
     peerDependencies:
+      '@ember/test-waiters': ^3.1.0 || ^4.0.0
       ember-source: '>= 4.12.0'
       flatpickr: ^4.0.0
 
@@ -15519,7 +15520,7 @@ snapshots:
       - encoding
       - supports-color
 
-  ember-flatpickr@file:ember-flatpickr(7d0170959e75b4e903f1698558f56011):
+  ember-flatpickr@file:ember-flatpickr(dddf4bd3013a4dd4884c4fcb64d4f5a7):
     dependencies:
       '@ember/render-modifiers': 3.0.0(cf6ff531321fd6c1f60d1036880d0368)
       '@ember/test-helpers': 3.3.1(3602ecc8d582ab3b3db6d843d93978a0)
