@@ -1,5 +1,3 @@
-import { find } from '@ember/test-helpers';
-
 /**
  * Checks if the flatpickr calendar is being displayed.
  *
@@ -23,7 +21,7 @@ export function isFlatpickrOpen(pickrIndex = 0) {
  */
 export function setFlatpickrDate(selector, date, triggerChange = true) {
   const flatpickrInput =
-    selector instanceof HTMLElement ? selector : find(selector);
+    selector instanceof HTMLElement ? selector : document.querySelector(selector);
   if (!flatpickrInput) _throwSelectorError(selector, 'setFlatpickrDate');
   flatpickrInput._flatpickr.setDate(date, triggerChange);
 }
@@ -34,7 +32,7 @@ export function setFlatpickrDate(selector, date, triggerChange = true) {
  */
 export function closeFlatpickrDate(selector) {
   const flatpickrInput =
-    selector instanceof HTMLElement ? selector : find(selector);
+    selector instanceof HTMLElement ? selector : document.querySelector(selector);
   if (!flatpickrInput) _throwSelectorError(selector, 'closeFlatpickrDate');
   flatpickrInput._flatpickr.close();
 }
@@ -46,7 +44,7 @@ export function closeFlatpickrDate(selector) {
  */
 export function clearFlatpickrDate(selector) {
   const flatpickrInput =
-    selector instanceof HTMLElement ? selector : find(selector);
+    selector instanceof HTMLElement ? selector : document.querySelector(selector);
   if (!flatpickrInput) _throwSelectorError(selector, 'clearFlatpickrDate');
   flatpickrInput._flatpickr.clear(); // eslint-disable-line
 }
