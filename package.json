@@ -1,0 +1,117 @@
+{
+  "name": "ember-flatpickr",
+  "version": "9.0.2",
+  "description": "An Ember addon that wraps the date picker Flatpickr",
+  "keywords": [
+    "ember-addon",
+    "flatpickr",
+    "datepicker",
+    "datetime picker"
+  ],
+  "homepage": "https://RobbieTheWagner.github.io/ember-flatpickr",
+  "repository": "https://github.com/RobbieTheWagner/ember-flatpickr",
+  "license": "MIT",
+  "author": {
+    "name": "Robert Wagner",
+    "email": "rwwagner90@gmail.com",
+    "url": "https://github.com/RobbieTheWagner"
+  },
+  "files": [
+    "addon-main.cjs",
+    "declarations",
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup --config",
+    "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\"",
+    "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\"",
+    "lint:hbs": "ember-template-lint . --no-error-on-unmatched-pattern",
+    "lint:js": "eslint . --cache",
+    "lint:hbs:fix": "ember-template-lint . --fix --no-error-on-unmatched-pattern",
+    "lint:js:fix": "eslint . --fix",
+    "lint:types": "glint",
+    "start": "rollup --config --watch",
+    "test": "echo 'A v2 addon does not have tests, run tests in test-app'"
+  },
+  "dependencies": {
+    "@ember/render-modifiers": "^3.0.0",
+    "@embroider/addon-shim": "^1.10.0",
+    "decorator-transforms": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/plugin-transform-typescript": "^7.28.5",
+    "@babel/runtime": "^7.28.4",
+    "@ember/test-helpers": "^3.3.1",
+    "@ember/test-waiters": "^3.1.0",
+    "@embroider/addon-dev": "^7.1.5",
+    "@glimmer/component": "^1.1.2",
+    "@glint/core": "^1.5.2",
+    "@glint/environment-ember-loose": "^1.5.2",
+    "@glint/environment-ember-template-imports": "^1.5.2",
+    "@glint/template": "^1.7.2",
+    "@rollup/plugin-babel": "^6.1.0",
+    "@tsconfig/ember": "^3.0.11",
+    "@typescript-eslint/eslint-plugin": "^8.46.3",
+    "@typescript-eslint/parser": "^8.46.3",
+    "babel-plugin-ember-template-compilation": "^2.4.1",
+    "concurrently": "^9.2.1",
+    "ember-source": "^5.12.0",
+    "ember-template-lint": "^6.1.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-ember": "^12.7.4",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-n": "^17.23.1",
+    "eslint-plugin-prettier": "^5.5.4",
+    "flatpickr": "^4.6.13",
+    "prettier": "^3.6.2",
+    "prettier-plugin-ember-template-tag": "^2.1.0",
+    "rollup": "^4.52.5",
+    "rollup-plugin-copy": "^3.5.0",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "@ember/test-helpers": "^3.0.0 || ^4.0.0 || ^5.0.0",
+    "@ember/test-waiters": "^3.0.0 || ^4.0.0",
+    "@glimmer/component": "^1.1.2 || ^2.0.0",
+    "ember-source": ">= 4.12.0",
+    "flatpickr": "^4.0.0"
+  },
+  "engines": {
+    "node": ">= 22",
+    "pnpm": "^10.20.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "ember": {
+    "edition": "octane"
+  },
+  "ember-addon": {
+    "version": 2,
+    "type": "addon",
+    "main": "addon-main.cjs",
+    "app-js": {
+      "./components/ember-flatpickr.js": "./dist/_app_/components/ember-flatpickr.js"
+    }
+  },
+  "exports": {
+    ".": {
+      "types": "./declarations/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./declarations/*.d.ts",
+      "default": "./dist/*.js"
+    },
+    "./addon-main.js": "./addon-main.cjs"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "declarations/*"
+      ]
+    }
+  }
+}
