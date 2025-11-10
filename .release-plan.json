@@ -2,8 +2,8 @@
   "solution": {
     "ember-flatpickr": {
       "impact": "patch",
-      "oldVersion": "9.0.0",
-      "newVersion": "9.0.1",
+      "oldVersion": "9.0.1",
+      "newVersion": "9.0.2",
       "constraints": [
         {
           "impact": "patch",
@@ -13,5 +13,5 @@
       "pkgJSONPath": "./ember-flatpickr/package.json"
     }
   },
-  "description": "## Release (2025-11-07)\n\nember-flatpickr 9.0.1 (patch)\n\n#### :bug: Bug Fix\n* `ember-flatpickr`\n  * [#2123](https://github.com/RobbieTheWagner/ember-flatpickr/pull/2123) Move @ember/test-waiters to peerDeps ([@RobbieTheWagner](https://github.com/RobbieTheWagner))\n\n#### Committers: 1\n- Robbie Wagner ([@RobbieTheWagner](https://github.com/RobbieTheWagner))\n"
+  "description": "## Release (2025-11-10)\n\nember-flatpickr 9.0.2 (patch)\n\n#### :bug: Bug Fix\n* `ember-flatpickr`\n  * [#2125](https://github.com/RobbieTheWagner/ember-flatpickr/pull/2125) Add more peers ([@RobbieTheWagner](https://github.com/RobbieTheWagner))\n\n#### Committers: 1\n- Robbie Wagner ([@RobbieTheWagner](https://github.com/RobbieTheWagner))\n"
 }
