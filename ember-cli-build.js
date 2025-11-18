@@ -1,5 +1,23 @@
 'use strict';
 
+// Ensure ReadableStream/TransformStream exist during build (Node 16)
+try {
+  const webStreams = require('stream/web');
+  if (typeof global.ReadableStream === 'undefined' && webStreams?.ReadableStream) {
+    global.ReadableStream = webStreams.ReadableStream;
+  }
+  if (typeof global.TransformStream === 'undefined' && webStreams?.TransformStream) {
+    global.TransformStream = webStreams.TransformStream;
+  }
+  // Provide Blob on Node 16
+  const { Blob: NodeBlob } = require('buffer');
+  if (typeof global.Blob === 'undefined' && NodeBlob) {
+    global.Blob = NodeBlob;
+  }
+} catch (e) {
+  // ignore if not available
+}
+
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
 module.exports = function (defaults) {
