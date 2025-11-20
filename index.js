@@ -21,24 +21,24 @@ module.exports = {
 
     const vendorPath = 'vendor/flatpickr';
 
-  this.import(`${vendorPath}/flatpickr.js`);
+    this.import(`${vendorPath}/flatpickr.js`);
 
-  if (app.options && app.options.flatpickr && app.options.flatpickr.theme) {
-    this.import(`${vendorPath}/themes/${app.options.flatpickr.theme}.css`);
-  } else {
-    this.import(`${vendorPath}/flatpickr.css`);
-  }
+    if (app.options && app.options.flatpickr && app.options.flatpickr.theme) {
+      this.import(`${vendorPath}/themes/${app.options.flatpickr.theme}.css`);
+    } else {
+      this.import(`${vendorPath}/flatpickr.css`);
+    }
 
-  let locales = [];
-  if (app.options && app.options.flatpickr && app.options.flatpickr.locales) {
-    locales = app.options.flatpickr.locales;
-    const localePaths = Array.isArray(locales)
-      ? locales.map((locale) => `l10n/${locale}.js`)
-      : [];
-    localePaths.forEach((locale) => {
-      this.import(`${vendorPath}/${locale}`);
-    });
-  }
+    let locales = [];
+    if (app.options && app.options.flatpickr && app.options.flatpickr.locales) {
+      locales = app.options.flatpickr.locales;
+      const localePaths = Array.isArray(locales)
+        ? locales.map((locale) => `l10n/${locale}.js`)
+        : [];
+      localePaths.forEach((locale) => {
+        this.import(`${vendorPath}/${locale}`);
+      });
+    }
 
     this._super.included.apply(this, arguments);
   },
