@@ -173,10 +173,6 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
         self.onReady();
     };
 
-
-    // Use consumer-provided onChange directly; avoid manual close to prevent key-driven re-entrant issues
-
-
     const composedOnMonthYearChange = function (selectedDates: Date[], dateStr: string, instance: FlatpickrInstance) {
       self._setupHeaderA11y(instance);
       later(self, () => self._focusInitialDay(instance), 50);
@@ -193,7 +189,7 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
       ...config,
       defaultDate: date
     });
-    
+
     this._setDisabled(disabled);
   }
 
