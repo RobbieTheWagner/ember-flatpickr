@@ -168,19 +168,33 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
 
     const self = this;
 
-    const composedOnReady = function (selectedDates: Date[], dateStr: string, instance: FlatpickrInstance) {
+    const composedOnReady = function (_selectedDates: Date[], _dateStr: string, instance: FlatpickrInstance) {
       self._handleOnReady(element, instance);
         self.onReady();
     };
 
-    const composedOnMonthYearChange = function (selectedDates: Date[], dateStr: string, instance: FlatpickrInstance) {
+    const composedOnMonthYearChange = function (_selectedDates: Date[], _dateStr: string, instance: FlatpickrInstance) {
       self._setupHeaderA11y(instance);
       later(self, () => self._focusInitialDay(instance), 50);
     };
 
+    // Defer consumer onChange to the next tick so flatpickr can finish its internal handlers
+    const composedOnChange = function (selectedDates: Date[], dateStr: string, instance: FlatpickrInstance) {
+      if (!onChange) return;
+      // Use microtask to minimize delay while avoiding re-entrancy
+      Promise.resolve().then(() => {
+        if (Array.isArray(onChange)) {
+          console.log("inside if")
+          onChange.forEach((fn) => fn(selectedDates, dateStr, instance));
+        } else {
+          onChange(selectedDates, dateStr, instance);
+        }
+      });
+    };
+
 
     this.flatpickrRef = flatpickr(element, {
-      onChange,
+      onChange: composedOnChange,
       onClose: onClose || this.onClose,
       onOpen: onOpen || this.onOpen,
       onReady: composedOnReady,
