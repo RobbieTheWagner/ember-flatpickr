@@ -90,7 +90,7 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
     month: null as HTMLElement | null,
     year: null as HTMLElement | null
   };
-  private lastCloseAt: number | null = null;
+ // private lastCloseAt: number | null = null;
 
   @action
   onInsert(element: HTMLInputElement): void {
@@ -170,64 +170,30 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
 
     const composedOnReady = function (selectedDates: Date[], dateStr: string, instance: FlatpickrInstance) {
       self._handleOnReady(element, instance);
-      if (onReady) {
-        if (Array.isArray(onReady)) {
-          onReady.forEach(fn => fn(selectedDates, dateStr, instance));
-        } else {
-          onReady(selectedDates, dateStr, instance);
-        }
-      } else {
         self.onReady();
-      }
     };
 
-    const composedOnClose = function (selectedDates: Date[], dateStr: string, instance: FlatpickrInstance) {
-      self._handleOnClose(instance);
-      if (onClose) {
-        if (Array.isArray(onClose)) {
-          onClose.forEach(fn => fn(selectedDates, dateStr, instance));
-        } else {
-          onClose(selectedDates, dateStr, instance);
-        }
-      } else {
-        self.onClose();
-      }
-    };
 
     // Use consumer-provided onChange directly; avoid manual close to prevent key-driven re-entrant issues
 
 
-    const composedOnMonthChange = function (selectedDates: Date[], dateStr: string, instance: FlatpickrInstance) {
-      self._refreshHeaderA11y(instance);
+    const composedOnMonthYearChange = function (selectedDates: Date[], dateStr: string, instance: FlatpickrInstance) {
+      self._setupHeaderA11y(instance);
       later(self, () => self._focusInitialDay(instance), 50);
-      const user = (self.args as any).onMonthChange;
-      if (user) {
-        if (Array.isArray(user)) user.forEach((fn: any) => fn(selectedDates, dateStr, instance));
-        else user(selectedDates, dateStr, instance);
-      }
     };
 
-    const composedOnYearChange = function (selectedDates: Date[], dateStr: string, instance: FlatpickrInstance) {
-      self._refreshHeaderA11y(instance);
-      later(self, () => self._focusInitialDay(instance), 50);
-      const user = (self.args as any).onYearChange;
-      if (user) {
-        if (Array.isArray(user)) user.forEach((fn: any) => fn(selectedDates, dateStr, instance));
-        else user(selectedDates, dateStr, instance);
-      }
-    };
 
     this.flatpickrRef = flatpickr(element, {
       onChange,
-      onClose: composedOnClose,
+      onClose: onClose || this.onClose,
       onOpen: onOpen || this.onOpen,
       onReady: composedOnReady,
-      onMonthChange: composedOnMonthChange,
-      onYearChange: composedOnYearChange,
+      onMonthChange: composedOnMonthYearChange,
+      onYearChange: composedOnMonthYearChange,
       ...config,
       defaultDate: date
     });
-
+    
     this._setDisabled(disabled);
   }
 
@@ -414,28 +380,11 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
       if (!calendar.hasAttribute('tabindex')) calendar.setAttribute('tabindex', '0');
     }
 
-    this._refreshHeaderA11y(instance);
+    this._setupHeaderA11y(instance);
     this._attachFocusCycle(instance);
     this._focusInitialDay(instance);
   }
 
-  private _handleOnClose(_instance: FlatpickrInstance): void {
-    if (this.inputEl) {
-      this.inputEl.setAttribute('aria-expanded', 'false');
-      this.inputEl.focus();
-    }
-    this.lastCloseAt = Date.now();
-    if (this.calendarEl && this.handlers.calendarKeydown) {
-      this.calendarEl.removeEventListener('keydown', this.handlers.calendarKeydown, true);
-      this.handlers.calendarKeydown = null;
-    }
-  }
-
-  private _refreshHeaderA11y(instance: FlatpickrInstance): void {
-    // re-setup header and month/year controls after every re-render
-    this._setupHeaderNavA11y(instance);
-    this._setupMonthYearA11y(instance);
-  }
 
   private _focusInitialDay(instance: FlatpickrInstance): void {
     const container = instance.calendarContainer as HTMLElement | undefined;
@@ -472,50 +421,10 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrArgs> {
     }, 150);
   }
 
-private _onInputKeyDown(e: KeyboardEvent): void {
-  if (!this.flatpickrRef || this.args.disabled) return;
-
-  const key = e.key;
-  const fp = this.flatpickrRef;
-  const isOpen = fp.isOpen;
-  const fromCalendar = (e.target as HTMLElement | null)?.closest?.('.flatpickr-calendar');
-
-  const justClosed = this.lastCloseAt && Date.now() - this.lastCloseAt < 250;
-
-  // Do not treat Enter from inside the calendar as an open-trigger on the input
-  if (key === 'Enter' && fromCalendar) {
-    return;
-  }
-
-  // 🚫 FIX: Let flatpickr handle Enter by itself
-  if (key === 'Enter') {
-    return;
-  }
-
-  // Handle open with Space or ArrowDown only
-  if (key === ' ' || key === 'ArrowDown') {
-    if (!isOpen && justClosed) return;
-    e.preventDefault();
-    fp.open();
-    requestAnimationFrame(() => this._focusInitialDay(fp));
-    return;
-  }
-
-  if (key === 'Escape') {
-    e.preventDefault();
-    fp.close();
-    this.inputEl?.focus();
-  }
-}
-
-
-
 
   private _bindInputA11y(element: HTMLInputElement, instance: FlatpickrInstance): void {
     const visibleInput = (instance.altInput as HTMLInputElement) || element;
     this.inputEl = visibleInput;
-
-    if (instance.altInput) element.setAttribute('aria-hidden', 'true');
 
     const calendarId = this._ensureCalendarId(instance);
 
@@ -524,116 +433,76 @@ private _onInputKeyDown(e: KeyboardEvent): void {
     visibleInput.setAttribute('aria-expanded', 'false');
     if (calendarId) visibleInput.setAttribute('aria-controls', calendarId);
     visibleInput.setAttribute('aria-disabled', String(!!this.args.disabled));
-
-    if (!this.handlers.inputKeydown) {
-      this.handlers.inputKeydown = (e: KeyboardEvent) => this._onInputKeyDown(e);
-      visibleInput.addEventListener('keydown', this.handlers.inputKeydown);
-    }
   }
 
-  private _setupHeaderNavA11y(instance: FlatpickrInstance): void {
-    const container = instance.calendarContainer as HTMLElement | undefined;
-    if (!container) return;
-    const { prev, next } = this._getEls(container);
+  private _setupHeaderA11y(instance: FlatpickrInstance): void {
+  const container = instance.calendarContainer as HTMLElement | undefined;
+  if (!container) return;
 
-    // prev button
-    if (prev) {
-      prev.setAttribute('role', 'button');
-      prev.setAttribute('tabindex', '0');
-      prev.setAttribute('aria-label', 'Previous month');
-      const fn = (e: KeyboardEvent) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          (instance as any).changeMonth?.(-1);
-          later(this, () => this._focusInitialDay(instance), 50);
-        }
-      };
-      this._bindOnce(prev, 'prev', 'prevKey', fn);
-    }
+  const { prev, next, monthSelect, yearInput } = this._getEls(container);
 
-    // next button
-    if (next) {
-      next.setAttribute('role', 'button');
-      next.setAttribute('tabindex', '0');
-      next.setAttribute('aria-label', 'Next month');
-      const fn = (e: KeyboardEvent) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          (instance as any).changeMonth?.(1);
-          later(this, () => this._focusInitialDay(instance), 50);
-        }
-      };
-      this._bindOnce(next, 'next', 'nextKey', fn);
+  /* -------------------------
+   *  Prev / Next Month , month/Year selection Buttons
+   * ------------------------ */
+  const makeNavKeyHandler = (delta: number) => (e: KeyboardEvent) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      (instance as any).changeMonth?.(delta);
+      later(this, () => this._focusInitialDay(instance), 50);
     }
+  };
+
+  if (prev) {
+    prev.setAttribute("role", "button");
+    prev.setAttribute("tabindex", "0");
+    prev.setAttribute("aria-label", "Previous month");
+    this._bindOnce(prev, "prev", "prevKey", makeNavKeyHandler(-1));
   }
 
-  private _setupMonthYearA11y(instance: FlatpickrInstance): void {
-    const container = instance.calendarContainer as HTMLElement | undefined;
-    if (!container) return;
-    const { monthSelect, curMonth, yearInput } = this._getEls(container);
-
-    // month select (native)
-    if (monthSelect) {
-      monthSelect.setAttribute('aria-label', 'Month');
-      monthSelect.setAttribute('tabindex', '0');
-      // no custom key handler for native select
-      this._bindOnce(monthSelect, 'month', 'monthKey', (_e: KeyboardEvent) => {/* noop */});
-    } else if (curMonth) {
-      // fallback interactive label
-      curMonth.setAttribute('role', 'combobox');
-      curMonth.setAttribute('tabindex', '0');
-      curMonth.setAttribute('aria-label', 'Month');
-      const fn = (e: KeyboardEvent) => this._onMonthKey(e, instance);
-      this._bindOnce(curMonth, 'month', 'monthKey', fn);
-    }
-
-    // year input
-    if (yearInput) {
-      yearInput.setAttribute('aria-label', 'Year');
-      yearInput.setAttribute('inputmode', 'numeric');
-      yearInput.setAttribute('tabindex', '0');
-      const fn = (e: KeyboardEvent) => this._onYearKey(e, instance, yearInput);
-      this._bindOnce(yearInput, 'year', 'yearKey', fn);
-    }
+  if (next) {
+    next.setAttribute("role", "button");
+    next.setAttribute("tabindex", "0");
+    next.setAttribute("aria-label", "Next month");
+    this._bindOnce(next, "next", "nextKey", makeNavKeyHandler(1));
   }
 
-  private _onMonthKey(e: KeyboardEvent, instance: FlatpickrInstance) {
-    const key = e.key;
-    if (['ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown', 'Home', 'End'].indexOf(key) === -1) return;
-    e.preventDefault();
+ 
+  if (monthSelect) {
+    monthSelect.setAttribute("aria-label", "Select month");
+    monthSelect.setAttribute("tabindex", "0");
 
-    if (key === 'ArrowLeft' || key === 'ArrowUp') {
-      (instance as any).changeMonth?.(-1);
-    } else if (key === 'ArrowRight' || key === 'ArrowDown') {
-      (instance as any).changeMonth?.(1);
-    } else if (key === 'Home') {
-      const current = (instance as any).currentMonth ?? 0;
-      (instance as any).changeMonth?.(0 - current);
-    } else if (key === 'End') {
-      const current = (instance as any).currentMonth ?? 0;
-      (instance as any).changeMonth?.(11 - current);
-    }
-
-    later(this, () => this._focusInitialDay(instance), 50);
+    // No custom keyboard needed for native <select>
+    this._bindOnce(monthSelect, "month", "monthKey", () => {});
   }
 
-  private _onYearKey(e: KeyboardEvent, instance: FlatpickrInstance, yearInput: HTMLInputElement) {
-    const key = e.key;
-    if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown'].indexOf(key) === -1) return;
-    e.preventDefault();
 
-    const step = (key === 'PageUp' || key === 'PageDown' ? 10 : 1) *
-      (key === 'ArrowDown' || key === 'PageDown' ? -1 : 1);
+  if (yearInput) {
+    yearInput.setAttribute("aria-label", "Enter year");
+    yearInput.setAttribute("inputmode", "numeric");
+    yearInput.setAttribute("tabindex", "0");
 
-    const currentYear = parseInt(yearInput.value || String((instance as any).currentYear || new Date().getFullYear()), 10);
-    const nextYear = isNaN(currentYear) ? new Date().getFullYear() : currentYear + step;
-    yearInput.value = String(nextYear);
+    const yearKeyHandler = (e: KeyboardEvent) => {
+      const key = e.key;
 
-    const evt = new Event('change', { bubbles: true });
-    yearInput.dispatchEvent(evt);
+      // Only Arrow Up / Down change year
+      if (key !== "ArrowUp" && key !== "ArrowDown") return;
 
-    later(this, () => this._focusInitialDay(instance), 50);
+      e.preventDefault();
+
+      key === 'ArrowDown' ? -1 : 1;    
+     const current = parseInt(yearInput.value, 10) ||(instance as any).currentYear || new Date().getFullYear();
+
+      yearInput.value = String(current + key);
+
+      yearInput.dispatchEvent(new Event("change", { bubbles: true }));
+
+      later(this, () => this._focusInitialDay(instance), 50);
+    };
+
+    this._bindOnce(yearInput, "year", "yearKey", yearKeyHandler);
   }
+}
+
 
  /**
  * Attach keyboard focus trapping inside the flatpickr calendar.
@@ -650,9 +519,9 @@ private _attachFocusCycle(instance: FlatpickrInstance): void {
 
   this.handlers.calendarKeydown = (e: KeyboardEvent) => {
     // Record keyboard selection to debounce reopen in input handler
-    if ((e.key === 'Enter' || e.key === ' ') && (e.target as HTMLElement)?.classList?.contains('flatpickr-day')) {
-      this.lastCloseAt = Date.now();
-    }
+    // if ((e.key === 'Enter' || e.key === ' ') && (e.target as HTMLElement)?.classList?.contains('flatpickr-day')) {
+    //   this.lastCloseAt = Date.now();
+    // }
     if (e.key !== "Tab") return;
     e.preventDefault();
 
