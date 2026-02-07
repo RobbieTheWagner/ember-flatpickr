@@ -103,7 +103,7 @@
     "stylelint-config-standard-scss": "^11.1.0",
     "stylelint-prettier": "^4.1.0",
     "typescript": "^5.9.3",
-    "webpack": "^5.102.1"
+    "webpack": "^5.104.1"
   },
   "engines": {
     "node": ">= 22",
