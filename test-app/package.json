@@ -88,7 +88,7 @@
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-ember": "^11.12.0",
-    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-n": "^17.23.2",
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-qunit": "^8.2.6",
     "flatpickr": "^4.6.13",
