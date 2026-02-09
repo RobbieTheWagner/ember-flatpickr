@@ -249,8 +249,8 @@ importers:
         specifier: ^2.1.2
         version: 2.1.2(@babel/core@7.28.5)
       ember-page-title:
-        specifier: ^8.2.4
-        version: 8.2.4(2d01613e1c60c4170c68991c1fe93dcd)
+        specifier: ^9.0.3
+        version: 9.0.3
       ember-power-select:
         specifier: ^7.2.0
         version: 7.2.0(8936dedae1690460f7b5e8041f6bcdfb)
@@ -4987,11 +4987,9 @@ packages:
   ember-modifier@4.2.2:
     resolution: {integrity: sha512-pPYBAGyczX0hedGWQFQOEiL9s45KS9efKxJxUQkMLjQyh+1Uef1mcmAGsdw2KmvNupITkE/nXxmVO1kZ9tt3ag==}
 
-  ember-page-title@8.2.4:
-    resolution: {integrity: sha512-ZZ912IRItIEfD5+35w65DT9TmqppK+suXJeaJenD5OSuvujUnYl6KxBpyAbfjw4mYtURwJO/TmSe+4GGJbsJ0w==}
+  ember-page-title@9.0.3:
+    resolution: {integrity: sha512-fedRHUsvq8tIZgOii8jTrfAyeq+la/9H5eAzhNNwEyzo7nDMmqK2SxsyBUGXprd8fOacsPabLlzlucMi/4mUpA==}
     engines: {node: 16.* || >= 18}
-    peerDependencies:
-      ember-source: '>= 3.28.0'
 
   ember-power-select@7.2.0:
     resolution: {integrity: sha512-h02M6y4yV5EAYdFXixWQw7qDjb3tuVwB0L/8ZYDezQjqZPdtem86fV7AddsXaejZ3bZsHEhIqzhXD5+TsPxEjg==}
@@ -16545,11 +16543,10 @@ snapshots:
       - '@babel/core'
       - supports-color
 
-  ember-page-title@8.2.4(2d01613e1c60c4170c68991c1fe93dcd):
+  ember-page-title@9.0.3:
     dependencies:
-      '@embroider/addon-shim': 1.10.0
+      '@embroider/addon-shim': 1.10.2
       '@simple-dom/document': 1.4.0
-      ember-source: 5.12.0(486b64eaf2e54eacbbf876f6f73fbf04)
     transitivePeerDependencies:
       - supports-color
 
