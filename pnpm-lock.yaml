@@ -327,8 +327,8 @@ importers:
         specifier: ^11.1.0
         version: 11.1.0(73a76c01ccd6efbe190165762ee27abd)
       stylelint-prettier:
-        specifier: ^4.1.0
-        version: 4.1.0(167de79970fb344696f471d1d1b5b9b3)
+        specifier: ^5.0.3
+        version: 5.0.3(167de79970fb344696f471d1d1b5b9b3)
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -7490,6 +7490,10 @@ packages:
     resolution: {integrity: sha512-GbK2cP9nraSSUF9N2XwUwqfzlAFlMNYYl+ShE/V+H8a9uNl/oUqB1w2EL54Jh0OlyRSd8RfWYJ3coVS4TROP2w==}
     engines: {node: '>=6.0.0'}
 
+  prettier-linter-helpers@1.0.1:
+    resolution: {integrity: sha512-SxToR7P8Y2lWmv/kTzVLC1t/GDI2WGjMwNhLLE9qtH8Q13C+aEmuRlzDst4Up4s0Wc8sF2M+J57iB3cMLqftfg==}
+    engines: {node: '>=6.0.0'}
+
   prettier-plugin-ember-template-tag@2.1.0:
     resolution: {integrity: sha512-Ium+m2zHSZKzRFt1Shn+sv8j1BzfFWP3E0tZeKTKP1U7v/tMyLuQNBRyRCJ7REdKc9bWkIJG/hCSf0CKqCVU1w==}
     engines: {node: 18.* || >= 20}
@@ -8455,12 +8459,12 @@ packages:
     peerDependencies:
       stylelint: ^15.10.0
 
-  stylelint-prettier@4.1.0:
-    resolution: {integrity: sha512-dd653q/d1IfvsSQshz1uAMe+XDm6hfM/7XiFH0htYY8Lse/s5ERTg7SURQehZPwVvm/rs7AsFhda9EQ2E9TS0g==}
-    engines: {node: ^14.17.0 || >=16.0.0}
+  stylelint-prettier@5.0.3:
+    resolution: {integrity: sha512-B6V0oa35ekRrKZlf+6+jA+i50C4GXJ7X1PPmoCqSUoXN6BrNF6NhqqhanvkLjqw2qgvrS0wjdpeC+Tn06KN3jw==}
+    engines: {node: '>=18.12.0'}
     peerDependencies:
       prettier: '>=3.0.0'
-      stylelint: '>=15.8.0'
+      stylelint: '>=16.0.0'
 
   stylelint-scss@5.3.2:
     resolution: {integrity: sha512-4LzLaayFhFyneJwLo0IUa8knuIvj+zF0vBFueQs4e3tEaAMIQX8q5th8ziKkgOavr6y/y9yoBe+RXN/edwLzsQ==}
@@ -19089,6 +19093,10 @@ snapshots:
     dependencies:
       fast-diff: 1.3.0
 
+  prettier-linter-helpers@1.0.1:
+    dependencies:
+      fast-diff: 1.3.0
+
   prettier-plugin-ember-template-tag@2.1.0(prettier@3.6.2):
     dependencies:
       '@babel/core': 7.28.5
@@ -20190,10 +20198,10 @@ snapshots:
       stylelint: 15.11.0(typescript@5.9.3)
       stylelint-config-recommended: 13.0.0(stylelint@15.11.0(typescript@5.9.3))
 
-  stylelint-prettier@4.1.0(167de79970fb344696f471d1d1b5b9b3):
+  stylelint-prettier@5.0.3(167de79970fb344696f471d1d1b5b9b3):
     dependencies:
       prettier: 3.6.2
-      prettier-linter-helpers: 1.0.0
+      prettier-linter-helpers: 1.0.1
       stylelint: 15.11.0(typescript@5.9.3)
 
   stylelint-scss@5.3.2(stylelint@15.11.0(typescript@5.9.3)):
