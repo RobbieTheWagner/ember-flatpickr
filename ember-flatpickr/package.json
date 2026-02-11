@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@ember/render-modifiers": "^3.0.0",
-    "@embroider/addon-shim": "^1.10.0",
+    "@embroider/addon-shim": "^1.10.2",
     "decorator-transforms": "^2.3.0"
   },
   "devDependencies": {
