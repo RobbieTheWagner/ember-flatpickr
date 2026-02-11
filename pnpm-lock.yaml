@@ -156,8 +156,8 @@ importers:
         specifier: ~5.4.1
         version: 5.4.1(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@embroider/macros':
-        specifier: ^1.19.2
-        version: 1.19.2(@glint/template@1.7.4)
+        specifier: ^1.19.7
+        version: 1.19.7(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@embroider/test-setup':
         specifier: ^3.0.3
         version: 3.0.3
@@ -256,7 +256,7 @@ importers:
         version: 7.2.0(9cfa3617119cb22b011f93e0bd2f0125)
       ember-qunit:
         specifier: ^8.1.1
-        version: 8.1.1(f4e4ea484e728b3639b819f0780238e3)
+        version: 8.1.1(96119595dafec29741ce2ba3ad2e7dab)
       ember-resolver:
         specifier: ^11.0.1
         version: 11.0.1(22937ba42225709a8c5089aefa33f2ba)
@@ -268,7 +268,7 @@ importers:
         version: 3.0.0(encoding@0.1.13)
       ember-svg-jar:
         specifier: ^2.7.0
-        version: 2.7.0(@glint/template@1.7.4)
+        version: 2.7.0(bf46cf5cf7164aaa5ca37b445fa4aa08)
       ember-template-lint:
         specifier: ^7.9.3
         version: 7.9.3
@@ -10959,7 +10959,7 @@ snapshots:
       fs-extra: 9.1.0
       is-subdir: 1.2.0
       js-string-escape: 1.0.1
-      lodash: 4.17.21
+      lodash: 4.17.23
       minimatch: 3.1.2
       pkg-entry-points: 1.1.1
       resolve-package-path: 4.0.3
@@ -14859,7 +14859,7 @@ snapshots:
       '@babel/plugin-proposal-private-methods': 7.18.6(@babel/core@7.28.5)
       '@babel/plugin-transform-class-static-block': 7.28.3(@babel/core@7.28.5)
       '@babel/preset-env': 7.28.5(@babel/core@7.28.5)
-      '@embroider/macros': 1.19.2(@glint/template@1.7.4)
+      '@embroider/macros': 1.19.7(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@embroider/shared-internals': 2.9.2
       babel-loader: 8.4.1(@babel/core@7.28.5)(webpack@5.105.0)
       babel-plugin-ember-modules-api-polyfill: 3.5.0
@@ -15023,7 +15023,7 @@ snapshots:
       ember-router-scroll: 4.1.2(@babel/core@7.28.5)
       ember-set-helper: 2.0.1
       ember-source: 5.12.0(76bdbec9b9f6750cf8a8c0e63eb7f933)
-      ember-svg-jar: 2.7.0(@glint/template@1.7.4)
+      ember-svg-jar: 2.7.0(bf46cf5cf7164aaa5ca37b445fa4aa08)
       ember-tether: 3.1.0(8bfa474165ef208c6e51a4445a2daa92)
       ember-truth-helpers: 4.0.3(22937ba42225709a8c5089aefa33f2ba)
       execa: 5.1.1
@@ -15853,7 +15853,7 @@ snapshots:
       '@ember/string': 3.1.1
       '@embroider/macros': 1.19.7(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@embroider/util': 1.13.4(ff05d19d18753f27bfa41ed1b41c0f5f)
-      ember-cli-babel: 8.2.0(@babel/core@7.28.5)
+      ember-cli-babel: 8.3.1(@babel/core@7.28.5)
       ember-cli-htmlbars: 6.3.0
       ember-cli-version-checker: 5.1.2
       ember-wormhole: 0.6.1
@@ -15915,16 +15915,17 @@ snapshots:
       - supports-color
       - webpack
 
-  ember-qunit@8.1.1(f4e4ea484e728b3639b819f0780238e3):
+  ember-qunit@8.1.1(96119595dafec29741ce2ba3ad2e7dab):
     dependencies:
       '@ember/test-helpers': 5.4.1(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@embroider/addon-shim': 1.10.2
-      '@embroider/macros': 1.19.2(@glint/template@1.7.4)
+      '@embroider/macros': 1.19.7(bf46cf5cf7164aaa5ca37b445fa4aa08)
       ember-cli-test-loader: 3.1.0
       ember-source: 5.12.0(76bdbec9b9f6750cf8a8c0e63eb7f933)
       qunit: 2.24.2
       qunit-theme-ember: 1.0.0
     transitivePeerDependencies:
+      - '@babel/core'
       - '@glint/template'
       - supports-color
 
@@ -16029,9 +16030,9 @@ snapshots:
       - supports-color
       - webpack
 
-  ember-svg-jar@2.7.0(@glint/template@1.7.4):
+  ember-svg-jar@2.7.0(bf46cf5cf7164aaa5ca37b445fa4aa08):
     dependencies:
-      '@embroider/macros': 1.19.2(@glint/template@1.7.4)
+      '@embroider/macros': 1.19.7(bf46cf5cf7164aaa5ca37b445fa4aa08)
       broccoli-caching-writer: 3.0.3
       broccoli-concat: 4.2.5
       broccoli-funnel: 3.0.8
@@ -16047,6 +16048,7 @@ snapshots:
       lodash: 4.17.21
       safe-stable-stringify: 2.5.0
     transitivePeerDependencies:
+      - '@babel/core'
       - '@glint/template'
       - supports-color
 
@@ -16099,7 +16101,7 @@ snapshots:
       '@babel/core': 7.28.5
       '@ember/render-modifiers': 2.1.0(45cdcac35a9728c80e3108257f7cea94)
       ember-auto-import: 2.12.0(@glint/template@1.7.4)(webpack@5.105.0)
-      ember-cli-babel: 8.2.0(@babel/core@7.28.5)
+      ember-cli-babel: 8.3.1(@babel/core@7.28.5)
       ember-cli-htmlbars: 6.3.0
       ember-source: 5.12.0(76bdbec9b9f6750cf8a8c0e63eb7f933)
       tether: 2.0.0
