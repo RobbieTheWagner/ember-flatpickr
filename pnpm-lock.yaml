@@ -51,8 +51,8 @@ importers:
         specifier: ^5.4.1
         version: 5.4.1(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@ember/test-waiters':
-        specifier: ^3.1.0
-        version: 3.1.0
+        specifier: ^4.1.1
+        version: 4.1.1(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@embroider/addon-dev':
         specifier: ^8.3.0
         version: 8.3.0(@glint/template@1.7.4)(rollup@4.57.1)
@@ -196,7 +196,7 @@ importers:
         version: 5.6.0(a60d1b12c53a5ef4cc65a882de2c166c)
       ember-cli-addon-docs:
         specifier: ^10.0.1
-        version: 10.0.1(e96e2b3f6b8d945799ede10aa22c6965)
+        version: 10.0.1(55ff6efbe6d91bcb2dd21b5468abe41e)
       ember-cli-addon-docs-yuidoc:
         specifier: ^1.1.0
         version: 1.1.0
@@ -235,7 +235,7 @@ importers:
         version: 4.0.2
       ember-data:
         specifier: 5.8.1
-        version: 5.8.1(55cc802257c3b818f2aa1085f565b61d)
+        version: 5.8.1(37c60874fc81d093466e5964b36c2a84)
       ember-element-helper:
         specifier: ^0.8.8
         version: 0.8.8
@@ -1363,6 +1363,9 @@ packages:
   '@ember/test-waiters@3.1.0':
     resolution: {integrity: sha512-bb9h95ktG2wKY9+ja1sdsFBdOms2lB19VWs8wmNpzgHv1NCetonBoV5jHBV4DHt0uS1tg9z66cZqhUVlYs96KQ==}
     engines: {node: 10.* || 12.* || >= 14.*}
+
+  '@ember/test-waiters@4.1.1':
+    resolution: {integrity: sha512-HbK70JYCDJcGI0CrwcbjeL2QHAn0HLwa3oGep7mr6l/yO95U7JYA8VN+/9VTsWJTmKueLtWayUqEmGS3a3mVOg==}
 
   '@embroider/addon-dev@8.3.0':
     resolution: {integrity: sha512-bALsA433TUnRuPRCJHiOR9RHvzixQI3MdP03r7pQEaAoWu2ONNlWL8wSIPtJ5HxVt/jiP/5wNqP+HlDDZSZd+g==}
@@ -10746,21 +10749,21 @@ snapshots:
       - '@glint/template'
       - supports-color
 
-  '@ember-data/store@5.8.1(16ffded2910ffdb4f8112750d9f96745)':
+  '@ember-data/store@5.8.1(fd16934812c3cb077b66946b697937a4)':
     dependencies:
       '@embroider/macros': 1.19.7(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@warp-drive/core': 5.8.1(bf46cf5cf7164aaa5ca37b445fa4aa08)
     optionalDependencies:
-      '@ember-data/tracking': 5.8.1(135a6025a87dc8aa477a0316039e74c9)
-      '@ember/test-waiters': 3.1.0
+      '@ember-data/tracking': 5.8.1(574edc5a43b04aae1236ca87c828d45a)
+      '@ember/test-waiters': 4.1.1(bf46cf5cf7164aaa5ca37b445fa4aa08)
     transitivePeerDependencies:
       - '@babel/core'
       - '@glint/template'
       - supports-color
 
-  '@ember-data/tracking@5.8.1(135a6025a87dc8aa477a0316039e74c9)':
+  '@ember-data/tracking@5.8.1(574edc5a43b04aae1236ca87c828d45a)':
     dependencies:
-      '@ember/test-waiters': 3.1.0
+      '@ember/test-waiters': 4.1.1(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@embroider/macros': 1.19.7(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@warp-drive/core': 5.8.1(bf46cf5cf7164aaa5ca37b445fa4aa08)
     transitivePeerDependencies:
@@ -10812,7 +10815,7 @@ snapshots:
 
   '@ember/test-helpers@5.4.1(bf46cf5cf7164aaa5ca37b445fa4aa08)':
     dependencies:
-      '@ember/test-waiters': 3.1.0
+      '@ember/test-waiters': 4.1.1(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@embroider/addon-shim': 1.10.2
       '@embroider/macros': 1.19.7(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@simple-dom/interface': 1.4.0
@@ -10830,6 +10833,15 @@ snapshots:
       ember-cli-version-checker: 5.1.2
       semver: 7.7.3
     transitivePeerDependencies:
+      - supports-color
+
+  '@ember/test-waiters@4.1.1(bf46cf5cf7164aaa5ca37b445fa4aa08)':
+    dependencies:
+      '@embroider/addon-shim': 1.10.2
+      '@embroider/macros': 1.19.7(bf46cf5cf7164aaa5ca37b445fa4aa08)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@glint/template'
       - supports-color
 
   '@embroider/addon-dev@8.3.0(@glint/template@1.7.4)(rollup@4.57.1)':
@@ -11578,7 +11590,7 @@ snapshots:
   '@npmcli/fs@1.1.1':
     dependencies:
       '@gar/promisify': 1.1.3
-      semver: 7.7.4
+      semver: 7.7.3
 
   '@npmcli/git@5.0.8':
     dependencies:
@@ -12317,9 +12329,9 @@ snapshots:
       - '@glint/template'
       - supports-color
 
-  '@warp-drive/ember@5.8.1(135a6025a87dc8aa477a0316039e74c9)':
+  '@warp-drive/ember@5.8.1(574edc5a43b04aae1236ca87c828d45a)':
     dependencies:
-      '@ember/test-waiters': 3.1.0
+      '@ember/test-waiters': 4.1.1(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@embroider/macros': 1.19.7(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@warp-drive/core': 5.8.1(bf46cf5cf7164aaa5ca37b445fa4aa08)
     transitivePeerDependencies:
@@ -12585,7 +12597,7 @@ snapshots:
 
   applause@2.0.4:
     dependencies:
-      lodash: 4.17.23
+      lodash: 4.17.21
       optional-require: 1.1.10
     optionalDependencies:
       cson-parser: 4.0.9
@@ -14859,7 +14871,7 @@ snapshots:
       '@babel/plugin-proposal-private-methods': 7.18.6(@babel/core@7.28.5)
       '@babel/plugin-transform-class-static-block': 7.28.3(@babel/core@7.28.5)
       '@babel/preset-env': 7.28.5(@babel/core@7.28.5)
-      '@embroider/macros': 1.19.2(@glint/template@1.7.4)
+      '@embroider/macros': 1.19.7(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@embroider/shared-internals': 2.9.2
       babel-loader: 8.4.1(@babel/core@7.28.5)(webpack@5.105.0)
       babel-plugin-ember-modules-api-polyfill: 3.5.0
@@ -14985,7 +14997,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ember-cli-addon-docs@10.0.1(e96e2b3f6b8d945799ede10aa22c6965):
+  ember-cli-addon-docs@10.0.1(55ff6efbe6d91bcb2dd21b5468abe41e):
     dependencies:
       '@csstools/postcss-sass': 5.1.1(postcss@8.5.6)
       '@ember/render-modifiers': 2.1.0(45cdcac35a9728c80e3108257f7cea94)
@@ -15016,7 +15028,7 @@ snapshots:
       ember-code-snippet: 3.0.0
       ember-composable-helpers: 5.0.0
       ember-concurrency: 5.1.0(bf46cf5cf7164aaa5ca37b445fa4aa08)
-      ember-data: 5.8.1(55cc802257c3b818f2aa1085f565b61d)
+      ember-data: 5.8.1(37c60874fc81d093466e5964b36c2a84)
       ember-keyboard: 9.0.4(7b430fdd646fccc245cc2f3e8ddebf12)
       ember-modal-dialog: 4.1.5(f4d883c171fe16e76b36f1d2f0d55d2f)
       ember-router-generator: 2.0.0
@@ -15057,7 +15069,7 @@ snapshots:
       '@ember-data/adapter': 5.8.1(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@ember-data/model': 5.8.1(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@ember-data/serializer': 5.8.1(bf46cf5cf7164aaa5ca37b445fa4aa08)
-      '@ember-data/store': 5.8.1(16ffded2910ffdb4f8112750d9f96745)
+      '@ember-data/store': 5.8.1(fd16934812c3cb077b66946b697937a4)
     transitivePeerDependencies:
       - '@babel/core'
       - '@ember/test-helpers'
@@ -15719,7 +15731,7 @@ snapshots:
       - '@babel/core'
       - supports-color
 
-  ember-data@5.8.1(55cc802257c3b818f2aa1085f565b61d):
+  ember-data@5.8.1(37c60874fc81d093466e5964b36c2a84):
     dependencies:
       '@ember-data/adapter': 5.8.1(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@ember-data/debug': 5.8.1(bf46cf5cf7164aaa5ca37b445fa4aa08)
@@ -15730,14 +15742,14 @@ snapshots:
       '@ember-data/request': 5.8.1(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@ember-data/request-utils': 5.8.1(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@ember-data/serializer': 5.8.1(bf46cf5cf7164aaa5ca37b445fa4aa08)
-      '@ember-data/store': 5.8.1(16ffded2910ffdb4f8112750d9f96745)
-      '@ember-data/tracking': 5.8.1(135a6025a87dc8aa477a0316039e74c9)
+      '@ember-data/store': 5.8.1(fd16934812c3cb077b66946b697937a4)
+      '@ember-data/tracking': 5.8.1(574edc5a43b04aae1236ca87c828d45a)
       '@ember/edition-utils': 1.2.0
-      '@ember/test-waiters': 3.1.0
+      '@ember/test-waiters': 4.1.1(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@embroider/macros': 1.19.7(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@warp-drive/core': 5.8.1(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@warp-drive/core-types': 5.8.1(bf46cf5cf7164aaa5ca37b445fa4aa08)
-      '@warp-drive/ember': 5.8.1(135a6025a87dc8aa477a0316039e74c9)
+      '@warp-drive/ember': 5.8.1(574edc5a43b04aae1236ca87c828d45a)
       '@warp-drive/json-api': 5.8.1(a6aea2863433a97d944faa8f9697edff)
       '@warp-drive/legacy': 5.8.1(1a0c51e450d83590b2c81f8aa81d5673)
       '@warp-drive/utilities': 5.8.1(a6aea2863433a97d944faa8f9697edff)
@@ -18745,7 +18757,7 @@ snapshots:
     dependencies:
       growly: 1.3.0
       is-wsl: 2.2.0
-      semver: 7.7.4
+      semver: 7.7.3
       shellwords: 0.1.1
       uuid: 8.3.2
       which: 2.0.2
@@ -19040,7 +19052,7 @@ snapshots:
       ky: 1.14.0
       registry-auth-token: 5.1.0
       registry-url: 6.0.1
-      semver: 7.7.4
+      semver: 7.7.3
 
   package-json@6.5.0:
     dependencies:
