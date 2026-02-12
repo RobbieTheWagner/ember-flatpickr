@@ -46,7 +46,7 @@
     "@ember/test-helpers": "^5.4.1",
     "@ember/test-waiters": "^3.1.0",
     "@embroider/addon-dev": "^8.3.0",
-    "@glimmer/component": "^1.1.2",
+    "@glimmer/component": "^2.0.0",
     "@glint/core": "^1.5.2",
     "@glint/environment-ember-loose": "^1.5.2",
     "@glint/environment-ember-template-imports": "^1.5.2",
