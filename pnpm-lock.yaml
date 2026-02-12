@@ -255,8 +255,8 @@ importers:
         specifier: ^7.2.0
         version: 7.2.0(9cfa3617119cb22b011f93e0bd2f0125)
       ember-qunit:
-        specifier: ^8.1.1
-        version: 8.1.1(96119595dafec29741ce2ba3ad2e7dab)
+        specifier: ^9.0.4
+        version: 9.0.4(4adf944e5a11b23e900375211f6e60f8)
       ember-resolver:
         specifier: ^11.0.1
         version: 11.0.1(22937ba42225709a8c5089aefa33f2ba)
@@ -4649,10 +4649,6 @@ packages:
   ember-cli-test-info@1.0.0:
     resolution: {integrity: sha512-dEVTIpmUfCzweC97NGf6p7L6XKBwV2GmSM4elmzKvkttEp5P7AvGA9uGyN4GqFq+RwhW+2b0I2qlX00w+skm+A==}
 
-  ember-cli-test-loader@3.1.0:
-    resolution: {integrity: sha512-0aocZV9SIoOHiU3hrH3IuLR6busWhTX6UVXgd490hmJkIymmOXNH2+jJoC7Ebkeo3PiOfAdjqhb765QDlHSJOw==}
-    engines: {node: 10.* || >= 12}
-
   ember-cli-typescript-blueprint-polyfill@0.1.0:
     resolution: {integrity: sha512-g0weUTOnHmPGqVZzkQTl3Nbk9fzEdFkEXydCs5mT1qBjXh8eQ6VlmjjGD5/998UXKuA0pLSCVVMbSp/linLzGA==}
 
@@ -4809,11 +4805,10 @@ packages:
     resolution: {integrity: sha512-h02M6y4yV5EAYdFXixWQw7qDjb3tuVwB0L/8ZYDezQjqZPdtem86fV7AddsXaejZ3bZsHEhIqzhXD5+TsPxEjg==}
     engines: {node: 16.* || >= 18}
 
-  ember-qunit@8.1.1:
-    resolution: {integrity: sha512-nT+6s74j3BKNn+QQY/hINC3Xw3kn0NF0cU9zlgVQmCBWoyis1J24xWrY2LFOMThPmF6lHqcrUb5JwvBD4BXEXg==}
+  ember-qunit@9.0.4:
+    resolution: {integrity: sha512-rv6gKvrdXdPBTdSZC5co82eIcDWWVR7RjafU/c+5TTz290oXhIHPoVuZbcO2F5RiAqkTW0jKzwkCP8y+2tCjFw==}
     peerDependencies:
       '@ember/test-helpers': '>=3.0.3'
-      ember-source: '>=4.0.0'
       qunit: ^2.13.0
 
   ember-resolver@11.0.1:
@@ -15456,12 +15451,6 @@ snapshots:
     dependencies:
       ember-cli-string-utils: 1.1.0
 
-  ember-cli-test-loader@3.1.0:
-    dependencies:
-      ember-cli-babel: 7.26.11
-    transitivePeerDependencies:
-      - supports-color
-
   ember-cli-typescript-blueprint-polyfill@0.1.0:
     dependencies:
       chalk: 4.1.2
@@ -15937,13 +15926,11 @@ snapshots:
       - supports-color
       - webpack
 
-  ember-qunit@8.1.1(96119595dafec29741ce2ba3ad2e7dab):
+  ember-qunit@9.0.4(4adf944e5a11b23e900375211f6e60f8):
     dependencies:
       '@ember/test-helpers': 5.4.1(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@embroider/addon-shim': 1.10.2
       '@embroider/macros': 1.19.7(bf46cf5cf7164aaa5ca37b445fa4aa08)
-      ember-cli-test-loader: 3.1.0
-      ember-source: 5.12.0(76bdbec9b9f6750cf8a8c0e63eb7f933)
       qunit: 2.24.2
       qunit-theme-ember: 1.0.0
     transitivePeerDependencies:
