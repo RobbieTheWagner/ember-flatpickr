@@ -76,7 +76,7 @@
     "ember-flatpickr": "workspace:*",
     "ember-load-initializers": "^3.0.1",
     "ember-page-title": "^9.0.3",
-    "ember-power-select": "^7.2.0",
+    "ember-power-select": "^8.12.1",
     "ember-qunit": "^8.1.1",
     "ember-resolver": "^11.0.1",
     "ember-source": "^5.12.0",
