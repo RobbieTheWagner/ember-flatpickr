@@ -150,8 +150,8 @@ importers:
         specifier: ^3.0.0
         version: 3.0.0(@types/node@25.2.2)
       '@ember/string':
-        specifier: ^3.1.1
-        version: 3.1.1
+        specifier: ^4.0.1
+        version: 4.0.1
       '@ember/test-helpers':
         specifier: ~5.4.1
         version: 5.4.1(bf46cf5cf7164aaa5ca37b445fa4aa08)
@@ -196,7 +196,7 @@ importers:
         version: 5.6.0(a60d1b12c53a5ef4cc65a882de2c166c)
       ember-cli-addon-docs:
         specifier: ^10.0.1
-        version: 10.0.1(e96e2b3f6b8d945799ede10aa22c6965)
+        version: 10.0.1(b2b86ce70513126582da08139e5f2b03)
       ember-cli-addon-docs-yuidoc:
         specifier: ^1.1.0
         version: 1.1.0
@@ -1351,6 +1351,9 @@ packages:
   '@ember/string@3.1.1':
     resolution: {integrity: sha512-UbXJ+k3QOrYN4SRPHgXCqYIJ+yWWUg1+vr0H4DhdQPTy8LJfyqwZ2tc5uqpSSnEXE+/1KopHBE5J8GDagAg5cg==}
     engines: {node: 12.* || 14.* || >= 16}
+
+  '@ember/string@4.0.1':
+    resolution: {integrity: sha512-VWeng8BSWrIsdPfffOQt/bKwNKJL7+37gPFh/6iZZ9bke+S83kKqkS30poo4bTGfRcMnvAE0ie7txom+iDu81Q==}
 
   '@ember/test-helpers@5.4.1':
     resolution: {integrity: sha512-BUdT91ra+QibEWAUwtZmvTGFoDHJCxDU+fkQENA8Zs0FR3pZiICxxP/fgdlNExCjjdm1letut7ENoueBuDdixQ==}
@@ -10868,6 +10871,8 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@ember/string@4.0.1': {}
+
   '@ember/test-helpers@5.4.1(bf46cf5cf7164aaa5ca37b445fa4aa08)':
     dependencies:
       '@ember/test-waiters': 3.1.0
@@ -15029,11 +15034,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ember-cli-addon-docs@10.0.1(e96e2b3f6b8d945799ede10aa22c6965):
+  ember-cli-addon-docs@10.0.1(b2b86ce70513126582da08139e5f2b03):
     dependencies:
       '@csstools/postcss-sass': 5.1.1(postcss@8.5.6)
       '@ember/render-modifiers': 2.1.0(45cdcac35a9728c80e3108257f7cea94)
-      '@ember/string': 3.1.1
+      '@ember/string': 4.0.1
       '@ember/test-waiters': 3.1.0
       '@glimmer/component': 1.1.2(@babel/core@7.28.5)
       '@glimmer/syntax': 0.87.1
@@ -15062,7 +15067,7 @@ snapshots:
       ember-concurrency: 5.1.0(bf46cf5cf7164aaa5ca37b445fa4aa08)
       ember-data: 5.8.1(55cc802257c3b818f2aa1085f565b61d)
       ember-keyboard: 9.0.4(7b430fdd646fccc245cc2f3e8ddebf12)
-      ember-modal-dialog: 4.1.5(f4d883c171fe16e76b36f1d2f0d55d2f)
+      ember-modal-dialog: 4.1.5(047f0f72d58dac8a1545221a4954bac6)
       ember-router-generator: 2.0.0
       ember-router-scroll: 4.1.2(@babel/core@7.28.5)
       ember-set-helper: 2.0.1
@@ -15869,10 +15874,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ember-modal-dialog@4.1.5(f4d883c171fe16e76b36f1d2f0d55d2f):
+  ember-modal-dialog@4.1.5(047f0f72d58dac8a1545221a4954bac6):
     dependencies:
       '@babel/core': 7.28.5
-      '@ember/string': 3.1.1
+      '@ember/string': 4.0.1
       '@embroider/macros': 1.19.7(bf46cf5cf7164aaa5ca37b445fa4aa08)
       '@embroider/util': 1.13.4(ff05d19d18753f27bfa41ed1b41c0f5f)
       ember-cli-babel: 8.3.1(@babel/core@7.28.5)
