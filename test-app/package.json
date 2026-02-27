@@ -87,7 +87,7 @@
     "ember-try": "^3.0.0",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-ember": "^11.12.0",
+    "eslint-plugin-ember": "^12.7.5",
     "eslint-plugin-n": "^17.23.2",
     "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-qunit": "^8.2.6",
