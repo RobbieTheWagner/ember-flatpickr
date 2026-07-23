@@ -9,6 +9,9 @@ import type { Instance as FlatpickrInstance } from 'flatpickr/dist/types/instanc
 import type { BaseOptions as FlatpickrOptions } from 'flatpickr/dist/types/options';
 import flatpickr from 'flatpickr';
 import { getOwner } from '@ember/owner';
+import didInsert from '@ember/render-modifiers/modifiers/did-insert';
+import didUpdate from '@ember/render-modifiers/modifiers/did-update';
+import willDestroy from '@ember/render-modifiers/modifiers/will-destroy';
 
 interface EmberFlatpickrArgs extends FlatpickrOptions {
   date: FlatpickrOptions['defaultDate'];
@@ -283,4 +286,23 @@ export default class EmberFlatpickr extends Component<EmberFlatpickrSignature> {
   onMinDateUpdated(): void {
     this.flatpickrRef?.set('minDate', this.args.minDate);
   }
+
+  <template>
+    <input
+      class="ember-flatpickr-input"
+      type="text"
+      ...attributes
+      {{didInsert this.onInsert}}
+      {{willDestroy this.onWillDestroy}}
+      {{didUpdate this.onAltFormatUpdated @altFormat}}
+      {{didUpdate this.onAltInputClassUpdated @altInputClass}}
+      {{didUpdate this.onDateUpdated @date}}
+      {{didUpdate this.onDisabledUpdated @disabled}}
+      {{didUpdate this.onLocaleUpdated @locale}}
+      {{didUpdate this.onMaxDateUpdated @maxDate}}
+      {{didUpdate this.onMinDateUpdated @minDate}}
+    />
+
+    {{yield}}
+  </template>
 }
