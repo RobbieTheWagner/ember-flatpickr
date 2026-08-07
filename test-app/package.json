@@ -93,7 +93,7 @@
     "eslint-plugin-qunit": "^8.2.6",
     "flatpickr": "^4.6.13",
     "loader.js": "^4.7.0",
-    "postcss": "^8.5.6",
+    "postcss": "^8.5.23",
     "prettier": "^3.6.2",
     "qunit": "^2.24.2",
     "qunit-dom": "^3.5.0",
